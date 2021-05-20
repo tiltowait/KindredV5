@@ -17,6 +17,7 @@
 		282EC8652656EFF30086B14F /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 282EC8642656EFF30086B14F /* SwiftCSV */; };
 		282EC8682656F0150086B14F /* TraitReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8672656F0150086B14F /* TraitReference.swift */; };
 		2877343C265700F50098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2877343B265700F50098E27B /* Skills.csv */; };
+		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		282EC8612656EED50086B14F /* Attributes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Attributes.csv; sourceTree = "<group>"; };
 		282EC8672656F0150086B14F /* TraitReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitReference.swift; sourceTree = "<group>"; };
 		2877343B265700F50098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Skills.csv; path = ../../../../../Desktop/Skills.csv; sourceTree = "<group>"; };
+		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +154,18 @@
 		282EC8662656EFFF0086B14F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				282EC8672656F0150086B14F /* TraitReference.swift */,
+				2877344026570EF20098E27B /* Factories */,
+				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2877344026570EF20098E27B /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				282EC8672656F0150086B14F /* TraitReference.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				282EC8682656F0150086B14F /* TraitReference.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
+				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +647,19 @@
 			productName = SwiftCSV;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2877343D265703000098E27B /* KindredModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2877343E265703000098E27B /* KindredModel.xcdatamodel */,
+			);
+			currentVersion = 2877343E265703000098E27B /* KindredModel.xcdatamodel */;
+			path = KindredModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 282EC82A2656EEB80086B14F /* Project object */;
 }
