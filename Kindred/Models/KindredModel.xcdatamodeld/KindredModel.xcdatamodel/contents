@@ -21,8 +21,8 @@
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" syncable="YES" codeGenerationType="class">
-        <attribute name="info" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="info" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="discipline" inverseEntity="Power"/>
         <relationship name="referencingClans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clan" inverseName="disciplines" inverseEntity="Clan"/>
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="disciplineOptions" inverseEntity="PredatorType"/>
@@ -38,12 +38,12 @@
         <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="kindred" inverseEntity="PredatorType"/>
     </entity>
     <entity name="Power" representedClassName="Power" syncable="YES" codeGenerationType="class">
-        <attribute name="info" optional="YES" attributeType="String"/>
-        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="info" attributeType="String"/>
+        <attribute name="level" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="pool" optional="YES" attributeType="String"/>
         <attribute name="prerequisite" optional="YES" attributeType="String"/>
-        <attribute name="rouse" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rouse" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="dependentRituals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ritual" inverseName="prerequisite" inverseEntity="Ritual"/>
         <relationship name="discipline" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Discipline" inverseName="powers" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="powers" inverseEntity="Kindred"/>

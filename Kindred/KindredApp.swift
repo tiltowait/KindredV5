@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct KindredApp: App {
   
+  let dataController = DataController()
+  
   var body: some Scene {
     WindowGroup {
       ContentView()
