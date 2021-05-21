@@ -54,4 +54,10 @@ class KindredTests: XCTestCase {
     XCTAssert(traitReference.description(forTrait: "Medicine") == "Useful for doctors and nurses, Medicine allows you to heal the sick and injured and understand causes of death. Medicine is used to heal Aggravated Damage in mortals.")
   }
   
+  func testDataControllerPerformance() {
+    measure {
+      let _ = DataController(inMemory: true)
+    }
+  }
+  
 }

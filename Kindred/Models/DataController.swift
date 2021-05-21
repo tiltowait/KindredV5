@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class DataController {
+class DataController: ObservableObject {
   
   let container: NSPersistentCloudKitContainer
   
@@ -16,10 +16,11 @@ class DataController {
     container = NSPersistentCloudKitContainer(name: "KindredModel")
     
     if inMemory {
+      print("Running in memory! Data will not persist.")
       container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
     }
     
-    container.loadPersistentStores { storeDescription, error in
+    container.loadPersistentStores { _, error in
       if let error = error {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
@@ -27,6 +28,7 @@ class DataController {
     
     // Load up reference material
     if self.isEmpty {
+      print("Empty container. Populating.")
       let disciplineFactory = DisciplineFactory(context: container.viewContext)
       _ = disciplineFactory.fetchAll()
       
@@ -45,11 +47,13 @@ class DataController {
   }
   
   func save() {
-    do {
-      try container.viewContext.save()
-    } catch {
-      fatalError("Unable to save data.\n\(error.localizedDescription)")
+    if container.viewContext.hasChanges {
+      try? container.viewContext.save()
     }
+  }
+  
+  func delete(_ object: NSManagedObject) {
+    container.viewContext.delete(object)
   }
   
 }

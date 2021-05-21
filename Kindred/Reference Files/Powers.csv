@@ -1,4 +1,10 @@
-Power,Discipline,Level,Rouse,Pool,Info,Prerequisite
-Lethal Body,Potence,1,0,,May do aggravated damage to mortals with unarmed strikes and ignore some armor.,
-Soaring Leap,Potence,1,0,,Allows the user to jump 3m high or 5m far per dot.,
-Prowess,Potence,2,1,,Add Potence rating to all feats of strength and unarmed damage. Add half to melee damage.,
+Power,Discipline,Level,Rouse,Pool,Info,Duration,Prerequisite,Source,Page
+Lethal Body,Potence,1,0,,May do aggravated damage to mortals with unarmed strikes and ignore some armor.,Passive,,0,264
+Soaring Leap,Potence,1,0,,Allows the user to jump 3m high or 5m far per dot.,Passive,,0,264
+Prowess,Potence,2,1,,Add Potence rating to all feats of strength and unarmed damage. Add half to melee damage.,One scene,,0,264
+Brutal Feed,Potence,3,0,,"Drain a human in a single turn, causing damage while doing so.",One feeding,,,264
+Spark of Rage,Potence,3,1,Manipulation + Potence,Incite anger or frenzy in onlookers.,One scene,Presence 3,0,265
+Uncanny Grip,Potence,3,1,,,One scene,,0,265
+Draught of Might,Potence,4,1,,Gift an ally some of the user’s Potence powers.,"One night; for vampires, until the next feeding or upon reaching Hunger 5",,0,265
+Earthshock,Potence,5,2,,"Slam the ground, causing a shockwave that knocks enemies down.",One use,,0,265
+Fist of Caine,Potence,5,1,,Unarmed attacks deal aggravated damage.,One scene,,0,266

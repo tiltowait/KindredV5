@@ -10,11 +10,18 @@ import SwiftUI
 @main
 struct KindredApp: App {
   
-  let dataController = DataController()
+  @StateObject var dataController: DataController
+  
+  init() {
+    let dataController = DataController(inMemory: true)
+    _dataController = StateObject(wrappedValue: dataController)
+  }
   
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .environment(\.managedObjectContext, dataController.container.viewContext)
+        .environmentObject(dataController)
     }
   }
   
