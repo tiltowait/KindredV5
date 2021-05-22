@@ -23,7 +23,7 @@
 		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
 		28386F652658727400E90445 /* PowerLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerLabelRow.swift */; };
 		28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerInfoView.swift */; };
-		28386F6B265881BE00E90445 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */; };
+		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
@@ -70,7 +70,7 @@
 		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
 		28386F642658727400E90445 /* PowerLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerLabelRow.swift; sourceTree = "<group>"; };
 		28386F6626587AA500E90445 /* PowerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoView.swift; sourceTree = "<group>"; };
-		28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = DisciplineIcons.xcassets; path = "../../../Masquerade DA/Masquerade/DisciplineIcons.xcassets"; sourceTree = "<group>"; };
+		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				28386F5F265868B800E90445 /* Views */,
 				282EC8372656EEB80086B14F /* ContentView.swift */,
+				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
-				28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
 				282EC83B2656EEB90086B14F /* Preview Content */,
 			);
@@ -327,11 +327,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28386F5E2658682800E90445 /* Powers.csv in Resources */,
+				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
 				282EC8622656EED50086B14F /* Attributes.csv in Resources */,
 				28773447265713220098E27B /* Disciplines.csv in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				28773444265713100098E27B /* Skills.csv in Resources */,
-				28386F6B265881BE00E90445 /* DisciplineIcons.xcassets in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
