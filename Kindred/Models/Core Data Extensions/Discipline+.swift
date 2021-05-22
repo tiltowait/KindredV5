@@ -7,11 +7,21 @@
 
 import Foundation
 
+// MARK: - Convenience Accessors
 extension Discipline {
+  
+  var disciplineName: String {
+    self.name!
+  }
+  
+  var disciplineIcon: String {
+    self.icon!
+  }
   
   /// An array of all `Powers`s associated with the `Discipline`, from all sources.
   var allPowers: [Power] {
-    self.powers?.allObjects as? [Power] ?? []
+    let powerArray = self.powers?.allObjects as? [Power] ?? []
+    return powerArray.sorted()
   }
   
   /// Retrieve all `Power`s from a given `Source`.

@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
+  private(set) var disciplines: [Discipline]!
   
   let container: NSPersistentCloudKitContainer
   
@@ -30,9 +31,13 @@ class DataController: ObservableObject {
     if self.isEmpty {
       print("Empty container. Populating.")
       let disciplineFactory = DisciplineFactory(context: container.viewContext)
-      _ = disciplineFactory.fetchAll()
+      disciplines = disciplineFactory.fetchAll()
       
       self.save()
+    }
+    
+    for power in disciplines.first!.allPowers {
+      print(power)
     }
   }
   

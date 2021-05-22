@@ -19,6 +19,11 @@
 		28386F5926585D9C00E90445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5826585D9C00E90445 /* Constants.swift */; };
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
 		28386F5E2658682800E90445 /* Powers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28386F5D2658682800E90445 /* Powers.csv */; };
+		28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F60265868DF00E90445 /* DisciplineDetailView.swift */; };
+		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
+		28386F652658727400E90445 /* PowerLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerLabelRow.swift */; };
+		28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerInfoView.swift */; };
+		28386F6B265881BE00E90445 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
@@ -61,6 +66,11 @@
 		28386F5826585D9C00E90445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
 		28386F5D2658682800E90445 /* Powers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Powers.csv; sourceTree = "<group>"; };
+		28386F60265868DF00E90445 /* DisciplineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailView.swift; sourceTree = "<group>"; };
+		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
+		28386F642658727400E90445 /* PowerLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerLabelRow.swift; sourceTree = "<group>"; };
+		28386F6626587AA500E90445 /* PowerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoView.swift; sourceTree = "<group>"; };
+		28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = DisciplineIcons.xcassets; path = "../../../Masquerade DA/Masquerade/DisciplineIcons.xcassets"; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
@@ -121,8 +131,10 @@
 				282EC8662656EFFF0086B14F /* Models */,
 				282EC8602656EEC90086B14F /* Reference Files */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
+				28386F5F265868B800E90445 /* Views */,
 				282EC8372656EEB80086B14F /* ContentView.swift */,
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
+				28386F6A265881BE00E90445 /* DisciplineIcons.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
 				282EC83B2656EEB90086B14F /* Preview Content */,
 			);
@@ -182,8 +194,19 @@
 			isa = PBXGroup;
 			children = (
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
+				28386F6226586E2E00E90445 /* Power+.swift */,
 			);
 			path = "Core Data Extensions";
+			sourceTree = "<group>";
+		};
+		28386F5F265868B800E90445 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28386F60265868DF00E90445 /* DisciplineDetailView.swift */,
+				28386F6626587AA500E90445 /* PowerInfoView.swift */,
+				28386F642658727400E90445 /* PowerLabelRow.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2877344026570EF20098E27B /* Factories */ = {
@@ -308,6 +331,7 @@
 				28773447265713220098E27B /* Disciplines.csv in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				28773444265713100098E27B /* Skills.csv in Resources */,
+				28386F6B265881BE00E90445 /* DisciplineIcons.xcassets in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,10 +359,14 @@
 			files = (
 				282EC8682656F0150086B14F /* TraitReference.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
+				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
+				28386F652658727400E90445 /* PowerLabelRow.swift in Sources */,
+				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 			);

@@ -53,6 +53,7 @@ class DisciplineFactory {
         let discipline = Discipline(context: self.context)
         discipline.name = row["Discipline"]
         discipline.info = row["Info"]
+        discipline.icon = row["Icon"]
         
         disciplines.append(discipline)
       }
@@ -74,7 +75,7 @@ class DisciplineFactory {
       }
       let csv = try CSV(url: powerURL)
       
-      // Format for power CSV: [Power, Discipline, Level, Rouse, Pool, Info, Prerequisite]
+      // Format for power CSV: [Power, Discipline, Level, Rouse, Pool, Info, Duration, Prerequisite, Source, Page]
       try csv.enumerateAsDict{ row in
         let power = Power(context: self.context)
         power.name = row["Power"]
@@ -83,6 +84,9 @@ class DisciplineFactory {
         power.pool = row["Pool"] // Optional
         power.info = row["Info"]
         power.prerequisite = row["Prerequisite"] // Optional
+        power.duration = row["Duration"]
+        power.source = Int16(row["Source"]!)!
+        power.page = Int16(row["Page"]!)!
         
         let discipline = row["Discipline"]!
         allPowers[discipline, default: []].append(power)

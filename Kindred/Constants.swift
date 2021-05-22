@@ -22,7 +22,7 @@ enum Global {
   }
   
   /// The source book for a given power, advantage, predator type, ritual, etc.
-  enum Source: Int {
+  enum Source: Int16 {
     /// Item comes from the V5 core rulebook.
     case core
     /// Item comes from the Camarilla book.
@@ -41,6 +41,20 @@ enum Global {
     case cultsOfTheBloodGods
     /// Item comes from Children of the Blood.
     case childrenOfTheBlood
+    
+    var title: String {
+      switch self {
+      case .core: return "V5 Core"
+      case .camarilla: return "Camarilla"
+      case .anarch: return "Anarch"
+      case .chicagoByNight: return "Chicago by Night"
+      case .fallOfLondon: return "The Fall of London"
+      case .chicagoFolios: return "The Chicago Folios"
+      case .companion: return "V5 Companion"
+      case .cultsOfTheBloodGods: return "Cults of the Blood Gods"
+      case .childrenOfTheBlood: return "Children of the Blood"
+      }
+    }
   }
   
   enum Ritual {

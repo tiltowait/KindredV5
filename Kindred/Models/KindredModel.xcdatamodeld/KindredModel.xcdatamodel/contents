@@ -25,7 +25,7 @@
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" syncable="YES" codeGenerationType="class">
-        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="icon" attributeType="String"/>
         <attribute name="info" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="discipline" inverseEntity="Power"/>
@@ -43,6 +43,7 @@
         <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="kindred" inverseEntity="PredatorType"/>
     </entity>
     <entity name="Power" representedClassName="Power" syncable="YES" codeGenerationType="class">
+        <attribute name="duration" optional="YES" attributeType="String"/>
         <attribute name="info" attributeType="String"/>
         <attribute name="level" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
@@ -80,7 +81,7 @@
         <element name="Clan" positionX="-272.9453125" positionY="-386.4765625" width="128" height="148"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="133"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="163"/>
-        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="208"/>
+        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="223"/>
         <element name="PredatorType" positionX="-67.65625" positionY="-62.97265625" width="128" height="163"/>
         <element name="Ritual" positionX="108.9453125" positionY="-446.9375" width="128" height="148"/>
     </elements>
