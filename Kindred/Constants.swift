@@ -8,6 +8,9 @@
 /// Global enums and constants used throughout the app.
 enum Global {
   
+  /// Data Controller used for testing. Stores everything in memory without persistence.
+  static let tdController = DataController(inMemory: true)
+  
   /// Enums and constants pertaining to advantages.
   enum Advantage {
     /// The general "type" of an advantage, such as loresheet or background.

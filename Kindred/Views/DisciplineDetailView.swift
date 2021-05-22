@@ -62,11 +62,9 @@ struct DisciplineDetailView: View {
 }
 
 struct DisciplinePowerList_Previews: PreviewProvider {
-  static let dataController = DataController(inMemory: true)
-  
   static var previews: some View {
     NavigationView {
-      DisciplineDetailView(discipline: dataController.disciplines.first!)
+      DisciplineDetailView(discipline: Global.tdController.disciplines.first!)
     }
   }
 }

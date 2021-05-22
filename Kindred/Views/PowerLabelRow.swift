@@ -31,9 +31,8 @@ struct PowerLabelRow: View {
 
 
 struct PowerLabelRow_Previews: PreviewProvider {
-  static let dataController = DataController(inMemory: true)
   static var previews: some View {
-    PowerLabelRow(power: dataController.disciplines.first!.allPowers[2])
+    PowerLabelRow(power: Global.tdController.disciplines.first!.allPowers[2])
       .previewLayout(.sizeThatFits)
   }
 }

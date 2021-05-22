@@ -53,8 +53,7 @@ struct PowerInfoView: View {
 }
 
 struct PowerInfoView_Previews: PreviewProvider {
-  static let dataController = DataController(inMemory: true)
   static var previews: some View {
-    PowerInfoView(power: dataController.disciplines.first!.allPowers.randomElement()!)
+    PowerInfoView(power: Global.tdController.disciplines.first!.allPowers.randomElement()!)
   }
 }

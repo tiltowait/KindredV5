@@ -35,10 +35,6 @@ class DataController: ObservableObject {
       
       self.save()
     }
-    
-    for power in disciplines.first!.allPowers {
-      print(power)
-    }
   }
   
   private var isEmpty: Bool {
