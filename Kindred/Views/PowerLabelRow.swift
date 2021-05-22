@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PowerLabelRow: View {
+  
   @State private var isExpanded = false
   let power: Power
   

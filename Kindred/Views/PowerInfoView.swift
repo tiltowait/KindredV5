@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PowerInfoView: View {
+  
   let power: Power
   
   var rouseText: some View {
@@ -50,10 +51,12 @@ struct PowerInfoView: View {
       
     }
   }
+  
 }
 
 struct PowerInfoView_Previews: PreviewProvider {
   static var previews: some View {
     PowerInfoView(power: Global.tdController.disciplines.first!.allPowers.randomElement()!)
+      .previewLayout(.sizeThatFits)
   }
 }
