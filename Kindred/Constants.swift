@@ -8,7 +8,7 @@
 /// Global enums and constants used throughout the app.
 enum Global {
   
-  /// Data Controller used for testing. Stores everything in memory without persistence.
+  /// Data Controller used for previews. Stores everything in memory without persistence.
   static let tdController = DataController(inMemory: true)
   
   /// Enums and constants pertaining to advantages.
@@ -45,6 +45,7 @@ enum Global {
     /// Item comes from Children of the Blood.
     case childrenOfTheBlood
     
+    /// The full title of the referenced sourcebook.
     var title: String {
       switch self {
       case .core: return "V5 Core"
@@ -57,6 +58,13 @@ enum Global {
       case .cultsOfTheBloodGods: return "Cults of the Blood Gods"
       case .childrenOfTheBlood: return "Children of the Blood"
       }
+    }
+    
+    /// Generate a page reference string. <Book title>, p.<page>.
+    /// - Parameter page: The page number for the reference.
+    /// - Returns: The formatted page reference.
+    func reference(page: Int16) -> String {
+      "\(self.title), p.\(page)"
     }
   }
   
