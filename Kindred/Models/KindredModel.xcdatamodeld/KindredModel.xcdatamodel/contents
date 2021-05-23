@@ -53,7 +53,7 @@
         <attribute name="rouse" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="source" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="dependentRituals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ritual" inverseName="prerequisite" inverseEntity="Ritual"/>
-        <relationship name="discipline" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Discipline" inverseName="powers" inverseEntity="Discipline"/>
+        <relationship name="discipline" maxCount="1" deletionRule="Nullify" destinationEntity="Discipline" inverseName="powers" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="powers" inverseEntity="Kindred"/>
     </entity>
     <entity name="PredatorType" representedClassName="PredatorType" syncable="YES" codeGenerationType="class">
@@ -81,7 +81,7 @@
         <element name="Clan" positionX="-272.9453125" positionY="-386.4765625" width="128" height="148"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="133"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="163"/>
-        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="223"/>
+        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="209"/>
         <element name="PredatorType" positionX="-67.65625" positionY="-62.97265625" width="128" height="163"/>
         <element name="Ritual" positionX="108.9453125" positionY="-446.9375" width="128" height="148"/>
     </elements>

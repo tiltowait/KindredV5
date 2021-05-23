@@ -9,10 +9,21 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
-  private(set) var disciplines: [Discipline]!
   
   let container: NSPersistentCloudKitContainer
   
+  /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
+  private(set) lazy var disciplines: [Discipline] = {
+    do {
+      let disciplines = try container.viewContext.fetch(Discipline.sortedFetchRequest)
+      return disciplines
+    } catch {
+      fatalError("Unable to fetch disciplines.\n\(error.localizedDescription)")
+    }
+  }()
+  
+  /// Creates a `DataController` and initializes reference data if the store is empty.
+  /// - Parameter inMemory: Set to `true` if the data should not persist across launches. Default `false`.
   init(inMemory: Bool = false) {
     container = NSPersistentCloudKitContainer(name: "KindredModel")
     
@@ -29,14 +40,21 @@ class DataController: ObservableObject {
     
     // Load up reference material
     if self.isEmpty {
-      print("Empty container. Populating.")
-      let disciplineFactory = DisciplineFactory(context: container.viewContext)
-      disciplines = disciplineFactory.fetchAll()
+      DisciplineFactory.loadAll(context: container.viewContext)
+      
+      #if DEBUG
+      let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)
+      
+      print("Empty container. Populating ...")
+      print("\tLoaded \(disciplines.count) disciplines")
+      print("\t\tWith \(powerCount) powers")
+      #endif
       
       self.save()
     }
   }
   
+  /// `True` if the data store is empty (technically, if it has no Disciplines).
   private var isEmpty: Bool {
     let request: NSFetchRequest<Discipline> = Discipline.fetchRequest()
     do {
@@ -47,14 +65,18 @@ class DataController: ObservableObject {
     }
   }
   
+  /// Saves the data.
   func save() {
     if container.viewContext.hasChanges {
       try? container.viewContext.save()
     }
   }
   
-  func delete(_ object: NSManagedObject) {
-    container.viewContext.delete(object)
+  /// Deletes the user character from the store.
+  /// - Parameter kindred: The character to delete.
+  func delete(kindred: Kindred) {
+    container.viewContext.delete(kindred)
+    save()
   }
   
 }

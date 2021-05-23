@@ -9,22 +9,15 @@ import Foundation
 import CoreData
 import SwiftCSV
 
-/// Factory class for loading `Discipline`s from CSV.
-class DisciplineFactory {
+/// Factory namespace for loading `Discipline`s from CSV.
+enum DisciplineFactory {
   
-  private let context: NSManagedObjectContext // Used for Discipline and Power creation
-  
-  /// Creates a basic `DisciplineFactory`. To use, call `fetchAll()`.
-  /// - Parameter context: The CoreData context for storing `Discipline`s.
-  init(context: NSManagedObjectContext) {
-    self.context = context
-  }
-  
-  /// Fetches all `Discipline` objects from CSV and associates them with their `Power`s.
-  /// - Returns: An array of complete `Discipline` objects.
-  func fetchAll() -> [Discipline] {
-    let powers = fetchPowers()
-    let disciplines = fetchDisciplines()
+  /// Loads all `Discipline` objects from CSV and associates them with their `Power`s. This function does *no* checking for
+  /// existing data and will add duplicates if they already exist!
+  /// - Parameter context: The `NSManagedObjectContext` for the `Disciplines` and `Powers`.
+  static func loadAll(context: NSManagedObjectContext) {
+    let powers = loadPowers(context: context)
+    let disciplines = loadDisciplines(context: context)
     
     // Associate powers with the correct discipline
     for discipline in disciplines {
@@ -33,13 +26,12 @@ class DisciplineFactory {
       }
       powers.forEach { discipline.addToPowers($0) }
     }
-    
-    return disciplines
   }
   
   /// Loads all the `Discipline` objects from CSV.
+  /// - Parameter context: The `NSManagedObjectContext` for the `Discipline`s.
   /// - Returns: An array of `Discipline`s.
-  private func fetchDisciplines() -> [Discipline] {
+  static private func loadDisciplines(context: NSManagedObjectContext) -> [Discipline] {
     var disciplines: [Discipline] = []
     
     do {
@@ -50,7 +42,7 @@ class DisciplineFactory {
       
       // Scheme: Discipline, Info
       try csv.enumerateAsDict { row in
-        let discipline = Discipline(context: self.context)
+        let discipline = Discipline(context: context)
         discipline.name = row["Discipline"]
         discipline.info = row["Info"]
         discipline.icon = row["Icon"]
@@ -65,8 +57,9 @@ class DisciplineFactory {
   }
   
   /// Loads all the `Power` objects from CSV.
+  /// - Parameter context: The `NSManagedObjectContext` for the `Powers`.
   /// - Returns: A dictionary where the key is a discipline name, and corresponding values are `Power` arrays.
-  private func fetchPowers() -> [String: [Power]] {
+  static private func loadPowers(context: NSManagedObjectContext) -> [String: [Power]] {
     var allPowers: [String: [Power]] = [:]
     
     do {
@@ -77,7 +70,7 @@ class DisciplineFactory {
       
       // Format for power CSV: [Power, Discipline, Level, Rouse, Pool, Info, Duration, Prerequisite, Source, Page]
       try csv.enumerateAsDict{ row in
-        let power = Power(context: self.context)
+        let power = Power(context: context)
         power.name = row["Power"]
         power.level = Int16(row["Level"]!)!
         power.rouse = Int16(row["Rouse"]!)!
