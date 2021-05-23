@@ -1,4 +1,13 @@
 Power,Discipline,Level,Rouse,Pool,Info,Duration,Prerequisite,Source,Page
+Heightened Senses,Auspex,1,0,,Sharpen the mundane senses to an increasing magnitude.,Until deactivated,,0,249
+Sense the Unseen,Auspex,1,0,Wits/Resolve + Auspex,"Spot supernaturally hidden creatures, such as vampires hiding under Obfuscate or wraiths.",Passive,,0,249
+Premonition,Auspex,2,0,Resolve + Auspex (active use; 1 rouse check),Experience vague flashes of insight that provide glimpses of the future.,Passive,,0,249
+Scry the Soul,Auspex,3,1,Intelligence + Auspex vs. Composure + Subterfuge,"Glean insights on an individual, learning their emotional state, what type of supernatural creature they are, and more.",One turn or longer,,0,250
+Share the Senses,Auspex,3,1,Resolve + Auspex,Tap into the senses of a mortal or vampire and see/hear/feel what they do.,One scene,,0,250
+Spirit’s Touch,Auspex,4,1,Intelligence + Auspex,"Sense the emotional residue on an object, learning about its previous owner and how the object was used.",One turn,,0,250
+Clairvoyance,Auspex,5,1,Intelligence + Auspex,Enter a trance and glean all manner of information from their surroundings.,Variable,,0,251
+Possession,Auspex,5,2,Resolve + Auspex vs. Resolve + Intelligence,Possess a mortal’s body after stripping them of their will.,Until ended,Dominate 3,0,251
+Telepathy,Auspex,5,1,Resolve + Auspex vs. Wits + Subterfuge,Read minds and project thoughts to others. Also costs 1 Willpower against non-consenting vampires.,"One minute per rouse check, or longer",,0,252
 Lethal Body,Potence,1,0,,May do aggravated damage to mortals with unarmed strikes and ignore some armor.,Passive,,0,264
 Soaring Leap,Potence,1,0,,Allows the user to jump 3m high or 5m far per dot.,Passive,,0,264
 Prowess,Potence,2,1,,Add Potence rating to all feats of strength and unarmed damage. Add half to melee damage.,One scene,,0,264

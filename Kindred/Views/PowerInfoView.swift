@@ -47,6 +47,7 @@ struct PowerInfoView: View {
           .bold()
           .italic()
           .font(.callout)
+          .padding(.top, 1)
       }
       
     }
