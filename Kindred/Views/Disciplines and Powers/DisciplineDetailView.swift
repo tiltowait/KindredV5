@@ -21,7 +21,7 @@ struct DisciplineDetailView: View {
   
   var body: some View {
     List {
-      Section(header: Text(discipline.info!)) {
+      Section(header: Text(discipline.info)) {
         ForEach(0..<discipline.allPowers.count) { index in
           DisclosureGroup(
             isExpanded: $disclosureFlags[index],
@@ -46,7 +46,7 @@ struct DisciplineDetailView: View {
             .resizable()
             .frame(width: 30, height: 30)
             .clipShape(Circle())
-          Text(discipline.disciplineName)
+          Text(discipline.name)
             .font(.headline)
         }
       }

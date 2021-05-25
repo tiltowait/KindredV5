@@ -31,7 +31,7 @@ struct PowerInfoView: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-      Text(power.powerInfo)
+      Text(power.info)
         .italic()
       HStack {
         rouseText

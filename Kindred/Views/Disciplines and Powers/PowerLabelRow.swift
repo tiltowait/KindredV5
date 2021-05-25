@@ -18,7 +18,7 @@ struct PowerLabelRow: View {
         Text("\(power.level)")
           .foregroundColor(.secondary)
           .font(.caption)
-        Text(power.powerName)
+        Text(power.name)
           .font(.headline)
         Spacer()
         Text(power.sourceBook.reference(page: power.page))

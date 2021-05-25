@@ -23,6 +23,8 @@
 		28386F652658727400E90445 /* PowerLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerLabelRow.swift */; };
 		28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerInfoView.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
+		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
+		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
@@ -70,6 +72,8 @@
 		28386F642658727400E90445 /* PowerLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerLabelRow.swift; sourceTree = "<group>"; };
 		28386F6626587AA500E90445 /* PowerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoView.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
+		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
+		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			children = (
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
+				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
+				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -374,8 +380,10 @@
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
+				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,27 +13,12 @@ extension Power {
   
   /// The name of the power's containing `Discipline`.
   var disciplineName: String {
-    self.discipline!.disciplineName
-  }
-  
-  /// The power's name.
-  var powerName: String {
-    self.name!
-  }
-  
-  /// The power's description.
-  var powerInfo: String {
-    self.info!
+    self.discipline!.name
   }
   
   /// The power's duration.
   var powerDuration: String {
     self.duration!
-  }
-  
-  /// The book the power is found in.
-  var sourceBook: Global.Source {
-    Global.Source(rawValue: self.source)!
   }
   
 }
@@ -58,7 +43,7 @@ extension Power: Comparable {
     } else if lhs.level < rhs.level {
       return true
     } else if lhs.level == rhs.level {
-      return lhs.powerName < rhs.powerName
+      return lhs.name < rhs.name
     }
     return false
   }

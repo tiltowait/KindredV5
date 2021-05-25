@@ -21,8 +21,8 @@ enum DisciplineFactory {
     
     // Associate powers with the correct discipline
     for discipline in disciplines {
-      guard let powers = powers[discipline.name!] else { // TODO: Extension
-        fatalError("No associated powers for \(discipline.name!)") // TODO: Extension
+      guard let powers = powers[discipline.name] else { // TODO: Extension
+        fatalError("No associated powers for \(discipline.name)") // TODO: Extension
       }
       powers.forEach { discipline.addToPowers($0) }
     }
@@ -43,8 +43,8 @@ enum DisciplineFactory {
       // Scheme: Discipline, Info
       try csv.enumerateAsDict { row in
         let discipline = Discipline(context: context)
-        discipline.name = row["Discipline"]
-        discipline.info = row["Info"]
+        discipline.name = row["Discipline"]!
+        discipline.info = row["Info"]!
         discipline.icon = row["Icon"]
         discipline.resonance = row["Resonance"]
         
@@ -72,11 +72,11 @@ enum DisciplineFactory {
       // Format for power CSV: [Power, Discipline, Level, Rouse, Pool, Info, Duration, Prerequisite, Source, Page]
       try csv.enumerateAsDict{ row in
         let power = Power(context: context)
-        power.name = row["Power"]
+        power.name = row["Power"]!
         power.level = Int16(row["Level"]!)!
         power.rouse = Int16(row["Rouse"]!)!
         power.pool = row["Pool"] // Optional
-        power.info = row["Info"]
+        power.info = row["Info"]!
         power.prerequisite = row["Prerequisite"] // Optional
         power.duration = row["Duration"]
         power.source = Int16(row["Source"]!)!

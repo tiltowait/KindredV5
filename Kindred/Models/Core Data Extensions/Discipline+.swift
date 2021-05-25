@@ -14,12 +14,8 @@ extension Discipline {
   /// An `NSFetchRequest` with an alphabetical sort descriptor.
   static var sortedFetchRequest: NSFetchRequest<Discipline> {
     let request: NSFetchRequest<Discipline> = Discipline.fetchRequest()
-    request.sortDescriptors = [NSSortDescriptor(keyPath: \Discipline.name, ascending: true)]
+    request.sortDescriptors = [NSSortDescriptor(keyPath: \Discipline.zName, ascending: true)]
     return request
-  }
-  
-  var disciplineName: String {
-    self.name!
   }
   
   var disciplineIcon: String {

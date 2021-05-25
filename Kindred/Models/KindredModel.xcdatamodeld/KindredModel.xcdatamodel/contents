@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Advantage" representedClassName="Advantage" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Advantage" representedClassName="Advantage" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="isBackground" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageOption" inverseName="parentAdvantage" inverseEntity="AdvantageOption"/>
     </entity>
-    <entity name="AdvantageOption" representedClassName="AdvantageOption" syncable="YES" codeGenerationType="class">
-        <attribute name="info" optional="YES" attributeType="String"/>
+    <entity name="AdvantageOption" representedClassName="AdvantageOption" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <attribute name="maxRating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="minRating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="source" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="parentAdvantage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Advantage" inverseName="options" inverseEntity="Advantage"/>
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="advantages" inverseEntity="PredatorType"/>
     </entity>
@@ -24,14 +19,16 @@
         <relationship name="disciplines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="referencingClans" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
     </entity>
-    <entity name="Discipline" representedClassName="Discipline" syncable="YES" codeGenerationType="class">
+    <entity name="Discipline" representedClassName="Discipline" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="icon" attributeType="String"/>
-        <attribute name="info" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
         <attribute name="resonance" attributeType="String"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="discipline" inverseEntity="Power"/>
         <relationship name="referencingClans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clan" inverseName="disciplines" inverseEntity="Clan"/>
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="disciplineOptions" inverseEntity="PredatorType"/>
+    </entity>
+    <entity name="InfoItem" representedClassName="InfoItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="zInfo" attributeType="String"/>
+        <attribute name="zName" attributeType="String"/>
     </entity>
     <entity name="Kindred" representedClassName="Kindred" syncable="YES" codeGenerationType="class">
         <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -43,47 +40,41 @@
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Power" inverseName="kindred" inverseEntity="Power"/>
         <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="kindred" inverseEntity="PredatorType"/>
     </entity>
-    <entity name="Power" representedClassName="Power" syncable="YES" codeGenerationType="class">
+    <entity name="Power" representedClassName="Power" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="String"/>
-        <attribute name="info" attributeType="String"/>
         <attribute name="level" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="page" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="pool" optional="YES" attributeType="String"/>
         <attribute name="prerequisite" optional="YES" attributeType="String"/>
         <attribute name="rouse" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="source" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="dependentRituals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ritual" inverseName="prerequisite" inverseEntity="Ritual"/>
         <relationship name="discipline" maxCount="1" deletionRule="Nullify" destinationEntity="Discipline" inverseName="powers" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="powers" inverseEntity="Kindred"/>
     </entity>
-    <entity name="PredatorType" representedClassName="PredatorType" syncable="YES" codeGenerationType="class">
+    <entity name="PredatorType" representedClassName="PredatorType" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <attribute name="huntingPool" optional="YES" attributeType="String"/>
-        <attribute name="info" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="source" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="advantages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdvantageOption" inverseName="referencingPredatorTypes" inverseEntity="AdvantageOption"/>
         <relationship name="disciplineOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="referencingPredatorTypes" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="predatorType" inverseEntity="Kindred"/>
     </entity>
-    <entity name="Ritual" representedClassName="Ritual" syncable="YES" codeGenerationType="class">
-        <attribute name="info" optional="YES" attributeType="String"/>
+    <entity name="ReferenceItem" representedClassName="ReferenceItem" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
+        <attribute name="page" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="source" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Ritual" representedClassName="Ritual" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="ritualKind" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="source" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="prerequisite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Power" inverseName="dependentRituals" inverseEntity="Power"/>
     </entity>
     <elements>
-        <element name="Advantage" positionX="332.05078125" positionY="17.81640625" width="128" height="88"/>
-        <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="163"/>
+        <element name="Advantage" positionX="332.05078125" positionY="17.81640625" width="128" height="73"/>
+        <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="103"/>
         <element name="Clan" positionX="-272.9453125" positionY="-386.4765625" width="128" height="148"/>
-        <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="134"/>
+        <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="118"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="163"/>
-        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="209"/>
-        <element name="PredatorType" positionX="-67.65625" positionY="-62.97265625" width="128" height="163"/>
-        <element name="Ritual" positionX="108.9453125" positionY="-446.9375" width="128" height="148"/>
+        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="163"/>
+        <element name="PredatorType" positionX="-67.65625" positionY="-62.97265625" width="128" height="103"/>
+        <element name="Ritual" positionX="343.1796875" positionY="-420.5546875" width="128" height="88"/>
+        <element name="InfoItem" positionX="-57.40234375" positionY="-608.734375" width="128" height="73"/>
+        <element name="ReferenceItem" positionX="81.73828125" positionY="-493.828125" width="128" height="73"/>
     </elements>
 </model>
