@@ -1,4 +1,13 @@
 Power,Discipline,Level,Rouse,Pool,Info,Duration,Prerequisite,Source,Page
+Bond Famulus,Animalism,1,0,Charisma + Animal Ken,"After binding an animal over three nights, enjoy an easier time commanding the animal. Uses of Feral Whispers and Subsume the Spirit are free.",Until the famulus dies,,0,245
+Sense the Beast,Animalism,1,0,Resolve + Animalism vs. Composure + Subterfuge,Sense the level of hostility in a target and whether they harbor a Beast.,Passive,,0,245
+Feral Whispers,Animalism,2,1,Manipulation/Charisma + Animalism,Command animals to perform tasks of varying complexity.,One scene,,0,245
+Animal Succulence,Animalism,3,0,,"Reduce penalties from feeding from animals, and animals slake 1 additional Hunger.",Passive,,0,246
+Quell the Beast,Animalism,3,1,Charisma + Animalism vs. Stamina + Resolve,"Cow the victim’s inner Beast, incapacitating mortals and pacifying vampires to an extent.",One scene / one turn per margin + 1,,0,246
+Unliving Hive,Animalism,4,0,,Extend Animalism powers to insect swarms as well as turn the user’s body into a nest for insects.,Passive,Obfuscate 2,0,246
+Subsume the Spirit,Animalism,4,1,Manipulation + Animalism,"Transfer the mind into the body of an animal, assuming complete control. Free if used on a famulus.",One scene / indefinite,,0,247
+Animal Dominion,Animalism,5,2,Charisma + Animalism,"Command groups of animals, rather than individuals.",One scene or until the directive is fulfilled (whichever shortest),,0,247
+Drawing Out the Beast,Animalism,5,1,Wits + Animalism vs. Composure + Resolve,"Project the Beast into a victim, causing them to frenzy.",Frenzy duration,,0,247
 Heightened Senses,Auspex,1,0,,Sharpen the mundane senses to an increasing magnitude.,Until deactivated,,0,249
 Sense the Unseen,Auspex,1,0,Wits/Resolve + Auspex,"Spot supernaturally hidden creatures, such as vampires hiding under Obfuscate or wraiths.",Passive,,0,249
 Premonition,Auspex,2,0,Resolve + Auspex (active use; 1 rouse check),Experience vague flashes of insight that provide glimpses of the future.,Passive,,0,249
@@ -8,6 +17,42 @@ Spirit’s Touch,Auspex,4,1,Intelligence + Auspex,"Sense the emotional residue o
 Clairvoyance,Auspex,5,1,Intelligence + Auspex,Enter a trance and glean all manner of information from their surroundings.,Variable,,0,251
 Possession,Auspex,5,2,Resolve + Auspex vs. Resolve + Intelligence,Possess a mortal’s body after stripping them of their will.,Until ended,Dominate 3,0,251
 Telepathy,Auspex,5,1,Resolve + Auspex vs. Wits + Subterfuge,Read minds and project thoughts to others. Also costs 1 Willpower against non-consenting vampires.,"One minute per rouse check, or longer",,0,252
+Cat’s Grace,Celerity,1,0,,The user automatically succeeds any Dexterity or Athletics test to maintain balance.,Passive,,0,252
+Rapid Reflexes,Celerity,1,0,,Suffer no defense penalties for lack of cover against firearms and take a two-dice minor action (per turn) for free.,Passive,,0,253
+Fleetness,Celerity,2,1,,"Add Celerity rating to dice pool for non-combat Dexterity tests; may do this once per turn for defense, as well.",One scene,,0,253
+Blink,Celerity,3,1,"Dexterity + Athletics, as needed",Swiftly close in on a foe without losing an action.,,,0,253
+Traversal,Celerity,3,1,Dexterity + Athletics,"Run or climb along any surface, including walls and across water.",One turn,,0,253
+Draught of Elegance,Celerity,4,1,,Grant some of the user’s Celerity to a recipient who drinks their blood.,"One night; for vampires, until the next feeding or upon reaching Hunger 5",,0,254
+Unerring Aim,Celerity,4,1,,Aim and throw/fire any weapon at a target as if they were stationary.,A single attack,Auspex 2,0,254
+Lightning Strike,Celerity,5,1,,"Strike with hand or weapon so quickly, the opponent may not defend or dodge.",A single attack,,0,254
+Split Second,Celerity,5,1,,"Act before the Storyteller’s narration, within reason.","Roughly one action, as determined by the Storyteller",,0,254
+Cloud Memory,Dominate,1,0,Charisma + Dominate vs. Wits + Resolve,Make the victim forget the last few moments.,Indefinitely,,0,256
+Compel,Dominate,1,0,Charisma + Dominate vs. Intelligence + Resolve,"Issue a single-sentence, single-action, single-turn command the victim must obey, within reason.",One scene or less,,0,256
+Mesmerize,Dominate,2,1,Manipulation + Dominate vs. Intelligence + Resolve,"Issue complex commands to a victim, which must be carried out immediately and can’t contain any conditional phrases.",One scene or until the directive is fulfilled (whichever shortest),,0,256
+Dementation,Dominate,2,1,Manipulation + Dominate vs. Composure + Intelligence,"Drive a victim mad over the course of a conversation, dealing superficial Willpower damage and potentially causing compulsions.",One scene,Obfuscate 2,0,256
+The Forgetful Mind,Dominate,3,1,Manipulation + Dominate vs. Intelligence + Resolve,Rewrite large portions of the victim’s memories.,Indefinitely,,0,257
+Submerged Direction,Dominate,3,1,Manipulation + Dominate vs. Intelligence + Resolve,"As Mesmerize, only the vampire can now issue conditional commands.",,Mesmerize,0,257
+Rationalize,Dominate,4,0,,"Dominate victims now believe their compelled actions were their own choice to make and will defend their actions, even to absurd lengths.",Passive,,0,257
+Mass Manipulation,Dominate,4,1,Uses the pool of the amplified power,Amplify any other power to affect groups of individuals. Cost is in addition to that of the amplified power.,As per power amplified,,0,257
+Terminal Decree,Dominate,5,0,,"The vampire may now issue directly harmful, even fatal, commands, which are resisted as normal.",Passive,,0,257
+Resilience,Fortitude,1,0,,Add your Fortitude rating to your health track.,Passive,,0,258
+Unswayable Mind,Fortitude,1,0,,"Get bonus dice equal to Fortitude rating in any roll to resist coercion, intimidation, etc., including Dominate and Presence.",Passive,,0,258
+Toughness,Fortitude,2,1,,"Reduce incoming superficial damage (before halving) by Fortitude rating, down to a minimum of 1.",Passive,,0,258
+Enduring Beasts,Fortitude,2,1,Stamina + Animalism (non-famulus animals),Gift animals with additional health levels equal to Fortitude. No rouse check for famulus.,One scene,Animalism 1,0,258
+Defy Bane,Fortitude,3,1,Wits + Survival (for reflexive use),Downgrade a number of aggravated damage (equal to Fortitude rating) to superficial damage.,One scene or until expired (whichever first),,0,259
+Fortify the Inner Facade,Fortitude,3,0,,"Increases the difficulty of Scry Soul, Telepathy, etc. by half the user’s Fortitude rating. Contested rolls may add Fortitude to the dice pool.",One scene,,0,259
+Draught of Endurance,Fortitude,4,0,,Gift an ally some of the user’s Fortitude powers after they drink the donor’s blood.,"One night; for vampires, until the next feeding or upon reaching Hunger 5",,0,259
+Flesh of Marble,Fortitude,5,2,,"Ignore the first source of physical damage each turn, including fire but not sunlight.",One scene,,0,259
+Prowess from Pain,Fortitude,5,1,,"No longer suffer dice penalties from health damage; instead, increase one physical attribute by 1 per level of damage, to a max of Blood Surge + 6.",One scene,,0,260
+Cloak of Shadows,Obfuscate,1,0,,Blend into surroundings so long as you remain motionless.,One scene,,0,261
+Silence of Death,Obfuscate,1,0,,"The user’s footsteps, clothing, and minor sounds become totally silent.",One scene,,0,261
+Unseen Passage,Obfuscate,2,1,,"Move around unseen, so long as the user doesn’t make any loud sounds or otherwise draw attention.",One scene or until detection,,0,261
+Ghost in the Machine,Obfuscate,3,0,,"Obfuscate now befuddles electronic media and surveillance, granting additional dice to the users and increased difficulties for observers.",As power used,,0,262
+Mask of a Thousand Faces,Obfuscate,3,1,,"Appear as someone unremarkable and nondescript, but not anyone specific.",One scene,,0,262
+Conceal,Obfuscate,4,1,Intelligence + Obfuscate,Conceal an object as per standard Obfuscate rules. Difficulty depends on context.,One night per margin (minimum 1),Auspex 3,0,262
+Vanish,Obfuscate,4,0,Wits + Obfuscate vs. Wits + Awareness,May use Cloak of shadows or Unseen passage even under direct observation.,As per augmented power,Cloak of Shadows,0,262
+Cloak the Gathering,Obfuscate,5,1,,Extend powers of Obfuscate to other individuals. Cost is in addition to the power extended.,As power extended,,0,263
+Impostor’s Guise,Obfuscate,5,1,"Wits + Obfuscate, Manipulation + Performance",Take on the appearance of a specific individual. Care must be taken to mimic them properly.,One scene,Mask of a Thousand Faces,0,263
 Lethal Body,Potence,1,0,,May do aggravated damage to mortals with unarmed strikes and ignore some armor.,Passive,,0,264
 Soaring Leap,Potence,1,0,,Allows the user to jump 3m high or 5m far per dot.,Passive,,0,264
 Prowess,Potence,2,1,,Add Potence rating to all feats of strength and unarmed damage. Add half to melee damage.,One scene,,0,264
@@ -17,3 +62,28 @@ Uncanny Grip,Potence,3,1,,Latch onto and climb almost any surface.,One scene,,0,
 Draught of Might,Potence,4,1,,Gift an ally some of the user’s Potence powers.,"One night; for vampires, until the next feeding or upon reaching Hunger 5",,0,265
 Earthshock,Potence,5,2,,"Slam the ground, causing a shockwave that knocks enemies down.",One use,,0,265
 Fist of Caine,Potence,5,1,,Unarmed attacks deal aggravated damage.,One scene,,0,266
+Awe,Presence,1,0,Manipulation + Presence vs. Composure + Intelligence,"Add Presence rating to persuasion, performance, and charisma-related rolls. May not be used with Daunt.",One scene,,0,267
+Daunt,Presence,1,0,,Add the user’s Presence rating to all Intimidation rolls and make it difficult to attack the user. May not be used with Awe.,One scene,,0,267
+Lingering Kiss,Presence,2,0,,Feeding victims become addicted to the vampire’s Kiss and gain a bonus to one social attribute.,One night per Presence dot,,6,62
+Dread Gaze,Presence,3,1,Charisma + Presence vs. Composure + Resolve,"Cause intense fear in a victim, cowing them or causing them to flee in terror.",One turn,,0,276
+Entrancement,Presence,3,1,Charisma + Presence vs. Composure + Wits,"Cause the victim to become infatuated with the vampire, granting a social bonus against the victim equal to Presence rating.",One hour + one per point of margin,,0,268
+Irresistible Voice,Presence,4,0,,"The user may now use Dominate without eye contact, though they must still be physically present.",Passive,Dominate 1,0,268
+Summon,Presence,4,1,Manipulation + Presence vs. Composure + Intelligence,"Call a person to you, so long as you have already used a different Presence ability on them. Distance does not matter.",One night,,0,268
+Majesty,Presence,5,2,Charisma + Presence vs. Composure + Resolve,"Reduce onlookers to abject worship or terror. Victims succeeding in the test may only act in opposition for a single turn, unless they score a critical success.",One scene,,0,268
+Star Magnetism,Presence,5,1,,"Awe, Daunt, and Entrancement can be transmitted though live electronic feeds. Cost is in addition to the power used.",As power used,,0,269
+Eyes of the Beast,Protean,1,0,,"Manifest a supernatural gleam into the eyes, granting sight in pitch-blackness.",As long as desired,,0,269
+Weight of the Feather,Protean,1,0,Wits + Survival (if unprepared),"Reduce mass and density to near-weightlessness, though this does not allow for longer leaps.",As long as desired,,0,270
+Feral Weapons,Protean,2,1,,"Manifest wicked claws or fangs, conferring +2 brawl damage to attacks. Such damage is not halved by vampires.",One scene,,0,270
+Earth Meld,Protean,3,1,,"Sink into a natural surface, such as grass or dirt. This confers protection from sunlight.","One day or more, or until disturbed",,0,270
+Shapechange,Protean,3,1,,"Assume the shape of an animal roughly the vampire’s size, gaining the traits of the associated animal.",One scene,,0,270
+Metamorphosis,Protean,4,1,,"Gain an additional animal form, one which may not match the vampire’s size.",One scene,Shapechange,0,271
+Mist Form,Protean,5,1,,"Evaporate into mist, becoming immune to most forms of damage. The transformation takes 1-3 turns, depending on the number of rouse checks made.",One scene,,0,271
+The Unfettered Heart,Protean,5,0,,"The vampire’s heart moves freely within his body, increasing the difficulty of staking attempts and giving the vampire a chance to “break free” of a staking.",Passive,,0,271
+Corrosive Vitae,Blood Sorcery,1,1,,Turn the user’s vitae into a corrosive substance against dead substances. More rouse checks increases area.,N/A,,0,272
+A Taste for Blood,Blood Sorcery,1,0,Resolve + Blood Sorcery,"Taste a drop of blood to discern various traits about the owner, including if they’re human, vampire, or … something else.",N/A,,0,273
+Extinguish Vitae,Blood Sorcery,2,1,Intelligence + Blood Sorcery vs. Stamina + Composure,"Ruin another vampire’s blood reserves, increasing their Hunger.",N/A,,0,273
+Blood of Potency,Blood Sorcery,3,1,Resolve + Blood Sorcery,"Increase the sorcerer’s Blood Potency by 1 (2 on a critical win), regardless of generational limits.",One scene or one night,,0,273
+Scorpion’s Touch,Blood Sorcery,3,1,Strength + Blood Sorcery vs. Stamina + Occult/Fortitude,Convert the user’s vitae into a paralyzing poison dangerous to both mortals and vampires. More rouse checks create more poison.,One scene (potency),,0,273
+Theft of Vitae,Blood Sorcery,4,1,Wits + Blood Sorcery vs. Wits + Occult,"Steal the very blood from a mortal from a distance, slaking Hunger in the process.",One feeding,,0,274
+Baal’s Caress,Blood Sorcery,5,1,Strength + Blood Sorcery vs. Stamina + Occult/Fortitude,Transmute the user’s vitae into an extremely potent and lethal poison that affects mortals and vampires alike. More rouse checks create more poison.,One scene (potency),,0,274
+Cauldron of Blood,Blood Sorcery,5,1,Resolve + Blood Sorcery vs. Composure + Occult/Fortitude,"Boil the victim’s blood in their veins, causing aggravated damage and one or more Stains. Mortals taking one point of damage die in shrieking agony, and vampires add 1 Hunger per point of margin.",One turn,,0,274

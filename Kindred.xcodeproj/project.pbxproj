@@ -25,12 +25,12 @@
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
 		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
+		286FBF82265D927300AAA469 /* Disciplines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 286FBF80265D927300AAA469 /* Disciplines.csv */; };
+		286FBF83265D927300AAA469 /* Powers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 286FBF81265D927300AAA469 /* Powers.csv */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
-		28A0DE21265AF0C5008D90B4 /* Powers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28A0DE1F265AF0C5008D90B4 /* Powers.csv */; };
-		28A0DE22265AF0C5008D90B4 /* Disciplines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28A0DE20265AF0C5008D90B4 /* Disciplines.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +74,12 @@
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
 		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
+		286FBF80265D927300AAA469 /* Disciplines.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Disciplines.csv; sourceTree = "<group>"; };
+		286FBF81265D927300AAA469 /* Powers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Powers.csv; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		28A0DE1F265AF0C5008D90B4 /* Powers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Powers.csv; sourceTree = "<group>"; };
-		28A0DE20265AF0C5008D90B4 /* Disciplines.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Disciplines.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +173,8 @@
 		282EC8602656EEC90086B14F /* Reference Files */ = {
 			isa = PBXGroup;
 			children = (
-				28A0DE20265AF0C5008D90B4 /* Disciplines.csv */,
-				28A0DE1F265AF0C5008D90B4 /* Powers.csv */,
+				286FBF80265D927300AAA469 /* Disciplines.csv */,
+				286FBF81265D927300AAA469 /* Powers.csv */,
 				28773443265713100098E27B /* Skills.csv */,
 				282EC8612656EED50086B14F /* Attributes.csv */,
 			);
@@ -340,12 +340,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28A0DE21265AF0C5008D90B4 /* Powers.csv in Resources */,
 				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
-				28A0DE22265AF0C5008D90B4 /* Disciplines.csv in Resources */,
 				282EC8622656EED50086B14F /* Attributes.csv in Resources */,
+				286FBF82265D927300AAA469 /* Disciplines.csv in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				28773444265713100098E27B /* Skills.csv in Resources */,
+				286FBF83265D927300AAA469 /* Powers.csv in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
