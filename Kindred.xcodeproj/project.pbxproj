@@ -132,7 +132,6 @@
 				282EC8602656EEC90086B14F /* Reference Files */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				28386F5F265868B800E90445 /* Views */,
-				282EC8372656EEB80086B14F /* ContentView.swift */,
 				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
@@ -202,9 +201,8 @@
 		28386F5F265868B800E90445 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				28386F60265868DF00E90445 /* DisciplineDetailView.swift */,
-				28386F6626587AA500E90445 /* PowerInfoView.swift */,
-				28386F642658727400E90445 /* PowerLabelRow.swift */,
+				282EC8372656EEB80086B14F /* ContentView.swift */,
+				28E13FB6265C917B003E3DDF /* Disciplines and Powers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +213,16 @@
 				2877344126570F520098E27B /* DisciplineFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		28E13FB6265C917B003E3DDF /* Disciplines and Powers */ = {
+			isa = PBXGroup;
+			children = (
+				28386F60265868DF00E90445 /* DisciplineDetailView.swift */,
+				28386F6626587AA500E90445 /* PowerInfoView.swift */,
+				28386F642658727400E90445 /* PowerLabelRow.swift */,
+			);
+			path = "Disciplines and Powers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

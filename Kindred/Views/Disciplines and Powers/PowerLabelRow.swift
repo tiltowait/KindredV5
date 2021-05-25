@@ -33,7 +33,7 @@ struct PowerLabelRow: View {
 
 struct PowerLabelRow_Previews: PreviewProvider {
   static var previews: some View {
-    PowerLabelRow(power: Global.tdController.disciplines.first!.allPowers[2])
+    PowerLabelRow(power: DataController.Example.power)
       .previewLayout(.sizeThatFits)
   }
 }
