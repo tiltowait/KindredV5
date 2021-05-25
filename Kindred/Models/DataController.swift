@@ -90,12 +90,12 @@ extension DataController {
   /// Example constants used for SwiftUI previews.
   enum Example {
     
-    /// The example `Discipline` is Auspex.
+    /// The example `Discipline` is Animalism.
     static let discipline: Discipline = {
       DataController.preview.disciplines[0]
     }()
     
-    /// The example `Power` is Share the Senses from Auspex.
+    /// The example `Power` is Quell the Beast from Animalism.
     static let power: Power = {
       print("power")
       return DataController.Example.discipline.allPowers[4]

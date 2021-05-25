@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+  
+  @SceneStorage("selectedView") var selectedView: String?
+  
   var body: some View {
-    Text("Hello, world!")
-      .padding()
+    TabView(selection: $selectedView) {
+      Text("Characters")
+        .tag("Characters")
+        .tabItem {
+          Image(systemName: "person.3")
+          Text("Characters")
+        }
+      ReferenceView()
+        .tag(ReferenceView.tag)
+        .tabItem {
+          Image(systemName: "books.vertical")
+          Text("Reference")
+        }
+    }
   }
+  
 }
 
 struct ContentView_Previews: PreviewProvider {

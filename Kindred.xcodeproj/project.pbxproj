@@ -20,13 +20,19 @@
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
 		28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F60265868DF00E90445 /* DisciplineDetailView.swift */; };
 		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
-		28386F652658727400E90445 /* PowerLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerLabelRow.swift */; };
+		28386F652658727400E90445 /* PowerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerRow.swift */; };
 		28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerInfoView.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
 		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
 		286FBF82265D927300AAA469 /* Disciplines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 286FBF80265D927300AAA469 /* Disciplines.csv */; };
 		286FBF83265D927300AAA469 /* Powers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 286FBF81265D927300AAA469 /* Powers.csv */; };
+		286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF84265D930500AAA469 /* DisciplineRow.swift */; };
+		286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF86265D94B900AAA469 /* DisciplineList.swift */; };
+		286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF89265D978400AAA469 /* ReferenceView.swift */; };
+		286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8B265D98BA00AAA469 /* IconFooter.swift */; };
+		286FBF8E265D9E6F00AAA469 /* SourceColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286FBF8D265D9E6F00AAA469 /* SourceColors.xcassets */; };
+		286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8F265D9EDF00AAA469 /* Color+.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
@@ -69,13 +75,19 @@
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
 		28386F60265868DF00E90445 /* DisciplineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailView.swift; sourceTree = "<group>"; };
 		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
-		28386F642658727400E90445 /* PowerLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerLabelRow.swift; sourceTree = "<group>"; };
+		28386F642658727400E90445 /* PowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRow.swift; sourceTree = "<group>"; };
 		28386F6626587AA500E90445 /* PowerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoView.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
 		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
 		286FBF80265D927300AAA469 /* Disciplines.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Disciplines.csv; sourceTree = "<group>"; };
 		286FBF81265D927300AAA469 /* Powers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Powers.csv; sourceTree = "<group>"; };
+		286FBF84265D930500AAA469 /* DisciplineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineRow.swift; sourceTree = "<group>"; };
+		286FBF86265D94B900AAA469 /* DisciplineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineList.swift; sourceTree = "<group>"; };
+		286FBF89265D978400AAA469 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
+		286FBF8B265D98BA00AAA469 /* IconFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFooter.swift; sourceTree = "<group>"; };
+		286FBF8D265D9E6F00AAA469 /* SourceColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SourceColors.xcassets; sourceTree = "<group>"; };
+		286FBF8F265D9EDF00AAA469 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
@@ -132,11 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				28386F5826585D9C00E90445 /* Constants.swift */,
-				282EC8662656EFFF0086B14F /* Models */,
-				282EC8602656EEC90086B14F /* Reference Files */,
+				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
+				282EC8662656EFFF0086B14F /* Models */,
 				28386F5F265868B800E90445 /* Views */,
 				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
+				286FBF8D265D9E6F00AAA469 /* SourceColors.xcassets */,
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
 				282EC83B2656EEB90086B14F /* Preview Content */,
@@ -184,11 +197,12 @@
 		282EC8662656EFFF0086B14F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				28386F5A2658618E00E90445 /* Core Data Extensions */,
-				2877344026570EF20098E27B /* Factories */,
-				282EC8672656F0150086B14F /* TraitReference.swift */,
+				282EC8602656EEC90086B14F /* Reference Files */,
 				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
 				28773449265713360098E27B /* DataController.swift */,
+				282EC8672656F0150086B14F /* TraitReference.swift */,
+				28386F5A2658618E00E90445 /* Core Data Extensions */,
+				2877344026570EF20098E27B /* Factories */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,10 +210,10 @@
 		28386F5A2658618E00E90445 /* Core Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				28386F5B2658619D00E90445 /* Discipline+.swift */,
-				28386F6226586E2E00E90445 /* Power+.swift */,
 				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
+				28386F5B2658619D00E90445 /* Discipline+.swift */,
+				28386F6226586E2E00E90445 /* Power+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -208,9 +222,22 @@
 			isa = PBXGroup;
 			children = (
 				282EC8372656EEB80086B14F /* ContentView.swift */,
-				28E13FB6265C917B003E3DDF /* Disciplines and Powers */,
+				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
+				286FBF89265D978400AAA469 /* ReferenceView.swift */,
+				286FBF88265D976400AAA469 /* Disciplines */,
+				28E13FB6265C917B003E3DDF /* Powers */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		286FBF88265D976400AAA469 /* Disciplines */ = {
+			isa = PBXGroup;
+			children = (
+				286FBF86265D94B900AAA469 /* DisciplineList.swift */,
+				286FBF84265D930500AAA469 /* DisciplineRow.swift */,
+				28386F60265868DF00E90445 /* DisciplineDetailView.swift */,
+			);
+			path = Disciplines;
 			sourceTree = "<group>";
 		};
 		2877344026570EF20098E27B /* Factories */ = {
@@ -221,14 +248,13 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
-		28E13FB6265C917B003E3DDF /* Disciplines and Powers */ = {
+		28E13FB6265C917B003E3DDF /* Powers */ = {
 			isa = PBXGroup;
 			children = (
-				28386F60265868DF00E90445 /* DisciplineDetailView.swift */,
 				28386F6626587AA500E90445 /* PowerInfoView.swift */,
-				28386F642658727400E90445 /* PowerLabelRow.swift */,
+				28386F642658727400E90445 /* PowerRow.swift */,
 			);
-			path = "Disciplines and Powers";
+			path = Powers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +370,7 @@
 				282EC8622656EED50086B14F /* Attributes.csv in Resources */,
 				286FBF82265D927300AAA469 /* Disciplines.csv in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
+				286FBF8E265D9E6F00AAA469 /* SourceColors.xcassets in Resources */,
 				28773444265713100098E27B /* Skills.csv in Resources */,
 				286FBF83265D927300AAA469 /* Powers.csv in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
@@ -373,18 +400,23 @@
 			files = (
 				282EC8682656F0150086B14F /* TraitReference.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
+				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
-				28386F652658727400E90445 /* PowerLabelRow.swift in Sources */,
+				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
+				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
+				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
+				286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +578,7 @@
 				DEVELOPMENT_TEAM = 56MB68UYDC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kindred/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +600,7 @@
 				DEVELOPMENT_TEAM = 56MB68UYDC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Kindred/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

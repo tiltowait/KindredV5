@@ -21,13 +21,14 @@ struct DisciplineDetailView: View {
   
   var body: some View {
     List {
-      Section(header: Text(discipline.info)) {
+      Section(header: Text(discipline.info),
+              footer: IconFooter(icon: discipline.disciplineIcon)) {
         ForEach(0..<discipline.allPowers.count) { index in
           DisclosureGroup(
             isExpanded: $disclosureFlags[index],
             content: { PowerInfoView(power: power(at: index)) },
             label: {
-              PowerLabelRow(power: power(at: index))
+              PowerRow(power: power(at: index))
                 .contentShape(Rectangle())
                 .onTapGesture {
                   withAnimation {
@@ -39,20 +40,8 @@ struct DisciplineDetailView: View {
         }
       }
     }
-    .toolbar {
-      ToolbarItem(placement: .principal) {
-        HStack {
-          Image(discipline.disciplineIcon)
-            .resizable()
-            .frame(width: 30, height: 30)
-            .clipShape(Circle())
-          Text(discipline.name)
-            .font(.headline)
-        }
-      }
-    }
     .listStyle(GroupedListStyle())
-    .navigationBarTitleDisplayMode(.inline)
+    .navigationTitle(discipline.name)
   }
   
   func power(at index: Int) -> Power {

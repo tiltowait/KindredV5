@@ -5,6 +5,8 @@
 //  Created by Jared Lindsay on 5/21/21.
 //
 
+import SwiftUI
+
 /// Global enums and constants used throughout the app.
 enum Global {
   
@@ -54,6 +56,14 @@ enum Global {
       case .companion: return "V5 Companion"
       case .cultsOfTheBloodGods: return "Cults of the Blood Gods"
       case .childrenOfTheBlood: return "Children of the Blood"
+      }
+    }
+    
+    var color: Color {
+      switch self {
+      case .core: return .core
+      case .cultsOfTheBloodGods: return .cultsOfTheBloodGods
+      default: return .unknownSource
       }
     }
     
