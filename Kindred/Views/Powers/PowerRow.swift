@@ -14,13 +14,20 @@ struct PowerRow: View {
   
   var body: some View {
     VStack {
-      HStack(alignment: .bottom) {
+      HStack(alignment: .center) {
         Text("\(power.level)")
           .foregroundColor(.secondary)
           .font(.caption)
         Text(power.name)
           .font(.headline)
         Spacer()
+        
+        if power.sourceBook != .core {
+          Circle()
+            .foregroundColor(power.sourceBook.color)
+            .frame(width: 15, height: 15)
+        }
+        
         Text(power.sourceBook.reference(page: power.page))
           .font(.caption)
           .foregroundColor(.secondary)

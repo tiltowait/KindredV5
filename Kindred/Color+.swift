@@ -11,7 +11,7 @@ import SwiftUI
 extension Color {
   
   /// The color associated with the core rulebook.
-  static let core = Color.clear
+  static let core = Color.secondary
   
   /// The color associated with the V5 Companion.
   static let companion = Color("Companion")

@@ -16,24 +16,52 @@ struct PowerInfoView: View {
       if power.rouse > 0 {
         Text("Rouse: ")
           .bold()
-          + Text("\(power.rouse)")
+          + Text("\(bloodDrops)")
       } else {
         Text("Free use")
       }
     }
   }
   
+  var bloodDrops: String {
+    Array(repeating: "🩸", count: Int(power.rouse)).joined()
+  }
+  
+  var prerequisite: some View {
+    Group {
+      switch power.powerPrerequisite {
+      case .amalgam(let amalgam):
+        Text("Amalgam: ")
+          .bold()
+        + Text(amalgam)
+      case .prerequisite(let prerequisite):
+        Text("Prerequisite: ")
+          .bold()
+        + Text(prerequisite)
+      case .none:
+        EmptyView()
+      }
+    }
+  }
+  
   var durationText: some View {
-    Text("Duration: ")
-      .bold()
-      + Text(power.powerDuration)
+    HStack(alignment: .top) {
+      Text("Duration: ")
+        .bold()
+      Text(power.powerDuration)
+        .fixedSize(horizontal: false, vertical: true)
+    }
   }
   
   var body: some View {
     VStack(alignment: .leading) {
+      prerequisite
+        .padding(.bottom, 5)
+      
       Text(power.info)
         .italic()
-      HStack {
+      
+      HStack(alignment: .top) {
         rouseText
           .font(.callout)
         Spacer()

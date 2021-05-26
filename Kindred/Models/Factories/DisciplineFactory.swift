@@ -75,9 +75,9 @@ enum DisciplineFactory {
         power.name = row["Power"]!
         power.level = Int16(row["Level"]!)!
         power.rouse = Int16(row["Rouse"]!)!
-        power.pool = row["Pool"] // Optional
+        power.pool = row["Pool"]!.isEmpty ? nil : row["Pool"] // Optional
         power.info = row["Info"]!
-        power.prerequisite = row["Prerequisite"] // Optional
+        power.prerequisite = row["Prerequisite"]!.isEmpty ? nil : row["Prerequisite"] // Optional
         power.duration = row["Duration"]
         power.source = Int16(row["Source"]!)!
         power.page = Int16(row["Page"]!)!

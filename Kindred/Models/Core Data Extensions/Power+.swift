@@ -11,6 +11,12 @@ import CoreData
 // MARK: - Non-Optional Accessors
 extension Power {
   
+  enum Prerequisite {
+    case amalgam(String)
+    case prerequisite(String)
+    case none
+  }
+  
   /// The name of the power's containing `Discipline`.
   var disciplineName: String {
     self.discipline!.name
@@ -19,6 +25,16 @@ extension Power {
   /// The power's duration.
   var powerDuration: String {
     self.duration!
+  }
+  
+  var powerPrerequisite: Prerequisite {
+    if let lastChar = prerequisite?.last {
+      if lastChar.isNumber {
+        return .amalgam(prerequisite!)
+      }
+      return .prerequisite(prerequisite!)
+    }
+    return .none
   }
   
 }
