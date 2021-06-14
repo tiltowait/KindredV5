@@ -39,6 +39,9 @@
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
+		28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* KindredView.swift */; };
+		28A1E9EF2677B6C40084F483 /* TraitBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */; };
+		28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabelView.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -100,6 +103,9 @@
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
+		28A1E9EC2677B62A0084F483 /* KindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredView.swift; sourceTree = "<group>"; };
+		28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockView.swift; sourceTree = "<group>"; };
+		28A1E9F02677B73B0084F483 /* BoldLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabelView.swift; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -244,6 +250,9 @@
 				28E13FB6265C917B003E3DDF /* Powers */,
 				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
 				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
+				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
+				28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */,
+				28A1E9F02677B73B0084F483 /* BoldLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -430,12 +439,15 @@
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
+				28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */,
+				28A1E9EF2677B6C40084F483 /* TraitBlockView.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
+				28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,

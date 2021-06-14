@@ -13,7 +13,9 @@ struct KindredApp: App {
   @StateObject var dataController: DataController
   
   init() {
-    let dataController = DataController(inMemory: true)
+    let dataController = DataController(inMemory: false)
+//    let dataController = DataController(inMemory: true)
+
     _dataController = StateObject(wrappedValue: dataController)
   }
   

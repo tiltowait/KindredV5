@@ -11,6 +11,7 @@ struct KindredListView: View {
   
   static let tag = "Kindred"
   
+  @EnvironmentObject var dataController: DataController
   @FetchRequest(
     entity: Kindred.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Kindred.zName, ascending: true)]
@@ -20,8 +21,13 @@ struct KindredListView: View {
   
   var body: some View {
     NavigationView {
-      List(kindred) { cainite in
-        Text(cainite.name)
+      List {
+        ForEach(kindred) { cainite in
+          NavigationLink(destination: KindredView(kindred: cainite)) {
+            Text(cainite.name)
+          }
+        }
+        .onDelete(perform: delete)
       }
       .navigationTitle("Kindred")
       .toolbar {
@@ -35,6 +41,14 @@ struct KindredListView: View {
     .sheet(isPresented: $showingCreationSheet) {
       AddKindredView()
     }
+  }
+  
+  func delete(_ offsets: IndexSet) {
+    for offset in offsets {
+      let cainite = kindred[offset]
+      dataController.delete(kindred: cainite)
+    }
+    dataController.save()
   }
 }
 
