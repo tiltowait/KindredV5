@@ -31,11 +31,59 @@
         <attribute name="zName" attributeType="String"/>
     </entity>
     <entity name="Kindred" representedClassName="Kindred" syncable="YES" codeGenerationType="class">
-        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="embraceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="height" optional="YES" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="academics" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="animalKen" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="athletics" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="awareness" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bloodPotency" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="brawl" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="charisma" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="composure" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="craft" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dexterity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="drive" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="etiquette" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="finance" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firearms" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="generation" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="health" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="humanity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="hunger" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="insight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intelligence" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="intimidation" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="investigation" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="larceny" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="leadership" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="manipulation" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="medicine" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="melee" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="occult" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="performance" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="persuasion" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="politics" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="resolve" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="science" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stamina" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stealth" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="streetwise" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="strength" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subterfuge" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="survival" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="technology" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="willpower" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="wits" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="zAmbition" optional="YES" attributeType="String"/>
+        <attribute name="zBirthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="zChronicle" optional="YES" attributeType="String"/>
+        <attribute name="zConcept" optional="YES" attributeType="String"/>
+        <attribute name="zDesire" optional="YES" attributeType="String"/>
+        <attribute name="zEmbraceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="zHeight" optional="YES" attributeType="String"/>
+        <attribute name="zName" attributeType="String"/>
+        <attribute name="zSire" optional="YES" attributeType="String"/>
+        <attribute name="zTitle" optional="YES" attributeType="String"/>
+        <attribute name="zWeight" optional="YES" attributeType="String"/>
         <relationship name="clan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Clan" inverseName="kindred" inverseEntity="Clan"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Power" inverseName="kindred" inverseEntity="Power"/>
         <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="kindred" inverseEntity="PredatorType"/>
@@ -66,15 +114,15 @@
         <relationship name="prerequisite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Power" inverseName="dependentRituals" inverseEntity="Power"/>
     </entity>
     <elements>
-        <element name="Advantage" positionX="332.05078125" positionY="17.81640625" width="128" height="73"/>
+        <element name="Advantage" positionX="324.50390625" positionY="2.96484375" width="128" height="73"/>
         <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="103"/>
-        <element name="Clan" positionX="-272.9453125" positionY="-386.4765625" width="128" height="148"/>
+        <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="148"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="118"/>
-        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="163"/>
-        <element name="Power" positionX="141.28125" positionY="-258.390625" width="128" height="163"/>
-        <element name="PredatorType" positionX="-67.65625" positionY="-62.97265625" width="128" height="103"/>
+        <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
+        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="28"/>
+        <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="163"/>
+        <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>
+        <element name="ReferenceItem" positionX="83.31640625" positionY="-420.234375" width="128" height="73"/>
         <element name="Ritual" positionX="343.1796875" positionY="-420.5546875" width="128" height="88"/>
-        <element name="InfoItem" positionX="-57.40234375" positionY="-608.734375" width="128" height="73"/>
-        <element name="ReferenceItem" positionX="81.73828125" positionY="-493.828125" width="128" height="73"/>
     </elements>
 </model>

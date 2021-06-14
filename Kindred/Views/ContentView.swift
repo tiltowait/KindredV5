@@ -13,8 +13,8 @@ struct ContentView: View {
   
   var body: some View {
     TabView(selection: $selectedView) {
-      Text("Characters")
-        .tag("Characters")
+      KindredListView()
+        .tag(KindredListView.tag)
         .tabItem {
           Image(systemName: "person.3")
           Text("Characters")

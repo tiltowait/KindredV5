@@ -37,6 +37,12 @@
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
+		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
+		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
+		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
+		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
+		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
+		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +98,12 @@
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
+		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
+		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
+		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
+		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
+		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +155,11 @@
 		282EC8342656EEB80086B14F /* Kindred */ = {
 			isa = PBXGroup;
 			children = (
+				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
+				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
 				28386F5826585D9C00E90445 /* Constants.swift */,
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
+				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				282EC8662656EFFF0086B14F /* Models */,
 				28386F5F265868B800E90445 /* Views */,
@@ -214,6 +229,7 @@
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
+				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -226,6 +242,8 @@
 				286FBF89265D978400AAA469 /* ReferenceView.swift */,
 				286FBF88265D976400AAA469 /* Disciplines */,
 				28E13FB6265C917B003E3DDF /* Powers */,
+				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
+				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,16 +416,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */,
 				282EC8682656F0150086B14F /* TraitReference.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
+				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
+				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
+				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
+				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
+				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,

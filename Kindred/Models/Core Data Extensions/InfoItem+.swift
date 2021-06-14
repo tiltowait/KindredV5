@@ -13,24 +13,14 @@ extension InfoItem {
   
   /// The item's name.
   var name: String {
-    get {
-      zName!
-    }
-    
-    set {
-      zName = newValue
-    }
+    get { zName! }
+    set { zName = newValue }
   }
   
   /// The item's flavor text/description.
   var info: String {
-    get {
-      zInfo!
-    }
-    
-    set {
-      zInfo = newValue
-    }
+    get { zInfo! }
+    set { zInfo = newValue }
   }
   
 }
