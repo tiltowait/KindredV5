@@ -35,6 +35,7 @@ enum CharacterImporter {
     kindred.charisma = pdf.rating(for: .charisma)
     kindred.manipulation = pdf.rating(for: .manipulation)
     kindred.composure = pdf.rating(for: .composure)
+    kindred.wits = pdf.rating(for: .wits)
     kindred.intelligence = pdf.rating(for: .intelligence)
     kindred.resolve = pdf.rating(for: .resolve)
     

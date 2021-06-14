@@ -22,6 +22,12 @@
 		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
 		28386F652658727400E90445 /* PowerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerRow.swift */; };
 		28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerInfoView.swift */; };
+		283DE7E82677DF8200876573 /* KindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E72677DF8200876573 /* KindredViewModel.swift */; };
+		283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */; };
+		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
+		283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */; };
+		284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5B82677CE6B007B298B /* ImagePicker.swift */; };
+		284CF5BF2677D401007B298B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageView.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
 		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
@@ -86,6 +92,12 @@
 		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
 		28386F642658727400E90445 /* PowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRow.swift; sourceTree = "<group>"; };
 		28386F6626587AA500E90445 /* PowerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerInfoView.swift; sourceTree = "<group>"; };
+		283DE7E72677DF8200876573 /* KindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredViewModel.swift; sourceTree = "<group>"; };
+		283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeader.swift; sourceTree = "<group>"; };
+		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
+		283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeaderViewModel.swift; sourceTree = "<group>"; };
+		284CF5B82677CE6B007B298B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		284CF5BE2677D401007B298B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
 		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
@@ -174,6 +186,7 @@
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
 				282EC83B2656EEB90086B14F /* Preview Content */,
+				284CF5B82677CE6B007B298B /* ImagePicker.swift */,
 			);
 			path = Kindred;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
+				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -251,6 +265,10 @@
 				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
 				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
 				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
+				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
+				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
+				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
+				284CF5BE2677D401007B298B /* ImageView.swift */,
 				28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabelView.swift */,
 			);
@@ -425,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284CF5BF2677D401007B298B /* ImageView.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */,
 				282EC8682656F0150086B14F /* TraitReference.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
@@ -438,16 +457,21 @@
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
+				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitBlockView.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
+				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */,
+				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
+				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
+				283DE7E82677DF8200876573 /* KindredViewModel.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,

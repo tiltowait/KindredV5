@@ -75,6 +75,16 @@ extension Kindred {
     set { zWeight = newValue }
   }
   
+  var fullSizeImageData: [Data] {
+    let images = images?.allObjects as? [KindredImage] ?? []
+    return images.sorted().compactMap { $0.image }
+  }
+  
+  var thumbnailImageData: [Data] {
+    let images = images?.allObjects as? [KindredImage] ?? []
+    return images.sorted().compactMap { $0.thumb }
+  }
+  
 }
 
 extension Kindred {

@@ -22,4 +22,7 @@ extension Color {
   /// The color for when a source book is unknown. A nice, disgusting brown.
   static let unknownSource = Color("Unknown")
   
+  /// The color for content layered on top of secondary backgrounds of your grouped interface.
+  static let tertiarySystemGroupedBackground = Color(UIColor.tertiarySystemGroupedBackground)
+  
 }
