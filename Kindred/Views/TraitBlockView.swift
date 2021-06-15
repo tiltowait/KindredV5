@@ -20,8 +20,13 @@ struct TraitBlockView: View {
         ForEach(traits.indices) { index in
           VStack(alignment: .leading) {
             ForEach(self.traits[index], id: \.0) { trait in
-              Text("\(trait.0) \(dots(for: trait.1))")
-                .font(.caption)
+              HStack {
+                Text(trait.0)
+                  .font(.caption)
+                Spacer()
+                Text("\(trait.1)")
+                  .font(.caption)
+              }
             }
           }
         }
@@ -29,9 +34,6 @@ struct TraitBlockView: View {
     }
   }
   
-  func dots(for rating: Int16) -> String {
-    Array(repeating: "•", count: Int(rating)).joined()
-  }
 }
 
 struct TraitBlockView_Previews: PreviewProvider {
