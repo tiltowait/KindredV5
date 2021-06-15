@@ -51,7 +51,7 @@ struct KindredListView: View {
   func delete(_ offsets: IndexSet) {
     for offset in offsets {
       let cainite = kindred[offset]
-      dataController.delete(kindred: cainite)
+      dataController.delete(cainite)
     }
     dataController.save()
   }

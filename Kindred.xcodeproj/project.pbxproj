@@ -26,6 +26,7 @@
 		283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */; };
 		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
 		283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */; };
+		28474426267832D200C1E3A5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28474425267832D200C1E3A5 /* DotView.swift */; };
 		284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5B82677CE6B007B298B /* ImagePicker.swift */; };
 		284CF5BF2677D401007B298B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageView.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
@@ -96,6 +97,7 @@
 		283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeader.swift; sourceTree = "<group>"; };
 		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
 		283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeaderViewModel.swift; sourceTree = "<group>"; };
+		28474425267832D200C1E3A5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		284CF5B82677CE6B007B298B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		284CF5BE2677D401007B298B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
 				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
+				28474425267832D200C1E3A5 /* DotView.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
 				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
 				284CF5BE2677D401007B298B /* ImageView.swift */,
@@ -472,6 +475,7 @@
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				283DE7E82677DF8200876573 /* KindredViewModel.swift in Sources */,
+				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,

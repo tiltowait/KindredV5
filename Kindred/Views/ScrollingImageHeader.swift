@@ -69,7 +69,11 @@ struct ScrollingImageHeader: View {
       ImagePicker(image: $addedImage)
     }
     .sheet(item: $showingImageIndex) { index in
-      ImageView(image: fullSizeImages[index], deletionHandler: viewModel.removeImage)
+      ImageView(
+        images: fullSizeImages,
+        index: index,
+        deletionHandler: viewModel.removeImage
+      )
     }
     .alert(isPresented: $viewModel.attemptedToAddDuplicateImage) {
       Alert(

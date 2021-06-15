@@ -77,8 +77,8 @@ class DataController: ObservableObject {
   
   /// Deletes the user character from the store. Make sure to call `save()` afterward!
   /// - Parameter kindred: The character to delete.
-  func delete(kindred: Kindred) {
-    container.viewContext.delete(kindred)
+  func delete(_ object: NSManagedObject) {
+    container.viewContext.delete(object)
   }
   
 }

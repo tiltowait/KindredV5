@@ -44,14 +44,16 @@ extension ScrollingImageHeader {
     }
     
     func removeImage(at index: Int) {
-      let images = kindred.images?.allObjects as? [KindredImage] ?? []
+      let images = kindred.allImageObjects
       if 0..<images.count ~= index {
         let image = images[index]
         
         kindred.removeFromImages(image)
-        dataController.save()
+        dataController.delete(image)
         fullSizeImageData.remove(at: index)
         thumbnailImageData.remove(at: index)
+        
+        dataController.save()
       } else {
         print("Can't delete index \(index).")
       }
