@@ -24,12 +24,7 @@ struct KindredListView: View {
       List {
         ForEach(kindred) { cainite in
           NavigationLink(destination: KindredView(kindred: cainite, dataController: dataController)) {
-            VStack(alignment: .leading) {
-              Text(cainite.name)
-              Text("12th-generation Hecata")
-                .font(.caption)
-                .foregroundColor(.secondary)
-            }
+            KindredRowView(kindred: cainite)
           }
         }
         .onDelete(perform: delete)

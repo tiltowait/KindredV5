@@ -54,6 +54,7 @@
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
+		28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		28EBBE0626784E90004DD186 /* KindredRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				286FBF88265D976400AAA469 /* Disciplines */,
 				28E13FB6265C917B003E3DDF /* Powers */,
 				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
+				28EBBE0626784E90004DD186 /* KindredRowView.swift */,
 				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
 				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
@@ -461,6 +464,7 @@
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
+				28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
