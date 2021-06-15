@@ -9,16 +9,22 @@ import SwiftUI
 
 struct DotSelectorView: View {
   
+  @State private var showingReferenceAlert = false
   let size: CGFloat = 14
   let spacing: CGFloat = 5
   
   @ObservedObject var kindred: Kindred
   let keyPath: ReferenceWritableKeyPath<Kindred, Int16>
   let max: Int
+  let reference: String
+  
+  var label: String {
+    keyPath.stringValue.unCamelCased.capitalized
+  }
   
   var body: some View {
     HStack {
-      Text("\(keyPath.stringValue.unCamelCased.capitalized):")
+      Text("\(label):")
         .bold()
       
       Spacer()
@@ -37,6 +43,17 @@ struct DotSelectorView: View {
             .frame(width: 1, height: 1)
         }
       }
+      
+      // Reference button
+      Button {
+        showingReferenceAlert.toggle()
+      } label: {
+        Label("Reference", systemImage: "info.circle")
+          .labelStyle(IconOnlyLabelStyle())
+      }
+    }
+    .alert(isPresented: $showingReferenceAlert) {
+      Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
     }
   }
   

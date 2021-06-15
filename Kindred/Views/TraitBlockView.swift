@@ -45,7 +45,12 @@ struct TraitBlockView: View {
   func section(named name: String, forTraits traits: [ReferenceWritableKeyPath<Kindred, Int16>]) -> some View {
     Section(header: Text(name)) {
       ForEach(traits, id: \.self) { trait in
-        DotSelectorView(kindred: viewModel.kindred, keyPath: trait, max: 5)
+        DotSelectorView(
+          kindred: viewModel.kindred,
+          keyPath: trait,
+          max: 5,
+          reference: viewModel.reference(forKeyPath: trait)
+        )
       }
     }
   }

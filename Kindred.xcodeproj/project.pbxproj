@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		28252069267916CD0066F09B /* DotSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelectorView.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
+		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
 		282EC8362656EEB80086B14F /* KindredApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8352656EEB80086B14F /* KindredApp.swift */; };
 		282EC8382656EEB80086B14F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8372656EEB80086B14F /* ContentView.swift */; };
 		282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC8392656EEB90086B14F /* Assets.xcassets */; };
 		282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC83C2656EEB90086B14F /* Preview Assets.xcassets */; };
 		282EC8482656EEB90086B14F /* KindredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8472656EEB90086B14F /* KindredTests.swift */; };
 		282EC8532656EEB90086B14F /* KindredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8522656EEB90086B14F /* KindredUITests.swift */; };
-		282EC8622656EED50086B14F /* Attributes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 282EC8612656EED50086B14F /* Attributes.csv */; };
 		282EC8652656EFF30086B14F /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 282EC8642656EFF30086B14F /* SwiftCSV */; };
 		282EC8682656F0150086B14F /* TraitReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8672656F0150086B14F /* TraitReference.swift */; };
 		28386F5926585D9C00E90445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5826585D9C00E90445 /* Constants.swift */; };
@@ -44,7 +44,6 @@
 		286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8F265D9EDF00AAA469 /* Color+.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
-		28773444265713100098E27B /* Skills.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28773443265713100098E27B /* Skills.csv */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
@@ -81,6 +80,7 @@
 /* Begin PBXFileReference section */
 		28252068267916CD0066F09B /* DotSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectorView.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
+		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
 		282EC8322656EEB80086B14F /* Kindred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282EC8352656EEB80086B14F /* KindredApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredApp.swift; sourceTree = "<group>"; };
 		282EC8372656EEB80086B14F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,7 +93,6 @@
 		282EC84E2656EEB90086B14F /* KindredUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KindredUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		282EC8522656EEB90086B14F /* KindredUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredUITests.swift; sourceTree = "<group>"; };
 		282EC8542656EEB90086B14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		282EC8612656EED50086B14F /* Attributes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Attributes.csv; sourceTree = "<group>"; };
 		282EC8672656F0150086B14F /* TraitReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitReference.swift; sourceTree = "<group>"; };
 		28386F5826585D9C00E90445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 		286FBF8F265D9EDF00AAA469 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
-		28773443265713100098E27B /* Skills.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Skills.csv; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
@@ -238,8 +236,7 @@
 			children = (
 				286FBF80265D927300AAA469 /* Disciplines.csv */,
 				286FBF81265D927300AAA469 /* Powers.csv */,
-				28773443265713100098E27B /* Skills.csv */,
-				282EC8612656EED50086B14F /* Attributes.csv */,
+				2825206C26792A9D0066F09B /* TraitReference.plist */,
 			);
 			path = "Reference Files";
 			sourceTree = "<group>";
@@ -434,13 +431,12 @@
 			files = (
 				28EBBE0526784902004DD186 /* Colors.xcassets in Resources */,
 				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
-				282EC8622656EED50086B14F /* Attributes.csv in Resources */,
 				286FBF82265D927300AAA469 /* Disciplines.csv in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				286FBF8E265D9E6F00AAA469 /* SourceColors.xcassets in Resources */,
-				28773444265713100098E27B /* Skills.csv in Resources */,
 				286FBF83265D927300AAA469 /* Powers.csv in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
+				2825206D26792A9D0066F09B /* TraitReference.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

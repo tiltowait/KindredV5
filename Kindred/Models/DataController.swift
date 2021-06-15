@@ -10,6 +10,7 @@ import CoreData
 
 class DataController: ObservableObject {
   
+  /// The primary Core Data container.
   let container: NSPersistentCloudKitContainer
   
   /// Static `DataController` used for SwiftUI previews.
@@ -23,6 +24,14 @@ class DataController: ObservableObject {
     } catch {
       fatalError("Unable to fetch disciplines.\n\(error.localizedDescription)")
     }
+  }()
+  
+  private(set) lazy var traitReference: [String: String] = {
+    guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
+          let traitReference = NSDictionary(contentsOf: url) as? [String: String]
+    else { return [:] }
+    
+    return traitReference
   }()
   
   /// Creates a `DataController` and initializes reference data if the store is empty.
@@ -57,7 +66,7 @@ class DataController: ObservableObject {
     }
   }
   
-  /// `True` if the data store is empty (technically, if it has no Disciplines).
+  /// `True` if the data store is empty.
   private var isEmpty: Bool {
     let request: NSFetchRequest<Discipline> = Discipline.fetchRequest()
     do {

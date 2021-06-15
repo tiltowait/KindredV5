@@ -100,6 +100,10 @@ extension TraitBlockView {
       }
     }
     
+    func reference(forKeyPath keyPath: KeyPath<Kindred, Int16>) -> String {
+      dataController.traitReference[keyPath.stringValue.unCamelCased.capitalized] ?? ""
+    }
+    
     /// Save any changes to the referenced Kindred object.
     func save() {
       dataController.save()
