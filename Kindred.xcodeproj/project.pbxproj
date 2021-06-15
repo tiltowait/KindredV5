@@ -53,6 +53,7 @@
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
+		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
+		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				28386F5F265868B800E90445 /* Views */,
 				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
 				286FBF8D265D9E6F00AAA469 /* SourceColors.xcassets */,
+				28EBBE0426784902004DD186 /* Colors.xcassets */,
 				282EC8392656EEB90086B14F /* Assets.xcassets */,
 				282EC83E2656EEB90086B14F /* Info.plist */,
 				282EC83B2656EEB90086B14F /* Preview Content */,
@@ -414,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EBBE0526784902004DD186 /* Colors.xcassets in Resources */,
 				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
 				282EC8622656EED50086B14F /* Attributes.csv in Resources */,
 				286FBF82265D927300AAA469 /* Disciplines.csv in Resources */,

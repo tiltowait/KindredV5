@@ -33,9 +33,26 @@ struct KindredView: View {
           TraitBlockView(title: "Abilities", traits: viewModel.zippedAbilities)
         }
       }
+      
+      Section(header: Text("Trackers")) {
+        derivedTrait("Health", rating: viewModel.kindred.health, max: 15)
+        derivedTrait("Willpower", rating: viewModel.kindred.willpower, max: 15)
+        derivedTrait("Humanity", rating: viewModel.kindred.humanity, max: 10)
+        derivedTrait("Hunger", rating: viewModel.kindred.hunger, max: 5)
+        derivedTrait("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
+      }
     }
     .listStyle(GroupedListStyle())
     .navigationTitle(viewModel.kindred.name)
+  }
+  
+  func derivedTrait(_ trait: String, rating: Int16, max: Int) -> some View {
+    VStack {
+      Text(trait)
+        .font(.subheadline)
+        .bold()
+      DotView(rating: rating, max: max)
+    }
   }
   
 }

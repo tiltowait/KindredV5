@@ -21,7 +21,7 @@ struct TraitBlockView: View {
           VStack(alignment: .leading) {
             ForEach(self.traits[index], id: \.0) { trait in
               HStack {
-                Text(trait.0)
+                Text("\(trait.0):")
                   .font(.caption)
                 Spacer()
                 Text("\(trait.1)")

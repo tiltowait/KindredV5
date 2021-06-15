@@ -25,4 +25,7 @@ extension Color {
   /// The color for content layered on top of secondary backgrounds of your grouped interface.
   static let tertiarySystemGroupedBackground = Color(UIColor.tertiarySystemGroupedBackground)
   
+  /// The brand color.
+  static let vampireRed = Color("Vampire Red")
+  
 }
