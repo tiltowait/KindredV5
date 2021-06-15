@@ -51,6 +51,7 @@
 		28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* KindredView.swift */; };
 		28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */; };
 		28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabelView.swift */; };
+		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -129,6 +130,7 @@
 		28A1E9EC2677B62A0084F483 /* KindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredView.swift; sourceTree = "<group>"; };
 		28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockPreview.swift; sourceTree = "<group>"; };
 		28A1E9F02677B73B0084F483 /* BoldLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabelView.swift; sourceTree = "<group>"; };
+		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -195,8 +197,9 @@
 				2825206A267918E30066F09B /* KeyPath+.swift */,
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
-				282EC8352656EEB80086B14F /* KindredApp.swift */,
+				28A39EB22679614000867AB9 /* UIImage+.swift */,
 				282EC8662656EFFF0086B14F /* Models */,
+				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				28386F5F265868B800E90445 /* Views */,
 				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
 				286FBF8D265D9E6F00AAA469 /* SourceColors.xcassets */,
@@ -286,8 +289,8 @@
 				28C5D158267944A600E199DB /* BaseKindredViewModel.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
-				28474425267832D200C1E3A5 /* DotView.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
+				28474425267832D200C1E3A5 /* DotView.swift */,
 				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
 				284CF5BE2677D401007B298B /* ImageView.swift */,
 				28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */,
@@ -496,6 +499,7 @@
 				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
+				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,

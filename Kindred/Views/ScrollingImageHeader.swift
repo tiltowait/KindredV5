@@ -16,9 +16,11 @@ struct ScrollingImageHeader: View {
   @StateObject var viewModel: ViewModel
   
   @State private var showingImagePicker = false
-  @State private var addedImage: UIImage?
+  @State private var imageToAdd: UIImage?
   
   @State private var showingImageIndex: Int?
+  
+  let thumbnailHeight: CGFloat = 100
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -53,7 +55,7 @@ struct ScrollingImageHeader: View {
               .resizable()
               .scaledToFit()
               .cornerRadius(10)
-              .frame(height: 100)
+              .frame(height: thumbnailHeight)
           }
         }
         .id(UUID())
@@ -66,7 +68,7 @@ struct ScrollingImageHeader: View {
       }
     }
     .sheet(isPresented: $showingImagePicker, onDismiss: addImage) {
-      ImagePicker(image: $addedImage)
+      ImagePicker(image: $imageToAdd)
     }
     .sheet(item: $showingImageIndex) { index in
       ImageView(
@@ -85,25 +87,14 @@ struct ScrollingImageHeader: View {
     .onDisappear(perform: viewModel.save)
   }
   
+  /// Adds the selected image to the view model.
   func addImage() {
-    if let image = addedImage {
-      // Before we add the image, we have to generate the new thumbnail
+    if let image = imageToAdd {
+      let scaledImage = image.resize(height: thumbnailHeight)
       
-      // Get the new size
-      let targetHeight: CGFloat = 100
-      let ratio = targetHeight / image.size.height
-      let targetWidth = image.size.width * ratio
-      
-      let newSize = CGSize(width: targetWidth, height: targetHeight)
-      let rect = CGRect(origin: .zero, size: newSize)
-      
-      // Draw the resized UIImage
-      let renderer = UIGraphicsImageRenderer(size: newSize)
-      let scaledImage = renderer.image { _ in
-        image.draw(in: rect)
-      }
-      
-      // Generate the data
+      // Theoretically, we should present an alert to the user; however, under no
+      // normal circumstances should this fail. In the event we ever start picking
+      // images from outside the photo library, we will revisit this topic.
       guard let fullSize = image.pngData(),
             let thumbnail = scaledImage.pngData()
       else { return }
