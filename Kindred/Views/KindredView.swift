@@ -26,11 +26,11 @@ struct KindredView: View {
       }
       
       Section(header: Text("Traits")) {
-        NavigationLink(destination: Text("Attributes")) {
-          TraitBlockView(title: "Attributes", traits: viewModel.zippedAttributes)
+        NavigationLink(destination: TraitBlockView(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
+          TraitBlockPreview(title: "Attributes", traits: viewModel.zippedAttributes)
         }
-        NavigationLink(destination: Text("Abilities")) {
-          TraitBlockView(title: "Abilities", traits: viewModel.zippedAbilities)
+        NavigationLink(destination: TraitBlockView(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
+          TraitBlockPreview(title: "Abilities", traits: viewModel.zippedAbilities)
         }
       }
       

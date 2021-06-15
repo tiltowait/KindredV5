@@ -34,4 +34,22 @@ extension StringProtocol {
     return result
   }
   
+  /// The string with spaces before each capital letter. E.g. "aNiceDay" becomes "a Nice Day".
+  ///
+  /// This property is fairly naive and should not be used for general purposes. Certain strings, such as "aUIImage", will
+  /// produce undesired output.
+  var unCamelCased: String {
+    if self.isEmpty { return "" }
+    
+    var newString = ""
+    
+    for character in self {
+      if character.isUppercase {
+        newString.append(" ")
+      }
+      newString.append(character)
+    }
+    return newString.trimmingCharacters(in: .whitespaces)
+  }
+  
 }

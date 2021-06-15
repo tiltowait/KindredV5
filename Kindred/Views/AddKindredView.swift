@@ -23,7 +23,7 @@ struct AddKindredView: View {
           }
         }
         
-        Section(footer: Text("This function will pull in name, clan, generation, etc., plus abilities and attributes.")) {
+        Section(footer: Text("This function will pull in name, clan, generation, etc., plus skills and attributes.")) {
           Button {
             showingFileImporter.toggle()
           } label: {

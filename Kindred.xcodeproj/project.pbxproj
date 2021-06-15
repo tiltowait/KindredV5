@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28252069267916CD0066F09B /* DotSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelectorView.swift */; };
+		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		282EC8362656EEB80086B14F /* KindredApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8352656EEB80086B14F /* KindredApp.swift */; };
 		282EC8382656EEB80086B14F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8372656EEB80086B14F /* ContentView.swift */; };
 		282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC8392656EEB90086B14F /* Assets.xcassets */; };
@@ -47,7 +49,7 @@
 		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
 		28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* KindredView.swift */; };
-		28A1E9EF2677B6C40084F483 /* TraitBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */; };
+		28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */; };
 		28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabelView.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
@@ -55,6 +57,8 @@
 		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRowView.swift */; };
+		28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlockView.swift */; };
+		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28252068267916CD0066F09B /* DotSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectorView.swift; sourceTree = "<group>"; };
+		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		282EC8322656EEB80086B14F /* Kindred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282EC8352656EEB80086B14F /* KindredApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredApp.swift; sourceTree = "<group>"; };
 		282EC8372656EEB80086B14F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,7 +126,7 @@
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
 		28A1E9EC2677B62A0084F483 /* KindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredView.swift; sourceTree = "<group>"; };
-		28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockView.swift; sourceTree = "<group>"; };
+		28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockPreview.swift; sourceTree = "<group>"; };
 		28A1E9F02677B73B0084F483 /* BoldLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabelView.swift; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* KindredRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRowView.swift; sourceTree = "<group>"; };
+		28EBBE0A2678529B004DD186 /* TraitBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockView.swift; sourceTree = "<group>"; };
+		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,7 @@
 				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
 				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
 				28386F5826585D9C00E90445 /* Constants.swift */,
+				2825206A267918E30066F09B /* KeyPath+.swift */,
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
@@ -278,7 +287,10 @@
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
 				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
 				284CF5BE2677D401007B298B /* ImageView.swift */,
-				28A1E9EE2677B6C40084F483 /* TraitBlockView.swift */,
+				28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */,
+				28252068267916CD0066F09B /* DotSelectorView.swift */,
+				28EBBE0A2678529B004DD186 /* TraitBlockView.swift */,
+				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabelView.swift */,
 			);
 			path = Views;
@@ -463,18 +475,22 @@
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
+				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
+				28252069267916CD0066F09B /* DotSelectorView.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */,
-				28A1E9EF2677B6C40084F483 /* TraitBlockView.swift in Sources */,
+				28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
+				28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
+				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,

@@ -33,7 +33,7 @@ class CharacterPDF {
     case title
   }
   
-  /// An enum used for determining the ratings of the character's abilities and attributes. We
+  /// An enum used for determining the ratings of the character's skills and attributes. We
   /// use an enum in order to avoid the risk of accidental misspellings when using raw strings.
   enum Trait: String {
     case strength
@@ -172,7 +172,7 @@ class CharacterPDF {
       return nil
     }
     
-    let page = pdf.page(at: 0)! // Only the first page has abilities and attributes we care about
+    let page = pdf.page(at: 0)! // Only the first page has skills and attributes we care about
     let contents = page.string!
     
     // Create the quick-lookup annotations dictionary

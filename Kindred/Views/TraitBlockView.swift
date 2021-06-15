@@ -9,36 +9,51 @@ import SwiftUI
 
 struct TraitBlockView: View {
   
-  let title: String
-  let traits: [[(String, Int16)]]
+  @StateObject var viewModel: ViewModel
+  
+  /// Create a TraitBlockView.
+  /// - Parameters:
+  ///   - kindred: The `Kindred` to observe.
+  ///   - dataController: The data controller responsible for saving and retrieving data.
+  ///   - traits: The type of trait we are looking for: attributes or skills.
+  init(kindred: Kindred, dataController: DataController, traits: ViewModel.TraitGroup) {
+    let viewModel = ViewModel(kindred: kindred, dataController: dataController, traits: traits)
+    _viewModel = StateObject(wrappedValue: viewModel)
+  }
   
   var body: some View {
-    VStack(alignment: .leading) {
-      Text(title)
-        .font(.headline)
-      HStack {
-        ForEach(traits.indices) { index in
-          VStack(alignment: .leading) {
-            ForEach(self.traits[index], id: \.0) { trait in
-              HStack {
-                Text("\(trait.0):")
-                  .font(.caption)
-                Spacer()
-                Text("\(trait.1)")
-                  .font(.caption)
-              }
-            }
-          }
-        }
+    List {
+      // Tell the user the XP cost to increase a trait
+      Section(header: Text(viewModel.costToIncrease)) { EmptyView() }
+      
+      // Display the trait blocks
+      section(named: "Physical", forTraits: viewModel.physical)
+      section(named: "Social", forTraits: viewModel.social)
+      section(named: "Mental", forTraits: viewModel.mental)
+    }
+    .listStyle(GroupedListStyle())
+    .navigationBarTitle(viewModel.title)
+    .onDisappear(perform: viewModel.save)
+  }
+  
+  /// Generate a `List` `Section` of a given name for a given group of traits.
+  ///
+  /// The list will be populated by appropriately labeled `DotSelectorView`s.
+  /// - Parameters:
+  ///   - name: The name of the section.
+  ///   - traits: The key paths to various traits.
+  func section(named name: String, forTraits traits: [ReferenceWritableKeyPath<Kindred, Int16>]) -> some View {
+    Section(header: Text(name)) {
+      ForEach(traits, id: \.self) { trait in
+        DotSelectorView(kindred: viewModel.kindred, keyPath: trait, max: 5)
       }
     }
   }
   
 }
 
-struct TraitBlockView_Previews: PreviewProvider {
-  static var previews: some View {
-    TraitBlockView(title: "Attributes", traits: [[("Strength", 3)], [("Charisma", 4)], [("Intelligence", 2)]])
-      .previewLayout(.sizeThatFits)
-  }
-}
+//struct TraitBlockView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    TraitBlockView()
+//  }
+//}

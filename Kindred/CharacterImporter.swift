@@ -39,7 +39,7 @@ enum CharacterImporter {
     kindred.intelligence = pdf.rating(for: .intelligence)
     kindred.resolve = pdf.rating(for: .resolve)
     
-    // Set the abilities
+    // Set the skills
     kindred.athletics = pdf.rating(for: .athletics)
     kindred.brawl = pdf.rating(for: .brawl)
     kindred.craft = pdf.rating(for: .craft)
