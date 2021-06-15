@@ -10,7 +10,7 @@ import SwiftUI
 struct DotSelectorView: View {
   
   @State private var showingReferenceAlert = false
-  let size: CGFloat = 14
+  let size: CGFloat = 17
   let spacing: CGFloat = 5
   
   @ObservedObject var kindred: Kindred
