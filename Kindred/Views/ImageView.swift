@@ -12,41 +12,53 @@ struct ImageView: View {
   @Environment(\.presentationMode) var presentationMode
   
   @State private var showingDeletionAlert = false
+  @State private var selectedImageIndex: Int
   
   let images: [Image]
-  @State private var index: Int
   let deletionHandler: (Int) -> Void
   
   init(images: [Image], index: Int, deletionHandler: @escaping (Int) -> Void) {
     self.images = images
-    _index = State(wrappedValue: index)
+    _selectedImageIndex = State(wrappedValue: index)
     self.deletionHandler = deletionHandler
+    
+    UIToolbar.appearance().barTintColor = .black
   }
   
   var body: some View {
     NavigationView {
       ZStack {
-        Color.black
-          .edgesIgnoringSafeArea(.all)
-        images[index]
-          .resizable()
-          .scaledToFit()
+        Color.black.edgesIgnoringSafeArea(.all)
+        
+        TabView(selection: $selectedImageIndex) {
+          ForEach(0..<images.count, id: \.self) { index in
+            images[index]
+              .resizable()
+              .scaledToFit()
+          }
+        }
+        .tabViewStyle(PageTabViewStyle())
       }
       .toolbar {
-        Button {
-          showingDeletionAlert = true
-        } label: {
-          Label("Delete", systemImage: "trash")
+        ToolbarItem(placement: .bottomBar) {
+          Spacer()
+        }
+        
+        ToolbarItem(placement: .bottomBar) {
+          Button {
+            showingDeletionAlert = true
+          } label: {
+            Label("Delete", systemImage: "trash")
+          }
         }
       }
     }
-    .accentColor(.red)
     .alert(isPresented: $showingDeletionAlert) {
       Alert(
         title: Text("Delete this photo?"),
         primaryButton: .cancel(),
         secondaryButton: .destructive(Text("Delete"), action: {
-          deletionHandler(index)
+          deletionHandler(selectedImageIndex)
           presentationMode.wrappedValue.dismiss()
         })
       )
