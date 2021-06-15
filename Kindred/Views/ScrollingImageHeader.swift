@@ -82,6 +82,7 @@ struct ScrollingImageHeader: View {
         dismissButton: nil
       )
     }
+    .onDisappear(perform: viewModel.save)
   }
   
   func addImage() {

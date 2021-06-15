@@ -11,7 +11,7 @@ struct ImageView: View {
   
   @Environment(\.presentationMode) var presentationMode
   
-  @State private var showingDeletionAlert = false
+  @State private var showingDeletionActionSheet = false
   @State private var selectedImageIndex: Int
   
   let images: [Image]
@@ -22,7 +22,7 @@ struct ImageView: View {
     _selectedImageIndex = State(wrappedValue: index)
     self.deletionHandler = deletionHandler
     
-    UIToolbar.appearance().barTintColor = .black
+    UIToolbar.appearance().barTintColor = .black // No way to change this natively in SwiftUI
   }
   
   var body: some View {
@@ -46,21 +46,24 @@ struct ImageView: View {
         
         ToolbarItem(placement: .bottomBar) {
           Button {
-            showingDeletionAlert = true
+            showingDeletionActionSheet = true
           } label: {
             Label("Delete", systemImage: "trash")
           }
         }
       }
     }
-    .alert(isPresented: $showingDeletionAlert) {
-      Alert(
-        title: Text("Delete this photo?"),
-        primaryButton: .cancel(),
-        secondaryButton: .destructive(Text("Delete"), action: {
-          deletionHandler(selectedImageIndex)
-          presentationMode.wrappedValue.dismiss()
-        })
+    .actionSheet(isPresented: $showingDeletionActionSheet) {
+      ActionSheet(
+        title: Text(""),
+        message: Text("This photo will not be deleted from your photos library."),
+        buttons: [
+          .cancel(),
+          .destructive(Text("Delete Photo"), action: {
+            deletionHandler(selectedImageIndex)
+            presentationMode.wrappedValue.dismiss()
+          })
+        ]
       )
     }
   }

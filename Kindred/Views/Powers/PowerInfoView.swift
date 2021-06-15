@@ -24,7 +24,7 @@ struct PowerInfoView: View {
   }
   
   var bloodDrops: String {
-    Array(repeating: "🩸", count: Int(power.rouse)).joined()
+    String(repeating: "🩸", count: Int(power.rouse))
   }
   
   var prerequisite: some View {

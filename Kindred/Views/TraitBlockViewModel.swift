@@ -8,21 +8,18 @@
 import Foundation
 
 extension TraitBlockView {
-  class ViewModel: ObservableObject {
+  class ViewModel: BaseKindredViewModel {
     
     enum TraitGroup: String {
       case attributes
       case skills
     }
     
-    @Published var kindred: Kindred
-    let dataController: DataController
     let traits: TraitGroup
     
     init(kindred: Kindred, dataController: DataController, traits: TraitGroup) {
-      self.kindred = kindred
-      self.dataController = dataController
       self.traits = traits
+      super.init(kindred: kindred, dataController: dataController)
     }
     
     var title: String {
@@ -102,11 +99,6 @@ extension TraitBlockView {
     
     func reference(forKeyPath keyPath: KeyPath<Kindred, Int16>) -> String {
       dataController.traitReference[keyPath.stringValue.unCamelCased.capitalized] ?? ""
-    }
-    
-    /// Save any changes to the referenced Kindred object.
-    func save() {
-      dataController.save()
     }
     
   }

@@ -13,17 +13,17 @@ struct BoldLabelView: View {
   let label: String
   let details: String
   
-  init(label: String, details: String) {
+  init(_ label: String, details: String) {
     self.label = label
     self.details = details
   }
   
-  init(label: String, details: Int) {
-    self.init(label: label, details: String(details))
+  init(_ label: String, details: Int) {
+    self.init(label, details: String(details))
   }
   
   var body: some View {
-    HStack(alignment: .center) {
+    HStack(alignment: .top) {
       Text("\(label):")
         .bold()
       Text(details)
@@ -34,7 +34,7 @@ struct BoldLabelView: View {
 
 struct BoldLabelView_Previews: PreviewProvider {
   static var previews: some View {
-    BoldLabelView(label: "Strength", details: 3)
+    BoldLabelView("Strength", details: 3)
       .previewLayout(.sizeThatFits)
   }
 }

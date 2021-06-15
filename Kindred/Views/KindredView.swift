@@ -12,17 +12,24 @@ import SwiftUI
 struct KindredView: View {
   
   @StateObject var viewModel: ViewModel
+  @Binding private var generation: Int16
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
+    
+    _generation = Binding(
+      get: { viewModel.kindred.generation },
+      set: { viewModel.kindred.generation = $0 }
+    )
   }
   
   var body: some View {
     List {
-      Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) { // Placeholder
-        BoldLabelView(label: "Ambition", details: viewModel.kindred.ambition)
-        BoldLabelView(label: "Desire", details: viewModel.kindred.desire)
+      Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+        BoldLabelView("Ambition", details: viewModel.kindred.ambition)
+        BoldLabelView("Desire", details: viewModel.kindred.desire)
+        RangePicker("Generation", selection: $generation, range: 4...16)
       }
       
       Section(header: Text("Traits")) {
@@ -44,6 +51,7 @@ struct KindredView: View {
     }
     .listStyle(GroupedListStyle())
     .navigationTitle(viewModel.kindred.name)
+    .onDisappear(perform: viewModel.save)
   }
   
   func derivedTrait(_ trait: String, rating: Int16, max: Int) -> some View {

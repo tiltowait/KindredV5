@@ -25,12 +25,7 @@ struct KindredRowView: View {
   }
   
   var generation: String {
-    let generation = String(kindred.generation)
-    if generation.last == "3" {
-      return "\(generation)rd"
-    } else {
-      return "\(generation)th"
-    }
+    "\(kindred.generation)th"
   }
   
   var body: some View {

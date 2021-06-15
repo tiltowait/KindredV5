@@ -8,21 +8,17 @@
 import Foundation
 
 extension ScrollingImageHeader {
-  class ViewModel: ObservableObject {
+  class ViewModel: BaseKindredViewModel {
     
     @Published var fullSizeImageData: [Data]
     @Published var thumbnailImageData: [Data]
     @Published var attemptedToAddDuplicateImage = false
     
-    let kindred: Kindred
-    let dataController: DataController
-    
-    init(kindred: Kindred, dataController: DataController) {
-      self.kindred = kindred
-      self.dataController = dataController
-      
+    override init(kindred: Kindred, dataController: DataController) {
       fullSizeImageData = kindred.fullSizeImageData
       thumbnailImageData = kindred.thumbnailImageData
+      
+      super.init(kindred: kindred, dataController: dataController)
     }
     
     func addImage(fullSize: Data, thumbnail: Data) {
@@ -37,7 +33,6 @@ extension ScrollingImageHeader {
       kindredImage.creationDate = Date()
       
       kindred.addToImages(kindredImage)
-      dataController.save()
       
       fullSizeImageData.append(fullSize)
       thumbnailImageData.append(thumbnail)
@@ -52,8 +47,6 @@ extension ScrollingImageHeader {
         dataController.delete(image)
         fullSizeImageData.remove(at: index)
         thumbnailImageData.remove(at: index)
-        
-        dataController.save()
       } else {
         print("Can't delete index \(index).")
       }

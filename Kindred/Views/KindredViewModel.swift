@@ -8,15 +8,7 @@
 import Foundation
 
 extension KindredView {
-  class ViewModel: ObservableObject {
-    
-    let kindred: Kindred
-    let dataController: DataController
-    
-    init(kindred: Kindred, dataController: DataController) {
-      self.kindred = kindred
-      self.dataController = dataController
-    }
+  class ViewModel: BaseKindredViewModel {
     
     var zippedAttributes: [[(String, Int16)]] {
       [

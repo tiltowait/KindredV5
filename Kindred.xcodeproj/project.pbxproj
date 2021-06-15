@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
 		28252069267916CD0066F09B /* DotSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelectorView.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
@@ -54,6 +55,7 @@
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
+		28C5D159267944A600E199DB /* BaseKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseKindredViewModel.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRowView.swift */; };
 		28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlockView.swift */; };
@@ -78,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* DotSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectorView.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
+		28C5D158267944A600E199DB /* BaseKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseKindredViewModel.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* KindredRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRowView.swift; sourceTree = "<group>"; };
 		28EBBE0A2678529B004DD186 /* TraitBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockView.swift; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 				28EBBE0626784E90004DD186 /* KindredRowView.swift */,
 				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
 				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
+				28C5D158267944A600E199DB /* BaseKindredViewModel.swift */,
+				2801217A26793F540069C496 /* RangePicker.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
@@ -470,6 +476,7 @@
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
+				28C5D159267944A600E199DB /* BaseKindredViewModel.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
@@ -481,6 +488,7 @@
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */,
+				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
