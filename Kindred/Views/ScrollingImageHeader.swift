@@ -107,5 +107,6 @@ struct ScrollingImageHeader: View {
 struct ScrollingImageHeader_Previews: PreviewProvider {
   static var previews: some View {
     ScrollingImageHeader(kindred: Kindred.example, dataController: DataController.preview)
+      .padding()
   }
 }

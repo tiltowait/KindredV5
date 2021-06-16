@@ -69,8 +69,10 @@ struct ImageView: View {
   }
 }
 
-//struct ImageView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ImageView(image: Image(systemName: "person.circle.fill"))
-//  }
-//}
+struct ImageView_Previews: PreviewProvider {
+  static let images = [Image("nadea"), Image("nadea-portrait")]
+  
+  static var previews: some View {
+    ImageView(images: images, index: 0) { _ in }
+  }
+}

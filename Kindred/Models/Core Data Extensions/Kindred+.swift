@@ -112,6 +112,8 @@ extension Kindred {
     kindred.embraceDate = dateFormatter.date(from: "2009/06/21")!
     kindred.sire = "Vivette de Klerk"
     
+    KindredImage.examples.forEach { kindred.addToImages($0) }
+    
     // Set some traits
     kindred.strength = 3
     kindred.dexterity = 2
