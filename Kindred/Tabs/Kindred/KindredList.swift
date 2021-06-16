@@ -9,8 +9,6 @@ import SwiftUI
 
 struct KindredList: View {
   
-  static let tag = "Kindred"
-  
   @EnvironmentObject var dataController: DataController
   @FetchRequest(
     entity: Kindred.entity(),

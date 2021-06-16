@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ReferenceView: View {
   
-  static let tag: String? = "Reference"
-  
   var body: some View {
     NavigationView {
       List {

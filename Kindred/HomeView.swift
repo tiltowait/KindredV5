@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 5/20/21.
@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
   
-  @SceneStorage("selectedView") var selectedView: String?
+  enum Tab: String {
+    case kindred
+    case reference
+  }
+  
+  @SceneStorage("selectedView") var selectedView = Tab.kindred
   
   var body: some View {
     TabView(selection: $selectedView) {
       KindredList()
-        .tag(KindredList.tag)
+        .tag(Tab.kindred)
         .tabItem {
           Image(systemName: "person.3")
           Text("Characters")
         }
       ReferenceView()
-        .tag(ReferenceView.tag)
+        .tag(Tab.reference)
         .tabItem {
           Image(systemName: "books.vertical")
           Text("Reference")
@@ -32,6 +37,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    HomeView()
   }
 }

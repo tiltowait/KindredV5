@@ -12,7 +12,7 @@
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
 		282EC8362656EEB80086B14F /* KindredApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8352656EEB80086B14F /* KindredApp.swift */; };
-		282EC8382656EEB80086B14F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8372656EEB80086B14F /* ContentView.swift */; };
+		282EC8382656EEB80086B14F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8372656EEB80086B14F /* HomeView.swift */; };
 		282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC8392656EEB90086B14F /* Assets.xcassets */; };
 		282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC83C2656EEB90086B14F /* Preview Assets.xcassets */; };
 		282EC8482656EEB90086B14F /* KindredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8472656EEB90086B14F /* KindredTests.swift */; };
@@ -95,7 +95,7 @@
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
 		282EC8322656EEB80086B14F /* Kindred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282EC8352656EEB80086B14F /* KindredApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredApp.swift; sourceTree = "<group>"; };
-		282EC8372656EEB80086B14F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		282EC8372656EEB80086B14F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		282EC8392656EEB90086B14F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		282EC83C2656EEB90086B14F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		282EC83E2656EEB90086B14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 				28386F5826585D9C00E90445 /* Constants.swift */,
 				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
 				28773449265713360098E27B /* DataController.swift */,
-				282EC8372656EEB80086B14F /* ContentView.swift */,
+				282EC8372656EEB80086B14F /* HomeView.swift */,
 				28ADF7F6267A5F4900D97D2A /* Tabs */,
 				28ADF7F7267A60AD00D97D2A /* Extensions */,
 				282EC8662656EFFF0086B14F /* Models */,
@@ -531,7 +531,7 @@
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
-				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
+				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28252069267916CD0066F09B /* DotSelectorView.swift in Sources */,
