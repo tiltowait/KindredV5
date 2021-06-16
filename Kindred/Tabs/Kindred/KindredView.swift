@@ -12,11 +12,34 @@ import SwiftUI
 struct KindredView: View {
   
   @StateObject var viewModel: ViewModel
+  
   @State private var showingDiceRoller = false
+  @State private var showingRenameAlert = false
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
+  }
+  
+  var menu: some View {
+    Menu {
+      Button {
+        showingRenameAlert.toggle()
+      } label: {
+        Label("Rename \(viewModel.kindred.name)", systemImage: "rectangle.and.pencil.and.ellipsis")
+      }
+      Button {
+        showingDiceRoller.toggle()
+      } label: {
+        Label("Roll dice", systemImage: "diamond.fill")
+          .imageScale(.large)
+      }
+      
+    // Menu label
+    } label: {
+      Label("Menu", systemImage: "ellipsis.circle")
+        .imageScale(.large)
+    }
   }
   
   var body: some View {
@@ -48,16 +71,12 @@ struct KindredView: View {
     .listStyle(GroupedListStyle())
     .navigationTitle(viewModel.kindred.name)
     .toolbar {
-      Button {
-        showingDiceRoller.toggle()
-      } label: {
-        Label("Roll Dice", systemImage: "diamond.fill")
-          .imageScale(.large)
-      }
+      menu
     }
     .sheet(isPresented: $showingDiceRoller) {
       DiceRollView(kindred: viewModel.kindred)
     }
+    .alert(isPresented: $showingRenameAlert, renameAlert)
     .onDisappear(perform: viewModel.save)
   }
   
@@ -67,6 +86,18 @@ struct KindredView: View {
         .font(.subheadline)
         .bold()
       DotView(rating: rating, max: max)
+    }
+  }
+  
+  var renameAlert: TextFieldAlert {
+    TextFieldAlert(
+      title: "Rename \(viewModel.kindred.name)",
+      message: nil,
+      placeholder: "Enter the new name here"
+    ) { newName in
+      if let newName = newName {
+        $viewModel.kindred.name.wrappedValue = newName
+      }
     }
   }
   
