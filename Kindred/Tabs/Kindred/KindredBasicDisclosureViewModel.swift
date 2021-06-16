@@ -13,7 +13,7 @@ extension KindredBasicDisclosure {
     /// Whether the disclosure is/should be expanded or not.
     @Published var isExpanded: Bool {
       willSet {
-        UserDefaults.standard.set(newValue, forKey: autosaveName)
+        UserDefaults.standard.set(newValue, forKey: autosaveKey)
       }
     }
     
@@ -31,19 +31,17 @@ extension KindredBasicDisclosure {
       }
     }
     
-    /// The name used for storing `isExpanded` in `UserDefaults`
+    /// The name used for storing `isExpanded` in `UserDefaults`.
     ///
-    /// Technically, there is a storage leak here. If the user renames their character, this
-    /// key hangs around. However, a bool being what it is, it will take a great deal of
-    /// renames for the user to even notice it.
-    private let autosaveName: String
+    /// The name is derived from the Kindred's `id` property, plus an additonal string for namespacing.
+    private let autosaveKey: String
     
     override init(kindred: Kindred) {
       birthdate = kindred.birthdate ?? Date()
       embraceDate = kindred.embraceDate ?? Date()
       
-      autosaveName = "\(kindred.name)_AdditionalDetailsExpansion"
-      isExpanded = UserDefaults.standard.bool(forKey: autosaveName)
+      autosaveKey = "\(kindred.id.hashValue)_AdditionalDetailsExpansion"
+      isExpanded = UserDefaults.standard.bool(forKey: autosaveKey)
       
       super.init(kindred: kindred)
     }
