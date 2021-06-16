@@ -35,6 +35,7 @@
         <attribute name="animalKen" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="athletics" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="awareness" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="birthdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="bloodPotency" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="brawl" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="charisma" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -42,6 +43,7 @@
         <attribute name="craft" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dexterity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="drive" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="embraceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="etiquette" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="finance" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firearms" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -74,11 +76,9 @@
         <attribute name="willpower" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wits" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="zAmbition" optional="YES" attributeType="String"/>
-        <attribute name="zBirthDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="zChronicle" optional="YES" attributeType="String"/>
         <attribute name="zConcept" optional="YES" attributeType="String"/>
         <attribute name="zDesire" optional="YES" attributeType="String"/>
-        <attribute name="zEmbraceDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="zHeight" optional="YES" attributeType="String"/>
         <attribute name="zName" attributeType="String"/>
         <attribute name="zSire" optional="YES" attributeType="String"/>

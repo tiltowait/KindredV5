@@ -10,43 +10,47 @@ import Foundation
 extension KindredBasicDisclosure {
   class ViewModel: BaseKindredViewModel {
     
-    private(set) lazy var dateFormatter: DateFormatter = {
-      let formatter = DateFormatter()
-      formatter.dateStyle = .short
-      formatter.timeStyle = .none
+    /// Whether the disclosure is/should be expanded or not.
+    @Published var isExpanded: Bool {
+      willSet {
+        UserDefaults.standard.set(newValue, forKey: autosaveName)
+      }
+    }
+    
+    /// The kindred's birthdate.
+    @Published var birthdate: Date {
+      willSet {
+        kindred.birthdate = newValue
+      }
+    }
+    
+    /// The date of the kindred's embrace.
+    @Published var embraceDate: Date {
+      didSet {
+        kindred.embraceDate = embraceDate
+      }
+    }
+    
+    /// The name used for storing `isExpanded` in `UserDefaults`
+    ///
+    /// Technically, there is a storage leak here. If the user renames their character, this
+    /// key hangs around. However, a bool being what it is, it will take a great deal of
+    /// renames for the user to even notice it.
+    private let autosaveName: String
+    
+    override init(kindred: Kindred) {
+      birthdate = kindred.birthdate ?? Date()
+      embraceDate = kindred.embraceDate ?? Date()
       
-      return formatter
-    }()
-    
-    var showConcept: Bool {
-      !kindred.concept.isEmpty
+      autosaveName = "\(kindred.name)_AdditionalDetailsExpansion"
+      isExpanded = UserDefaults.standard.bool(forKey: autosaveName)
+      
+      super.init(kindred: kindred)
     }
     
-    var showChronicle: Bool {
-      !kindred.chronicle.isEmpty
-    }
     
-    var showSire: Bool {
-      !kindred.sire.isEmpty
-    }
     
-    var showTitle: Bool {
-      !kindred.title.isEmpty
-    }
     
-    var birthdate: String? {
-      if let birthdate = kindred.zBirthDate {
-        return dateFormatter.string(from: birthdate)
-      }
-      return nil
-    }
-    
-    var embraceDate: String? {
-      if let embraceDate = kindred.zEmbraceDate {
-        return dateFormatter.string(from: embraceDate)
-      }
-      return nil
-    }
     
   }
 }

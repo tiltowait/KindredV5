@@ -39,14 +39,14 @@ extension Kindred {
     kindred.ambition = "Attain mastery over Oblivion"
     kindred.desire = "Induct her ghoul into the faith"
     kindred.chronicle = "Cape Town by Night"
-    kindred.weight = "115"
+    kindred.weight = "115 lbs"
     kindred.height = "5'6\""
     kindred.generation = 12
     
     // Make birthdate and embrace date
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy/MM/dd"
-    kindred.birthDate = dateFormatter.date(from: "1982/03/17")!
+    kindred.birthdate = dateFormatter.date(from: "1982/03/17")!
     kindred.embraceDate = dateFormatter.date(from: "2009/06/21")!
     kindred.sire = "Vivette de Klerk"
     

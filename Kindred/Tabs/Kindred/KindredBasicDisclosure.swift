@@ -9,7 +9,6 @@ import SwiftUI
 
 struct KindredBasicDisclosure: View {
   
-  @State private var isExpanded = false
   @StateObject var viewModel: ViewModel
   
   init(kindred: Kindred) {
@@ -18,25 +17,24 @@ struct KindredBasicDisclosure: View {
   }
   
   var body: some View {
-    DisclosureGroup("Additional Details") {
-      if viewModel.showConcept {
-        BoldLabel("Concept", details: viewModel.kindred.concept)
+    DisclosureGroup("Additional Details", isExpanded: $viewModel.isExpanded) {
+      BoldTextField("Concept", value: $viewModel.kindred.concept)
+      BoldTextField("Chronicle", value: $viewModel.kindred.chronicle)
+      BoldTextField("Sire", value: $viewModel.kindred.sire)
+      BoldTextField("Title", value: $viewModel.kindred.title)
+
+      DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
+        Text("Birthdate:")
+          .bold()
       }
-      if viewModel.showChronicle {
-        BoldLabel("Chronicle", details: viewModel.kindred.chronicle)
+      DatePicker(selection: $viewModel.embraceDate, in: ...Date(), displayedComponents: .date) {
+        Text("Embrace date:")
+          .bold()
       }
-      if viewModel.showSire {
-        BoldLabel("Sire", details: viewModel.kindred.sire)
-      }
-      if viewModel.showTitle {
-        BoldLabel("Title", details: viewModel.kindred.title)
-      }
-      if let birthDate = viewModel.birthdate {
-        BoldLabel("Birthdate", details: birthDate)
-      }
-      if let embraceDate = viewModel.embraceDate {
-        BoldLabel("Embrace Date", details: embraceDate)
-      }
+      
+      BoldTextField("Height", value: $viewModel.kindred.height)
+      BoldTextField("Weight", value: $viewModel.kindred.weight)
+
     }
   }
   

@@ -51,18 +51,6 @@ extension Kindred {
     set { zTitle = newValue }
   }
   
-  /// The character's date of birth.
-  var birthDate: Date {
-    get { zBirthDate ?? Date() }
-    set { zBirthDate = newValue }
-  }
-  
-  /// The date on which the character was embraced.
-  var embraceDate: Date {
-    get { zEmbraceDate ?? Date() }
-    set { zEmbraceDate = newValue }
-  }
-  
   /// The character's height.
   var height: String {
     get { zHeight ?? "" }

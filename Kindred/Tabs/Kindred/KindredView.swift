@@ -12,18 +12,11 @@ import SwiftUI
 struct KindredView: View {
   
   @StateObject var viewModel: ViewModel
-  @Binding private var generation: Int16
-  
   @State private var showingDiceRoller = false
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
-    
-    _generation = Binding(
-      get: { viewModel.kindred.generation },
-      set: { viewModel.kindred.generation = $0 }
-    )
   }
   
   var body: some View {
@@ -31,7 +24,7 @@ struct KindredView: View {
       Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
         BoldLabel("Ambition", details: viewModel.kindred.ambition)
         BoldLabel("Desire", details: viewModel.kindred.desire)
-        RangePicker("Generation", selection: $generation, range: 4...16)
+        RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
         KindredBasicDisclosure(kindred: viewModel.kindred)
       }
       
