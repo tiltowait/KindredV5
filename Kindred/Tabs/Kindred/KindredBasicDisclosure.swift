@@ -18,10 +18,10 @@ struct KindredBasicDisclosure: View {
   
   var body: some View {
     DisclosureGroup("Additional Details", isExpanded: $viewModel.isExpanded) {
-      BoldTextField("Concept", value: $viewModel.kindred.concept)
-      BoldTextField("Chronicle", value: $viewModel.kindred.chronicle)
-      BoldTextField("Sire", value: $viewModel.kindred.sire)
-      BoldTextField("Title", value: $viewModel.kindred.title)
+      BoldTextField("Concept", binding: $viewModel.kindred.concept)
+      BoldTextField("Chronicle", binding: $viewModel.kindred.chronicle)
+      BoldTextField("Sire", binding: $viewModel.kindred.sire)
+      BoldTextField("Title", binding: $viewModel.kindred.title)
 
       DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
         Text("Birthdate:")
@@ -32,8 +32,8 @@ struct KindredBasicDisclosure: View {
           .bold()
       }
       
-      BoldTextField("Height", value: $viewModel.kindred.height)
-      BoldTextField("Weight", value: $viewModel.kindred.weight)
+      BoldTextField("Height", binding: $viewModel.kindred.height)
+      BoldTextField("Weight", binding: $viewModel.kindred.weight)
 
     }
   }
