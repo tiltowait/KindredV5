@@ -1,5 +1,5 @@
 //
-//  BoldLabelView.swift
+//  BoldLabel.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A `View` with a bold label and regular "details" text.
-struct BoldLabelView: View {
+struct BoldLabel: View {
   
   let label: String
   let details: String
@@ -32,9 +32,9 @@ struct BoldLabelView: View {
   
 }
 
-struct BoldLabelView_Previews: PreviewProvider {
+struct BoldLabel_Previews: PreviewProvider {
   static var previews: some View {
-    BoldLabelView("Strength", details: 3)
+    BoldLabel("Strength", details: 3)
       .previewLayout(.sizeThatFits)
   }
 }

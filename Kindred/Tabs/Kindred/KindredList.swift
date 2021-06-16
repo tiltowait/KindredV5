@@ -1,5 +1,5 @@
 //
-//  KindredListView.swift
+//  KindredList.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/13/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KindredListView: View {
+struct KindredList: View {
   
   static let tag = "Kindred"
   
@@ -24,7 +24,7 @@ struct KindredListView: View {
       List {
         ForEach(kindred) { cainite in
           NavigationLink(destination: KindredView(kindred: cainite, dataController: dataController)) {
-            KindredRowView(kindred: cainite)
+            KindredRow(kindred: cainite)
           }
         }
         .onDelete(perform: delete)
@@ -52,8 +52,10 @@ struct KindredListView: View {
   }
 }
 
-struct KindredListView_Previews: PreviewProvider {
+struct KindredList_Previews: PreviewProvider {
   static var previews: some View {
-    KindredListView()
+    KindredList()
+      .environmentObject(DataController.preview)
+      .environment(\.managedObjectContext, DataController.preview.container.viewContext)
   }
 }

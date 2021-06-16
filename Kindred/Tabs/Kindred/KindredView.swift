@@ -29,9 +29,10 @@ struct KindredView: View {
   var body: some View {
     List {
       Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
-        BoldLabelView("Ambition", details: viewModel.kindred.ambition)
-        BoldLabelView("Desire", details: viewModel.kindred.desire)
+        BoldLabel("Ambition", details: viewModel.kindred.ambition)
+        BoldLabel("Desire", details: viewModel.kindred.desire)
         RangePicker("Generation", selection: $generation, range: 4...16)
+        KindredBasicDisclosure(kindred: viewModel.kindred)
       }
       
       Section(header: Text("Traits")) {

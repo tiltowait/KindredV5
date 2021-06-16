@@ -24,7 +24,7 @@ extension Kindred {
   /// The chronicle the character is in.
   var chronicle: String {
     get { zChronicle ?? "" }
-    set { zConcept = newValue }
+    set { zChronicle = newValue }
   }
   
   /// The character's long-term ambition.

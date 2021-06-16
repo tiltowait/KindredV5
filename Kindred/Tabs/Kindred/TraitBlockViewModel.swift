@@ -8,7 +8,7 @@
 import Foundation
 
 extension TraitBlockView {
-  class ViewModel: BaseKindredViewModel {
+  class ViewModel: BaseSavingKindredViewModel {
     
     enum TraitGroup: String {
       case attributes

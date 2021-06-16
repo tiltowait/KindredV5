@@ -8,7 +8,7 @@
 import Foundation
 
 extension ScrollingImageHeader {
-  class ViewModel: BaseKindredViewModel {
+  class ViewModel: BaseSavingKindredViewModel {
     
     @Published var fullSizeImageData: [Data]
     @Published var thumbnailImageData: [Data]

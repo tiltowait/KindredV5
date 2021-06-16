@@ -1,5 +1,5 @@
 //
-//  KindredRowView.swift
+//  KindredRow.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KindredRowView: View {
+struct KindredRow: View {
   
   let image: Image?
   let kindred: Kindred
@@ -49,9 +49,9 @@ struct KindredRowView: View {
   
 }
 
-struct KindredRowView_Previews: PreviewProvider {
+struct KindredRow_Previews: PreviewProvider {
   static var previews: some View {
-    KindredRowView(kindred: Kindred.example)
+    KindredRow(kindred: Kindred.example)
       .previewLayout(.sizeThatFits)
   }
 }

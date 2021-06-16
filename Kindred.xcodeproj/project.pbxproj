@@ -18,6 +18,8 @@
 		282EC8482656EEB90086B14F /* KindredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8472656EEB90086B14F /* KindredTests.swift */; };
 		282EC8532656EEB90086B14F /* KindredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8522656EEB90086B14F /* KindredUITests.swift */; };
 		282EC8652656EFF30086B14F /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 282EC8642656EFF30086B14F /* SwiftCSV */; };
+		2833CAC6267A794E00160A96 /* KindredBasicDisclosureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC5267A794E00160A96 /* KindredBasicDisclosureViewModel.swift */; };
+		2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */; };
 		28386F5926585D9C00E90445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5826585D9C00E90445 /* Constants.swift */; };
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
 		28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F60265868DF00E90445 /* DisciplineDetailView.swift */; };
@@ -48,7 +50,7 @@
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
 		28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* KindredView.swift */; };
 		28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */; };
-		28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabelView.swift */; };
+		28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabel.swift */; };
 		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
 		28A39EB52679630B00867AB9 /* DicePad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* DicePad.swift */; };
 		28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* DiceRollView.swift */; };
@@ -56,12 +58,13 @@
 		28A39EBF2679711200867AB9 /* DiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* DiceButton.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
-		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
+		28BD80742676FBC900FEE5F9 /* KindredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredList.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
-		28C5D159267944A600E199DB /* BaseKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseKindredViewModel.swift */; };
+		28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */; };
+		28DD0641267A706E00C9669F /* KindredBasicDisclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* KindredBasicDisclosure.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
-		28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRowView.swift */; };
+		28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRow.swift */; };
 		28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlockView.swift */; };
 		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +103,8 @@
 		282EC84E2656EEB90086B14F /* KindredUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KindredUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		282EC8522656EEB90086B14F /* KindredUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredUITests.swift; sourceTree = "<group>"; };
 		282EC8542656EEB90086B14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2833CAC5267A794E00160A96 /* KindredBasicDisclosureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredBasicDisclosureViewModel.swift; sourceTree = "<group>"; };
+		2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseKindredViewModel.swift; sourceTree = "<group>"; };
 		28386F5826585D9C00E90445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
 		28386F60265868DF00E90445 /* DisciplineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailView.swift; sourceTree = "<group>"; };
@@ -130,7 +135,7 @@
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
 		28A1E9EC2677B62A0084F483 /* KindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredView.swift; sourceTree = "<group>"; };
 		28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockPreview.swift; sourceTree = "<group>"; };
-		28A1E9F02677B73B0084F483 /* BoldLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabelView.swift; sourceTree = "<group>"; };
+		28A1E9F02677B73B0084F483 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		28A39EB42679630B00867AB9 /* DicePad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePad.swift; sourceTree = "<group>"; };
 		28A39EBA2679698500867AB9 /* DiceRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollView.swift; sourceTree = "<group>"; };
@@ -138,12 +143,13 @@
 		28A39EBE2679711200867AB9 /* DiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceButton.swift; sourceTree = "<group>"; };
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
-		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
+		28BD80732676FBC900FEE5F9 /* KindredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredList.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
-		28C5D158267944A600E199DB /* BaseKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseKindredViewModel.swift; sourceTree = "<group>"; };
+		28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSavingKindredViewModel.swift; sourceTree = "<group>"; };
+		28DD0640267A706E00C9669F /* KindredBasicDisclosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredBasicDisclosure.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		28EBBE0626784E90004DD186 /* KindredRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRowView.swift; sourceTree = "<group>"; };
+		28EBBE0626784E90004DD186 /* KindredRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRow.swift; sourceTree = "<group>"; };
 		28EBBE0A2678529B004DD186 /* TraitBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockView.swift; sourceTree = "<group>"; };
 		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				284CF5B82677CE6B007B298B /* ImagePicker.swift */,
-				28A1E9F02677B73B0084F483 /* BoldLabelView.swift */,
+				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				28A39EBE2679711200867AB9 /* DiceButton.swift */,
 				28A39EB42679630B00867AB9 /* DicePad.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
@@ -297,18 +303,21 @@
 		28ADF7F4267A5DC500D97D2A /* Kindred */ = {
 			isa = PBXGroup;
 			children = (
+				2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */,
+				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
+				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
+				28BD80732676FBC900FEE5F9 /* KindredList.swift */,
+				28EBBE0626784E90004DD186 /* KindredRow.swift */,
 				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+				28252068267916CD0066F09B /* DotSelectorView.swift */,
+				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
+				28DD0640267A706E00C9669F /* KindredBasicDisclosure.swift */,
+				2833CAC5267A794E00160A96 /* KindredBasicDisclosureViewModel.swift */,
+				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
-				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
-				28EBBE0626784E90004DD186 /* KindredRowView.swift */,
-				28A1E9EC2677B62A0084F483 /* KindredView.swift */,
-				283DE7E72677DF8200876573 /* KindredViewModel.swift */,
-				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
-				28C5D158267944A600E199DB /* BaseKindredViewModel.swift */,
 				28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */,
-				28252068267916CD0066F09B /* DotSelectorView.swift */,
 				28EBBE0A2678529B004DD186 /* TraitBlockView.swift */,
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
 			);
@@ -509,13 +518,14 @@
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
+				28DD0641267A706E00C9669F /* KindredBasicDisclosure.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
-				28C5D159267944A600E199DB /* BaseKindredViewModel.swift in Sources */,
+				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
-				28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */,
+				28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28252069267916CD0066F09B /* DotSelectorView.swift in Sources */,
 				28A39EBF2679711200867AB9 /* DiceButton.swift in Sources */,
@@ -523,16 +533,18 @@
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
-				28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */,
+				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */,
-				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
+				28BD80742676FBC900FEE5F9 /* KindredList.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				28A39EB52679630B00867AB9 /* DicePad.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
+				2833CAC6267A794E00160A96 /* KindredBasicDisclosureViewModel.swift in Sources */,
+				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,

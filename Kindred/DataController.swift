@@ -13,6 +13,12 @@ class DataController: ObservableObject {
   /// The primary Core Data container.
   let container: NSPersistentCloudKitContainer
   
+  /// Shared data controller used for SwiftUI previews.
+  ///
+  /// It is necessary to keep this shared instance in the main class, because it is the only way to ensure
+  /// that all preview data uses the same managed object context.
+  static let preview = DataController(inMemory: true)
+  
   /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
   private(set) lazy var disciplines: [Discipline] = {
     do {

@@ -10,15 +10,6 @@
 
 import UIKit
 
-extension DataController {
-  
-  /// Static data controller used for SwiftUI previews.
-  static var preview: DataController {
-    DataController(inMemory: true)
-  }
-  
-}
-
 extension Discipline {
   
   /// The example Discipline (Animalism).
@@ -41,7 +32,8 @@ extension Kindred {
   
   /// An example Kindred used for testing purposes.
   static var example: Kindred {
-    let kindred = Kindred(context: DataController.preview.container.viewContext)
+    let dataController = DataController.preview
+    let kindred = Kindred(context: dataController.container.viewContext)
     kindred.name = "Nadea Theron"
     kindred.concept = "Bahari ER Surgeon"
     kindred.ambition = "Attain mastery over Oblivion"
@@ -85,6 +77,8 @@ extension Kindred {
     kindred.medicine = 3
     kindred.occult = 3
     kindred.science = 2
+    
+    dataController.save()
     
     return kindred
   }

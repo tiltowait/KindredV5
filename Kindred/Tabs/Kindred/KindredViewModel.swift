@@ -8,7 +8,7 @@
 import Foundation
 
 extension KindredView {
-  class ViewModel: BaseKindredViewModel {
+  class ViewModel: BaseSavingKindredViewModel {
     
     var zippedAttributes: [[(String, Int16)]] {
       [
