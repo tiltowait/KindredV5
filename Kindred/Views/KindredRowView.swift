@@ -48,9 +48,10 @@ struct KindredRowView: View {
   }
   
 }
-//
-//struct KindredRowView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    KindredRowView()
-//  }
-//}
+
+struct KindredRowView_Previews: PreviewProvider {
+  static var previews: some View {
+    KindredRowView(kindred: Kindred.example)
+      .previewLayout(.sizeThatFits)
+  }
+}

@@ -27,13 +27,13 @@ struct DicePad: View {
   
 }
 
-//struct DiceSelectionView_Previews: PreviewProvider {
-//
-//  static let column1 = ["One", "Two", "Three"]
-//  static let column2 = ["Four", "Five", "Six"]
-//  static let column3 = ["Seven", "Eight", "Nine"]
-//
-//  static var previews: some View {
-//    DicePad(columns: [column1, column2, column3])
-//  }
-//}
+struct DiceSelectionView_Previews: PreviewProvider {
+
+  static let column1 = ["One", "Two", "Three"]
+  static let column2 = ["Four", "Five", "Six"]
+  static let column3 = ["Seven", "Eight", "Nine"]
+
+  static var previews: some View {
+    DicePad(columns: [column1, column2, column3]) { _ in }
+  }
+}

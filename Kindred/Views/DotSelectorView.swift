@@ -75,8 +75,9 @@ struct DotSelectorView: View {
   
 }
 
-//struct DotSelectorView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    DotSelectorView(trait: "Strength", rating: .constant(3), max: 5)
-//  }
-//}
+struct DotSelectorView_Previews: PreviewProvider {
+  static var previews: some View {
+    DotSelectorView(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
+      .previewLayout(.sizeThatFits)
+  }
+}

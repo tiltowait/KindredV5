@@ -78,8 +78,10 @@ struct KindredView: View {
   
 }
 
-//struct KindredView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    KindredView(kindred: Kindred.example)
-//  }
-//}
+struct KindredView_Previews: PreviewProvider {
+  static var previews: some View {
+    NavigationView {
+      KindredView(kindred: Kindred.example, dataController: DataController.preview)
+    }
+  }
+}

@@ -57,8 +57,10 @@ struct TraitBlockView: View {
   
 }
 
-//struct TraitBlockView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    TraitBlockView()
-//  }
-//}
+struct TraitBlockView_Previews: PreviewProvider {
+  static var previews: some View {
+    NavigationView {
+      TraitBlockView(kindred: Kindred.example, dataController: DataController.preview, traits: .skills)
+    }
+  }
+}

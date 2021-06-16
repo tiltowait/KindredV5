@@ -46,6 +46,6 @@ struct DotView: View {
 struct DotView_Previews: PreviewProvider {
   static var previews: some View {
     DotView(rating: 3, max: 15)
-//      .previewLayout(.sizeThatFits)
+      .previewLayout(.sizeThatFits)
   }
 }

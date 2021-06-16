@@ -35,8 +35,8 @@ struct DiceRollView: View {
   
 }
 
-//struct DiceRollView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DiceRollView()
-//    }
-//}
+struct DiceRollView_Previews: PreviewProvider {
+    static var previews: some View {
+      DiceRollView(kindred: Kindred.example)
+    }
+}
