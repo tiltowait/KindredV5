@@ -52,6 +52,10 @@
 		28A1E9EF2677B6C40084F483 /* TraitBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */; };
 		28A1E9F12677B73B0084F483 /* BoldLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabelView.swift */; };
 		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
+		28A39EB52679630B00867AB9 /* DicePad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* DicePad.swift */; };
+		28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* DiceRollView.swift */; };
+		28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */; };
+		28A39EBF2679711200867AB9 /* DiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* DiceButton.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -131,6 +135,10 @@
 		28A1E9EE2677B6C40084F483 /* TraitBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockPreview.swift; sourceTree = "<group>"; };
 		28A1E9F02677B73B0084F483 /* BoldLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabelView.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		28A39EB42679630B00867AB9 /* DicePad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePad.swift; sourceTree = "<group>"; };
+		28A39EBA2679698500867AB9 /* DiceRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollView.swift; sourceTree = "<group>"; };
+		28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewModel.swift; sourceTree = "<group>"; };
+		28A39EBE2679711200867AB9 /* DiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceButton.swift; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -280,6 +288,10 @@
 				282EC8372656EEB80086B14F /* ContentView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				286FBF89265D978400AAA469 /* ReferenceView.swift */,
+				28A39EB42679630B00867AB9 /* DicePad.swift */,
+				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
+				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+				28A39EBE2679711200867AB9 /* DiceButton.swift */,
 				286FBF88265D976400AAA469 /* Disciplines */,
 				28E13FB6265C917B003E3DDF /* Powers */,
 				28BD80732676FBC900FEE5F9 /* KindredListView.swift */,
@@ -480,12 +492,14 @@
 				28386F6726587AA500E90445 /* PowerInfoView.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseKindredViewModel.swift in Sources */,
+				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetailView.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				282EC8382656EEB80086B14F /* ContentView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* KindredRowView.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28252069267916CD0066F09B /* DotSelectorView.swift in Sources */,
+				28A39EBF2679711200867AB9 /* DiceButton.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceView.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
@@ -498,6 +512,7 @@
 				28EBBE0B2678529B004DD186 /* TraitBlockView.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
+				28A39EB52679630B00867AB9 /* DicePad.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
@@ -506,6 +521,7 @@
 				28A1E9ED2677B62A0084F483 /* KindredView.swift in Sources */,
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
+				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
 				283DE7E82677DF8200876573 /* KindredViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,

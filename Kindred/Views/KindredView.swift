@@ -14,6 +14,8 @@ struct KindredView: View {
   @StateObject var viewModel: ViewModel
   @Binding private var generation: Int16
   
+  @State private var showingDiceRoller = false
+  
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
@@ -51,6 +53,17 @@ struct KindredView: View {
     }
     .listStyle(GroupedListStyle())
     .navigationTitle(viewModel.kindred.name)
+    .toolbar {
+      Button {
+        showingDiceRoller.toggle()
+      } label: {
+        Label("Roll Dice", systemImage: "diamond.fill")
+          .imageScale(.large)
+      }
+    }
+    .sheet(isPresented: $showingDiceRoller) {
+      DiceRollView(kindred: viewModel.kindred)
+    }
     .onDisappear(perform: viewModel.save)
   }
   
