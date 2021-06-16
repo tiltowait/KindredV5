@@ -78,6 +78,12 @@ extension Kindred {
     kindred.occult = 3
     kindred.science = 2
     
+    kindred.health = 8
+    kindred.willpower = 6
+    kindred.humanity = 7
+    kindred.bloodPotency = 1
+    kindred.hunger = 2
+    
     dataController.save()
     
     return kindred
