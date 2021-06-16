@@ -13,6 +13,7 @@ struct AddKindredView: View {
   @Environment(\.presentationMode) var presentationMode
   
   @State private var showingFileImporter = false
+  @State private var showingFileErrorAlert = false
   
   var body: some View {
     NavigationView {
@@ -36,15 +37,23 @@ struct AddKindredView: View {
       .navigationTitle("Add Kindred")
     }
     .fileImporter(isPresented: $showingFileImporter, allowedContentTypes: [.pdf], onCompletion: importCharacter)
+    .alert(isPresented: $showingFileErrorAlert) {
+      Alert(title: Text("Unable to open file"))
+    }
   }
   
   func importCharacter<T: Error>(_ result: Result<URL, T>) {
     if case let Result.success(selectedFile) = result {
-      if let pdf = CharacterPDF(url: selectedFile) {
-        DispatchQueue.main.async {
+      if selectedFile.startAccessingSecurityScopedResource() {
+        if let pdf = CharacterPDF(url: selectedFile) {
           CharacterImporter.importCharacter(pdf: pdf, dataController: dataController)
           dataController.save()
         }
+        selectedFile.stopAccessingSecurityScopedResource()
+      } else {
+        // Unable to access file
+        showingFileErrorAlert.toggle()
+        selectedFile.stopAccessingSecurityScopedResource()
       }
     }
     presentationMode.wrappedValue.dismiss()
