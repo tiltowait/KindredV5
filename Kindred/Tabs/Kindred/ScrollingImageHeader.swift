@@ -92,9 +92,10 @@ struct ScrollingImageHeader: View {
     if let image = imageToAdd {
       let scaledImage = image.resize(height: thumbnailHeight)
       
-      // Theoretically, we should present an alert to the user; however, under no
-      // normal circumstances should this fail. In the event we ever start picking
-      // images from outside the photo library, we will revisit this topic.
+      // Theoretically, we should present an alert to the user; however, under
+      // no normal circumstances should this fail. In the event we ever start
+      // picking images from outside the photo library, we will revisit this
+      // topic.
       guard let fullSize = image.pngData(),
             let thumbnail = scaledImage.pngData()
       else { return }
