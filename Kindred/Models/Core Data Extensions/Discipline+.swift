@@ -18,8 +18,9 @@ extension Discipline {
     return request
   }
   
-  var disciplineIcon: String {
-    self.icon!
+  var icon: String {
+    get { self.zIcon! }
+    set { self.zIcon = newValue }
   }
   
   /// An array of all `Powers`s associated with the `Discipline`, from all sources.

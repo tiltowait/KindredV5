@@ -45,7 +45,7 @@ enum DisciplineFactory {
         let discipline = Discipline(context: context)
         discipline.name = row["Discipline"]!
         discipline.info = row["Info"]!
-        discipline.icon = row["Icon"]
+        discipline.icon = row["Icon"]!
         discipline.resonance = row["Resonance"]
         
         disciplines.append(discipline)

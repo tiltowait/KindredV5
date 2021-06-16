@@ -56,6 +56,7 @@
 		28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* DiceRollView.swift */; };
 		28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */; };
 		28A39EBF2679711200867AB9 /* DiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* DiceButton.swift */; };
+		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* KindredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* KindredListView.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -139,6 +140,7 @@
 		28A39EBA2679698500867AB9 /* DiceRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollView.swift; sourceTree = "<group>"; };
 		28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewModel.swift; sourceTree = "<group>"; };
 		28A39EBE2679711200867AB9 /* DiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceButton.swift; sourceTree = "<group>"; };
+		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* KindredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredListView.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		282EC83B2656EEB90086B14F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				28ADF7F2267A579200D97D2A /* Examples.swift */,
 				282EC83C2656EEB90086B14F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -522,6 +525,7 @@
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
+				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* KindredViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,

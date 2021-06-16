@@ -22,7 +22,7 @@ struct DisciplineDetailView: View {
   var body: some View {
     List {
       Section(header: Text(discipline.info),
-              footer: IconFooter(icon: discipline.disciplineIcon)) {
+              footer: IconFooter(icon: discipline.icon)) {
         ForEach(0..<discipline.allPowers.count) { index in
           DisclosureGroup(
             isExpanded: $disclosureFlags[index],
@@ -53,7 +53,7 @@ struct DisciplineDetailView: View {
 struct DisciplinePowerList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      DisciplineDetailView(discipline: DataController.Example.discipline)
+      DisciplineDetailView(discipline: Discipline.example)
     }
   }
 }

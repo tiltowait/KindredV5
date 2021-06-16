@@ -20,8 +20,8 @@
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
-        <attribute name="icon" attributeType="String"/>
         <attribute name="resonance" attributeType="String"/>
+        <attribute name="zIcon" attributeType="String"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="discipline" inverseEntity="Power"/>
         <relationship name="referencingClans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clan" inverseName="disciplines" inverseEntity="Clan"/>
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="disciplineOptions" inverseEntity="PredatorType"/>
@@ -124,7 +124,7 @@
         <element name="Advantage" positionX="324.50390625" positionY="2.96484375" width="128" height="73"/>
         <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="103"/>
         <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="148"/>
-        <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="118"/>
+        <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="884"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>

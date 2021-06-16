@@ -85,7 +85,7 @@ struct PowerInfoView: View {
 
 struct PowerInfoView_Previews: PreviewProvider {
   static var previews: some View {
-    PowerInfoView(power: DataController.Example.power)
+    PowerInfoView(power: Power.example)
       .previewLayout(.sizeThatFits)
   }
 }

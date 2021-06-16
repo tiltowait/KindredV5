@@ -13,9 +13,6 @@ class DataController: ObservableObject {
   /// The primary Core Data container.
   let container: NSPersistentCloudKitContainer
   
-  /// Static `DataController` used for SwiftUI previews.
-  static let preview = DataController(inMemory: true)
-  
   /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
   private(set) lazy var disciplines: [Discipline] = {
     do {
@@ -92,23 +89,3 @@ class DataController: ObservableObject {
   
 }
 
-// MARK: - Preview Items
-extension DataController {
-  
-  /// Example constants used for SwiftUI previews.
-  enum Example {
-    
-    /// The example `Discipline` is Animalism.
-    static let discipline: Discipline = {
-      DataController.preview.disciplines[0]
-    }()
-    
-    /// The example `Power` is Quell the Beast from Animalism.
-    static let power: Power = {
-      print("power")
-      return DataController.Example.discipline.allPowers[4]
-    }()
-    
-  }
-  
-}

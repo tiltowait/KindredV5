@@ -27,7 +27,7 @@ struct IconFooter: View {
 
 struct IconFooter_Previews: PreviewProvider {
   static var previews: some View {
-    IconFooter(icon: DataController.Example.discipline.disciplineIcon)
+    IconFooter(icon: Discipline.example.icon)
       .previewLayout(.sizeThatFits)
   }
 }

@@ -12,7 +12,7 @@ struct DisciplineRow: View {
   
   var body: some View {
     HStack {
-      Image(discipline.disciplineIcon)
+      Image(discipline.icon)
         .clipShape(Circle())
       VStack(alignment: .leading) {
         Text(discipline.name)
@@ -28,7 +28,7 @@ struct DisciplineRow: View {
 
 struct DisciplineRow_Previews: PreviewProvider {
   static var previews: some View {
-    DisciplineRow(discipline: DataController.Example.discipline)
+    DisciplineRow(discipline: Discipline.example)
       .previewLayout(.sizeThatFits)
   }
 }

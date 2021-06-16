@@ -40,7 +40,7 @@ struct PowerRow: View {
 
 struct PowerLabelRow_Previews: PreviewProvider {
   static var previews: some View {
-    PowerRow(power: DataController.Example.power)
+    PowerRow(power: Power.example)
       .previewLayout(.sizeThatFits)
   }
 }
