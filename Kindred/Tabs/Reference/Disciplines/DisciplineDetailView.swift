@@ -10,33 +10,19 @@ import CoreData
 
 struct DisciplineDetailView: View {
   
-  @State private var disclosureFlags: [Bool]
   let discipline: Discipline
-  
-  init(discipline: Discipline) {
-    self.discipline = discipline
-    let flags = Array(repeating: false, count: discipline.allPowers.count)
-    _disclosureFlags = State(wrappedValue: flags)
-  }
   
   var body: some View {
     List {
       Section(header: Text(discipline.info),
               footer: IconFooter(icon: discipline.icon)) {
         ForEach(0..<discipline.allPowers.count) { index in
-          DisclosureGroup(
-            isExpanded: $disclosureFlags[index],
-            content: { PowerInfoView(power: power(at: index)) },
-            label: {
-              PowerRow(power: power(at: index))
-                .contentShape(Rectangle())
-                .onTapGesture {
-                  withAnimation {
-                    self.disclosureFlags[index].toggle()
-                  }
-                }
-            }
-          )
+          DisclosureGroup {
+            PowerInfoView(power: power(at: index))
+          } label: {
+            PowerRow(power: power(at: index))
+              .contentShape(Rectangle())
+          }
         }
       }
     }
