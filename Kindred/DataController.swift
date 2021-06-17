@@ -80,6 +80,9 @@ class DataController: ObservableObject {
     }
   }
   
+  /// Fetches all objects matching a particular request.
+  /// - Parameter request: The request.
+  /// - Returns: The objects matching the request.
   func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
     (try? container.viewContext.fetch(request)) ?? []
   }
