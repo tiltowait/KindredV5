@@ -15,6 +15,7 @@ struct KindredDetail: View {
   
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
+  @State private var showingDisciplineAdder = false
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -44,6 +45,7 @@ struct KindredDetail: View {
   
   var body: some View {
     List {
+      // Basic info
       Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
         BoldLabel("Ambition", details: viewModel.kindred.ambition)
         BoldLabel("Desire", details: viewModel.kindred.desire)
@@ -51,6 +53,7 @@ struct KindredDetail: View {
         BasicInfoDetail(kindred: viewModel.kindred)
       }
       
+      // Traits
       Section(header: Text("Traits")) {
         NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
           TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
@@ -60,6 +63,12 @@ struct KindredDetail: View {
         }
       }
       
+      // Disciplines
+      Section(header: AdvantageHeader("Disciplines", binding: $showingDisciplineAdder)) {
+        KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+      }
+      
+      // Trackers (HP, WP, Humanity, Blood Potency)
       Section(header: Text("Trackers")) {
         derivedTrait("Health", rating: viewModel.kindred.health, max: 15)
         derivedTrait("Willpower", rating: viewModel.kindred.willpower, max: 15)

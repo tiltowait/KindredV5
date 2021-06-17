@@ -77,4 +77,15 @@ extension Kindred {
     return images.sorted().compactMap { $0.thumb }
   }
   
+  var knownPowers: [Power] {
+    let powers = self.powers?.allObjects as? [Power] ?? []
+    return powers.sorted()
+  }
+  
+  var knownDisciplines: [Discipline] {
+    let disciplines = knownPowers.compactMap { $0.discipline }
+    let set = Set(disciplines)
+    return set.sorted { $0.name < $1.name }
+  }
+  
 }

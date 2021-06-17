@@ -84,7 +84,10 @@ extension Kindred {
     kindred.bloodPotency = 1
     kindred.hunger = 2
     
-    dataController.save()
+    // Add some Disciplines
+    kindred.addToPowers(Power.example)
+    
+//    dataController.save()
     
     return kindred
   }

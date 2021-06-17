@@ -80,6 +80,10 @@ class DataController: ObservableObject {
     }
   }
   
+  func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
+    (try? container.viewContext.fetch(request)) ?? []
+  }
+  
   /// Saves the data.
   func save() {
     if container.viewContext.hasChanges {
