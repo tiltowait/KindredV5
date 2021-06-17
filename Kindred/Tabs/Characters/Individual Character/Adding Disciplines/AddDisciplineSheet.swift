@@ -21,7 +21,9 @@ struct AddDisciplineSheet: View {
     Group {
       if let disciplines = viewModel.inClanDisciplines {
         ForEach(disciplines) { discipline in
-          DisciplineRow(discipline: discipline)
+          NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+            DisciplineRow(discipline: discipline)
+          }
         }
       } else {
         Text("No clan selected")
@@ -32,13 +34,17 @@ struct AddDisciplineSheet: View {
   
   var knownOutOfClan: some View {
     ForEach(viewModel.knownOutOfClanDisciplines) { discipline in
-      DisciplineRow(discipline: discipline)
+      NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+        DisciplineRow(discipline: discipline)
+      }
     }
   }
   
   var unknownOutOfClan: some View {
     ForEach(viewModel.unknownOutOfClanDisciplines) { discipline in
-      DisciplineRow(discipline: discipline)
+      NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+        DisciplineRow(discipline: discipline)
+      }
     }
   }
   

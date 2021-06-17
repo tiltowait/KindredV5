@@ -11,8 +11,8 @@ struct KnownDisciplinesGroups: View {
   
   @StateObject private var viewModel: ViewModel
   
-  init(kindred: Kindred, dataController: DataController) {
-    let viewModel = ViewModel(kindred: kindred, dataController: dataController)
+  init(kindred: Kindred) {
+    let viewModel = ViewModel(kindred: kindred)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
@@ -39,7 +39,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     NavigationView {
       List {
         Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
-          KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview)
+          KnownDisciplinesGroups(kindred: Kindred.example)
         }
       }
       .listStyle(GroupedListStyle())

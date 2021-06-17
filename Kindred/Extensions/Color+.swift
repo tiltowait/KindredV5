@@ -28,4 +28,10 @@ extension Color {
   /// The brand color.
   static let vampireRed = Color("Vampire Red")
   
+  /// The color for the main background of your interface.
+  static let systemBackground = Color(UIColor.systemBackground)
+  
+  /// The color for content layered on top of the main background.
+  static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)
+  
 }

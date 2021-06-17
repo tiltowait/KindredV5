@@ -16,7 +16,8 @@ struct IconFooter: View {
       Spacer()
       
       Image(icon)
-        .clipShape(Circle())
+        .resizable()
+        .frame(width: 80, height: 80)
       
       Spacer()
     }

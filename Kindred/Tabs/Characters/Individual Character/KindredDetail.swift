@@ -65,7 +65,7 @@ struct KindredDetail: View {
       
       // Disciplines
       Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
-        KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+        KnownDisciplinesGroups(kindred: viewModel.kindred)
       }
       
       // Trackers (HP, WP, Humanity, Blood Potency)

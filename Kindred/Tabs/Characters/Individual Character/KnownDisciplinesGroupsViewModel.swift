@@ -8,7 +8,7 @@
 import CoreData
 
 extension KnownDisciplinesGroups {
-  class ViewModel: BaseSavingKindredViewModel {
+  class ViewModel: BaseKindredViewModel {
     
     var noKnownDisciplines: Bool {
       kindred.knownDisciplines.isEmpty

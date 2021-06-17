@@ -70,6 +70,11 @@
 		28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */; };
 		28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */; };
 		28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D7267BC1AE00865EE3 /* Clan+.swift */; };
+		28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656DB267BDD8400865EE3 /* PowerCard.swift */; };
+		28C656E3267BEA3900865EE3 /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E2267BEA3900865EE3 /* ExitButton.swift */; };
+		28C656E5267BEC4C00865EE3 /* AddPowerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E4267BEC4C00865EE3 /* AddPowerSheet.swift */; };
+		28C656E7267BEC5B00865EE3 /* AddPowerSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E6267BEC5B00865EE3 /* AddPowerSheetViewModel.swift */; };
+		28C656E9267BF65100865EE3 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E8267BF65100865EE3 /* AddButton.swift */; };
 		28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* BasicInfoDetail.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRow.swift */; };
@@ -163,6 +168,11 @@
 		28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheet.swift; sourceTree = "<group>"; };
 		28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheetViewModel.swift; sourceTree = "<group>"; };
 		28C656D7267BC1AE00865EE3 /* Clan+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clan+.swift"; sourceTree = "<group>"; };
+		28C656DB267BDD8400865EE3 /* PowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerCard.swift; sourceTree = "<group>"; };
+		28C656E2267BEA3900865EE3 /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
+		28C656E4267BEC4C00865EE3 /* AddPowerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPowerSheet.swift; sourceTree = "<group>"; };
+		28C656E6267BEC5B00865EE3 /* AddPowerSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPowerSheetViewModel.swift; sourceTree = "<group>"; };
+		28C656E8267BF65100865EE3 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		28DD0640267A706E00C9669F /* BasicInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoDetail.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* KindredRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRow.swift; sourceTree = "<group>"; };
@@ -293,6 +303,8 @@
 		28386F5F265868B800E90445 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
+				28C656E2267BEA3900865EE3 /* ExitButton.swift */,
+				28C656E8267BF65100865EE3 /* AddButton.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
@@ -312,6 +324,7 @@
 				286FBF86265D94B900AAA469 /* DisciplineList.swift */,
 				286FBF84265D930500AAA469 /* DisciplineRow.swift */,
 				28386F60265868DF00E90445 /* DisciplineDetail.swift */,
+				28C656DB267BDD8400865EE3 /* PowerCard.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				28E13FB6265C917B003E3DDF /* Powers */,
 			);
@@ -398,6 +411,8 @@
 			children = (
 				28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */,
 				28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */,
+				28C656E4267BEC4C00865EE3 /* AddPowerSheet.swift */,
+				28C656E6267BEC5B00865EE3 /* AddPowerSheetViewModel.swift */,
 			);
 			path = "Adding Disciplines";
 			sourceTree = "<group>";
@@ -561,6 +576,7 @@
 				28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
+				28C656E7267BEC5B00865EE3 /* AddPowerSheetViewModel.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28386F61265868DF00E90445 /* DisciplineDetail.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */,
@@ -575,7 +591,9 @@
 				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,
+				28C656E5267BEC4C00865EE3 /* AddPowerSheet.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
+				28C656E3267BEA3900865EE3 /* ExitButton.swift in Sources */,
 				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
@@ -596,6 +614,7 @@
 				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
+				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* KindredDetail.swift in Sources */,
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
@@ -604,6 +623,7 @@
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* KindredDetailViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
+				28C656E9267BF65100865EE3 /* AddButton.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
