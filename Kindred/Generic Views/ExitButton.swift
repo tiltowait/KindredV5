@@ -20,6 +20,7 @@ struct ExitButton: View {
     ZStack {
       Circle()
         .fill(Color(white: colorScheme == .dark ? 0.19 : 0.93))
+        .shadow(radius: 2)
       Image(systemName: "xmark")
         .resizable()
         .scaledToFit()

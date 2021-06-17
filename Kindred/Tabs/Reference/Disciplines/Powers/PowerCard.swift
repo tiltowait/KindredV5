@@ -89,12 +89,17 @@ struct PowerCard: View {
             .opacity(0.1)
           
           VStack(spacing: 10) {
-            // Title
+            
+            // Title, level, and source
             VStack(spacing: 5) {
               Text(power.name)
                 .font(.system(size: 24, weight: .black, design: .serif))
               Text("Level \(power.level)")
                 .font(Font.system(.subheadline).smallCaps())
+                .foregroundColor(.secondary)
+              Text(power.sourceBook.reference(page: power.page))
+                .font(.caption)
+                .italic()
                 .foregroundColor(.secondary)
             }
 //            .padding(.bottom, 10)

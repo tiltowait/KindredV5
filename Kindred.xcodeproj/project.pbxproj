@@ -324,7 +324,6 @@
 				286FBF86265D94B900AAA469 /* DisciplineList.swift */,
 				286FBF84265D930500AAA469 /* DisciplineRow.swift */,
 				28386F60265868DF00E90445 /* DisciplineDetail.swift */,
-				28C656DB267BDD8400865EE3 /* PowerCard.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				28E13FB6265C917B003E3DDF /* Powers */,
 			);
@@ -421,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				28386F6626587AA500E90445 /* PowerDetail.swift */,
+				28C656DB267BDD8400865EE3 /* PowerCard.swift */,
 				28386F642658727400E90445 /* PowerRow.swift */,
 			);
 			path = Powers;

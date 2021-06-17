@@ -17,6 +17,9 @@ struct KindredDetail: View {
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
   
+  @State private var showingPower: Power?
+  @State private var powerCardOpacity = 0.0
+  
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
@@ -44,51 +47,55 @@ struct KindredDetail: View {
   }
   
   var body: some View {
-    List {
-      // Basic info
-      Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
-        BoldLabel("Ambition", details: viewModel.kindred.ambition)
-        BoldLabel("Desire", details: viewModel.kindred.desire)
-        RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
-        BasicInfoDetail(kindred: viewModel.kindred)
-      }
-      
-      // Traits
-      Section(header: Text("Traits")) {
-        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
-          TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
+    ZStack {
+      List {
+        // Basic info
+        Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+          BoldLabel("Ambition", details: viewModel.kindred.ambition)
+          BoldLabel("Desire", details: viewModel.kindred.desire)
+          RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
+          BasicInfoDetail(kindred: viewModel.kindred)
         }
-        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
-          TraitSummary(title: "Abilities", traits: viewModel.zippedAbilities)
+        
+        // Traits
+        Section(header: Text("Traits")) {
+          NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
+            TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
+          }
+          NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
+            TraitSummary(title: "Abilities", traits: viewModel.zippedAbilities)
+          }
+        }
+        
+        // Disciplines
+        Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
+          KnownDisciplinesGroups(kindred: viewModel.kindred, binding: $showingPower, opacity: $powerCardOpacity)
+        }
+        
+        // Trackers (HP, WP, Humanity, Blood Potency)
+        Section(header: Text("Trackers")) {
+          derivedTrait("Health", rating: viewModel.kindred.health, max: 15)
+          derivedTrait("Willpower", rating: viewModel.kindred.willpower, max: 15)
+          derivedTrait("Humanity", rating: viewModel.kindred.humanity, max: 10)
+          derivedTrait("Hunger", rating: viewModel.kindred.hunger, max: 5)
+          derivedTrait("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
         }
       }
-      
-      // Disciplines
-      Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
-        KnownDisciplinesGroups(kindred: viewModel.kindred)
+      .listStyle(GroupedListStyle())
+      .navigationTitle(viewModel.kindred.name)
+      .toolbar {
+        menu
+      }
+      .sheet(isPresented: $showingDiceRoller) {
+        DiceRollView(kindred: viewModel.kindred)
+      }
+      .alert(isPresented: $showingRenameAlert, renameAlert)
+      .onDisappear(perform: viewModel.save)
+      .sheet(isPresented: $showingPowerAdder) {
+        AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
       }
       
-      // Trackers (HP, WP, Humanity, Blood Potency)
-      Section(header: Text("Trackers")) {
-        derivedTrait("Health", rating: viewModel.kindred.health, max: 15)
-        derivedTrait("Willpower", rating: viewModel.kindred.willpower, max: 15)
-        derivedTrait("Humanity", rating: viewModel.kindred.humanity, max: 10)
-        derivedTrait("Hunger", rating: viewModel.kindred.hunger, max: 5)
-        derivedTrait("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
-      }
-    }
-    .listStyle(GroupedListStyle())
-    .navigationTitle(viewModel.kindred.name)
-    .toolbar {
-      menu
-    }
-    .sheet(isPresented: $showingDiceRoller) {
-      DiceRollView(kindred: viewModel.kindred)
-    }
-    .alert(isPresented: $showingRenameAlert, renameAlert)
-    .onDisappear(perform: viewModel.save)
-    .sheet(isPresented: $showingPowerAdder) {
-      AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
+      PowerCard(power: showingPower, opacity: $powerCardOpacity)
     }
   }
   

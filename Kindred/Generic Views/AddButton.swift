@@ -20,7 +20,6 @@ struct AddButton: View {
     Text("Add")
       .font(.system(size: height * 0.5, weight: .bold))
       .font(Font.body.weight(.bold))
-//      .font(.system(size: height * 2))
       .padding(.horizontal)
       .frame(height: height)
       .foregroundColor(Color(white: colorScheme == .dark ? 0.62 : 0.51))
@@ -28,6 +27,7 @@ struct AddButton: View {
         RoundedRectangle(cornerRadius: 100)
           .fill(Color(white: colorScheme == .dark ? 0.19 : 0.93)
           )
+          .shadow(radius: 2)
       )
   }
 }

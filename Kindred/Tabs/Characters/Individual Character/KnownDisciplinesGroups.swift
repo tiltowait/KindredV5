@@ -10,10 +10,15 @@ import SwiftUI
 struct KnownDisciplinesGroups: View {
   
   @StateObject private var viewModel: ViewModel
+  @Binding private var power: Power?
+  @Binding private var opacity: Double
   
-  init(kindred: Kindred) {
+  init(kindred: Kindred, binding: Binding<Power?>, opacity: Binding<Double>) {
     let viewModel = ViewModel(kindred: kindred)
     _viewModel = StateObject(wrappedValue: viewModel)
+    
+    _power = binding
+    _opacity = opacity
   }
   
   var body: some View {
@@ -25,11 +30,21 @@ struct KnownDisciplinesGroups: View {
         DisclosureGroup {
           ForEach(viewModel.knownPowers(forDiscipline: discipline)) { power in
             PowerRow(power: power)
+              .onTapGesture {
+                show(power: power)
+              }
           }
         } label: {
           DisciplineRow(discipline: discipline)
         }
       }
+    }
+  }
+  
+  func show(power: Power) {
+    self.power = power
+    withAnimation {
+      opacity = 1
     }
   }
 }
@@ -39,7 +54,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     NavigationView {
       List {
         Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
-          KnownDisciplinesGroups(kindred: Kindred.example)
+          KnownDisciplinesGroups(kindred: Kindred.example, binding: .constant(Power.example), opacity: .constant(0))
         }
       }
       .listStyle(GroupedListStyle())

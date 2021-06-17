@@ -23,16 +23,20 @@ struct AddPowerSheet: View {
       List(viewModel.availablePowers) { power in
         PowerRow(power: power)
           .onTapGesture {
-            selectedPower = power
-            withAnimation {
-              cardOpacity = 1
-            }
+            show(power: power)
           }
       }
       .navigationBarTitle(viewModel.title, displayMode: .inline)
       .listStyle(InsetGroupedListStyle())
       
       PowerCard(power: selectedPower, opacity: $cardOpacity, perform: addPower)
+    }
+  }
+  
+  func show(power: Power) {
+    selectedPower = power
+    withAnimation {
+      cardOpacity = 1
     }
   }
   
