@@ -1,5 +1,5 @@
 //
-//  ImageView.swift
+//  ImageTabs.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImageView: View {
+struct ImageTabs: View {
   
   @Environment(\.presentationMode) var presentationMode
   
@@ -69,10 +69,10 @@ struct ImageView: View {
   }
 }
 
-struct ImageView_Previews: PreviewProvider {
+struct ImageTabs_Previews: PreviewProvider {
   static let images = [Image("nadea"), Image("nadea-portrait")]
   
   static var previews: some View {
-    ImageView(images: images, index: 0) { _ in }
+    ImageTabs(images: images, index: 0) { _ in }
   }
 }

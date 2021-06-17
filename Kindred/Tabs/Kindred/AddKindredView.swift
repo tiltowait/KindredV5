@@ -43,18 +43,17 @@ struct AddKindredView: View {
   }
   
   func importCharacter<T: Error>(_ result: Result<URL, T>) {
-    if case let Result.success(selectedFile) = result {
+    if case let .success(selectedFile) = result {
       if selectedFile.startAccessingSecurityScopedResource() {
         if let pdf = CharacterPDF(url: selectedFile) {
           CharacterImporter.importCharacter(pdf: pdf, dataController: dataController)
           dataController.save()
         }
-        selectedFile.stopAccessingSecurityScopedResource()
       } else {
         // Unable to access file
         showingFileErrorAlert.toggle()
-        selectedFile.stopAccessingSecurityScopedResource()
       }
+      selectedFile.stopAccessingSecurityScopedResource()
     }
     presentationMode.wrappedValue.dismiss()
   }

@@ -1,5 +1,5 @@
 //
-//  KindredView.swift
+//  KindredDetail.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct KindredView: View {
+struct KindredDetail: View {
   
   @StateObject var viewModel: ViewModel
   
@@ -48,15 +48,15 @@ struct KindredView: View {
         BoldLabel("Ambition", details: viewModel.kindred.ambition)
         BoldLabel("Desire", details: viewModel.kindred.desire)
         RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
-        KindredBasicDisclosure(kindred: viewModel.kindred)
+        BasicInfoDetail(kindred: viewModel.kindred)
       }
       
       Section(header: Text("Traits")) {
-        NavigationLink(destination: TraitBlockView(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
-          TraitBlockPreview(title: "Attributes", traits: viewModel.zippedAttributes)
+        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
+          TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
         }
-        NavigationLink(destination: TraitBlockView(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
-          TraitBlockPreview(title: "Abilities", traits: viewModel.zippedAbilities)
+        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
+          TraitSummary(title: "Abilities", traits: viewModel.zippedAbilities)
         }
       }
       
@@ -103,10 +103,10 @@ struct KindredView: View {
   
 }
 
-struct KindredView_Previews: PreviewProvider {
+struct KindredDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      KindredView(kindred: Kindred.example, dataController: DataController.preview)
+      KindredDetail(kindred: Kindred.example, dataController: DataController.preview)
     }
   }
 }

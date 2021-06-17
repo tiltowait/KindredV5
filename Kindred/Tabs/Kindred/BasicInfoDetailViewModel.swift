@@ -1,5 +1,5 @@
 //
-//  KindredBasicDisclosureViewModel.swift
+//  BasicInfoDetailViewModel.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/16/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension KindredBasicDisclosure {
+extension BasicInfoDetail {
   class ViewModel: BaseKindredViewModel {
     
     /// Whether the disclosure is/should be expanded or not.
@@ -33,10 +33,13 @@ extension KindredBasicDisclosure {
     
     /// The name used for storing `isExpanded` in `UserDefaults`.
     ///
-    /// The name is derived from the Kindred's `id` property, plus an additonal string for namespacing.
+    /// The name is derived from the Kindred's `id` property, plus an additonal
+    /// string for namespacing.
     private let autosaveKey: String
     
     override init(kindred: Kindred) {
+      // Core Data doesn't let us specify the current date as a default, so we
+      // do it here
       birthdate = kindred.birthdate ?? Date()
       embraceDate = kindred.embraceDate ?? Date()
       

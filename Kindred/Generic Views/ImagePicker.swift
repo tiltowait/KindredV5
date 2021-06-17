@@ -18,12 +18,12 @@ struct ImagePicker: UIViewControllerRepresentable {
     return picker
   }
   
-  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-    // do stuff
-  }
-  
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+    // Unused but needed for UIViewControllerRepresentable
   }
   
 }

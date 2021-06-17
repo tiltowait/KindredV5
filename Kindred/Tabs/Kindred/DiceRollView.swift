@@ -20,8 +20,8 @@ struct DiceRollView: View {
     NavigationView {
       ScrollView {
         VStack(spacing: 20) {
-          DicePad(columns: viewModel.attributeColumns, perform: viewModel.toggle)
-          DicePad(columns: viewModel.skillColumns, perform: viewModel.toggle)
+          ButtonPad(columns: viewModel.attributeColumns, perform: viewModel.toggle)
+          ButtonPad(columns: viewModel.skillColumns, perform: viewModel.toggle)
         }
       }
       .toolbar {

@@ -1,5 +1,5 @@
 //
-//  DotSelectorView.swift
+//  DotSelector.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/15/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DotSelectorView: View {
+struct DotSelector: View {
   
   @State private var showingReferenceAlert = false
   let size: CGFloat = 17
@@ -75,9 +75,9 @@ struct DotSelectorView: View {
   
 }
 
-struct DotSelectorView_Previews: PreviewProvider {
+struct DotSelector_Previews: PreviewProvider {
   static var previews: some View {
-    DotSelectorView(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
+    DotSelector(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
       .previewLayout(.sizeThatFits)
   }
 }

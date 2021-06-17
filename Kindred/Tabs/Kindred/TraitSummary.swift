@@ -1,5 +1,5 @@
 //
-//  TraitBlockPreview.swift
+//  TraitSummary.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TraitBlockPreview: View {
+struct TraitSummary: View {
   
   let title: String
   let traits: [[(String, Int16)]]
@@ -36,9 +36,9 @@ struct TraitBlockPreview: View {
   
 }
 
-struct TraitBlockPreview_Previews: PreviewProvider {
+struct TraitSummary_Previews: PreviewProvider {
   static var previews: some View {
-    TraitBlockPreview(title: "Attributes", traits: [[("Strength", 3)], [("Charisma", 4)], [("Intelligence", 2)]])
+    TraitSummary(title: "Attributes", traits: [[("Strength", 3)], [("Charisma", 4)], [("Intelligence", 2)]])
       .previewLayout(.sizeThatFits)
   }
 }

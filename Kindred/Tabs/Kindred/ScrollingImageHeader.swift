@@ -71,7 +71,7 @@ struct ScrollingImageHeader: View {
       ImagePicker(image: $imageToAdd)
     }
     .sheet(item: $showingImageIndex) { index in
-      ImageView(
+      ImageTabs(
         images: fullSizeImages,
         index: index,
         deletionHandler: viewModel.removeImage

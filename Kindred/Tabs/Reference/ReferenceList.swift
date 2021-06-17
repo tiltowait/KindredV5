@@ -1,5 +1,5 @@
 //
-//  ReferenceView.swift
+//  ReferenceList.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 5/25/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReferenceView: View {
+struct ReferenceList: View {
   
   var body: some View {
     NavigationView {
@@ -26,7 +26,7 @@ struct ReferenceView: View {
 
 struct ReferenceView_Previews: PreviewProvider {
   static var previews: some View {
-    ReferenceView()
+    ReferenceList()
       .environment(\.managedObjectContext, DataController.preview.container.viewContext)
   }
 }

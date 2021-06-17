@@ -1,5 +1,5 @@
 //
-//  TraitBlockView.swift
+//  TraitBlock.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TraitBlockView: View {
+struct TraitBlock: View {
   
   @StateObject var viewModel: ViewModel
   
@@ -45,7 +45,7 @@ struct TraitBlockView: View {
   func section(named name: String, forTraits traits: [ReferenceWritableKeyPath<Kindred, Int16>]) -> some View {
     Section(header: Text(name)) {
       ForEach(traits, id: \.self) { trait in
-        DotSelectorView(
+        DotSelector(
           kindred: viewModel.kindred,
           keyPath: trait,
           max: 5,
@@ -57,10 +57,10 @@ struct TraitBlockView: View {
   
 }
 
-struct TraitBlockView_Previews: PreviewProvider {
+struct TraitBlock_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      TraitBlockView(kindred: Kindred.example, dataController: DataController.preview, traits: .skills)
+      TraitBlock(kindred: Kindred.example, dataController: DataController.preview, traits: .skills)
     }
   }
 }

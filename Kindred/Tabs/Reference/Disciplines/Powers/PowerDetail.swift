@@ -1,5 +1,5 @@
 //
-//  PowerInfoView.swift
+//  PowerDetail.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 5/21/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PowerInfoView: View {
+struct PowerDetail: View {
   
   let power: Power
   
@@ -83,9 +83,9 @@ struct PowerInfoView: View {
   
 }
 
-struct PowerInfoView_Previews: PreviewProvider {
+struct PowerDetail_Previews: PreviewProvider {
   static var previews: some View {
-    PowerInfoView(power: Power.example)
+    PowerDetail(power: Power.example)
       .previewLayout(.sizeThatFits)
   }
 }

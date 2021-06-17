@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TraitBlockView {
+extension TraitBlock {
   class ViewModel: BaseSavingKindredViewModel {
     
     enum TraitGroup: String {

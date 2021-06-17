@@ -18,13 +18,13 @@ struct HomeView: View {
   
   var body: some View {
     TabView(selection: $selectedView) {
-      KindredList()
+      CharacterList()
         .tag(Tab.kindred)
         .tabItem {
           Image(systemName: "person.3")
           Text("Characters")
         }
-      ReferenceView()
+      ReferenceList()
         .tag(Tab.reference)
         .tabItem {
           Image(systemName: "books.vertical")

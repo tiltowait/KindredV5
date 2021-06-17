@@ -1,5 +1,5 @@
 //
-//  KindredList.swift
+//  CharacterList.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/13/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KindredList: View {
+struct CharacterList: View {
   
   @EnvironmentObject var dataController: DataController
   @FetchRequest(
@@ -21,13 +21,13 @@ struct KindredList: View {
     NavigationView {
       List {
         ForEach(kindred) { cainite in
-          NavigationLink(destination: KindredView(kindred: cainite, dataController: dataController)) {
+          NavigationLink(destination: KindredDetail(kindred: cainite, dataController: dataController)) {
             KindredRow(kindred: cainite)
           }
         }
         .onDelete(perform: delete)
       }
-      .navigationTitle("Kindred")
+      .navigationTitle("Characters")
       .toolbar {
         Button {
           showingCreationSheet.toggle()
@@ -50,9 +50,9 @@ struct KindredList: View {
   }
 }
 
-struct KindredList_Previews: PreviewProvider {
+struct CharacterList_Previews: PreviewProvider {
   static var previews: some View {
-    KindredList()
+    CharacterList()
       .environmentObject(DataController.preview)
       .environment(\.managedObjectContext, DataController.preview.container.viewContext)
   }

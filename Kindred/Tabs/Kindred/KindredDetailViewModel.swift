@@ -1,5 +1,5 @@
 //
-//  KindredViewModel.swift
+//  KindredDetailViewModel.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension KindredView {
+extension KindredDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
     var zippedAttributes: [[(String, Int16)]] {

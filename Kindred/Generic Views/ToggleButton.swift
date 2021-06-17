@@ -1,5 +1,5 @@
 //
-//  DiceButton.swift
+//  ToggleButton.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/15/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DiceButton: View {
+struct ToggleButton: View {
   
   @State private var isToggled = false
   let onColor = Color.red
@@ -34,9 +34,9 @@ struct DiceButton: View {
   }
 }
 
-struct StateButtonWrapper_Previews: PreviewProvider {
+struct ToggleButton_Previews: PreviewProvider {
   static var previews: some View {
-    DiceButton(label: "Animal Ken") { _ in }
+    ToggleButton(label: "Animal Ken") { _ in }
       .previewLayout(.sizeThatFits)
   }
 }

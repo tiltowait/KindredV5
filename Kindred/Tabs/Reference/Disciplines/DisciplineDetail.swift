@@ -1,5 +1,5 @@
 //
-//  DisciplineDetailView.swift
+//  DisciplineDetail.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 5/21/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct DisciplineDetailView: View {
+struct DisciplineDetail: View {
   
   let discipline: Discipline
   
@@ -18,7 +18,7 @@ struct DisciplineDetailView: View {
               footer: IconFooter(icon: discipline.icon)) {
         ForEach(0..<discipline.allPowers.count) { index in
           DisclosureGroup {
-            PowerInfoView(power: power(at: index))
+            PowerDetail(power: power(at: index))
           } label: {
             PowerRow(power: power(at: index))
               .contentShape(Rectangle())
@@ -36,10 +36,10 @@ struct DisciplineDetailView: View {
   
 }
 
-struct DisciplinePowerList_Previews: PreviewProvider {
+struct DisciplineDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      DisciplineDetailView(discipline: Discipline.example)
+      DisciplineDetail(discipline: Discipline.example)
     }
   }
 }

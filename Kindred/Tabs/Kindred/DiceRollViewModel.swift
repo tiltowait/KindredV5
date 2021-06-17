@@ -8,30 +8,24 @@
 import Foundation
 
 extension DiceRollView {
-  class ViewModel: ObservableObject {
+  class ViewModel: BaseKindredViewModel {
     
     @Published var pool = 0
-    let kindred: Kindred
     
     let traitValues: [String: Int]
     var traits: [String] = []
     
-    init(kindred: Kindred) {
-      self.kindred = kindred
-      
+    override init(kindred: Kindred) {
       // Initialize the trait values
       var dict: [String: Int] = [:]
       
       let _ = kindred[keyPath: \.academics]
-      let keyPaths = [
-        \Kindred.strength, \Kindred.dexterity, \Kindred.stamina, \Kindred.charisma, \Kindred.manipulation,
-        \Kindred.composure, \Kindred.intelligence, \Kindred.wits, \Kindred.resolve, \Kindred.athletics,
-        \Kindred.brawl, \Kindred.craft, \Kindred.drive, \Kindred.firearms, \Kindred.larceny, \Kindred.melee,
-        \Kindred.stealth, \Kindred.survival, \Kindred.animalKen, \Kindred.etiquette, \Kindred.insight,
-        \Kindred.intimidation, \Kindred.leadership, \Kindred.performance, \Kindred.persuasion,
-        \Kindred.streetwise, \Kindred.subterfuge, \Kindred.academics, \Kindred.awareness, \Kindred.finance,
-        \Kindred.investigation, \Kindred.medicine, \Kindred.occult, \Kindred.politics, \Kindred.science,
-        \Kindred.technology
+      let keyPaths: [KeyPath<Kindred, Int16>] = [
+        \.strength, \.dexterity, \.stamina, \.charisma, \.manipulation, \.composure, \.intelligence,
+        \.wits, \.resolve, \.athletics, \.brawl, \.craft, \.drive, \.firearms, \.larceny, \.melee,
+        \.stealth, \.survival, \.animalKen, \.etiquette, \.insight, \.intimidation, \.leadership,
+        \.performance, \.persuasion, \.streetwise, \.subterfuge, \.academics, \.awareness,
+        \.finance, \.investigation, \.medicine, \.occult, \.politics, \.science, \.technology
       ]
       
       for keyPath in keyPaths {
@@ -40,6 +34,8 @@ extension DiceRollView {
         dict[trait] = value
       }
       traitValues = dict
+      
+      super.init(kindred: kindred)
     }
     
     func toggle(_ trait: String) {
