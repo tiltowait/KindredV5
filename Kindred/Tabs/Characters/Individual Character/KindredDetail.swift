@@ -15,7 +15,7 @@ struct KindredDetail: View {
   
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
-  @State private var showingDisciplineAdder = false
+  @State private var showingPowerAdder = false
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -64,7 +64,7 @@ struct KindredDetail: View {
       }
       
       // Disciplines
-      Section(header: AdvantageHeader("Disciplines", binding: $showingDisciplineAdder)) {
+      Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
         KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
       }
       
@@ -87,6 +87,9 @@ struct KindredDetail: View {
     }
     .alert(isPresented: $showingRenameAlert, renameAlert)
     .onDisappear(perform: viewModel.save)
+    .sheet(isPresented: $showingPowerAdder) {
+      AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
+    }
   }
   
   func derivedTrait(_ trait: String, rating: Int16, max: Int) -> some View {

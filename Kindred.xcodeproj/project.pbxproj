@@ -67,6 +67,9 @@
 		28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */; };
 		28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */; };
 		28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */; };
+		28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */; };
+		28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */; };
+		28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D7267BC1AE00865EE3 /* Clan+.swift */; };
 		28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* BasicInfoDetail.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRow.swift */; };
@@ -157,6 +160,9 @@
 		28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageHeader.swift; sourceTree = "<group>"; };
 		28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroups.swift; sourceTree = "<group>"; };
 		28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroupsViewModel.swift; sourceTree = "<group>"; };
+		28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheet.swift; sourceTree = "<group>"; };
+		28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheetViewModel.swift; sourceTree = "<group>"; };
+		28C656D7267BC1AE00865EE3 /* Clan+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clan+.swift"; sourceTree = "<group>"; };
 		28DD0640267A706E00C9669F /* BasicInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoDetail.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* KindredRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRow.swift; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
+				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -368,6 +375,7 @@
 			children = (
 				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
 				28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */,
+				28C656D6267BC13200865EE3 /* Adding Disciplines */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28252068267916CD0066F09B /* DotSelector.swift */,
 				28A1E9EC2677B62A0084F483 /* KindredDetail.swift */,
@@ -383,6 +391,15 @@
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
 			);
 			path = "Individual Character";
+			sourceTree = "<group>";
+		};
+		28C656D6267BC13200865EE3 /* Adding Disciplines */ = {
+			isa = PBXGroup;
+			children = (
+				28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */,
+				28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */,
+			);
+			path = "Adding Disciplines";
 			sourceTree = "<group>";
 		};
 		28E13FB6265C917B003E3DDF /* Powers */ = {
@@ -549,6 +566,7 @@
 				28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
+				28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */,
@@ -567,6 +585,7 @@
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
+				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				2833CAC6267A794E00160A96 /* BasicInfoDetailViewModel.swift in Sources */,
@@ -574,6 +593,7 @@
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* KindredDetail.swift in Sources */,

@@ -38,3 +38,11 @@ extension Discipline {
   }
   
 }
+
+extension Discipline: Comparable {
+  
+  static public func <(lhs: Discipline, rhs: Discipline) -> Bool {
+    lhs.name < rhs.name
+  }
+  
+}

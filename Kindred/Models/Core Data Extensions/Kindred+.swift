@@ -85,7 +85,7 @@ extension Kindred {
   var knownDisciplines: [Discipline] {
     let disciplines = knownPowers.compactMap { $0.discipline }
     let set = Set(disciplines)
-    return set.sorted { $0.name < $1.name }
+    return set.sorted()
   }
   
 }
