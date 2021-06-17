@@ -13,7 +13,8 @@ struct DisciplineRow: View {
   var body: some View {
     HStack {
       Image(discipline.icon)
-        .clipShape(Circle())
+        .resizable()
+        .frame(width: 55, height: 55)
       VStack(alignment: .leading) {
         Text(discipline.name)
           .font(.headline)
