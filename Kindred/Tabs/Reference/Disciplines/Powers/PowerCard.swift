@@ -126,14 +126,15 @@ struct PowerCard: View {
       // Buttons
       HStack {
         Button(action: dismiss) {
-          ExitButton(40)
+          Image(systemName: "xmark")
         }
+        .buttonStyle(PopUpImageButtonStyle())
+        
         if let perform = action {
-          Button {
-            perform(power)
-          } label: {
-            AddButton(40)
+          Button("Add") {
+           perform(power)
           }
+          .buttonStyle(PopUpTextButtonStyle())
         }
       }
     }
