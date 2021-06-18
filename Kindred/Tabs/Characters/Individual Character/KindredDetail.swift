@@ -17,9 +17,6 @@ struct KindredDetail: View {
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
   
-  @State private var showingPower: Power?
-  @State private var powerCardOpacity = 0.0
-  
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
@@ -47,7 +44,6 @@ struct KindredDetail: View {
   }
   
   var body: some View {
-    ZStack {
       List {
         // Basic info
         Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
@@ -69,7 +65,7 @@ struct KindredDetail: View {
         
         // Disciplines
         Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
-          KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController, binding: $showingPower, opacity: $powerCardOpacity)
+          KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
         
         // Trackers (HP, WP, Humanity, Blood Potency)
@@ -94,9 +90,6 @@ struct KindredDetail: View {
       .sheet(isPresented: $showingPowerAdder) {
         AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
       }
-      
-      PowerCard(power: showingPower, opacity: $powerCardOpacity)
-    }
   }
   
   func derivedTrait(_ trait: String, rating: Int16, max: Int) -> some View {

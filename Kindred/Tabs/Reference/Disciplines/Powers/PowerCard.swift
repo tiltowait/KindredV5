@@ -9,16 +9,14 @@ import SwiftUI
 
 struct PowerCard: View {
   
-  let power: Power
-  @Binding var opacity: Double
-  let perform: ((Power) -> Void)?
+  @Environment(\.viewController) var viewController
   
-  init?(power: Power?, opacity: Binding<Double>, perform: ((Power) -> Void)? = nil) {
-    guard let power = power else { return nil }
-    
+  let power: Power
+  let action: ((Power) -> Void)?
+  
+  init(power: Power, action: ((Power) -> Void)? = nil) {
     self.power = power
-    _opacity = opacity
-    self.perform = perform
+    self.action = action
   }
   
   var rouse: String {
@@ -71,98 +69,85 @@ struct PowerCard: View {
   }
   
   var body: some View {
-    ZStack {
-      Color.black
-        .ignoresSafeArea()
-        .opacity(0.4)
-      
-      VStack {
-        
-        // The actual card
-        ZStack {
-          Color.systemBackground
-          Image(power.discipline!.icon)
-            .resizable()
-            .scaledToFit()
-            .padding()
-            .padding()
-            .opacity(0.1)
-          
-          VStack(spacing: 10) {
-            
-            // Title, level, and source
-            VStack(spacing: 5) {
-              Text(power.name)
-                .font(.system(size: 24, weight: .black, design: .serif))
-              Text("Level \(power.level)")
-                .font(Font.system(.subheadline).smallCaps())
-                .foregroundColor(.secondary)
-              Text(power.sourceBook.reference(page: power.page))
-                .font(.caption)
-                .italic()
-                .foregroundColor(.secondary)
-            }
-//            .padding(.bottom, 10)
-
-            
-            prerequisite
-            
-            Text(power.info)
-              .italic()
-            
-            Divider()
-            
-            rouseAndDuration
-            
-            // Pool
-            if let pool = power.pool {
-              HStack(alignment: .top) {
-                Text("Pool:")
-                  .bold()
-                Text(pool)
-                Spacer()
-              }
-            }
-          }
+    VStack {
+      // The actual card
+      ZStack {
+        Image(power.discipline!.icon)
+          .resizable()
+          .scaledToFit()
           .padding()
-        }
-        .cornerRadius(20)
-        .fixedSize(horizontal: false, vertical: true)
-        .shadow(radius: 5)
-        .padding()
-        .padding()
+          .padding()
+          .opacity(0.1)
         
-        // Buttons
-        HStack {
-          Button {
-            hide()
-          } label: {
-            ExitButton(40)
+        VStack(spacing: 10) {
+          // Title, level, and source
+          VStack(spacing: 5) {
+            Text(power.name)
+              .font(.system(size: 24, weight: .black, design: .serif))
+            Text("Level \(power.level)")
+              .font(Font.system(.subheadline).smallCaps())
+              .foregroundColor(.secondary)
+            Text(power.sourceBook.reference(page: power.page))
+              .font(.caption)
+              .italic()
+              .foregroundColor(.secondary)
           }
-          if let perform = perform {
-            Button {
-              perform(power)
-            } label: {
-              AddButton(40)
+          
+          Divider()
+          prerequisite
+          
+          Text(power.info)
+            .italic()
+          
+          Divider()
+          rouseAndDuration
+          
+          // Pool
+          if let pool = power.pool {
+            HStack(alignment: .top) {
+              Text("Pool:")
+                .bold()
+              Text(pool)
+              Spacer()
             }
+          }
+        }
+        .padding()
+      }
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .fill(Color.systemBackground)
+          .shadow(radius: 5)
+      )
+      .fixedSize(horizontal: false, vertical: false)
+      .padding()
+      .padding()
+      
+      // Buttons
+      HStack {
+        Button(action: dismiss) {
+          ExitButton(40)
+        }
+        if let perform = action {
+          Button {
+            perform(power)
+          } label: {
+            AddButton(40)
           }
         }
       }
     }
-    .opacity(opacity)
   }
   
-  func hide() {
-    withAnimation {
-      opacity = 0
-    }
+  func dismiss() {
+    viewController?.dismiss(animated: true)
   }
   
 }
 
 struct PowerCard_Previews: PreviewProvider {
   static var previews: some View {
-    PowerCard(power: Power.example, opacity: .constant(1)) { _ in }
+    PowerCard(power: Power.example) { _ in }
       .previewLayout(.sizeThatFits)
   }
 }

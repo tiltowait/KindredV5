@@ -9,16 +9,13 @@ import SwiftUI
 
 struct KnownDisciplinesGroups: View {
   
-  @StateObject private var viewModel: ViewModel
-  @Binding private var power: Power?
-  @Binding private var opacity: Double
+  @Environment(\.viewController) var viewController
   
-  init(kindred: Kindred, dataController: DataController, binding: Binding<Power?>, opacity: Binding<Double>) {
+  @StateObject private var viewModel: ViewModel
+  
+  init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
-    
-    _power = binding
-    _opacity = opacity
   }
   
   var body: some View {
@@ -29,10 +26,12 @@ struct KnownDisciplinesGroups: View {
       ForEach(viewModel.kindred.knownDisciplines) { discipline in
         DisclosureGroup {
           ForEach(viewModel.knownPowers(for: discipline)) { power in
-            PowerRow(power: power)
-              .onTapGesture {
-                show(power: power)
-              }
+            Button {
+              show(power: power)
+            } label: {
+              PowerRow(power: power)
+            }
+            .buttonStyle(PlainButtonStyle())
           }
           .onDelete { offsets in
             removePowers(at: offsets, in: discipline)
@@ -45,9 +44,8 @@ struct KnownDisciplinesGroups: View {
   }
   
   func show(power: Power) {
-    self.power = power
-    withAnimation {
-      opacity = 1
+    viewController?.present {
+      PowerCard(power: power)
     }
   }
   
@@ -61,7 +59,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     NavigationView {
       List {
         Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
-          KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview, binding: .constant(Power.example), opacity: .constant(0))
+          KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview)
         }
       }
       .listStyle(GroupedListStyle())

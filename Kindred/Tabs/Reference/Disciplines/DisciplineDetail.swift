@@ -6,23 +6,26 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct DisciplineDetail: View {
+  
+  @Environment(\.viewController) var viewController
   
   let discipline: Discipline
   
   var body: some View {
     List {
-      Section(header: Text(discipline.info),
-              footer: IconFooter(icon: discipline.icon)) {
-        ForEach(0..<discipline.allPowers.count) { index in
-          DisclosureGroup {
-            PowerDetail(power: power(at: index))
+      Section(
+        header: Text(discipline.info),
+        footer: IconFooter(icon: discipline.icon)
+      ) {
+        ForEach(discipline.allPowers) { power in
+          Button {
+            show(power: power)
           } label: {
-            PowerRow(power: power(at: index))
-              .contentShape(Rectangle())
+            PowerRow(power: power)
           }
+          .buttonStyle(PlainButtonStyle())
         }
       }
     }
@@ -30,8 +33,12 @@ struct DisciplineDetail: View {
     .navigationTitle(discipline.name)
   }
   
-  func power(at index: Int) -> Power {
-    discipline.allPowers[index]
+  /// Display a power's details in a custom alert.
+  /// - Parameter power: The power to display.
+  func show(power: Power) {
+    viewController?.present {
+      PowerCard(power: power)
+    }
   }
   
 }

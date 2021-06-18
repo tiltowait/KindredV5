@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AddPowerSheet: View {
   
+  @Environment(\.viewController) var viewController
+  
   @StateObject private var viewModel: ViewModel
-  @State private var selectedPower: Power?
-  @State private var cardOpacity = 0.0
   
   init(discipline: Discipline, kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(discipline: discipline, kindred: kindred, dataController: dataController)
@@ -19,34 +19,35 @@ struct AddPowerSheet: View {
   }
   
   var body: some View {
-    ZStack {
-      List(viewModel.availablePowers) { power in
+    List(viewModel.availablePowers) { power in
+      Button {
+        show(power: power)
+      } label: {
         PowerRow(power: power)
-          .onTapGesture {
-            show(power: power)
-          }
       }
-      .navigationBarTitle(viewModel.title, displayMode: .inline)
-      .listStyle(InsetGroupedListStyle())
-      
-      PowerCard(power: selectedPower, opacity: $cardOpacity, perform: addPower)
+      .buttonStyle(PlainButtonStyle())
     }
+    .navigationBarTitle(viewModel.title, displayMode: .inline)
+    .listStyle(InsetGroupedListStyle())
   }
   
+  /// Modally display a power's details.
+  /// - Parameter power: The power to display.
   func show(power: Power) {
-    selectedPower = power
-    withAnimation {
-      cardOpacity = 1
+    viewController?.present {
+      PowerCard(power: power, action: addPower)
     }
   }
   
+  /// Add a power to the view controller's referenced character.
+  /// - Parameter power: The power to add.
   func addPower(_ power: Power) {
     viewModel.add(power: power)
     
     // presentationMode.wrappedValue.dismiss() only pops back to
     // the AddDisciplineSheet, so we need to dip into UIKit to
     // completely dismiss the sheet
-    UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true)
+    UIViewController.root?.dismiss(animated: true)
   }
 }
 
