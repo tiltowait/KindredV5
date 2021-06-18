@@ -1,5 +1,5 @@
 //
-//  CustomModals.swift
+//  UIViewController+.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/18/21.
