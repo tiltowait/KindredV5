@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension KindredDetail {
+extension CharacterDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
     var zippedAttributes: [[(String, Int16)]] {

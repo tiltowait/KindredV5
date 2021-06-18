@@ -1,5 +1,5 @@
 //
-//  KindredDetail.swift
+//  CharacterDetail.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct KindredDetail: View {
+struct CharacterDetail: View {
   
   @StateObject var viewModel: ViewModel
   
@@ -47,8 +47,8 @@ struct KindredDetail: View {
       List {
         // Basic info
         Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
-          BoldLabel("Ambition", details: viewModel.kindred.ambition)
-          BoldLabel("Desire", details: viewModel.kindred.desire)
+          BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
+          BoldTextField("Desire", binding: $viewModel.kindred.desire)
           RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
           BasicInfoDetail(kindred: viewModel.kindred)
         }
@@ -118,7 +118,7 @@ struct KindredDetail: View {
 struct KindredDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      KindredDetail(kindred: Kindred.example, dataController: DataController.preview)
+      CharacterDetail(kindred: Kindred.example, dataController: DataController.preview)
     }
   }
 }

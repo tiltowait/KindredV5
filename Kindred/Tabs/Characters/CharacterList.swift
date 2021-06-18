@@ -21,7 +21,7 @@ struct CharacterList: View {
     NavigationView {
       List {
         ForEach(kindred) { cainite in
-          NavigationLink(destination: KindredDetail(kindred: cainite, dataController: dataController)) {
+          NavigationLink(destination: CharacterDetail(kindred: cainite, dataController: dataController)) {
             KindredRow(kindred: cainite)
           }
         }
