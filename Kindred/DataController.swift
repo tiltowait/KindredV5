@@ -37,10 +37,21 @@ class DataController: ObservableObject {
     return traitReference
   }()
   
+  /// Static model file to prevent errors when testing.
+  static let model: NSManagedObjectModel = {
+    guard let url = Bundle.main.url(forResource: "KindredModel", withExtension: "momd") else {
+      fatalError("Failed to load model file.")
+    }
+    guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+      fatalError("Failed to load model file.")
+    }
+    return managedObjectModel
+  }()
+  
   /// Creates a `DataController` and initializes reference data if the store is empty.
   /// - Parameter inMemory: Set to `true` if the data should not persist across launches. Default `false`.
   init(inMemory: Bool = false) {
-    container = NSPersistentCloudKitContainer(name: "KindredModel")
+    container = NSPersistentCloudKitContainer(name: "KindredModel", managedObjectModel: Self.model)
     
     if inMemory {
       print("Running in memory! Data will not persist.")
