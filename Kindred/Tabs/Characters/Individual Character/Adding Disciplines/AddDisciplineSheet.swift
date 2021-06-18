@@ -21,7 +21,7 @@ struct AddDisciplineSheet: View {
     Group {
       if let disciplines = viewModel.inClanDisciplines {
         ForEach(disciplines) { discipline in
-          NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+          NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
             DisciplineRow(discipline: discipline)
           }
         }
@@ -34,7 +34,7 @@ struct AddDisciplineSheet: View {
   
   var knownOutOfClan: some View {
     ForEach(viewModel.knownOutOfClanDisciplines) { discipline in
-      NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+      NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
         DisciplineRow(discipline: discipline)
       }
     }
@@ -42,7 +42,7 @@ struct AddDisciplineSheet: View {
   
   var unknownOutOfClan: some View {
     ForEach(viewModel.unknownOutOfClanDisciplines) { discipline in
-      NavigationLink(destination: AddPowerSheet(discipline: discipline, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+      NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
         DisciplineRow(discipline: discipline)
       }
     }

@@ -2,7 +2,7 @@
 //  DisciplineDetail.swift
 //  Kindred
 //
-//  Created by Jared Lindsay on 5/21/21.
+//  Created by Jared Lindsay on 6/17/21.
 //
 
 import SwiftUI
@@ -11,15 +11,20 @@ struct DisciplineDetail: View {
   
   @Environment(\.viewController) var viewController
   
-  let discipline: Discipline
+  @StateObject private var viewModel: ViewModel
+  
+  init(discipline: Discipline, kindred: Kindred?) {
+    let viewModel = ViewModel(discipline: discipline, kindred: kindred)
+    _viewModel = StateObject(wrappedValue: viewModel)
+  }
   
   var body: some View {
     List {
       Section(
-        header: Text(discipline.info),
-        footer: IconFooter(icon: discipline.icon)
+        header: Text(viewModel.headerText),
+        footer: IconFooter(icon: viewModel.icon)
       ) {
-        ForEach(discipline.allPowers) { power in
+        ForEach(viewModel.availablePowers) { power in
           Button {
             show(power: power)
           } label: {
@@ -29,24 +34,38 @@ struct DisciplineDetail: View {
         }
       }
     }
-    .listStyle(GroupedListStyle())
-    .navigationTitle(discipline.name)
+    .navigationBarTitle(viewModel.title, displayMode: .inline)
+    .listStyle(InsetGroupedListStyle())
   }
   
-  /// Display a power's details in a custom alert.
+  /// Modally display a power's details.
   /// - Parameter power: The power to display.
   func show(power: Power) {
     viewController?.present {
-      PowerCard(power: power)
+      if viewModel.isReferenceView {
+        PowerCard(power: power)
+      } else {
+        PowerCard(power: power, action: addPower)
+      }
     }
   }
   
+  /// Add a power to the view controller's referenced character.
+  /// - Parameter power: The power to add.
+  func addPower(_ power: Power) {
+    viewModel.add(power: power)
+    
+    // presentationMode.wrappedValue.dismiss() only pops back to
+    // the AddDisciplineSheet, so we need to dip into UIKit to
+    // completely dismiss the sheet
+    UIViewController.root?.dismiss(animated: true)
+  }
 }
 
-struct DisciplineDetail_Previews: PreviewProvider {
+struct AddPowerSheet_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      DisciplineDetail(discipline: Discipline.example)
+      DisciplineDetail(discipline: Discipline.example, kindred: Kindred.example)
     }
   }
 }

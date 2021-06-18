@@ -16,7 +16,7 @@ struct DisciplineList: View {
   
   var body: some View {
     List(disciplines) { discipline in
-      NavigationLink(destination: DisciplineDetail(discipline: discipline)) {
+      NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: nil)) {
         DisciplineRow(discipline: discipline)
       }
     }
