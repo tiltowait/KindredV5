@@ -13,8 +13,8 @@ struct KnownDisciplinesGroups: View {
   @Binding private var power: Power?
   @Binding private var opacity: Double
   
-  init(kindred: Kindred, binding: Binding<Power?>, opacity: Binding<Double>) {
-    let viewModel = ViewModel(kindred: kindred)
+  init(kindred: Kindred, dataController: DataController, binding: Binding<Power?>, opacity: Binding<Double>) {
+    let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
     
     _power = binding
@@ -28,11 +28,14 @@ struct KnownDisciplinesGroups: View {
     } else {
       ForEach(viewModel.kindred.knownDisciplines) { discipline in
         DisclosureGroup {
-          ForEach(viewModel.knownPowers(forDiscipline: discipline)) { power in
+          ForEach(viewModel.knownPowers(for: discipline)) { power in
             PowerRow(power: power)
               .onTapGesture {
                 show(power: power)
               }
+          }
+          .onDelete { offsets in
+            removePowers(at: offsets, in: discipline)
           }
         } label: {
           DisciplineRow(discipline: discipline)
@@ -47,6 +50,10 @@ struct KnownDisciplinesGroups: View {
       opacity = 1
     }
   }
+  
+  func removePowers(at offsets: IndexSet, in discipline: Discipline) {
+    viewModel.removePowers(at: offsets, in: discipline)
+  }
 }
 
 struct KnownDisciplinesList_Previews: PreviewProvider {
@@ -54,7 +61,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     NavigationView {
       List {
         Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
-          KnownDisciplinesGroups(kindred: Kindred.example, binding: .constant(Power.example), opacity: .constant(0))
+          KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview, binding: .constant(Power.example), opacity: .constant(0))
         }
       }
       .listStyle(GroupedListStyle())
