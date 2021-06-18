@@ -32,7 +32,7 @@
 		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
 		283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */; };
 		28474426267832D200C1E3A5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28474425267832D200C1E3A5 /* DotView.swift */; };
-		284B8583267D0FDD00F159DC /* CustomModals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B8582267D0FDD00F159DC /* CustomModals.swift */; };
+		284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B8582267D0FDD00F159DC /* UIViewController+.swift */; };
 		284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5B82677CE6B007B298B /* ImagePicker.swift */; };
 		284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageTabs.swift */; };
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
@@ -129,7 +129,7 @@
 		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
 		283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeaderViewModel.swift; sourceTree = "<group>"; };
 		28474425267832D200C1E3A5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
-		284B8582267D0FDD00F159DC /* CustomModals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModals.swift; sourceTree = "<group>"; };
+		284B8582267D0FDD00F159DC /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		284CF5B82677CE6B007B298B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		284CF5BE2677D401007B298B /* ImageTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabs.swift; sourceTree = "<group>"; };
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
 				28A39EB22679614000867AB9 /* UIImage+.swift */,
-				284B8582267D0FDD00F159DC /* CustomModals.swift */,
+				284B8582267D0FDD00F159DC /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28386F6726587AA500E90445 /* PowerDetail.swift in Sources */,
 				28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */,
-				284B8583267D0FDD00F159DC /* CustomModals.swift in Sources */,
+				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,

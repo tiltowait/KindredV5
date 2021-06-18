@@ -14,11 +14,42 @@ struct PowerCard: View {
   let power: Power
   let action: ((Power) -> Void)?
   
+  private let prerequisiteType: String
+  private let prerequisite: String?
+  
   init(power: Power, action: ((Power) -> Void)? = nil) {
     self.power = power
     self.action = action
+    
+    switch power.powerPrerequisite {
+    case .amalgam(let amalgam):
+      prerequisiteType = "Amalgam"
+      prerequisite = amalgam
+    case .prerequisite(let prerequisite):
+      prerequisiteType = "Prerequisite"
+      self.prerequisite = prerequisite
+    case .none:
+      prerequisiteType = ""
+      prerequisite = nil
+    }
   }
   
+  /// The power's title, level, and source.
+  var header: some View {
+    VStack(spacing: 5) {
+      Text(power.name)
+        .font(.system(size: 24, weight: .black, design: .serif))
+      Text("Level \(power.level)")
+        .font(Font.system(.subheadline).smallCaps())
+        .foregroundColor(.secondary)
+      Text(power.sourceBook.reference(page: power.page))
+        .font(.caption)
+        .italic()
+        .foregroundColor(.secondary)
+    }
+  }
+  
+  /// The power's rouse check in 🩸, or "Free".
   var rouse: String {
     let blood: String
     if power.rouse > 0 {
@@ -29,26 +60,7 @@ struct PowerCard: View {
     return blood
   }
   
-  var prerequisite: some View {
-    HStack {
-      Group {
-        switch power.powerPrerequisite {
-        case .amalgam(let amalgam):
-          Text("Amalgam: ")
-            .bold()
-          + Text(amalgam)
-        case .prerequisite(let prerequisite):
-          Text("Prerequisite: ")
-            .bold()
-          + Text(prerequisite)
-        case .none:
-          EmptyView()
-        }
-      }
-      Spacer()
-    }
-  }
-  
+  /// The power's rouse cost and duration.
   var rouseAndDuration: some View {
     HStack {
       VStack(alignment: .leading, spacing: 7) {
@@ -68,10 +80,42 @@ struct PowerCard: View {
     }
   }
   
+  /// The power's pool, if applicable.
+  var pool: some View {
+    Group {
+      if let pool = power.pool {
+        HStack(alignment: .top) {
+          Text("Pool:")
+            .bold()
+          Text(pool)
+          Spacer()
+        }
+      }
+    }
+  }
+  
+  /// Exit and (optionally) add buttons.
+  var buttons: some View {
+    HStack {
+      Button(action: dismiss) {
+        Image(systemName: "xmark")
+      }
+      .buttonStyle(PopUpImageButtonStyle())
+      
+      if let perform = action {
+        Button("Add") {
+         perform(power)
+        }
+        .buttonStyle(PopUpTextButtonStyle())
+      }
+    }
+  }
+  
   var body: some View {
     VStack {
       // The actual card
       ZStack {
+        // Background image
         Image(power.discipline!.icon)
           .resizable()
           .scaledToFit()
@@ -79,38 +123,22 @@ struct PowerCard: View {
           .padding()
           .opacity(0.1)
         
+        // Card contents
         VStack(spacing: 10) {
-          // Title, level, and source
-          VStack(spacing: 5) {
-            Text(power.name)
-              .font(.system(size: 24, weight: .black, design: .serif))
-            Text("Level \(power.level)")
-              .font(Font.system(.subheadline).smallCaps())
-              .foregroundColor(.secondary)
-            Text(power.sourceBook.reference(page: power.page))
-              .font(.caption)
-              .italic()
-              .foregroundColor(.secondary)
-          }
-          
+          header
           Divider()
-          prerequisite
           
+          if let prerequisite = prerequisite {
+            BoldLabel(prerequisiteType, details: prerequisite)
+          }
           Text(power.info)
             .italic()
           
           Divider()
           rouseAndDuration
           
-          // Pool
-          if let pool = power.pool {
-            HStack(alignment: .top) {
-              Text("Pool:")
-                .bold()
-              Text(pool)
-              Spacer()
-            }
-          }
+          Spacer()
+          pool
         }
         .padding()
       }
@@ -119,27 +147,15 @@ struct PowerCard: View {
           .fill(Color.systemBackground)
           .shadow(radius: 5)
       )
-      .fixedSize(horizontal: false, vertical: false)
+      .fixedSize(horizontal: false, vertical: true)
       .padding()
       .padding()
       
-      // Buttons
-      HStack {
-        Button(action: dismiss) {
-          Image(systemName: "xmark")
-        }
-        .buttonStyle(PopUpImageButtonStyle())
-        
-        if let perform = action {
-          Button("Add") {
-           perform(power)
-          }
-          .buttonStyle(PopUpTextButtonStyle())
-        }
-      }
+      buttons
     }
   }
   
+  /// Dismiss the card.
   func dismiss() {
     viewController?.dismiss(animated: true)
   }
