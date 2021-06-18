@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
+		281E21F7267D3D0900B49C37 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 281E21F6267D3D0900B49C37 /* SwiftCSV */; };
+		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
 		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
@@ -17,7 +19,6 @@
 		282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282EC83C2656EEB90086B14F /* Preview Assets.xcassets */; };
 		282EC8482656EEB90086B14F /* KindredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8472656EEB90086B14F /* KindredTests.swift */; };
 		282EC8532656EEB90086B14F /* KindredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8522656EEB90086B14F /* KindredUITests.swift */; };
-		282EC8652656EFF30086B14F /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 282EC8642656EFF30086B14F /* SwiftCSV */; };
 		2833CAC6267A794E00160A96 /* BasicInfoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */; };
 		2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */; };
 		2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC9267A7F3300160A96 /* BoldTextField.swift */; };
@@ -36,6 +37,8 @@
 		284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5B82677CE6B007B298B /* ImagePicker.swift */; };
 		284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageTabs.swift */; };
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
+		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
+		2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
 		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
@@ -100,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
+		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		284CF5B82677CE6B007B298B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		284CF5BE2677D401007B298B /* ImageTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabs.swift; sourceTree = "<group>"; };
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
+		2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewController.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
 		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
@@ -183,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282EC8652656EFF30086B14F /* SwiftCSV in Frameworks */,
+				281E21F7267D3D0900B49C37 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +317,7 @@
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
+				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -386,6 +393,8 @@
 			children = (
 				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
 				28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */,
+				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
+				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
 				28C656D6267BC13200865EE3 /* Adding Disciplines */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28252068267916CD0066F09B /* DotSelector.swift */,
@@ -440,7 +449,7 @@
 			);
 			name = Kindred;
 			packageProductDependencies = (
-				282EC8642656EFF30086B14F /* SwiftCSV */,
+				281E21F6267D3D0900B49C37 /* SwiftCSV */,
 			);
 			productName = Kindred;
 			productReference = 282EC8322656EEB80086B14F /* Kindred.app */;
@@ -514,7 +523,7 @@
 			);
 			mainGroup = 282EC8292656EEB80086B14F;
 			packageReferences = (
-				282EC8632656EFF30086B14F /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 			);
 			productRefGroup = 282EC8332656EEB80086B14F /* Products */;
 			projectDirPath = "";
@@ -577,6 +586,7 @@
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */,
+				2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
 				28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */,
@@ -610,6 +620,7 @@
 				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
 				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
+				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */,
@@ -620,6 +631,7 @@
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* KindredDetailViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
+				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
@@ -946,7 +958,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		282EC8632656EFF30086B14F /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+		281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
 			requirement = {
@@ -957,9 +969,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		282EC8642656EFF30086B14F /* SwiftCSV */ = {
+		281E21F6267D3D0900B49C37 /* SwiftCSV */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 282EC8632656EFF30086B14F /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			package = 281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
 			productName = SwiftCSV;
 		};
 /* End XCSwiftPackageProductDependency section */

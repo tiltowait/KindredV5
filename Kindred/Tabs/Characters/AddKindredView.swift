@@ -19,7 +19,7 @@ struct AddKindredView: View {
     NavigationView {
       List {
         Section {
-          NavigationLink(destination: Text("Create")) {
+          NavigationLink(destination: CreateCharacterView(dataController: dataController)) {
             Label("Create new character", systemImage: "square.and.pencil")
           }
         }
