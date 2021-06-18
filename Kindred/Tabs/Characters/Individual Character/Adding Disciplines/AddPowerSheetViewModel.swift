@@ -13,6 +13,8 @@ extension AddPowerSheet {
     let discipline: Discipline
     let availablePowers: [Power]
     let title: String
+    let headerText: String
+    let icon: String
     
     /// The first of the available powers.
     var firstAvailablePower: Power {
@@ -22,6 +24,8 @@ extension AddPowerSheet {
     init(discipline: Discipline, kindred: Kindred, dataController: DataController) {
       self.discipline = discipline
       self.title = discipline.name
+      self.headerText = discipline.info
+      self.icon = discipline.icon
       
       // Find out which powers are available
       let powers = discipline.allPowers

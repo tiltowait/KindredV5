@@ -19,13 +19,20 @@ struct AddPowerSheet: View {
   }
   
   var body: some View {
-    List(viewModel.availablePowers) { power in
-      Button {
-        show(power: power)
-      } label: {
-        PowerRow(power: power)
+    List {
+      Section(
+        header: Text(viewModel.headerText),
+        footer: IconFooter(icon: viewModel.icon)
+      ) {
+        ForEach(viewModel.availablePowers) { power in
+          Button {
+            show(power: power)
+          } label: {
+            PowerRow(power: power)
+          }
+          .buttonStyle(PlainButtonStyle())
+        }
       }
-      .buttonStyle(PlainButtonStyle())
     }
     .navigationBarTitle(viewModel.title, displayMode: .inline)
     .listStyle(InsetGroupedListStyle())
