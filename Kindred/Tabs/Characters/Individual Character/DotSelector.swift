@@ -29,7 +29,7 @@ struct DotSelector: View {
       
       Spacer()
       
-      ForEach(1...max, id: \.self) { index in
+      ForEach(1...max) { index in
         Circle()
           .fill(color(for: index))
           .frame(width: size, height: size)
