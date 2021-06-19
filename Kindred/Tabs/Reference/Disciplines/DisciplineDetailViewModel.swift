@@ -44,8 +44,14 @@ extension DisciplineDetail {
       let known = kindred?.knownPowers ?? []
       var available: [Power] = []
       
+      // If we're adding a power to an existing character, we only want to show
+      // powers appropriate for their current level. However, we aren't gonig to
+      // stop showing powers once they're maxed out, because there may be groups
+      // that allow characters, particularly elders, to go above level 5.
+      let nextLevel = kindred != nil ? kindred!.level(of: discipline) + 1 : 5
+      
       for power in powers {
-        if !known.contains(power) {
+        if power.level <= nextLevel && !known.contains(power) {
           available.append(power)
         }
       }

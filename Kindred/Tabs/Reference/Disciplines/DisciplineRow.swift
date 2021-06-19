@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct DisciplineRow: View {
+  
   let discipline: Discipline
+  var level: Int? = nil
+  
+  var name: String {
+    if let level = level {
+      let dots = String(repeating: "•", count: level)
+      return "\(discipline.name) \(dots)"
+    } else {
+      return discipline.name
+    }
+  }
   
   var body: some View {
     HStack {
@@ -16,7 +27,7 @@ struct DisciplineRow: View {
         .resizable()
         .frame(width: 55, height: 55)
       VStack(alignment: .leading) {
-        Text(discipline.name)
+        Text(name)
           .font(.headline)
         
         Text(discipline.info)
@@ -29,7 +40,7 @@ struct DisciplineRow: View {
 
 struct DisciplineRow_Previews: PreviewProvider {
   static var previews: some View {
-    DisciplineRow(discipline: Discipline.example)
+    DisciplineRow(discipline: Discipline.example, level: 3)
       .previewLayout(.sizeThatFits)
   }
 }

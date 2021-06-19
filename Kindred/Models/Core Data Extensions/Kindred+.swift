@@ -88,4 +88,11 @@ extension Kindred {
     return set.sorted()
   }
   
+  /// Get the Kindred's level in a given Discipline.
+  /// - Parameter discipline: The Discipline in question.
+  /// - Returns: The level in that Discipline.
+  func level(of discipline: Discipline) -> Int {
+    knownPowers.filter { $0.discipline == discipline }.count
+  }
+  
 }

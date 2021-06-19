@@ -88,6 +88,7 @@
 		28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656DB267BDD8400865EE3 /* PowerCard.swift */; };
 		28C656E5267BEC4C00865EE3 /* DisciplineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E4267BEC4C00865EE3 /* DisciplineDetail.swift */; };
 		28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */; };
+		28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */; };
 		28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* BasicInfoDetail.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* KindredRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* KindredRow.swift */; };
@@ -199,6 +200,7 @@
 		28C656DB267BDD8400865EE3 /* PowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerCard.swift; sourceTree = "<group>"; };
 		28C656E4267BEC4C00865EE3 /* DisciplineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetail.swift; sourceTree = "<group>"; };
 		28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailViewModel.swift; sourceTree = "<group>"; };
+		28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceRow.swift; sourceTree = "<group>"; };
 		28DD0640267A706E00C9669F /* BasicInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoDetail.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* KindredRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredRow.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
+				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
+				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,

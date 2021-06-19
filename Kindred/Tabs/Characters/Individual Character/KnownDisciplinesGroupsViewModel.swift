@@ -33,5 +33,6 @@ extension KnownDisciplinesGroups {
         kindred.removeFromPowers(power)
       }
     }
+    
   }
 }
