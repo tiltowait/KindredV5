@@ -14,7 +14,7 @@ extension Array {
   mutating func popRandom() -> Element? {
     if self.isEmpty { return nil }
     
-    let randomIndex = Int.random(in: 0...self.count)
+    let randomIndex = Int.random(in: 0..<self.count)
     return self.remove(at: randomIndex)
   }
   
