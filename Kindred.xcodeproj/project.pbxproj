@@ -390,11 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				286FBF89265D978400AAA469 /* ReferenceList.swift */,
-				28138771267D70CF006DA73C /* ClanDetail.swift */,
-				28138775267D7BB7006DA73C /* ClanList.swift */,
-				2813877B267D7DA2006DA73C /* ClanRow.swift */,
-				28138777267D7BC4006DA73C /* ClanListViewController.swift */,
-				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
+				28CD0D45267E7BD800ED8635 /* Clans */,
 				286FBF88265D976400AAA469 /* Disciplines */,
 			);
 			path = Reference;
@@ -453,6 +449,18 @@
 				28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */,
 			);
 			path = "Adding Disciplines";
+			sourceTree = "<group>";
+		};
+		28CD0D45267E7BD800ED8635 /* Clans */ = {
+			isa = PBXGroup;
+			children = (
+				28138777267D7BC4006DA73C /* ClanListViewController.swift */,
+				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
+				28138775267D7BB7006DA73C /* ClanList.swift */,
+				2813877B267D7DA2006DA73C /* ClanRow.swift */,
+				28138771267D70CF006DA73C /* ClanDetail.swift */,
+			);
+			path = Clans;
 			sourceTree = "<group>";
 		};
 		28E13FB6265C917B003E3DDF /* Powers */ = {

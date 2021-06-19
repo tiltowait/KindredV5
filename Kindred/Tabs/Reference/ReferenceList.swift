@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ReferenceList: View {
   
+  @EnvironmentObject var dataController: DataController
+  
   var body: some View {
     NavigationView {
       List {
         NavigationLink(destination:
           DisciplineList()) {
           Text("Disciplines")
+        }
+        
+        NavigationLink(destination: ClanList(dataController: dataController)) {
+          Text("Clans")
         }
       }
       .font(.headline)
@@ -28,5 +34,6 @@ struct ReferenceView_Previews: PreviewProvider {
   static var previews: some View {
     ReferenceList()
       .environment(\.managedObjectContext, DataController.preview.container.viewContext)
+      .environmentObject(DataController.preview)
   }
 }

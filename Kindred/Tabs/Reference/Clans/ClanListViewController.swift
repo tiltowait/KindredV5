@@ -12,8 +12,8 @@ extension ClanList {
     
     let clans: [Clan]
     
-    init(clans: [Clan], kindred: Kindred? = nil, dataController: DataController? = nil) {
-      self.clans = clans
+    init(kindred: Kindred? = nil, dataController: DataController) {
+      self.clans = dataController.clans
       super.init(kindred: kindred, dataController: dataController)
     }
     

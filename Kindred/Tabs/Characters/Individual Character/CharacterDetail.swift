@@ -147,7 +147,7 @@ struct CharacterDetail: View {
           clanRow
         }
       } else {
-        NavigationLink(destination: ClanList(clans: viewModel.clans, kindred: viewModel.kindred, dataController: viewModel.dataController, link: $clanLinkActive), isActive: $clanLinkActive) {
+        NavigationLink(destination: ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $clanLinkActive), isActive: $clanLinkActive) {
           clanRow
         }
       }

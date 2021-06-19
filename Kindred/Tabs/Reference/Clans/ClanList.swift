@@ -12,8 +12,8 @@ struct ClanList: View {
   @StateObject private var viewModel: ViewModel
   @Binding var clanSelectionLinkActive: Bool
   
-  init(clans: [Clan], kindred: Kindred? = nil, dataController: DataController? = nil, link: Binding<Bool>? = nil) {
-    let viewModel = ViewModel(clans: clans, kindred: kindred, dataController: dataController)
+  init(kindred: Kindred? = nil, dataController: DataController, link: Binding<Bool>? = nil) {
+    let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
     _clanSelectionLinkActive = link ?? .constant(false)
   }
@@ -40,7 +40,7 @@ struct ClanList: View {
 struct ClanList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      ClanList(clans: DataController.preview.clans)
+      ClanList(dataController: DataController.preview)
     }
   }
 }
