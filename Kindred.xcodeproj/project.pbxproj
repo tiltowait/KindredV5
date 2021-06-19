@@ -10,17 +10,12 @@
 		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
 		28138762267D579D006DA73C /* Clan Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28138761267D579D006DA73C /* Clan Icons.xcassets */; };
 		28138764267D57A4006DA73C /* Clan Headers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28138763267D57A4006DA73C /* Clan Headers.xcassets */; };
-		28138768267D60A5006DA73C /* ClanFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138767267D60A5006DA73C /* ClanFactory.swift */; };
-		2813876B267D6EEF006DA73C /* Disciplines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 28138769267D6EEF006DA73C /* Disciplines.csv */; };
-		2813876E267D6EFC006DA73C /* Clans.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2813876D267D6EFC006DA73C /* Clans.csv */; };
-		28138770267D6F96006DA73C /* Powers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2813876F267D6F96006DA73C /* Powers.csv */; };
 		28138772267D70CF006DA73C /* ClanDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138771267D70CF006DA73C /* ClanDetail.swift */; };
 		28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138773267D70D8006DA73C /* ClanDetailViewModel.swift */; };
 		28138776267D7BB7006DA73C /* ClanList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138775267D7BB7006DA73C /* ClanList.swift */; };
 		28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138777267D7BC4006DA73C /* ClanListViewController.swift */; };
 		2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */; };
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
-		281E21F7267D3D0900B49C37 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 281E21F6267D3D0900B49C37 /* SwiftCSV */; };
 		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
 		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
@@ -60,8 +55,14 @@
 		286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8B265D98BA00AAA469 /* IconFooter.swift */; };
 		286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8F265D9EDF00AAA469 /* Color+.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
-		2877344226570F520098E27B /* DisciplineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2877344126570F520098E27B /* DisciplineFactory.swift */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
+		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
+		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
+		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
+		28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921691267E64DE004911EA /* NSManagedObject+.swift */; };
+		28921696267E6BDB004911EA /* reference.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28921695267E6BDB004911EA /* reference.sqlite */; };
+		28921698267E6C40004911EA /* PowerImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921697267E6C40004911EA /* PowerImporter.swift */; };
+		2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921699267E6F71004911EA /* DisciplineImporter.swift */; };
 		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
 		28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */; };
@@ -115,10 +116,6 @@
 		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
 		28138761267D579D006DA73C /* Clan Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Clan Icons.xcassets"; sourceTree = "<group>"; };
 		28138763267D57A4006DA73C /* Clan Headers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Clan Headers.xcassets"; sourceTree = "<group>"; };
-		28138767267D60A5006DA73C /* ClanFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanFactory.swift; sourceTree = "<group>"; };
-		28138769267D6EEF006DA73C /* Disciplines.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Disciplines.csv; sourceTree = "<group>"; };
-		2813876D267D6EFC006DA73C /* Clans.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Clans.csv; path = ../../../../../Desktop/Clans.csv; sourceTree = "<group>"; };
-		2813876F267D6F96006DA73C /* Powers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Powers.csv; sourceTree = "<group>"; };
 		28138771267D70CF006DA73C /* ClanDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanDetail.swift; sourceTree = "<group>"; };
 		28138773267D70D8006DA73C /* ClanDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanDetailViewModel.swift; sourceTree = "<group>"; };
 		28138775267D7BB7006DA73C /* ClanList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanList.swift; sourceTree = "<group>"; };
@@ -170,8 +167,13 @@
 		286FBF8B265D98BA00AAA469 /* IconFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFooter.swift; sourceTree = "<group>"; };
 		286FBF8F265D9EDF00AAA469 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
-		2877344126570F520098E27B /* DisciplineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineFactory.swift; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
+		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
+		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
+		28921695267E6BDB004911EA /* reference.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = reference.sqlite; sourceTree = "<group>"; };
+		28921697267E6C40004911EA /* PowerImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerImporter.swift; sourceTree = "<group>"; };
+		28921699267E6F71004911EA /* DisciplineImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineImporter.swift; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
 		28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
@@ -209,7 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				281E21F7267D3D0900B49C37 /* SwiftCSV in Frameworks */,
+				28921690267E5D88004911EA /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,12 +305,11 @@
 		282EC8662656EFFF0086B14F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
 				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
+				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
+				28921695267E6BDB004911EA /* reference.sqlite */,
 				2825206C26792A9D0066F09B /* TraitReference.plist */,
-				2813876D267D6EFC006DA73C /* Clans.csv */,
-				28138767267D60A5006DA73C /* ClanFactory.swift */,
-				28ADF7F8267A618500D97D2A /* Disciplines */,
+				28921689267E5C8F004911EA /* Importers */,
 				28386F5A2658618E00E90445 /* Core Data Extensions */,
 			);
 			path = Models;
@@ -317,6 +318,7 @@
 		28386F5A2658618E00E90445 /* Core Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				28921691267E64DE004911EA /* NSManagedObject+.swift */,
 				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
@@ -357,6 +359,17 @@
 				28E13FB6265C917B003E3DDF /* Powers */,
 			);
 			path = Disciplines;
+			sourceTree = "<group>";
+		};
+		28921689267E5C8F004911EA /* Importers */ = {
+			isa = PBXGroup;
+			children = (
+				2892168A267E5C9A004911EA /* Importer.swift */,
+				28921697267E6C40004911EA /* PowerImporter.swift */,
+				28921699267E6F71004911EA /* DisciplineImporter.swift */,
+				2892168C267E5D4C004911EA /* ClanImporter.swift */,
+			);
+			path = Importers;
 			sourceTree = "<group>";
 		};
 		28ADF7F4267A5DC500D97D2A /* Characters */ = {
@@ -406,16 +419,6 @@
 				284B8582267D0FDD00F159DC /* UIViewController+.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		28ADF7F8267A618500D97D2A /* Disciplines */ = {
-			isa = PBXGroup;
-			children = (
-				2813876F267D6F96006DA73C /* Powers.csv */,
-				28138769267D6EEF006DA73C /* Disciplines.csv */,
-				2877344126570F520098E27B /* DisciplineFactory.swift */,
-			);
-			path = Disciplines;
 			sourceTree = "<group>";
 		};
 		28C656D1267BBCF100865EE3 /* Individual Character */ = {
@@ -479,7 +482,7 @@
 			);
 			name = Kindred;
 			packageProductDependencies = (
-				281E21F6267D3D0900B49C37 /* SwiftCSV */,
+				2892168F267E5D88004911EA /* SQLite */,
 			);
 			productName = Kindred;
 			productReference = 282EC8322656EEB80086B14F /* Kindred.app */;
@@ -553,7 +556,7 @@
 			);
 			mainGroup = 282EC8292656EEB80086B14F;
 			packageReferences = (
-				281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 282EC8332656EEB80086B14F /* Products */;
 			projectDirPath = "";
@@ -573,12 +576,10 @@
 			files = (
 				28EBBE0526784902004DD186 /* Colors.xcassets in Resources */,
 				28138762267D579D006DA73C /* Clan Icons.xcassets in Resources */,
+				28921696267E6BDB004911EA /* reference.sqlite in Resources */,
 				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
-				28138770267D6F96006DA73C /* Powers.csv in Resources */,
 				28138764267D57A4006DA73C /* Clan Headers.xcassets in Resources */,
-				2813876E267D6EFC006DA73C /* Clans.csv in Resources */,
-				2813876B267D6EEF006DA73C /* Disciplines.csv in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
 				2825206D26792A9D0066F09B /* TraitReference.plist in Resources */,
 			);
@@ -618,10 +619,13 @@
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
+				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
+				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */,
 				2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
+				28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
 				28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
@@ -635,13 +639,13 @@
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,
 				28C656E5267BEC4C00865EE3 /* DisciplineDetail.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
-				2877344226570F520098E27B /* DisciplineFactory.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
+				2892168B267E5C9A004911EA /* Importer.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
@@ -653,6 +657,7 @@
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
+				2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */,
 				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
@@ -669,7 +674,6 @@
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
 				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
-				28138768267D60A5006DA73C /* ClanFactory.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
@@ -998,21 +1002,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+		2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.0;
+				minimumVersion = 0.12.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		281E21F6267D3D0900B49C37 /* SwiftCSV */ = {
+		2892168F267E5D88004911EA /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 281E21F5267D3D0900B49C37 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
-			productName = SwiftCSV;
+			package = 2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 

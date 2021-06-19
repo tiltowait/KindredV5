@@ -16,6 +16,11 @@ extension Clan {
     return request
   }
   
+  var nicknames: [String] {
+    let nicknames = zNicknames ?? ""
+    return nicknames.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+  }
+  
   var bane: String {
     get { zBane! }
     set { zBane = newValue }

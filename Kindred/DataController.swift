@@ -76,8 +76,17 @@ class DataController: ObservableObject {
     
     // Load up reference material
     if self.isEmpty {
-      DisciplineFactory.loadAll(context: container.viewContext)
-      ClanFactory.loadAll(context: container.viewContext, disciplines: self.disciplines)
+      do {
+        try DisciplineImporter.importAll(context: container.viewContext)
+        try PowerImporter.importAll(context: container.viewContext)
+        try ClanImporter.importAll(context: container.viewContext)
+      } catch ImportError.databaseNotFound {
+        fatalError("Unable to locate the database.")
+      } catch ImportError.invalidReference(let object) {
+        fatalError(object)
+      } catch {
+        fatalError(error.localizedDescription)
+      }
       
       #if DEBUG
       let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)

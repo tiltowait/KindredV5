@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftCSV",
-        "repositoryURL": "https://github.com/swiftcsv/SwiftCSV.git",
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
         "state": {
           "branch": null,
-          "revision": "ad2042d0ba2ea260246b0e1b1d5710cbc53e2836",
-          "version": "0.6.0"
+          "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
+          "version": "0.12.2"
         }
       }
     ]

@@ -18,6 +18,17 @@ extension Discipline {
     return request
   }
   
+  static func fetchDiscipline(
+    named name: String,
+    in context: NSManagedObjectContext
+  ) -> Discipline? {
+    let request: NSFetchRequest<Discipline> = Self.fetchRequest()
+    request.predicate = NSPredicate(format: "name = %@", name)
+    request.fetchLimit = 1
+    
+    return try? context.fetch(request).first
+  }
+  
   var icon: String {
     get { self.zIcon! }
     set { self.zIcon = newValue }
