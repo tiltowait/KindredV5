@@ -34,7 +34,6 @@
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
 		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
 		28386F652658727400E90445 /* PowerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerRow.swift */; };
-		28386F6726587AA500E90445 /* PowerDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6626587AA500E90445 /* PowerDetail.swift */; };
 		283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */; };
 		283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */; };
 		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
@@ -147,7 +146,6 @@
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
 		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
 		28386F642658727400E90445 /* PowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRow.swift; sourceTree = "<group>"; };
-		28386F6626587AA500E90445 /* PowerDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerDetail.swift; sourceTree = "<group>"; };
 		283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeader.swift; sourceTree = "<group>"; };
 		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
@@ -335,18 +333,19 @@
 		28386F5F265868B800E90445 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
-				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
-				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
+				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
+				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
+				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				284CF5B82677CE6B007B298B /* ImagePicker.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
-				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
-				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
+				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
+				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -358,7 +357,6 @@
 				286FBF84265D930500AAA469 /* DisciplineRow.swift */,
 				28C656E4267BEC4C00865EE3 /* DisciplineDetail.swift */,
 				28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */,
-				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				28E13FB6265C917B003E3DDF /* Powers */,
 			);
 			path = Disciplines;
@@ -431,9 +429,9 @@
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28252068267916CD0066F09B /* DotSelector.swift */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
+				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */,
 				28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */,
-				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				28DD0640267A706E00C9669F /* BasicInfoDetail.swift */,
 				2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
@@ -470,7 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				28386F642658727400E90445 /* PowerRow.swift */,
-				28386F6626587AA500E90445 /* PowerDetail.swift */,
 				28C656DB267BDD8400865EE3 /* PowerCard.swift */,
 			);
 			path = Powers;
@@ -623,7 +620,6 @@
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
-				28386F6726587AA500E90445 /* PowerDetail.swift in Sources */,
 				28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */,
 				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
 				28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */,
