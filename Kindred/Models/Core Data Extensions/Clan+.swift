@@ -51,4 +51,11 @@ extension Clan {
     return disciplines.sorted()
   }
   
+  /// Retrieve random nicknames.
+  /// - Parameter count: The number of nicknames to retrieve.
+  func randomNicknames(count: Int) -> [String] {
+    var nicknames = self.nicknames
+    return (0..<count).compactMap { _ in nicknames.popRandom() }
+  }
+  
 }

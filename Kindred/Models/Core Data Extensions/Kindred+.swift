@@ -67,6 +67,7 @@ extension Kindred {
     let images = images?.allObjects as? [KindredImage] ?? []
     return images.sorted()
   }
+  
   var fullSizeImageData: [Data] {
     let images = allImageObjects
     return images.sorted().compactMap { $0.image }

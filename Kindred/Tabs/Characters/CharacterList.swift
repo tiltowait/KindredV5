@@ -22,7 +22,7 @@ struct CharacterList: View {
       List {
         ForEach(kindred) { cainite in
           NavigationLink(destination: CharacterDetail(kindred: cainite, dataController: dataController)) {
-            KindredRow(kindred: cainite)
+            CharacterRow(kindred: cainite)
           }
         }
         .onDelete(perform: delete)

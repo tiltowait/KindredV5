@@ -1,5 +1,5 @@
 //
-//  KindredRow.swift
+//  CharacterRow.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct KindredRow: View {
+struct CharacterRow: View {
   
   let image: Image?
   let kindred: Kindred
+  let subtitle: String
   
   init(kindred: Kindred) {
     self.kindred = kindred
@@ -21,6 +22,13 @@ struct KindredRow: View {
       self.image = Image(uiImage: uiImage)
     } else {
       self.image = nil
+    }
+    
+    let clan = kindred.clan?.name ?? "Unknown"
+    if kindred.generation != -1 {
+      subtitle = "\(kindred.generation)th-generation \(clan)"
+    } else {
+      subtitle = "\(clan)"
     }
   }
   
@@ -40,7 +48,7 @@ struct KindredRow: View {
       VStack(alignment: .leading) {
         Text(kindred.name)
           .font(.headline)
-        Text("\(generation)-generation Hecata")
+        Text(subtitle)
           .font(.caption)
           .foregroundColor(.secondary)
       }
@@ -51,7 +59,7 @@ struct KindredRow: View {
 
 struct KindredRow_Previews: PreviewProvider {
   static var previews: some View {
-    KindredRow(kindred: Kindred.example)
+    CharacterRow(kindred: Kindred.example)
       .previewLayout(.sizeThatFits)
   }
 }

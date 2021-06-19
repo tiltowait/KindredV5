@@ -19,7 +19,7 @@ struct ClanRow: View {
       VStack(alignment: .leading) {
         Text(clan.name)
           .font(.headline)
-        Text("Nicknames go here")
+        Text(clan.randomNicknames(count: 1).joined(separator: ", "))
           .font(.subheadline)
           .foregroundColor(.secondary)
       }
