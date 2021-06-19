@@ -12,16 +12,25 @@ struct AddDisciplineSheet: View {
   @StateObject private var viewModel: ViewModel
   @Environment(\.presentationMode) var presentationMode
   
-  init(kindred: Kindred, dataController: DataController) {
+  @Binding var link: Bool
+  
+  init(kindred: Kindred, dataController: DataController, link: Binding<Bool>) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
+    _link = link
   }
   
   var inClan: some View {
     Group {
       if let disciplines = viewModel.inClanDisciplines {
         ForEach(disciplines) { discipline in
-          NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
+          NavigationLink(
+            destination: DisciplineDetail(
+              discipline: discipline,
+              kindred: viewModel.kindred,
+              link: $link
+            )
+          ) {
             DisciplineRow(discipline: discipline)
           }
         }
@@ -34,7 +43,13 @@ struct AddDisciplineSheet: View {
   
   var knownOutOfClan: some View {
     ForEach(viewModel.knownOutOfClanDisciplines) { discipline in
-      NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
+      NavigationLink(
+        destination: DisciplineDetail(
+          discipline: discipline,
+          kindred: viewModel.kindred,
+          link: $link
+        )
+      ) {
         DisciplineRow(discipline: discipline)
       }
     }
@@ -42,7 +57,14 @@ struct AddDisciplineSheet: View {
   
   var unknownOutOfClan: some View {
     ForEach(viewModel.unknownOutOfClanDisciplines) { discipline in
-      NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: viewModel.kindred)) {
+      NavigationLink(
+        destination:
+          DisciplineDetail(
+            discipline: discipline,
+            kindred: viewModel.kindred,
+            link: $link
+          )
+      ) {
         DisciplineRow(discipline: discipline)
       }
     }
@@ -80,6 +102,6 @@ struct AddDisciplineSheet: View {
 
 struct AddDisciplineSheet_Previews: PreviewProvider {
   static var previews: some View {
-    AddDisciplineSheet(kindred: Kindred.example, dataController: DataController.preview)
+    AddDisciplineSheet(kindred: Kindred.example, dataController: DataController.preview, link: .constant(false))
   }
 }

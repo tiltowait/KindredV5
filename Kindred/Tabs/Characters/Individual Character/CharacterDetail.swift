@@ -102,7 +102,7 @@ struct CharacterDetail: View {
       }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .sheet(isPresented: $showingPowerAdder) {
-        AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
+        AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $showingPowerAdder)
       }
       .onDisappear(perform: viewModel.save)
   }

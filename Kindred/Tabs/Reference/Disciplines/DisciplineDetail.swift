@@ -10,10 +10,12 @@ import SwiftUI
 struct DisciplineDetail: View {
   
   @StateObject private var viewModel: ViewModel
+  @Binding var link: Bool
   
-  init(discipline: Discipline, kindred: Kindred?) {
+  init(discipline: Discipline, kindred: Kindred?, link: Binding<Bool>? = nil) {
     let viewModel = ViewModel(discipline: discipline, kindred: kindred)
     _viewModel = StateObject(wrappedValue: viewModel)
+    _link = link ?? .constant(false)
   }
   
   var body: some View {
@@ -57,6 +59,8 @@ struct DisciplineDetail: View {
     // presentationMode.wrappedValue.dismiss() only pops back to
     // the AddDisciplineSheet, so we need to dip into UIKit to
     // completely dismiss the sheet
+    self.link.toggle() // Deactivate the CharacterDetail link so that we don't need to click twice
+                       // to get here again
     UIViewController.root?.dismiss(animated: true)
   }
 }
