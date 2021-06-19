@@ -6,8 +6,40 @@
 //
 
 import Foundation
+import CoreData
 
 extension Clan {
+  
+  static var sortedFetchRequest: NSFetchRequest<Clan> {
+    let request: NSFetchRequest<Clan> = Clan.fetchRequest()
+    request.sortDescriptors = [NSSortDescriptor(keyPath: \Clan.zName, ascending: true)]
+    return request
+  }
+  
+  var bane: String {
+    get { zBane! }
+    set { zBane = newValue }
+  }
+  
+  var compulsion: String {
+    get { zCompulsion! }
+    set { zCompulsion = newValue }
+  }
+  
+  var compulsionDetails: String {
+    get { zCompulsionDetails! }
+    set { zCompulsionDetails = newValue }
+  }
+  
+  var icon: String {
+    get { zIcon! }
+    set { zIcon = newValue }
+  }
+  
+  var header: String {
+    get { zHeader! }
+    set { zHeader = newValue }
+  }
   
   var inClanDisciplines: [Discipline] {
     let disciplines = disciplines?.allObjects as? [Discipline] ?? []

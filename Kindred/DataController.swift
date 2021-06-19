@@ -19,6 +19,16 @@ class DataController: ObservableObject {
   /// that all preview data uses the same managed object context.
   static let preview = DataController(inMemory: true)
   
+  /// Every single `Clan`, sorted alphabetically.
+  private(set) lazy var clans: [Clan] = {
+    do {
+      let clans = try container.viewContext.fetch(Clan.sortedFetchRequest)
+      return clans
+    } catch {
+      fatalError("Unable to fetch clans.\n\(error.localizedDescription)")
+    }
+  }()
+  
   /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
   private(set) lazy var disciplines: [Discipline] = {
     do {
@@ -67,6 +77,7 @@ class DataController: ObservableObject {
     // Load up reference material
     if self.isEmpty {
       DisciplineFactory.loadAll(context: container.viewContext)
+      ClanFactory.loadAll(context: container.viewContext, disciplines: self.disciplines)
       
       #if DEBUG
       let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)
@@ -74,6 +85,7 @@ class DataController: ObservableObject {
       print("Empty container. Populating ...")
       print("\tLoaded \(disciplines.count) disciplines")
       print("\t\tWith \(powerCount) powers")
+      print("\tLoaded \(clans.count) clans")
       #endif
       
       self.save()
@@ -89,6 +101,13 @@ class DataController: ObservableObject {
     } catch {
       fatalError("Unable to test core data storage.")
     }
+  }
+  
+  /// Retrieve a Clan by name.
+  /// - Parameter name: The name of the Clan to retrieve.
+  /// - Returns: The clan, or nil if not found.
+  func clan(named name: String) -> Clan? {
+    clans.first { $0.name == name }
   }
   
   /// Fetches all objects matching a particular request.

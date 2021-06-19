@@ -10,6 +10,14 @@
 
 import UIKit
 
+extension Clan {
+  
+  /// The example clan.
+  static var example: Clan {
+    DataController.preview.clans[0]
+  }
+}
+
 extension Discipline {
   
   /// The example Discipline (Animalism).

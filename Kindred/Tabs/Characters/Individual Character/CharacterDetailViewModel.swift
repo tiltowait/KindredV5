@@ -1,5 +1,5 @@
 //
-//  KindredDetailViewModel.swift
+//  CharacterDetailViewModel.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/14/21.
@@ -9,6 +9,15 @@ import Foundation
 
 extension CharacterDetail {
   class ViewModel: BaseSavingKindredViewModel {
+    
+    lazy var clans: [Clan] = {
+      print("Getting dem clans")
+      return dataController.clans
+    }()
+    
+    var clanName: String {
+      kindred.clan?.name ?? "Not selected"
+    }
     
     var zippedAttributes: [[(String, Int16)]] {
       [

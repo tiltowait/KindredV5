@@ -28,6 +28,11 @@ enum CharacterImporter {
     kindred.sire = pdf.information(for: .sire)
     kindred.title = pdf.information(for: .title)
     
+    // Figure out its clan
+    if let clan = dataController.clan(named: pdf.information(for: .clan)) {
+      kindred.clan = clan
+    }
+    
     // Set the attributes
     kindred.strength = pdf.rating(for: .strength)
     kindred.dexterity = pdf.rating(for: .dexterity)

@@ -31,6 +31,7 @@ class CharacterPDF {
     case generation
     case sire
     case title
+    case clan
   }
   
   /// An enum used for determining the ratings of the character's skills and attributes. We

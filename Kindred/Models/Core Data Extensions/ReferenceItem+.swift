@@ -14,4 +14,8 @@ extension ReferenceItem {
     Global.Source(rawValue: source) ?? .core
   }
   
+  var pageReference: String {
+    sourceBook.reference(page: self.page)
+  }
+  
 }

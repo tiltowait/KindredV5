@@ -20,7 +20,7 @@ struct DisciplineList: View {
         DisciplineRow(discipline: discipline)
       }
     }
-    .navigationTitle("Disciplines")
+    .navigationBarTitle("Disciplines", displayMode: .inline)
   }
 }
 

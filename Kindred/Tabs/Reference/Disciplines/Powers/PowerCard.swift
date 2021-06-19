@@ -42,7 +42,7 @@ struct PowerCard: View {
       Text("Level \(power.level)")
         .font(Font.system(.subheadline).smallCaps())
         .foregroundColor(.secondary)
-      Text(power.sourceBook.reference(page: power.page))
+      Text(power.pageReference)
         .font(.caption)
         .italic()
         .foregroundColor(.secondary)
@@ -72,7 +72,7 @@ struct PowerCard: View {
           Text("Duration:")
             .bold()
           Text(power.powerDuration)
-            .lineLimit(2)
+            .lineLimit(4)
         }
         .fixedSize(horizontal: false, vertical: true)
       }
@@ -129,7 +129,10 @@ struct PowerCard: View {
           Divider()
           
           if let prerequisite = prerequisite {
-            BoldLabel(prerequisiteType, details: prerequisite)
+            HStack {
+              BoldLabel(prerequisiteType, details: prerequisite)
+              Spacer()
+            }
           }
           Text(power.info)
             .italic()

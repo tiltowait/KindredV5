@@ -13,6 +13,17 @@ struct CharacterDetail: View {
   
   @StateObject var viewModel: ViewModel
   
+  // While this feels like an awful hack, it is the widely accepted
+  // solution on StackOverflow. We are going to manipulate both
+  // the isDetailLink and isActive properties of NavigationLink, as
+  // well as pass on this clanLinkActive binding down the navigation
+  // chain. Once the user selects a clan, this binding will be set
+  // to false, invalidating the navigation link and popping us back
+  // to this view.
+  //
+  // See the clanLink computed property for more information.
+  @State private var clanLinkActive = false
+  
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
@@ -22,6 +33,7 @@ struct CharacterDetail: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
+  /// The character menu.
   var menu: some View {
     Menu {
       Button {
@@ -49,6 +61,9 @@ struct CharacterDetail: View {
         Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
           BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
           BoldTextField("Desire", binding: $viewModel.kindred.desire)
+          
+          clanLink
+          
           RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
           BasicInfoDetail(kindred: viewModel.kindred)
         }
@@ -85,13 +100,21 @@ struct CharacterDetail: View {
       .sheet(isPresented: $showingDiceRoller) {
         DiceRollView(kindred: viewModel.kindred)
       }
-      .alert(isPresented: $showingRenameAlert, renameAlert)
-      .onDisappear(perform: viewModel.save)
+      .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .sheet(isPresented: $showingPowerAdder) {
         AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController)
       }
+      .onDisappear(perform: viewModel.save)
   }
   
+  /// Generates a "derived trait" view with tilte and appropriate dots.
+  ///
+  /// TODO: Make full health and willpower trackers and make everything editable.
+  /// - Parameters:
+  ///   - trait: The name of the trait.
+  ///   - rating: The trait's current rating.
+  ///   - max: The trait's maximum rating.
+  /// - Returns: The generated view.
   func derivedTrait(_ trait: String, rating: Int16, max: Int) -> some View {
     VStack {
       Text(trait)
@@ -101,7 +124,38 @@ struct CharacterDetail: View {
     }
   }
   
-  var renameAlert: TextFieldAlert {
+  /// Mimicks a Picker's in-list displry: "Clan:" in bold on the left, and the clan name
+  /// on the right in secondary color.
+  var clanRow: some View {
+    HStack {
+      Text("Clan:")
+        .bold()
+      Spacer()
+      Text(viewModel.clanName)
+        .foregroundColor(.secondary)
+    }
+  }
+  
+  /// A wrapper to a clan link.
+  ///
+  /// If the character has no clan, then the link will go to the clan list.
+  /// If the character has a clan, the link goes directly to the clan details.
+  var clanLink: some View {
+    Group {
+      if let clan = viewModel.kindred.clan {
+        NavigationLink(destination: ClanDetail(clan: clan), isActive: $clanLinkActive) {
+          clanRow
+        }
+      } else {
+        NavigationLink(destination: ClanList(clans: viewModel.clans, kindred: viewModel.kindred, dataController: viewModel.dataController, link: $clanLinkActive), isActive: $clanLinkActive) {
+          clanRow
+        }
+      }
+    }
+  }
+  
+  /// A TextFieldAlert for renaming the character.
+  var renameCharacterAlert: TextFieldAlert {
     TextFieldAlert(
       title: "Rename \(viewModel.kindred.name)",
       message: nil,
