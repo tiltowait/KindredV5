@@ -9,8 +9,6 @@ import SwiftUI
 
 struct DisciplineDetail: View {
   
-  @Environment(\.viewController) var viewController
-  
   @StateObject private var viewModel: ViewModel
   
   init(discipline: Discipline, kindred: Kindred?) {
@@ -42,7 +40,7 @@ struct DisciplineDetail: View {
   /// Modally display a power's details.
   /// - Parameter power: The power to display.
   func show(power: Power) {
-    viewController?.present {
+    UIViewController.topMost?.present {
       if viewModel.isReferenceView {
         PowerCard(power: power)
       } else {

@@ -17,8 +17,7 @@ struct ViewControllerHolder {
 
 struct ViewControllerKey: EnvironmentKey {
   static var defaultValue: ViewControllerHolder {
-    // Use the "topmost" view controller so modals can be displayed atop other modals.
-    ViewControllerHolder(value: UIViewController.topMost)
+    ViewControllerHolder(value: UIViewController.root)
   }
 }
 
