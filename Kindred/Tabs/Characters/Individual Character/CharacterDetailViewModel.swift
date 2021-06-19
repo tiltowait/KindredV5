@@ -10,9 +10,8 @@ import Foundation
 extension CharacterDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
-    lazy var clans: [Clan] = {
-      print("Getting dem clans")
-      return dataController.clans
+    private(set) lazy var clans: [Clan] = {
+      dataController.clans
     }()
     
     var clanName: String {

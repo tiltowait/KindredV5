@@ -29,6 +29,7 @@ struct DisciplineDetail: View {
             show(power: power)
           } label: {
             PowerRow(power: power)
+              .contentShape(Rectangle())
           }
           .buttonStyle(PlainButtonStyle())
         }
