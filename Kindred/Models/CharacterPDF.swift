@@ -363,7 +363,7 @@ class CharacterPDF {
     if let annotation = allAnnotations[field] {
       if let widgetStringValue = annotation.widgetStringValue {
         if !widgetStringValue.isEmpty {
-          return annotation.widgetStringValue
+          return widgetStringValue
         }
       }
     }

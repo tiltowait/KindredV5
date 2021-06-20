@@ -101,6 +101,7 @@ struct ScrollingImageHeader: View {
       else { return }
 
       viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
+      imageToAdd = nil
     }
   }
 }

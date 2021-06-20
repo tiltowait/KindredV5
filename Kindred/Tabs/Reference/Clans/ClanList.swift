@@ -10,12 +10,10 @@ import SwiftUI
 struct ClanList: View {
   
   @StateObject private var viewModel: ViewModel
-  @Binding var clanSelectionLinkActive: Bool
   
-  init(kindred: Kindred? = nil, dataController: DataController, link: Binding<Bool>? = nil) {
+  init(kindred: Kindred? = nil, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
-    _clanSelectionLinkActive = link ?? .constant(false)
   }
   
   var body: some View {
@@ -24,13 +22,11 @@ struct ClanList: View {
         destination: ClanDetail(
           clan: clan,
           kindred: viewModel.kindred,
-          dataController: viewModel.dataController,
-          link: $clanSelectionLinkActive
+          dataController: viewModel.dataController
         )
       ) {
         ClanRow(clan: clan)
       }
-      .isDetailLink(false)
     }
     .listStyle(GroupedListStyle())
     .navigationBarTitle("Clans", displayMode: .inline)

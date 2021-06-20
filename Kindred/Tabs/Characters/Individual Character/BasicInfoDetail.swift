@@ -22,16 +22,22 @@ struct BasicInfoDetail: View {
       BoldTextField("Chronicle", binding: $viewModel.kindred.chronicle)
       BoldTextField("Sire", binding: $viewModel.kindred.sire)
       BoldTextField("Title", binding: $viewModel.kindred.title)
-
-      DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
+      DatePicker(
+        selection: $viewModel.birthdate,
+        in: viewModel.birthdateRange,
+        displayedComponents: .date
+      ) {
         Text("Birthdate:")
           .bold()
       }
-      DatePicker(selection: $viewModel.embraceDate, in: ...Date(), displayedComponents: .date) {
+      DatePicker(
+        selection: $viewModel.embraceDate,
+        in: viewModel.embraceRange,
+        displayedComponents: .date
+      ) {
         Text("Embrace date:")
           .bold()
       }
-      
       BoldTextField("Height", binding: $viewModel.kindred.height)
       BoldTextField("Weight", binding: $viewModel.kindred.weight)
     } label: {

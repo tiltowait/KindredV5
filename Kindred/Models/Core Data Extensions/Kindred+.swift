@@ -63,26 +63,31 @@ extension Kindred {
     set { zWeight = newValue }
   }
   
+  /// The image containers, sorted by date they were added.
   var allImageObjects: [KindredImage] {
     let images = images?.allObjects as? [KindredImage] ?? []
     return images.sorted()
   }
   
+  /// The full-sized image data, sorted by creation date.
   var fullSizeImageData: [Data] {
     let images = allImageObjects
     return images.sorted().compactMap { $0.image }
   }
   
+  /// The thumbnail image data, sorted by creation date.
   var thumbnailImageData: [Data] {
     let images = allImageObjects
     return images.sorted().compactMap { $0.thumb }
   }
   
+  /// The powers known by the character, sorted.
   var knownPowers: [Power] {
     let powers = self.powers?.allObjects as? [Power] ?? []
     return powers.sorted()
   }
   
+  /// The disciplines known by the character, sorted alphabetically.
   var knownDisciplines: [Discipline] {
     let disciplines = knownPowers.compactMap { $0.discipline }
     let set = Set(disciplines)

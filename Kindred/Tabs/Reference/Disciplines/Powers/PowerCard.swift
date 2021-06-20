@@ -14,7 +14,7 @@ struct PowerCard: View {
   let power: Power
   let action: ((Power) -> Void)?
   
-  private let prerequisiteType: String
+  private let prerequisiteType: LocalizedStringKey
   private let prerequisite: String?
   
   init(power: Power, action: ((Power) -> Void)? = nil) {
@@ -23,10 +23,10 @@ struct PowerCard: View {
     
     switch power.powerPrerequisite {
     case .amalgam(let amalgam):
-      prerequisiteType = "Amalgam"
+      prerequisiteType = "Amalgam:"
       prerequisite = amalgam
     case .prerequisite(let prerequisite):
-      prerequisiteType = "Prerequisite"
+      prerequisiteType = "Prerequisite:"
       self.prerequisite = prerequisite
     case .none:
       prerequisiteType = ""

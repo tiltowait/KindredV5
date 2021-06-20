@@ -17,15 +17,26 @@ struct CharacterList: View {
   
   @State private var showingCreationSheet = false
   
+  var characterList: some View {
+    List {
+      ForEach(kindred) { cainite in
+        NavigationLink(destination: CharacterDetail(kindred: cainite, dataController: dataController)) {
+          CharacterRow(kindred: cainite)
+        }
+      }
+      .onDelete(perform: delete)
+    }
+  }
+  
   var body: some View {
     NavigationView {
-      List {
-        ForEach(kindred) { cainite in
-          NavigationLink(destination: CharacterDetail(kindred: cainite, dataController: dataController)) {
-            CharacterRow(kindred: cainite)
-          }
+      Group {
+        if kindred.isEmpty {
+          Text("Press + to add a character.")
+            .foregroundColor(.secondary)
+        } else {
+          characterList
         }
-        .onDelete(perform: delete)
       }
       .navigationTitle("Characters")
       .toolbar {
@@ -37,7 +48,7 @@ struct CharacterList: View {
       }
     }
     .sheet(isPresented: $showingCreationSheet) {
-      AddKindredView()
+      AddCharacterView()
     }
   }
   

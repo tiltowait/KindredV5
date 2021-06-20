@@ -31,6 +31,11 @@ extension BasicInfoDetail {
       }
     }
     
+    let birthdateRange = ...Date()
+    var embraceRange: ClosedRange<Date> {
+      birthdate...Date()
+    }
+    
     /// The name used for storing `isExpanded` in `UserDefaults`.
     ///
     /// The name is derived from the Kindred's `id` property, plus an additonal

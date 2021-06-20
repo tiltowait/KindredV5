@@ -1,5 +1,5 @@
 //
-//  AddKindredView.swift
+//  AddCharacterView.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/13/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddKindredView: View {
+struct AddCharacterView: View {
   
   @EnvironmentObject var dataController: DataController
   @Environment(\.presentationMode) var presentationMode
@@ -24,7 +24,7 @@ struct AddKindredView: View {
           }
         }
         
-        Section(footer: Text("This function will pull in name, clan, generation, etc., plus skills and attributes.")) {
+        Section(footer: Text("Imports most data from an interactive character sheet PDF.")) {
           Button {
             showingFileImporter.toggle()
           } label: {
@@ -62,7 +62,7 @@ struct AddKindredView: View {
 
 struct AddKindredView_Previews: PreviewProvider {
   static var previews: some View {
-    AddKindredView()
+    AddCharacterView()
       .environmentObject(DataController.preview)
   }
 }

@@ -11,13 +11,11 @@ struct ClanDetail: View {
   
   @StateObject private var viewModel: ViewModel
   
-  @Binding var linkStackActive: Bool
   @State private var selectedDiscipline: Discipline?
   
-  init(clan: Clan, kindred: Kindred? = nil, dataController: DataController? = nil, link: Binding<Bool>? = nil) {
+  init(clan: Clan, kindred: Kindred? = nil, dataController: DataController? = nil) {
     let viewModel = ViewModel(clan: clan, kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
-    _linkStackActive = link ?? .constant(false)
   }
   
   var selectClanButton: some View {
@@ -113,7 +111,8 @@ struct ClanDetail: View {
   
   func selectClan() {
     viewModel.selectClan()
-    linkStackActive.toggle()
+    // This is being displayed in a sheet, so all we have to do is pop it off
+    UIViewController.root?.dismiss(animated: true)
   }
   
 }

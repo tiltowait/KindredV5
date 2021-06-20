@@ -76,7 +76,7 @@
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* CharacterList.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
-		28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddKindredView.swift */; };
+		28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */; };
 		28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */; };
 		28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */; };
 		28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */; };
@@ -188,7 +188,7 @@
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
-		28BD80772676FECD00FEE5F9 /* AddKindredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKindredView.swift; sourceTree = "<group>"; };
+		28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterView.swift; sourceTree = "<group>"; };
 		28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSavingKindredViewModel.swift; sourceTree = "<group>"; };
 		28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageHeader.swift; sourceTree = "<group>"; };
 		28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroups.swift; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28BD80732676FBC900FEE5F9 /* CharacterList.swift */,
 				28EBBE0626784E90004DD186 /* CharacterRow.swift */,
-				28BD80772676FECD00FEE5F9 /* AddKindredView.swift */,
+				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
 				28C656D1267BBCF100865EE3 /* Individual Character */,
 			);
 			path = Characters;
@@ -618,7 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
-				28BD80782676FECD00FEE5F9 /* AddKindredView.swift in Sources */,
+				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
@@ -847,7 +847,7 @@
 		282EC8582656EEB90086B14F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kindred/Preview Content\"";
@@ -869,7 +869,7 @@
 		282EC8592656EEB90086B14F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Kindred/Preview Content\"";
