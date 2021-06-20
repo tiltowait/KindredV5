@@ -5,7 +5,7 @@
 //  Created by Jared Lindsay on 6/14/21.
 //
 
-import Foundation
+import CoreData
 
 /// A caseless enum that does the actual legwork of creating a new character from a PDF.
 enum CharacterImporter {
@@ -15,8 +15,8 @@ enum CharacterImporter {
   ///   - pdf: The PDF from which to import the character.
   ///   - dataController: The data controller responsible for saving the character.
   @discardableResult
-  static func importCharacter(pdf: CharacterPDF, dataController: DataController) -> Kindred {
-    let kindred = Kindred(context: dataController.container.viewContext)
+  static func importCharacter(pdf: CharacterPDF, context: NSManagedObjectContext) -> Kindred {
+    let kindred = Kindred(context: context)
     
     // Set basic traits
     kindred.name = pdf.information(for: .characterName)
@@ -29,7 +29,7 @@ enum CharacterImporter {
     kindred.title = pdf.information(for: .title)
     
     // Figure out its clan
-    if let clan = dataController.clan(named: pdf.information(for: .clan)) {
+    if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {//dataController.clan(named: pdf.information(for: .clan)) {
       kindred.clan = clan
     }
     
@@ -80,7 +80,27 @@ enum CharacterImporter {
     kindred.hunger = pdf.hunger
     kindred.bloodPotency = pdf.bloodPotency
     
+    Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
+    
     return kindred
+  }
+  
+  private static func fetchDisciplines(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+    for (key, fields) in pdf.disciplineFields {
+      let disciplineName = pdf.value(for: key) ?? ""
+      
+      if let discipline = Discipline.fetchObject(named: disciplineName, in: context) {
+        for field in fields {
+          let powerName = pdf.value(for: field) ?? ""
+          
+          if let power = Power.fetchObject(named: powerName, in: context) {
+            if power.discipline == discipline {
+              kindred.addToPowers(power)
+            }
+          }
+        }
+      }
+    }
   }
   
 }

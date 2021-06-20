@@ -24,7 +24,7 @@ struct AddCharacterView: View {
           }
         }
         
-        Section(footer: Text("Imports most data from an interactive character sheet PDF.")) {
+        Section(footer: Text("Imports most data from an interactive character sheet PDF. Certain details, such as disciplines and clan, must be an exact match in order for the importer to find them.")) {
           Button {
             showingFileImporter.toggle()
           } label: {
@@ -46,7 +46,10 @@ struct AddCharacterView: View {
     if case let .success(selectedFile) = result {
       if selectedFile.startAccessingSecurityScopedResource() {
         if let pdf = CharacterPDF(url: selectedFile) {
-          CharacterImporter.importCharacter(pdf: pdf, dataController: dataController)
+          CharacterImporter.importCharacter(
+            pdf: pdf,
+            context: dataController.container.viewContext
+          )
           dataController.save()
         }
       } else {

@@ -151,6 +151,52 @@ class CharacterPDF {
     "Technology": nil
   ]
   
+  /// The field names for disciplines and powers
+  let disciplineFields: [String: [String]] = [
+    "disciplineslist1": [
+      "disciplines2",
+      "disciplines3",
+      "disciplines4",
+      "disciplines5",
+      "disciplines6",
+    ],
+    "disciplineslist4": [
+      "disciplines20",
+      "disciplines21",
+      "disciplines22",
+      "disciplines23",
+      "disciplines24",
+    ],
+    "disciplineslist2": [
+      "disciplines8",
+      "disciplines9",
+      "disciplines10",
+      "disciplines11",
+      "disciplines12",
+    ],
+    "disciplineslist5": [
+      "disciplines26",
+      "disciplines27",
+      "disciplines28",
+      "disciplines29",
+      "disciplines30",
+    ],
+    "disciplineslist3": [
+      "disciplines14",
+      "disciplines15",
+      "disciplines16",
+      "disciplines17",
+      "disciplines18",
+    ],
+    "disciplineslist6": [
+      "disciplines32",
+      "disciplines33",
+      "disciplines34",
+      "disciplines35",
+      "disciplines36",
+    ]
+  ]
+  
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
   private let allAnnotations: [String: PDFAnnotation]
   
@@ -359,7 +405,7 @@ class CharacterPDF {
   /// of the PDF.
   /// - Parameter field: The name of the field to look up.
   /// - Returns: The value stored in that field. If the field is empty or doesn't exist, it returns `nil`.
-  private func value(for field: String) -> String? {
+  func value(for field: String) -> String? {
     if let annotation = allAnnotations[field] {
       if let widgetStringValue = annotation.widgetStringValue {
         if !widgetStringValue.isEmpty {

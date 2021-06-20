@@ -46,7 +46,7 @@ struct ScrollingImageHeader: View {
   
   var body: some View {
     ScrollView(.horizontal) {
-      HStack {
+      LazyHStack {
         ForEach(thumbnails.indices) { index in
           Button {
             showingImageIndex = index
