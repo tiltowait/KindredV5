@@ -18,24 +18,29 @@ struct CharacterList: View {
   @State private var showingCreationSheet = false
   
   var characterList: some View {
-    List {
-      ForEach(kindred) { cainite in
-        NavigationLink(destination: CharacterDetail(kindred: cainite, dataController: dataController)) {
-          CharacterRow(kindred: cainite)
-        }
+    ForEach(kindred) { cainite in
+      NavigationLink(
+        destination: CharacterDetail(
+          kindred: cainite,
+          dataController: dataController
+        )
+      ) {
+        CharacterRow(kindred: cainite)
       }
-      .onDelete(perform: delete)
     }
+    .onDelete(perform: delete)
   }
   
   var body: some View {
     NavigationView {
-      Group {
-        if kindred.isEmpty {
-          Text("Press + to add a character.")
-            .foregroundColor(.secondary)
-        } else {
-          characterList
+      List {
+        Group {
+          if kindred.isEmpty {
+            Text("Press + to add a character.")
+              .foregroundColor(.secondary)
+          } else {
+            characterList
+          }
         }
       }
       .navigationTitle("Characters")

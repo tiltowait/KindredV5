@@ -32,27 +32,13 @@ struct CharacterRow: View {
     }
   }
   
-  var generation: String {
-    "\(kindred.generation)th"
-  }
-  
   var body: some View {
-    HStack {
-      if let image = image {
-        image
-          .resizable()
-          .scaledToFit()
-          .cornerRadius(10)
-          .frame(height: 50)
-      }
-      VStack(alignment: .leading) {
-        Text(kindred.name)
-          .font(.headline)
-        Text(subtitle)
-          .font(.caption)
-          .foregroundColor(.secondary)
-      }
-    }
+    ReferenceRow(
+      kindred.name,
+      subtitle: subtitle,
+      icon: image,
+      rounded: true
+    )
   }
   
 }

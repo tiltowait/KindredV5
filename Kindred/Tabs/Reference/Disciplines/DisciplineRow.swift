@@ -22,18 +22,19 @@ struct DisciplineRow: View {
   }
   
   var body: some View {
-    HStack {
-      Image(discipline.icon)
-        .resizable()
-        .frame(width: 55, height: 55)
-      VStack(alignment: .leading) {
-        Text(name)
-          .font(.headline)
-        
-        Text(discipline.info)
-          .foregroundColor(.secondary)
-      }
-    }
+    ReferenceRow(name, subtitle: discipline.info, icon: Image(discipline.icon))
+//    HStack {
+//      Image(discipline.icon)
+//        .resizable()
+//        .frame(width: 55, height: 55)
+//      VStack(alignment: .leading) {
+//        Text(name)
+//          .font(.headline)
+//
+//        Text(discipline.info)
+//          .foregroundColor(.secondary)
+//      }
+//    }
     
   }
 }

@@ -34,7 +34,7 @@ struct CreateCharacterView: View {
             .bold()
         }
       }
-      Section(header: Text("You can set your character's attributes after creation.")) {
+      Section {
         Button("Create Character", action: createCharacter)
           .disabled(!viewModel.isCreatable)
           .centered()
