@@ -15,10 +15,11 @@ struct HomeView: View {
   }
   
   @SceneStorage("selectedView") var selectedView = Tab.kindred
+  @EnvironmentObject var dataController: DataController
   
   var body: some View {
     TabView(selection: $selectedView) {
-      CharacterList()
+      CharacterList(dataController: dataController)
         .tag(Tab.kindred)
         .tabItem {
           Label("Characters", systemImage: "person.3")
@@ -36,5 +37,7 @@ struct HomeView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView()
+      .environmentObject(DataController.preview)
+      .environment(\.managedObjectContext, DataController.preview.container.viewContext)
   }
 }

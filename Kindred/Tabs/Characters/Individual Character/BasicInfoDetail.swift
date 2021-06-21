@@ -27,16 +27,18 @@ struct BasicInfoDetail: View {
         in: viewModel.birthdateRange,
         displayedComponents: .date
       ) {
-        Text("Birthdate:")
+        Text("Born:")
           .bold()
       }
-      DatePicker(
-        selection: $viewModel.embraceDate,
-        in: viewModel.embraceRange,
-        displayedComponents: .date
-      ) {
-        Text("Embrace date:")
-          .bold()
+      if let transition = viewModel.kindred.clan?.transition {
+        DatePicker(
+          selection: $viewModel.transitionDate,
+          in: viewModel.embraceRange,
+          displayedComponents: .date
+        ) {
+          Text("\(transition):")
+            .bold()
+        }
       }
       BoldTextField("Height", binding: $viewModel.kindred.height)
       BoldTextField("Weight", binding: $viewModel.kindred.weight)

@@ -25,9 +25,9 @@ extension BasicInfoDetail {
     }
     
     /// The date of the kindred's embrace.
-    @Published var embraceDate: Date {
+    @Published var transitionDate: Date {
       didSet {
-        kindred.embraceDate = embraceDate
+        kindred.embraceDate = transitionDate
       }
     }
     
@@ -46,7 +46,7 @@ extension BasicInfoDetail {
       // Core Data doesn't let us specify the current date as a default, so we
       // do it here
       birthdate = kindred.birthdate ?? Date()
-      embraceDate = kindred.embraceDate ?? Date()
+      transitionDate = kindred.embraceDate ?? Date()
       
       autosaveKey = "\(kindred.id.hashValue)_AdditionalDetailsExpansion"
       isExpanded = UserDefaults.standard.bool(forKey: autosaveKey)

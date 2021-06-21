@@ -17,6 +17,7 @@
 		2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */; };
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
 		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
+		281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80372680FAC600B5B387 /* CharacterListViewModel.swift */; };
 		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
@@ -124,6 +125,7 @@
 		28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalKindredViewModel.swift; sourceTree = "<group>"; };
 		2813877B267D7DA2006DA73C /* ClanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanRow.swift; sourceTree = "<group>"; };
 		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
+		281F80372680FAC600B5B387 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			children = (
 				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28BD80732676FBC900FEE5F9 /* CharacterList.swift */,
+				281F80372680FAC600B5B387 /* CharacterListViewModel.swift */,
 				28EBBE0626784E90004DD186 /* CharacterRow.swift */,
 				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
 				28C656D1267BBCF100865EE3 /* Individual Character */,
@@ -662,6 +665,7 @@
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
+				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				2833CAC6267A794E00160A96 /* BasicInfoDetailViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,

@@ -26,6 +26,7 @@ enum ClanImporter: Importer {
     let compulsion = Expression<String>("compulsion")
     let compulsionDetails = Expression<String>("compulsion_details")
     let disciplines = Expression<String>("disciplines")
+    let template = Expression<Int>("template")
     let icon = Expression<String>("icon")
     let header = Expression<String>("header")
     
@@ -49,6 +50,7 @@ enum ClanImporter: Importer {
         clan.addToDisciplines(discipline)
       }
       
+      clan.rawTemplate = Int16(row[template])
       clan.icon = row[icon]
       clan.header = row[header]
     }

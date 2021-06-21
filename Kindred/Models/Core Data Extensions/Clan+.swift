@@ -10,6 +10,12 @@ import CoreData
 
 extension Clan {
   
+  enum Template: Int16 {
+    case kindred
+    case ghoul
+    case mortal
+  }
+  
   static var sortedFetchRequest: NSFetchRequest<Clan> {
     let request: NSFetchRequest<Clan> = Clan.fetchRequest()
     request.sortDescriptors = [NSSortDescriptor(keyPath: \Clan.zName, ascending: true)]
@@ -49,6 +55,21 @@ extension Clan {
   var inClanDisciplines: [Discipline] {
     let disciplines = disciplines?.allObjects as? [Discipline] ?? []
     return disciplines.sorted()
+  }
+  
+  var template: Template {
+    guard let template = Template(rawValue: self.rawTemplate) else {
+      fatalError("\(name): Unknown transition: \(self.template)")
+    }
+    return template
+  }
+  
+  var transition: String? {
+    switch template {
+    case .kindred: return "Embraced"
+    case .ghoul: return "Ghouled"
+    default: return nil
+    }
   }
   
   /// Retrieve random nicknames.

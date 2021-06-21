@@ -11,6 +11,7 @@
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="advantages" inverseEntity="PredatorType"/>
     </entity>
     <entity name="Clan" representedClassName="Clan" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
+        <attribute name="rawTemplate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="zBane" attributeType="String"/>
         <attribute name="zCompulsion" attributeType="String"/>
         <attribute name="zCompulsionDetails" attributeType="String"/>
@@ -124,7 +125,7 @@
     <elements>
         <element name="Advantage" positionX="324.50390625" positionY="2.96484375" width="128" height="73"/>
         <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="103"/>
-        <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="149"/>
+        <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="164"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="884"/>
