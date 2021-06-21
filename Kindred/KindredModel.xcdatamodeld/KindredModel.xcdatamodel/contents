@@ -21,8 +21,8 @@
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
-        <attribute name="resonance" attributeType="String"/>
         <attribute name="zIcon" attributeType="String"/>
+        <attribute name="zResonance" attributeType="String"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Power" inverseName="discipline" inverseEntity="Power"/>
         <relationship name="referencingClans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clan" inverseName="disciplines" inverseEntity="Clan"/>
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="disciplineOptions" inverseEntity="PredatorType"/>

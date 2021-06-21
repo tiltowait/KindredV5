@@ -21,14 +21,12 @@ struct HomeView: View {
       CharacterList()
         .tag(Tab.kindred)
         .tabItem {
-          Image(systemName: "person.3")
-          Text("Characters")
+          Label("Characters", systemImage: "person.3")
         }
       ReferenceList()
         .tag(Tab.reference)
         .tabItem {
-          Image(systemName: "books.vertical")
-          Text("Reference")
+          Label("Reference", systemImage: "books.vertical")
         }
     }
   }

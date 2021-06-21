@@ -34,7 +34,7 @@ struct AddCharacterView: View {
         
       }
       .listStyle(InsetGroupedListStyle())
-      .navigationTitle("Add Kindred")
+      .navigationTitle("Add Character")
     }
     .fileImporter(isPresented: $showingFileImporter, allowedContentTypes: [.pdf], onCompletion: importCharacter)
     .alert(isPresented: $showingFileErrorAlert) {

@@ -18,6 +18,11 @@ extension Discipline {
     return request
   }
   
+  var resonance: String {
+    get { zResonance! }
+    set { zResonance = newValue }
+  }
+  
   var icon: String {
     get { self.zIcon! }
     set { self.zIcon = newValue }
