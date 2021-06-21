@@ -24,6 +24,7 @@ extension ClanDetail {
     /// Assign the modeled Clan to the modeled Kindred.
     func selectClan() {
       kindred?.clan = clan
+      NotificationCenter.default.post(name: .didSelectClan, object: nil)
     }
     
   }

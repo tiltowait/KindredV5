@@ -14,9 +14,7 @@ extension CharacterDetail {
       dataController.clans
     }()
     
-    var clanName: String {
-      kindred.clan?.name ?? "Not selected"
-    }
+    @Published var clanName: String
     
     var zippedAttributes: [[(String, Int16)]] {
       [
@@ -76,5 +74,24 @@ extension CharacterDetail {
       ]
     }
     
+    override init(kindred: Kindred, dataController: DataController) {
+      clanName = kindred.clan?.name ?? "Not selected"
+      super.init(kindred: kindred, dataController: dataController)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(clanWasSelected), name: .didSelectClan, object: nil)
+    }
+    
+    /// Inform the view model the clan was changed so that CharacterDetail can update its relevant fields.
+    /// - Parameter notification: The clan selection notification.
+    @objc func clanWasSelected(_ notification: Notification) {
+      clanName = kindred.clan!.name
+    }
+    
   }
+}
+
+extension Notification.Name {
+  
+  static let didSelectClan = Notification.Name("didSelectClan")
+  
 }
