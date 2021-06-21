@@ -84,7 +84,10 @@ extension CharacterDetail {
     /// Inform the view model the clan was changed so that CharacterDetail can update its relevant fields.
     /// - Parameter notification: The clan selection notification.
     @objc func clanWasSelected(_ notification: Notification) {
-      clanName = kindred.clan!.name
+      // All CharacterDetailViewModels receive this notification. Because of this, we must use
+      // nil coalescing, or the app will crash if the user has more than one character with no
+      // defined clan
+      clanName = kindred.clan?.name ?? "Not selected"
     }
     
   }
