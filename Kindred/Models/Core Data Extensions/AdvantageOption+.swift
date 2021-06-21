@@ -19,6 +19,14 @@ extension AdvantageOption {
     return request
   }
   
+  var isFlaw: Bool {
+    minRating < 0 && maxRating < 0
+  }
+  
+  var parentAdvantage: Advantage {
+    self.parent!
+  }
+  
 }
 
 extension AdvantageOption: Comparable {

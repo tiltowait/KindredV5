@@ -37,7 +37,7 @@ enum AdvantageOptionImporter: Importer {
       guard let parentAdvantage = Advantage.fetchObject(named: row[parent], in: context) else {
         throw ImportError.invalidReference("No Advantage named \(row[parent])")
       }
-      option.parentAdvantage = parentAdvantage
+      option.parent = parentAdvantage
     }
   }
   

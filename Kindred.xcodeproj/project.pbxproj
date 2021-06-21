@@ -16,12 +16,18 @@
 		28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138777267D7BC4006DA73C /* ClanListViewController.swift */; };
 		2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */; };
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
+		28189D642681449E0099E8DF /* AdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D632681449E0099E8DF /* AdvantageView.swift */; };
+		28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D65268145CF0099E8DF /* AdvantageViewModel.swift */; };
+		28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D6726814A520099E8DF /* AdvantageOptionView.swift */; };
+		28189D6A26814C060099E8DF /* AdvantageOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */; };
 		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
 		281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80372680FAC600B5B387 /* CharacterListViewModel.swift */; };
 		281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80392681302300B5B387 /* AdvantageImporter.swift */; };
 		281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */; };
 		281F803E2681337700B5B387 /* Advantage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803D2681337700B5B387 /* Advantage+.swift */; };
 		281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803F268133D200B5B387 /* AdvantageOption+.swift */; };
+		281F80432681388900B5B387 /* AdvantageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80422681388900B5B387 /* AdvantageList.swift */; };
+		281F8045268138A200B5B387 /* AdvantageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F8044268138A200B5B387 /* AdvantageListViewController.swift */; };
 		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
@@ -128,12 +134,18 @@
 		28138777267D7BC4006DA73C /* ClanListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanListViewController.swift; sourceTree = "<group>"; };
 		28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalKindredViewModel.swift; sourceTree = "<group>"; };
 		2813877B267D7DA2006DA73C /* ClanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanRow.swift; sourceTree = "<group>"; };
+		28189D632681449E0099E8DF /* AdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageView.swift; sourceTree = "<group>"; };
+		28189D65268145CF0099E8DF /* AdvantageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageViewModel.swift; sourceTree = "<group>"; };
+		28189D6726814A520099E8DF /* AdvantageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionView.swift; sourceTree = "<group>"; };
+		28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionViewModel.swift; sourceTree = "<group>"; };
 		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
 		281F80372680FAC600B5B387 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		281F80392681302300B5B387 /* AdvantageImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageImporter.swift; sourceTree = "<group>"; };
 		281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionImporter.swift; sourceTree = "<group>"; };
 		281F803D2681337700B5B387 /* Advantage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advantage+.swift"; sourceTree = "<group>"; };
 		281F803F268133D200B5B387 /* AdvantageOption+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageOption+.swift"; sourceTree = "<group>"; };
+		281F80422681388900B5B387 /* AdvantageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageList.swift; sourceTree = "<group>"; };
+		281F8044268138A200B5B387 /* AdvantageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageListViewController.swift; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
@@ -244,6 +256,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281F80412681387F00B5B387 /* Advantages */ = {
+			isa = PBXGroup;
+			children = (
+				281F80422681388900B5B387 /* AdvantageList.swift */,
+				281F8044268138A200B5B387 /* AdvantageListViewController.swift */,
+				28189D632681449E0099E8DF /* AdvantageView.swift */,
+				28189D6726814A520099E8DF /* AdvantageOptionView.swift */,
+				28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */,
+				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
+			);
+			path = Advantages;
+			sourceTree = "<group>";
+		};
 		282EC8292656EEB80086B14F = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				286FBF89265D978400AAA469 /* ReferenceList.swift */,
+				281F80412681387F00B5B387 /* Advantages */,
 				28CD0D45267E7BD800ED8635 /* Clans */,
 				286FBF88265D976400AAA469 /* Disciplines */,
 			);
@@ -636,6 +662,7 @@
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
+				28189D642681449E0099E8DF /* AdvantageView.swift in Sources */,
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
@@ -657,6 +684,7 @@
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
 				28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
+				281F80432681388900B5B387 /* AdvantageList.swift in Sources */,
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */,
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
@@ -669,6 +697,7 @@
 				28C656E5267BEC4C00865EE3 /* DisciplineDetail.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
+				28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,
@@ -681,6 +710,7 @@
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
 				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,
+				28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				2833CAC6267A794E00160A96 /* BasicInfoDetailViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
@@ -706,11 +736,13 @@
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
 				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
+				281F8045268138A200B5B387 /* AdvantageListViewController.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
 				28138776267D7BB7006DA73C /* ClanList.swift in Sources */,
+				28189D6A26814C060099E8DF /* AdvantageOptionViewModel.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 				286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */,
 			);

@@ -15,4 +15,9 @@ extension Advantage {
     return request
   }
   
+  var allOptions: [AdvantageOption] {
+    let options = self.options as? Set<AdvantageOption>
+    return options?.sorted() ?? []
+  }
+  
 }

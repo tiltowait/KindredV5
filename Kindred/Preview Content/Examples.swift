@@ -10,6 +10,14 @@
 
 import UIKit
 
+extension Advantage {
+  
+  static var example: Advantage {
+    DataController.preview.advantages[1]
+  }
+  
+}
+
 extension Clan {
   
   /// The example clan.

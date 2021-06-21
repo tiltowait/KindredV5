@@ -14,6 +14,11 @@ struct ReferenceList: View {
   var body: some View {
     NavigationView {
       List {
+        
+        NavigationLink(destination: AdvantageList(dataController: dataController)) {
+          Text("Advantages")
+        }
+        
         NavigationLink(destination:
           DisciplineList()) {
           Text("Disciplines")
