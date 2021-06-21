@@ -18,6 +18,10 @@
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
 		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
 		281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80372680FAC600B5B387 /* CharacterListViewModel.swift */; };
+		281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80392681302300B5B387 /* AdvantageImporter.swift */; };
+		281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */; };
+		281F803E2681337700B5B387 /* Advantage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803D2681337700B5B387 /* Advantage+.swift */; };
+		281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803F268133D200B5B387 /* AdvantageOption+.swift */; };
 		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
@@ -126,6 +130,10 @@
 		2813877B267D7DA2006DA73C /* ClanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanRow.swift; sourceTree = "<group>"; };
 		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
 		281F80372680FAC600B5B387 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		281F80392681302300B5B387 /* AdvantageImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageImporter.swift; sourceTree = "<group>"; };
+		281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionImporter.swift; sourceTree = "<group>"; };
+		281F803D2681337700B5B387 /* Advantage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advantage+.swift"; sourceTree = "<group>"; };
+		281F803F268133D200B5B387 /* AdvantageOption+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageOption+.swift"; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
@@ -324,6 +332,8 @@
 			children = (
 				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
+				281F803D2681337700B5B387 /* Advantage+.swift */,
+				281F803F268133D200B5B387 /* AdvantageOption+.swift */,
 				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
@@ -370,9 +380,11 @@
 			isa = PBXGroup;
 			children = (
 				2892168A267E5C9A004911EA /* Importer.swift */,
-				28921697267E6C40004911EA /* PowerImporter.swift */,
-				28921699267E6F71004911EA /* DisciplineImporter.swift */,
+				281F80392681302300B5B387 /* AdvantageImporter.swift */,
+				281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */,
 				2892168C267E5D4C004911EA /* ClanImporter.swift */,
+				28921699267E6F71004911EA /* DisciplineImporter.swift */,
+				28921697267E6C40004911EA /* PowerImporter.swift */,
 			);
 			path = Importers;
 			sourceTree = "<group>";
@@ -621,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
@@ -647,6 +660,7 @@
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
 				28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */,
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
+				281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28252069267916CD0066F09B /* DotSelector.swift in Sources */,
 				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
@@ -657,6 +671,7 @@
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
+				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
@@ -684,6 +699,7 @@
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
+				281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */,
 				2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */,
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */,

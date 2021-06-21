@@ -11,7 +11,7 @@ import SQLite
 enum ClanImporter: Importer {
   
   static func importAll(context: NSManagedObjectContext) throws {
-    guard let dbPath = Bundle.main.path(forResource: "reference.sqlite", ofType: nil) else {
+    guard let dbPath = Global.dbPath else {
       throw ImportError.databaseNotFound
     }
     let db = try Connection(dbPath, readonly: true)

@@ -10,6 +10,8 @@ import SwiftUI
 /// Global enums and constants used throughout the app.
 enum Global {
   
+  static let dbPath = Bundle.main.path(forResource: "reference", ofType: "sqlite")
+  
   /// Enums and constants pertaining to advantages.
   enum Advantage {
     /// The general "type" of an advantage, such as loresheet or background.

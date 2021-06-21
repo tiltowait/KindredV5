@@ -39,6 +39,24 @@ class DataController: ObservableObject {
     }
   }()
   
+  private(set) lazy var advantages: [Advantage] = {
+    do {
+      let advantages = try container.viewContext.fetch(Advantage.sortedFetchRequest)
+      return advantages
+    } catch {
+      fatalError("Unable to fetch advantages.\n\(error.localizedDescription)")
+    }
+  }()
+  
+  private(set) lazy var advantageOptions: [AdvantageOption] = {
+    do {
+      let options = try container.viewContext.fetch(AdvantageOption.sortedFetchRequest)
+      return options
+    } catch {
+      fatalError("Unable to fetch advantage options.\n\(error.localizedDescription)")
+    }
+  }()
+  
   private(set) lazy var traitReference: [String: String] = {
     guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
           let traitReference = NSDictionary(contentsOf: url) as? [String: String]
@@ -80,6 +98,8 @@ class DataController: ObservableObject {
         try DisciplineImporter.importAll(context: container.viewContext)
         try PowerImporter.importAll(context: container.viewContext)
         try ClanImporter.importAll(context: container.viewContext)
+        try AdvantageImporter.importAll(context: container.viewContext)
+        try AdvantageOptionImporter.importAll(context: container.viewContext)
       } catch ImportError.databaseNotFound {
         fatalError("Unable to locate the database.")
       } catch ImportError.invalidReference(let object) {
@@ -95,6 +115,8 @@ class DataController: ObservableObject {
       print("\tLoaded \(disciplines.count) disciplines")
       print("\t\tWith \(powerCount) powers")
       print("\tLoaded \(clans.count) clans")
+      print("\tLoaded \(advantages.count) advantages")
+      print("\t\tWith \(advantageOptions.count) options")
       #endif
       
       self.save()
