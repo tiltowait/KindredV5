@@ -27,21 +27,6 @@ extension Clan {
     return nicknames.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
   }
   
-  var bane: String {
-    get { zBane! }
-    set { zBane = newValue }
-  }
-  
-  var compulsion: String {
-    get { zCompulsion! }
-    set { zCompulsion = newValue }
-  }
-  
-  var compulsionDetails: String {
-    get { zCompulsionDetails! }
-    set { zCompulsionDetails = newValue }
-  }
-  
   var icon: String {
     get { zIcon! }
     set { zIcon = newValue }

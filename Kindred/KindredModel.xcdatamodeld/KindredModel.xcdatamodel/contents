@@ -11,10 +11,10 @@
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="advantages" inverseEntity="PredatorType"/>
     </entity>
     <entity name="Clan" representedClassName="Clan" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
+        <attribute name="bane" optional="YES" attributeType="String"/>
+        <attribute name="compulsion" optional="YES" attributeType="String"/>
+        <attribute name="compulsionDetails" optional="YES" attributeType="String"/>
         <attribute name="rawTemplate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="zBane" attributeType="String"/>
-        <attribute name="zCompulsion" attributeType="String"/>
-        <attribute name="zCompulsionDetails" attributeType="String"/>
         <attribute name="zHeader" attributeType="String"/>
         <attribute name="zIcon" attributeType="String"/>
         <attribute name="zNicknames" optional="YES" attributeType="String"/>

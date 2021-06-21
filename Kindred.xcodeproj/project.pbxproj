@@ -322,14 +322,14 @@
 		28386F5A2658618E00E90445 /* Core Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				28921691267E64DE004911EA /* NSManagedObject+.swift */,
-				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
-				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
+				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
-				28386F6226586E2E00E90445 /* Power+.swift */,
+				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
-				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
+				28921691267E64DE004911EA /* NSManagedObject+.swift */,
+				28386F6226586E2E00E90445 /* Power+.swift */,
+				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -380,7 +380,6 @@
 		28ADF7F4267A5DC500D97D2A /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28BD80732676FBC900FEE5F9 /* CharacterList.swift */,
 				281F80372680FAC600B5B387 /* CharacterListViewModel.swift */,
 				28EBBE0626784E90004DD186 /* CharacterRow.swift */,
@@ -404,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */,
+				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */,
 				28ADF7F4267A5DC500D97D2A /* Characters */,
 				28ADF7F5267A5DCE00D97D2A /* Reference */,

@@ -22,10 +22,10 @@ enum ClanImporter: Importer {
     let info = Expression<String>("info")
     let source = Expression<Int>("source")
     let page = Expression<Int>("page")
-    let bane = Expression<String>("bane")
-    let compulsion = Expression<String>("compulsion")
-    let compulsionDetails = Expression<String>("compulsion_details")
-    let disciplines = Expression<String>("disciplines")
+    let bane = Expression<String?>("bane")
+    let compulsion = Expression<String?>("compulsion")
+    let compulsionDetails = Expression<String?>("compulsion_details")
+    let disciplines = Expression<String?>("disciplines")
     let template = Expression<Int>("template")
     let icon = Expression<String>("icon")
     let header = Expression<String>("header")
@@ -42,12 +42,14 @@ enum ClanImporter: Importer {
       clan.compulsionDetails = row[compulsionDetails]
       
       // Add the in-clan disciplines
-      let inClanDisciplines = row[disciplines].components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-      for name in inClanDisciplines {
-        guard let discipline = Discipline.fetchObject(named: name, in: context) else {
-          throw ImportError.invalidReference("\(name) is not a known Discipline!")
+      if let disciplines = row[disciplines] {
+        let inClanDisciplines = disciplines.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        for name in inClanDisciplines {
+          guard let discipline = Discipline.fetchObject(named: name, in: context) else {
+            throw ImportError.invalidReference("\(name) is not a known Discipline!")
+          }
+          clan.addToDisciplines(discipline)
         }
-        clan.addToDisciplines(discipline)
       }
       
       clan.rawTemplate = Int16(row[template])

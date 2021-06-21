@@ -53,23 +53,25 @@ struct ClanDetail: View {
           Text(viewModel.clan.info)
             .lineLimitFix()
           
-          Divider()
-          
-          HStack {
-            Spacer()
-            ForEach(viewModel.clan.inClanDisciplines) { discipline in
-              disciplineBox(discipline)
+          if !viewModel.clan.inClanDisciplines.isEmpty {
+            Divider()
+            HStack {
               Spacer()
+              ForEach(viewModel.clan.inClanDisciplines) { discipline in
+                disciplineBox(discipline)
+                Spacer()
+              }
             }
           }
           
-          Divider()
-          
-          infoBox("Bane:", contents: viewModel.clan.bane)
-          
-          Divider()
-          
-          infoBox("Compulsion: \(viewModel.clan.compulsion)", contents: viewModel.clan.compulsionDetails)
+          if let bane = viewModel.clan.bane {
+            Divider()
+            infoBox("Bane:", contents: bane)
+          }
+          if let compulsion = viewModel.clan.compulsion {
+            Divider()
+            infoBox("Compulsion: \(compulsion)", contents: viewModel.clan.compulsionDetails!)
+          }
         }
         .padding()
       }
