@@ -28,6 +28,7 @@ struct AdvantageOptionView: View {
     return "checkmark.circle"
   }
   
+  /// Button that adds the advantage option to the current character.
   var addButton: some View {
     Button(action: addToCharacter) {
       Image(systemName: imageName)
@@ -41,17 +42,25 @@ struct AdvantageOptionView: View {
       VStack(alignment: .leading) {
         HStack(alignment: .center) {
           if let magnitude = viewModel.singleOptionMagnitude {
-            markers(count: magnitude)
+            AdvantageOptionMarker(
+              count: magnitude,
+              square: viewModel.option.isFlaw
+            )
           }
           Text(viewModel.option.name)
             .bold()
           if viewModel.showRatingRange {
-            Text("(\(dots(count: viewModel.option.minRating)) to \(dots(count: viewModel.option.maxRating)))")
-              .italic()
+            Text(
+              ratingRange(
+                min: viewModel.option.minRating,
+                max: viewModel.option.maxRating
+              )
+            )
+            .italic()
           }
           Spacer()
         }
-
+        
         Text(viewModel.option.info)
           .foregroundColor(.secondary)
           .lineLimitFix()
@@ -81,33 +90,17 @@ struct AdvantageOptionView: View {
       }
     }
   }
-    
-  func markers(count: Int) -> some View {
-    HStack {
-      ForEach(0..<count) { _ in
-        shape
-      }
-    }
+  
+  /// Generate a string like "(• to •••)".
+  /// - Parameters:
+  ///   - min: The minimum number of dots.
+  ///   - max: The maximum number of dots.
+  /// - Returns: The generated string.
+  func ratingRange(min: Int16, max: Int16) -> String {
+    "(\(String(repeating: "•", count: Int(abs(min)))) to \(String(repeating: "•", count: Int(abs(max))))"
   }
   
-  func dots(count: Int16) -> String {
-    String(repeating: "•", count: Int(abs(count)))
-  }
-  
-  var shape: some View {
-    Group {
-      if viewModel.option.isFlaw {
-        Rectangle()
-          .fill(Color.black)
-          .frame(width: 8, height: 8)
-      } else {
-        Circle()
-          .fill(Color.black)
-          .frame(width: 6, height: 6)
-      }
-    }
-  }
-  
+  /// Add the current AdvantageOption to the current character.
   func addToCharacter() {
     viewModel.addToCharacter()
     UIViewController.root?.dismiss(animated: true)

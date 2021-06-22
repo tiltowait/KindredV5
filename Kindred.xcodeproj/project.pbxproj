@@ -72,6 +72,7 @@
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87F82682575D00DF140E /* AdvantageRow.swift */; };
 		287F87FB2682738800DF140E /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FA2682738800DF140E /* DotSelector.swift */; };
+		287F87FD2682943400DF140E /* AdvantageOptionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
@@ -202,6 +203,7 @@
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		287F87F82682575D00DF140E /* AdvantageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageRow.swift; sourceTree = "<group>"; };
 		287F87FA2682738800DF140E /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
+		287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionMarker.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				28189D632681449E0099E8DF /* AdvantageView.swift */,
 				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
 				28189D6726814A520099E8DF /* AdvantageOptionView.swift */,
+				287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */,
 				28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */,
 			);
 			path = Advantages;
@@ -776,6 +779,7 @@
 				28138776267D7BB7006DA73C /* ClanList.swift in Sources */,
 				28189D6A26814C060099E8DF /* AdvantageOptionViewModel.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
+				287F87FD2682943400DF140E /* AdvantageOptionMarker.swift in Sources */,
 				286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
