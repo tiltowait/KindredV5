@@ -16,17 +16,9 @@ struct AdvantageView: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
-  var infoHeader: some View {
-    Text(viewModel.advantage.info)
-      .font(.system(size: 18))
-      .centered()
-      .padding(.top)
-  }
-  
   var body: some View {
     Form {
-      Section(header: infoHeader) { }
-        .textCase(nil)
+      PlainTextHeader(viewModel.advantage.info)
       
       if !viewModel.flaws.isEmpty {
         Section(header: Text("Flaws")) {
