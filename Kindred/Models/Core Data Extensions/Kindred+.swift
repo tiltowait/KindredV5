@@ -63,6 +63,11 @@ extension Kindred {
     set { zWeight = newValue }
   }
   
+  var notes: String {
+    get { zNotes ?? "" }
+    set { zNotes = newValue }
+  }
+  
   /// The image containers, sorted by date they were added.
   var allImageObjects: [KindredImage] {
     let images = images as? Set<KindredImage>

@@ -512,6 +512,7 @@
 			children = (
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
+				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
 				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28DD0640267A706E00C9669F /* BasicInfoDetail.swift */,
@@ -521,7 +522,6 @@
 				28C656D6267BC13200865EE3 /* Disciplines */,
 				287F87FE26829DED00DF140E /* Basic Traits */,
 				287F87F72682553200DF140E /* Advantages */,
-				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
 			);
 			path = "Individual Character";
 			sourceTree = "<group>";

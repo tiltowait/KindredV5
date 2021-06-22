@@ -13,6 +13,7 @@ struct CharacterDetail: View {
   
   @StateObject var viewModel: ViewModel
   
+  @State private var showingNotesSheet = false
   @State private var showingClanSelectionSheet = false
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
@@ -36,6 +37,11 @@ struct CharacterDetail: View {
       } label: {
         Label("Roll dice", systemImage: "diamond.fill")
           .imageScale(.large)
+      }
+      Button {
+        showingNotesSheet.toggle()
+      } label: {
+        Label("Character notes", systemImage: "note.text")
       }
       
     // Menu label
@@ -96,6 +102,9 @@ struct CharacterDetail: View {
       .navigationTitle(viewModel.kindred.name)
       .toolbar {
         menu
+      }
+      .sheet(isPresented: $showingNotesSheet) {
+        CharacterNotesView(kindred: viewModel.kindred)
       }
       .sheet(isPresented: $showingDiceRoller) {
         DiceRollView(kindred: viewModel.kindred)
