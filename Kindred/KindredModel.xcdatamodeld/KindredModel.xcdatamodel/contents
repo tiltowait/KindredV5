@@ -87,8 +87,10 @@
         <attribute name="zChronicle" optional="YES" attributeType="String"/>
         <attribute name="zConcept" optional="YES" attributeType="String"/>
         <attribute name="zDesire" optional="YES" attributeType="String"/>
+        <attribute name="zHealthString" optional="YES" attributeType="String"/>
         <attribute name="zHeight" optional="YES" attributeType="String"/>
         <attribute name="zName" attributeType="String"/>
+        <attribute name="zNotes" optional="YES" attributeType="String"/>
         <attribute name="zSire" optional="YES" attributeType="String"/>
         <attribute name="zTitle" optional="YES" attributeType="String"/>
         <attribute name="zWeight" optional="YES" attributeType="String"/>
@@ -136,7 +138,7 @@
         <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="164"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
-        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="899"/>
+        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="929"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>
         <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="163"/>
         <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>
