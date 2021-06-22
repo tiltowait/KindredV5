@@ -65,8 +65,8 @@ extension Kindred {
   
   /// The image containers, sorted by date they were added.
   var allImageObjects: [KindredImage] {
-    let images = images?.allObjects as? [KindredImage] ?? []
-    return images.sorted()
+    let images = images as? Set<KindredImage>
+    return images?.sorted() ?? []
   }
   
   /// The full-sized image data, sorted by creation date.
@@ -83,8 +83,8 @@ extension Kindred {
   
   /// The powers known by the character, sorted.
   var knownPowers: [Power] {
-    let powers = self.powers?.allObjects as? [Power] ?? []
-    return powers.sorted()
+    let powers = self.powers as? Set<Power>
+    return powers?.sorted() ?? []
   }
   
   /// The disciplines known by the character, sorted alphabetically.
@@ -92,6 +92,11 @@ extension Kindred {
     let disciplines = knownPowers.compactMap { $0.discipline }
     let set = Set(disciplines)
     return set.sorted()
+  }
+  
+  var advantageContainers: [AdvantageContainer] {
+    let containers = advantages as? Set<AdvantageContainer>
+    return containers?.sorted() ?? []
   }
   
   /// Get the Kindred's level in a given Discipline.

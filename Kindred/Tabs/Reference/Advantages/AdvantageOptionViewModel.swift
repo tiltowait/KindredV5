@@ -10,17 +10,49 @@ import Foundation
 extension AdvantageOptionView {
   class ViewModel: OptionalKindredViewModel {
     
+    enum Status {
+      case contained
+      case uncontained
+      case inapplicable
+    }
+    
     @Published var option: AdvantageOption
     
     let isSingleOption: Bool
     let singleOptionMagnitude: Int?
     
-    init(option: AdvantageOption) {
+    var status: Status {
+      if let advantages = kindred?.advantageContainers.map({ $0.option }) {
+        if advantages.contains(option) {
+          return .contained
+        }
+        return .uncontained
+      }
+      return .inapplicable
+    }
+    
+    init(option: AdvantageOption, kindred: Kindred?, dataController: DataController?) {
       self.option = option
+      
       isSingleOption = option.minRating == option.maxRating
       singleOptionMagnitude = isSingleOption ? Int(abs(option.maxRating)) : nil
       
-      super.init(kindred: nil, dataController: nil) // TODO: Finish later
+      super.init(kindred: kindred, dataController: dataController)
+    }
+    
+    func addToCharacter() {
+      guard let kindred = kindred,
+         let dataController = dataController
+      else { return }
+      
+      let container = AdvantageContainer(context: dataController.container.viewContext)
+      container.option = option
+      container.currentRating = option.minRating
+      kindred.addToAdvantages(container)
+      
+      if let advantages = kindred.advantages?.allObjects as? [AdvantageContainer] {
+        advantages.forEach { print($0.option.name) }
+      }
     }
     
   }

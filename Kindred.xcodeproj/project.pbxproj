@@ -65,6 +65,9 @@
 		286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8B265D98BA00AAA469 /* IconFooter.swift */; };
 		286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8F265D9EDF00AAA469 /* Color+.swift */; };
 		2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436926823C71005F6589 /* PlainTextHeader.swift */; };
+		2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436D26824110005F6589 /* AdvantageContainer+.swift */; };
+		2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436F26824847005F6589 /* CharacterAdvantages.swift */; };
+		287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
@@ -190,6 +193,9 @@
 		286FBF8B265D98BA00AAA469 /* IconFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFooter.swift; sourceTree = "<group>"; };
 		286FBF8F265D9EDF00AAA469 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		2870436926823C71005F6589 /* PlainTextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextHeader.swift; sourceTree = "<group>"; };
+		2870436D26824110005F6589 /* AdvantageContainer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageContainer+.swift"; sourceTree = "<group>"; };
+		2870436F26824847005F6589 /* CharacterAdvantages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdvantages.swift; sourceTree = "<group>"; };
+		287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdvantagesViewModel.swift; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
@@ -264,9 +270,9 @@
 				281F80422681388900B5B387 /* AdvantageList.swift */,
 				281F8044268138A200B5B387 /* AdvantageListViewController.swift */,
 				28189D632681449E0099E8DF /* AdvantageView.swift */,
+				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
 				28189D6726814A520099E8DF /* AdvantageOptionView.swift */,
 				28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */,
-				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
 			);
 			path = Advantages;
 			sourceTree = "<group>";
@@ -357,10 +363,11 @@
 		28386F5A2658618E00E90445 /* Core Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				281F803D2681337700B5B387 /* Advantage+.swift */,
+				2870436D26824110005F6589 /* AdvantageContainer+.swift */,
+				281F803F268133D200B5B387 /* AdvantageOption+.swift */,
 				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
 				28386F5B2658619D00E90445 /* Discipline+.swift */,
-				281F803D2681337700B5B387 /* Advantage+.swift */,
-				281F803F268133D200B5B387 /* AdvantageOption+.swift */,
 				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
@@ -486,6 +493,8 @@
 				28A1E9EE2677B6C40084F483 /* TraitSummary.swift */,
 				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
+				2870436F26824847005F6589 /* CharacterAdvantages.swift */,
+				287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */,
 			);
 			path = "Individual Character";
 			sourceTree = "<group>";
@@ -676,6 +685,7 @@
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
+				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
 				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
@@ -709,6 +719,7 @@
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
 				2892168B267E5C9A004911EA /* Importer.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
+				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
@@ -716,6 +727,7 @@
 				28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */,
 				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				2833CAC6267A794E00160A96 /* BasicInfoDetailViewModel.swift in Sources */,
+				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,

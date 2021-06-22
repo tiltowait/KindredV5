@@ -11,47 +11,58 @@ struct AdvantageOptionView: View {
   
   @StateObject var viewModel: ViewModel
   
-  init(option: AdvantageOption) {
-    let viewModel = ViewModel(option: option)
+  init(option: AdvantageOption, kindred: Kindred?, dataController: DataController?) {
+    let viewModel = ViewModel(option: option, kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
-  var decoratorString: String? {
-    if let magnitude = viewModel.singleOptionMagnitude {
-      let dot = viewModel.option.isFlaw ? "▪️" : "•"
-      return String(repeating: dot, count: magnitude)
+  var imageName: String {
+    if viewModel.status == .uncontained {
+      return "plus.circle"
     }
-    return nil
+    return "checkmark.circle"
+  }
+  
+  var addButton: some View {
+    Button(action: addToCharacter) {
+      Image(systemName: imageName)
+        .imageScale(.large)
+    }
+    .disabled(viewModel.status == .contained)
   }
   
   var body: some View {
-    VStack(alignment: .leading) {
-      HStack(alignment: .center) {
-        if let magnitude = viewModel.singleOptionMagnitude {
-          markers(count: magnitude)
+    HStack(alignment: .center, spacing: 5) {
+      VStack(alignment: .leading) {
+        HStack(alignment: .center) {
+          if let magnitude = viewModel.singleOptionMagnitude {
+            markers(count: magnitude)
+          }
+          Text(viewModel.option.name)
+            .bold()
+          if !viewModel.isSingleOption {
+            Text("(\(dots(count: viewModel.option.minRating)) to \(dots(count: viewModel.option.maxRating)))")
+              .italic()
+          }
+          Spacer()
         }
-        Text(viewModel.option.name)
-          .bold()
-        if !viewModel.isSingleOption {
-          Text("(\(dots(count: viewModel.option.minRating)) to \(dots(count: viewModel.option.maxRating)))")
-            .italic()
-        }
-        Spacer()
-      }
 
-      Text(viewModel.option.info)
-        .foregroundColor(.secondary)
-        .lineLimitFix()
-      
-      HStack {
-        Spacer()
-        Text(viewModel.option.pageReference)
-          .font(.caption2)
-          .italic()
+        Text(viewModel.option.info)
           .foregroundColor(.secondary)
+          .lineLimitFix()
+        
+        HStack {
+          Spacer()
+          Text(viewModel.option.pageReference)
+            .font(.caption2)
+            .italic()
+            .foregroundColor(.secondary)
+        }
+        .padding(.top, 5)
       }
-      .padding(.top, 5)
-      
+      if viewModel.status != .inapplicable {
+        addButton
+      }
     }
   }
     
@@ -80,6 +91,12 @@ struct AdvantageOptionView: View {
       }
     }
   }
+  
+  func addToCharacter() {
+    viewModel.addToCharacter()
+    UIViewController.root?.dismiss(animated: true)
+  }
+  
 }
 
 struct AdvantageOptionView_Previews: PreviewProvider {
@@ -91,13 +108,13 @@ struct AdvantageOptionView_Previews: PreviewProvider {
   static let bondResistance = "Bond Resistance"
   
   static var previews: some View {
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!, kindred: nil, dataController: nil)
       .previewLayout(.sizeThatFits)
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!, kindred: nil, dataController: nil)
       .previewLayout(.sizeThatFits)
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: adversary, in: context)!)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: adversary, in: context)!, kindred: nil, dataController: nil)
       .previewLayout(.sizeThatFits)
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: organovore, in: context)!)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: organovore, in: context)!, kindred: Kindred.example, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
   }
 }

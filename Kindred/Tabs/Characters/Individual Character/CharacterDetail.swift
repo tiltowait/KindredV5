@@ -56,6 +56,16 @@ struct CharacterDetail: View {
             RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
           }
           BasicInfoDetail(kindred: viewModel.kindred)
+          
+          NavigationLink(
+            destination: CharacterAdvantages(
+              kindred: viewModel.kindred,
+              dataController: viewModel.dataController
+            )
+          ) {
+              Text("Merits, Flaws, Backgrounds")
+                .bold()
+            }
         }
         
         // Traits
