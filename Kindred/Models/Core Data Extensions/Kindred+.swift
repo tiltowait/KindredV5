@@ -94,6 +94,7 @@ extension Kindred {
     return set.sorted()
   }
   
+  /// All the character's advantage containers, sorted.
   var advantageContainers: [AdvantageContainer] {
     let containers = advantages as? Set<AdvantageContainer>
     return containers?.sorted() ?? []
@@ -104,6 +105,52 @@ extension Kindred {
   /// - Returns: The level in that Discipline.
   func level(of discipline: Discipline) -> Int {
     knownPowers.filter { $0.discipline == discipline }.count
+  }
+  
+}
+
+// MARK: - Advantage Stuff
+
+extension Kindred {
+  /// A container type for grouping AdvantageContainers with their parent Advantage
+  class CoalescedAdvantage: Identifiable {
+    
+    var id: ObjectIdentifier { advantage.id }
+    
+    let advantage: Advantage
+    var containers: [AdvantageContainer] = []
+    
+    init(advantage: Advantage) {
+      self.advantage = advantage
+    }
+    
+    init(container: AdvantageContainer) {
+      self.advantage = container.advantage
+      containers.append(container)
+    }
+    
+    @discardableResult func add(container: AdvantageContainer) -> Bool {
+      if container.advantage == self.advantage {
+        containers.append(container)
+        return true
+      }
+      return false
+    }
+    
+  }
+  
+  var coalescedAdvantages: [CoalescedAdvantage] {
+    var coalescedAdvantages: [CoalescedAdvantage] = []
+    
+    for container in advantageContainers {
+      // Attempt to simply add the container to an existing coalesced
+      if let coalesced = coalescedAdvantages.first(where: { $0.advantage == container.advantage }) {
+        coalesced.add(container: container)
+      } else {
+        coalescedAdvantages.append(CoalescedAdvantage(container: container))
+      }
+    }
+    return coalescedAdvantages
   }
   
 }

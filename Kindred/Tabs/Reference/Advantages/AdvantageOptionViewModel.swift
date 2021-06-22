@@ -22,11 +22,13 @@ extension AdvantageOptionView {
     let singleOptionMagnitude: Int?
     
     var status: Status {
-      if let advantages = kindred?.advantageContainers.map({ $0.option }) {
-        if advantages.contains(option) {
-          return .contained
+      if dataController != nil {
+        if let advantages = kindred?.advantageContainers.map({ $0.option }) {
+          if advantages.contains(option) {
+            return .contained
+          }
+          return .uncontained
         }
-        return .uncontained
       }
       return .inapplicable
     }
@@ -49,10 +51,6 @@ extension AdvantageOptionView {
       container.option = option
       container.currentRating = option.minRating
       kindred.addToAdvantages(container)
-      
-      if let advantages = kindred.advantages?.allObjects as? [AdvantageContainer] {
-        advantages.forEach { print($0.option.name) }
-      }
     }
     
   }

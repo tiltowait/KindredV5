@@ -63,7 +63,7 @@ struct CharacterDetail: View {
               dataController: viewModel.dataController
             )
           ) {
-              Text("Merits, Flaws, Backgrounds")
+              Text("Advantages")
                 .bold()
             }
         }

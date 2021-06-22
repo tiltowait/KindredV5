@@ -38,6 +38,7 @@ struct CharacterList: View {
   var instructions: some View {
     Text("Press + to add a character.")
       .font(.system(size: 18))
+      .padding(.top)
   }
   
   var body: some View {

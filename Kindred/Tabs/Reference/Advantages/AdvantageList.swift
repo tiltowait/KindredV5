@@ -36,13 +36,7 @@ struct AdvantageList: View {
   
   func label(for advantage: Advantage) -> some View {
     NavigationLink(destination: AdvantageView(advantage: advantage, kindred: viewModel.kindred, dataController: viewModel.dataController)) {
-      VStack(alignment: .leading) {
-        Text(advantage.name)
-          .font(.headline)
-        Text(advantage.info)
-          .font(.callout)
-          .foregroundColor(.secondary)
-      }
+      AdvantageRow(advantage: advantage)
     }
   }
 }

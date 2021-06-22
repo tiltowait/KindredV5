@@ -70,6 +70,7 @@
 		287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
+		287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87F82682575D00DF140E /* AdvantageRow.swift */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
@@ -198,6 +199,7 @@
 		287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdvantagesViewModel.swift; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		287F87F82682575D00DF140E /* AdvantageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageRow.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				281F80422681388900B5B387 /* AdvantageList.swift */,
+				287F87F82682575D00DF140E /* AdvantageRow.swift */,
 				281F8044268138A200B5B387 /* AdvantageListViewController.swift */,
 				28189D632681449E0099E8DF /* AdvantageView.swift */,
 				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
@@ -411,6 +414,15 @@
 			path = Disciplines;
 			sourceTree = "<group>";
 		};
+		287F87F72682553200DF140E /* Advantages */ = {
+			isa = PBXGroup;
+			children = (
+				2870436F26824847005F6589 /* CharacterAdvantages.swift */,
+				287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */,
+			);
+			path = Advantages;
+			sourceTree = "<group>";
+		};
 		28921689267E5C8F004911EA /* Importers */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,8 +505,7 @@
 				28A1E9EE2677B6C40084F483 /* TraitSummary.swift */,
 				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
-				2870436F26824847005F6589 /* CharacterAdvantages.swift */,
-				287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */,
+				287F87F72682553200DF140E /* Advantages */,
 			);
 			path = "Individual Character";
 			sourceTree = "<group>";
@@ -718,6 +729,7 @@
 				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
 				2892168B267E5C9A004911EA /* Importer.swift in Sources */,
+				287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,

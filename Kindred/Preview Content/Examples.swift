@@ -103,7 +103,14 @@ extension Kindred {
     // Add some Disciplines
     kindred.addToPowers(Power.example)
     
-//    dataController.save()
+    // Add some advantages
+    let advantageNames = ["Stunning", "Archaic", "Bond Junkie", "Bond Resistance", "Short Bond"]
+    for name in advantageNames {
+      let container = AdvantageContainer(context: dataController.container.viewContext)
+      container.option = AdvantageOption.fetchObject(named: name, in: dataController.container.viewContext)!
+      container.currentRating = container.option.minRating
+      kindred.addToAdvantages(container)
+    }
     
     return kindred
   }
