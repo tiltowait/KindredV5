@@ -18,10 +18,19 @@ struct DisciplineDetail: View {
     _link = link ?? .constant(false)
   }
   
+  var header: some View {
+    Text(viewModel.headerText)
+      .font(.system(size: 18))
+      .centered()
+      .padding(.top)
+  }
+  
   var body: some View {
     List {
+      Section(header: header) { }
+        .textCase(nil)
       Section(
-        header: Text(viewModel.headerText),
+//        header: header,
         footer: IconFooter(icon: viewModel.icon)
       ) {
         ForEach(viewModel.availablePowers) { power in

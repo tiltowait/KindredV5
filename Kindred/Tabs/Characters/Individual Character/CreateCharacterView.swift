@@ -18,7 +18,10 @@ struct CreateCharacterView: View {
   
   var body: some View {
     List {
-      Section(header: Text("Enter your character's basic information. Only the name is required.")) {
+      Section(header: Text("Enter your character's basic information. Only the name is required. You will supply the rest of the details, including clan and traits, afterward.")) { }
+        .textCase(nil)
+      
+      Section {
         BoldTextField("Name", binding: $viewModel.name)
         BoldTextField("Concept", binding: $viewModel.concept)
       }

@@ -20,7 +20,9 @@ struct BasicInfoDetail: View {
     DisclosureGroup(isExpanded: $viewModel.isExpanded) {
       BoldTextField("Concept", binding: $viewModel.kindred.concept)
       BoldTextField("Chronicle", binding: $viewModel.kindred.chronicle)
-      BoldTextField("Sire", binding: $viewModel.kindred.sire)
+      if let benefactorTerm = viewModel.benefactorTerm {
+        BoldTextField(benefactorTerm, binding: $viewModel.kindred.sire)
+      }
       BoldTextField("Title", binding: $viewModel.kindred.title)
       DatePicker(
         selection: $viewModel.birthdate,
@@ -30,7 +32,7 @@ struct BasicInfoDetail: View {
         Text("Born:")
           .bold()
       }
-      if let transition = viewModel.kindred.clan?.transition {
+      if let transition = viewModel.transitionTerm {
         DatePicker(
           selection: $viewModel.transitionDate,
           in: viewModel.embraceRange,

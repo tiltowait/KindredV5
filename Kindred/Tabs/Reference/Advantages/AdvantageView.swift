@@ -17,21 +17,16 @@ struct AdvantageView: View {
   }
   
   var infoHeader: some View {
-    HStack {
-      Spacer()
-      Text(viewModel.advantage.info)
-        .font(.system(size: 18))
-        .foregroundColor(.secondary)
-      Spacer()
-    }
+    Text(viewModel.advantage.info)
+      .font(.system(size: 18))
+      .centered()
+      .padding(.top)
   }
   
   var body: some View {
     Form {
-      Section(header: infoHeader) {
-        EmptyView()
-      }
-      .textCase(nil)
+      Section(header: infoHeader) { }
+        .textCase(nil)
       
       if !viewModel.flaws.isEmpty {
         Section(header: Text("Flaws")) {

@@ -35,6 +35,11 @@ struct CharacterList: View {
     }
   }
   
+  var instructions: some View {
+    Text("Press + to add a character.")
+      .font(.system(size: 18))
+  }
+  
   var body: some View {
     NavigationView {
       List {
@@ -42,8 +47,8 @@ struct CharacterList: View {
           if viewModel.hasCharacters {
             characterList
           } else {
-            Text("Press + to add a character.")
-              .foregroundColor(.secondary)
+            Section(header: instructions) { }
+              .textCase(nil)
           }
         }
       }

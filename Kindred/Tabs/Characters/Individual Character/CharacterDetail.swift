@@ -52,7 +52,9 @@ struct CharacterDetail: View {
           BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
           BoldTextField("Desire", binding: $viewModel.kindred.desire)
           clanLink
-          RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
+          if (viewModel.kindred.clan != nil) {
+            RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
+          }
           BasicInfoDetail(kindred: viewModel.kindred)
         }
         

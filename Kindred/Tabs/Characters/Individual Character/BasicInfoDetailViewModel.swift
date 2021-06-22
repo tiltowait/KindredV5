@@ -31,6 +31,24 @@ extension BasicInfoDetail {
       }
     }
     
+    var benefactorTerm: String? {
+      if kindred.clan?.template == .kindred {
+        return "Sire"
+      } else if kindred.clan?.template == .ghoul {
+        return "Domitor"
+      }
+      return nil
+    }
+    
+    var transitionTerm: String? {
+      if kindred.clan?.template == .kindred {
+        return "Embraced"
+      } else if kindred.clan?.template == .ghoul {
+        return "Ghouled"
+      }
+      return nil
+    }
+    
     let birthdateRange = ...Date()
     var embraceRange: ClosedRange<Date> {
       birthdate...Date()

@@ -49,14 +49,6 @@ extension Clan {
     return template
   }
   
-  var transition: String? {
-    switch template {
-    case .kindred: return "Embraced"
-    case .ghoul: return "Ghouled"
-    default: return nil
-    }
-  }
-  
   /// Retrieve random nicknames.
   /// - Parameter count: The number of nicknames to retrieve.
   func randomNicknames(count: Int) -> [String] {
