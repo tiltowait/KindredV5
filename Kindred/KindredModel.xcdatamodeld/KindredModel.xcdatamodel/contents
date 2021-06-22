@@ -6,7 +6,7 @@
     </entity>
     <entity name="AdvantageContainer" representedClassName="AdvantageContainer" syncable="YES" codeGenerationType="class">
         <attribute name="currentRating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="advantages" inverseEntity="Kindred"/>
+        <relationship name="kindred" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="advantages" inverseEntity="Kindred"/>
         <relationship name="zOption" maxCount="1" deletionRule="Nullify" destinationEntity="AdvantageOption" inverseName="containers" inverseEntity="AdvantageOption"/>
     </entity>
     <entity name="AdvantageOption" representedClassName="AdvantageOption" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">

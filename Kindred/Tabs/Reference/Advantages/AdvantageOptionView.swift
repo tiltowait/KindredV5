@@ -16,6 +16,11 @@ struct AdvantageOptionView: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
+  init(container: AdvantageContainer) {
+    let viewModel = ViewModel(container: container)
+    _viewModel = StateObject(wrappedValue: viewModel)
+  }
+  
   var imageName: String {
     if viewModel.status == .uncontained {
       return "plus.circle"
@@ -40,7 +45,7 @@ struct AdvantageOptionView: View {
           }
           Text(viewModel.option.name)
             .bold()
-          if !viewModel.isSingleOption {
+          if viewModel.showRatingRange {
             Text("(\(dots(count: viewModel.option.minRating)) to \(dots(count: viewModel.option.maxRating)))")
               .italic()
           }
@@ -52,11 +57,22 @@ struct AdvantageOptionView: View {
           .lineLimitFix()
         
         HStack {
+          if viewModel.showRatingSelection {
+            Text("Rating:")
+              .bold()
+              .italic()
+            DotSelector(
+              current: $viewModel.currentRating,
+              min: viewModel.minAllowableRating,
+              max: viewModel.maxAllowableRating
+            )
+          }
           Spacer()
           Text(viewModel.option.pageReference)
             .font(.caption2)
             .italic()
             .foregroundColor(.secondary)
+            .lineLimit(5)
         }
         .padding(.top, 5)
       }
@@ -103,18 +119,26 @@ struct AdvantageOptionView_Previews: PreviewProvider {
   
   static let context = DataController.preview.container.viewContext
   static let unbondable = "Unbondable"
-  static let adversary = "Adversary"
   static let organovore = "Organovore"
   static let bondResistance = "Bond Resistance"
   
+  static let container = Kindred.example.advantageContainers.first(where: { $0.option.name == "Bond Resistance" })!
+  
   static var previews: some View {
+    // No rating range, circle dots, no button
     AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!, kindred: nil, dataController: nil)
       .previewLayout(.sizeThatFits)
+    
+    // Rating range, no button
     AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!, kindred: nil, dataController: nil)
       .previewLayout(.sizeThatFits)
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: adversary, in: context)!, kindred: nil, dataController: nil)
-      .previewLayout(.sizeThatFits)
+    
+    // No rating range, square dots, add button
     AdvantageOptionView(option: AdvantageOption.fetchObject(named: organovore, in: context)!, kindred: Kindred.example, dataController: DataController.preview)
+      .previewLayout(.sizeThatFits)
+    
+    // No rating range, no button, selection range
+    AdvantageOptionView(container: container)
       .previewLayout(.sizeThatFits)
   }
 }

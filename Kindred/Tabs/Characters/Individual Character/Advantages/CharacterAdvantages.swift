@@ -32,7 +32,7 @@ struct CharacterAdvantages: View {
       Section {
         AdvantageRow(advantage: coalesced.advantage)
         ForEach(coalesced.containers) { container in
-          AdvantageOptionView(option: container.option, kindred: viewModel.kindred, dataController: nil)
+          AdvantageOptionView(container: container)
         }
         .onDelete { offsets in
           viewModel.deleteOption(offsets, parent: coalesced)

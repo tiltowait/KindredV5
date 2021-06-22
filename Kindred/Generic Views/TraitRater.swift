@@ -1,5 +1,5 @@
 //
-//  DotSelector.swift
+//  TraitRater.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/15/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DotSelector: View {
+struct TraitRater: View {
   
   @State private var showingReferenceAlert = false
   let size: CGFloat = 17
@@ -75,9 +75,9 @@ struct DotSelector: View {
   
 }
 
-struct DotSelector_Previews: PreviewProvider {
+struct TraitRater_Previews: PreviewProvider {
   static var previews: some View {
-    DotSelector(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
+    TraitRater(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
       .previewLayout(.sizeThatFits)
   }
 }

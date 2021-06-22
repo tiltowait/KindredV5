@@ -28,7 +28,7 @@
 		281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803F268133D200B5B387 /* AdvantageOption+.swift */; };
 		281F80432681388900B5B387 /* AdvantageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80422681388900B5B387 /* AdvantageList.swift */; };
 		281F8045268138A200B5B387 /* AdvantageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F8044268138A200B5B387 /* AdvantageListViewController.swift */; };
-		28252069267916CD0066F09B /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* DotSelector.swift */; };
+		28252069267916CD0066F09B /* TraitRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28252068267916CD0066F09B /* TraitRater.swift */; };
 		2825206B267918E30066F09B /* KeyPath+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825206A267918E30066F09B /* KeyPath+.swift */; };
 		2825206D26792A9D0066F09B /* TraitReference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2825206C26792A9D0066F09B /* TraitReference.plist */; };
 		282EC8362656EEB80086B14F /* KindredApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8352656EEB80086B14F /* KindredApp.swift */; };
@@ -71,6 +71,7 @@
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87F82682575D00DF140E /* AdvantageRow.swift */; };
+		287F87FB2682738800DF140E /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FA2682738800DF140E /* DotSelector.swift */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
@@ -151,7 +152,7 @@
 		281F803F268133D200B5B387 /* AdvantageOption+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageOption+.swift"; sourceTree = "<group>"; };
 		281F80422681388900B5B387 /* AdvantageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageList.swift; sourceTree = "<group>"; };
 		281F8044268138A200B5B387 /* AdvantageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageListViewController.swift; sourceTree = "<group>"; };
-		28252068267916CD0066F09B /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
+		28252068267916CD0066F09B /* TraitRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitRater.swift; sourceTree = "<group>"; };
 		2825206A267918E30066F09B /* KeyPath+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPath+.swift"; sourceTree = "<group>"; };
 		2825206C26792A9D0066F09B /* TraitReference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TraitReference.plist; sourceTree = "<group>"; };
 		282EC8322656EEB80086B14F /* Kindred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindred.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +201,7 @@
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		287F87F82682575D00DF140E /* AdvantageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageRow.swift; sourceTree = "<group>"; };
+		287F87FA2682738800DF140E /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
@@ -389,15 +391,17 @@
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
+				28252068267916CD0066F09B /* TraitRater.swift */,
+				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				284CF5B82677CE6B007B298B /* ImagePicker.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
+				2870436926823C71005F6589 /* PlainTextHeader.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
-				2870436926823C71005F6589 /* PlainTextHeader.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -493,7 +497,6 @@
 				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
 				28C656D6267BC13200865EE3 /* Adding Disciplines */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
-				28252068267916CD0066F09B /* DotSelector.swift */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */,
@@ -714,7 +717,8 @@
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
 				281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
-				28252069267916CD0066F09B /* DotSelector.swift in Sources */,
+				28252069267916CD0066F09B /* TraitRater.swift in Sources */,
+				287F87FB2682738800DF140E /* DotSelector.swift in Sources */,
 				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,
