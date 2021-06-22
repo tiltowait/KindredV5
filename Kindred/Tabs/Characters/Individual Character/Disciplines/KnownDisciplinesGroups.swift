@@ -59,7 +59,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
+        Section(header: DisciplineHeader("Disciplines", binding: .constant(false))) {
           KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview)
         }
       }

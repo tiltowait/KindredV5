@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AdvantageHeader: View {
+struct DisciplineHeader: View {
   
   let label: LocalizedStringKey
   @Binding var buttonPressed: Bool
@@ -34,7 +34,7 @@ struct AdvantageHeader_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: AdvantageHeader("Disciplines", binding: .constant(false))) {
+        Section(header: DisciplineHeader("Disciplines", binding: .constant(false))) {
           Text("Stuff goes here")
         }
         .listStyle(GroupedListStyle())

@@ -9,6 +9,15 @@
           "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
           "version": "0.12.2"
         }
+      },
+      {
+        "package": "TextView",
+        "repositoryURL": "https://github.com/kenmueller/TextView.git",
+        "state": {
+          "branch": null,
+          "revision": "06e6939ae4da03565889928cca65647f05fd2d67",
+          "version": "1.5.0"
+        }
       }
     ]
   },

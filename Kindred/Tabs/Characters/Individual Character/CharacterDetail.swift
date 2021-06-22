@@ -79,7 +79,7 @@ struct CharacterDetail: View {
         }
         
         // Disciplines
-        Section(header: AdvantageHeader("Disciplines", binding: $showingPowerAdder)) {
+        Section(header: DisciplineHeader("Disciplines", binding: $showingPowerAdder)) {
           KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
         

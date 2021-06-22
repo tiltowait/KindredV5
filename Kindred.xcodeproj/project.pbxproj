@@ -73,6 +73,8 @@
 		287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87F82682575D00DF140E /* AdvantageRow.swift */; };
 		287F87FB2682738800DF140E /* DotSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FA2682738800DF140E /* DotSelector.swift */; };
 		287F87FD2682943400DF140E /* AdvantageOptionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */; };
+		287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FF26829E5800DF140E /* CharacterNotesView.swift */; };
+		287F880326829E7800DF140E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 287F880226829E7800DF140E /* TextView */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
@@ -96,7 +98,7 @@
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */; };
 		28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */; };
-		28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */; };
+		28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CB267BABBF00865EE3 /* DisciplineHeader.swift */; };
 		28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */; };
 		28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */; };
 		28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */; };
@@ -204,6 +206,7 @@
 		287F87F82682575D00DF140E /* AdvantageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageRow.swift; sourceTree = "<group>"; };
 		287F87FA2682738800DF140E /* DotSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelector.swift; sourceTree = "<group>"; };
 		287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionMarker.swift; sourceTree = "<group>"; };
+		287F87FF26829E5800DF140E /* CharacterNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotesView.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
@@ -226,7 +229,7 @@
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
 		28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterView.swift; sourceTree = "<group>"; };
 		28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSavingKindredViewModel.swift; sourceTree = "<group>"; };
-		28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageHeader.swift; sourceTree = "<group>"; };
+		28C656CB267BABBF00865EE3 /* DisciplineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineHeader.swift; sourceTree = "<group>"; };
 		28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroups.swift; sourceTree = "<group>"; };
 		28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroupsViewModel.swift; sourceTree = "<group>"; };
 		28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheet.swift; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287F880326829E7800DF140E /* TextView in Frameworks */,
 				28921690267E5D88004911EA /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +434,16 @@
 			path = Advantages;
 			sourceTree = "<group>";
 		};
+		287F87FE26829DED00DF140E /* Basic Traits */ = {
+			isa = PBXGroup;
+			children = (
+				28A1E9EE2677B6C40084F483 /* TraitSummary.swift */,
+				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
+				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
+			);
+			path = "Basic Traits";
+			sourceTree = "<group>";
+		};
 		28921689267E5C8F004911EA /* Importers */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +464,8 @@
 				281F80372680FAC600B5B387 /* CharacterListViewModel.swift */,
 				28EBBE0626784E90004DD186 /* CharacterRow.swift */,
 				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
+				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
+				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
 				28C656D1267BBCF100865EE3 /* Individual Character */,
 			);
 			path = Characters;
@@ -494,35 +510,32 @@
 		28C656D1267BBCF100865EE3 /* Individual Character */ = {
 			isa = PBXGroup;
 			children = (
-				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
-				28C656CB267BABBF00865EE3 /* AdvantageHeader.swift */,
-				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
-				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
-				28C656D6267BC13200865EE3 /* Adding Disciplines */,
-				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
-				28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */,
-				28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */,
+				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
+				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
 				28DD0640267A706E00C9669F /* BasicInfoDetail.swift */,
 				2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
-				28A1E9EE2677B6C40084F483 /* TraitSummary.swift */,
-				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
-				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
+				28C656D6267BC13200865EE3 /* Disciplines */,
+				287F87FE26829DED00DF140E /* Basic Traits */,
 				287F87F72682553200DF140E /* Advantages */,
+				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
 			);
 			path = "Individual Character";
 			sourceTree = "<group>";
 		};
-		28C656D6267BC13200865EE3 /* Adding Disciplines */ = {
+		28C656D6267BC13200865EE3 /* Disciplines */ = {
 			isa = PBXGroup;
 			children = (
+				28C656CB267BABBF00865EE3 /* DisciplineHeader.swift */,
+				28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */,
+				28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */,
 				28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */,
 				28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */,
 			);
-			path = "Adding Disciplines";
+			path = Disciplines;
 			sourceTree = "<group>";
 		};
 		28CD0D45267E7BD800ED8635 /* Clans */ = {
@@ -564,6 +577,7 @@
 			name = Kindred;
 			packageProductDependencies = (
 				2892168F267E5D88004911EA /* SQLite */,
+				287F880226829E7800DF140E /* TextView */,
 			);
 			productName = Kindred;
 			productReference = 282EC8322656EEB80086B14F /* Kindred.app */;
@@ -638,6 +652,7 @@
 			mainGroup = 282EC8292656EEB80086B14F;
 			packageReferences = (
 				2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				287F880126829E7800DF140E /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 282EC8332656EEB80086B14F /* Products */;
 			projectDirPath = "";
@@ -688,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */,
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
@@ -706,7 +722,7 @@
 				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
-				28C656CC267BABBF00865EE3 /* AdvantageHeader.swift in Sources */,
+				28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */,
 				2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */,
 				28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
@@ -1102,6 +1118,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		287F880126829E7800DF140E /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 		2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
@@ -1113,6 +1137,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		287F880226829E7800DF140E /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 287F880126829E7800DF140E /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
+		};
 		2892168F267E5D88004911EA /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2892168E267E5D88004911EA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
