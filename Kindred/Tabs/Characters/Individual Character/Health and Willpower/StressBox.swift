@@ -27,22 +27,26 @@ struct StressBox: View {
   static let bottomLeft = CGPoint(x: 0, y: size)
   
   let stress: Stress
+  let color: Color
   
   init(code: Character) {
     switch code {
     case "/":
       stress = .superficial
+      color = .yellow
     case "x":
       stress = .aggravated
+      color = .red
     default:
       stress = .none
+      color = .black
     }
   }
   
   var body: some View {
     ZStack {
       Rectangle()
-        .stroke(lineWidth: 2)
+        .stroke(color, lineWidth: 2)
       
       Path { path in
         if stress == .aggravated {
@@ -54,7 +58,7 @@ struct StressBox: View {
           path.addLine(to: StressBox.topRight)
         }
       }
-      .stroke(lineWidth: 2)
+      .stroke(color, lineWidth: 2)
     }
     .frame(width: StressBox.size, height: StressBox.size)
   }
