@@ -289,8 +289,8 @@
 				28189D632681449E0099E8DF /* AdvantageView.swift */,
 				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
 				28189D6726814A520099E8DF /* AdvantageOptionView.swift */,
-				287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */,
 				28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */,
+				287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */,
 			);
 			path = Advantages;
 			sourceTree = "<group>";

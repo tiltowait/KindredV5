@@ -97,7 +97,7 @@ struct AdvantageOptionView: View {
   ///   - max: The maximum number of dots.
   /// - Returns: The generated string.
   func ratingRange(min: Int16, max: Int16) -> String {
-    "(\(String(repeating: "•", count: Int(abs(min)))) to \(String(repeating: "•", count: Int(abs(max))))"
+    "(\(String(repeating: "•", count: Int(abs(min)))) to \(String(repeating: "•", count: Int(abs(max)))))"
   }
   
   /// Add the current AdvantageOption to the current character.
@@ -115,7 +115,11 @@ struct AdvantageOptionView_Previews: PreviewProvider {
   static let organovore = "Organovore"
   static let bondResistance = "Bond Resistance"
   
-  static let container = Kindred.example.advantageContainers.first(where: { $0.option.name == "Bond Resistance" })!
+  static let container1 = Kindred.example.advantageContainers.first(where: { $0.option.name == "Bond Resistance" })!
+  
+  static let container2 = Kindred.example.advantageContainers.first(where: { $0.option.name == "Stunning" })!
+  
+  static let container3 = Kindred.example.advantageContainers.first(where: { $0.option.name == "Organovore" })!
   
   static var previews: some View {
     // No rating range, circle dots, no button
@@ -130,8 +134,12 @@ struct AdvantageOptionView_Previews: PreviewProvider {
     AdvantageOptionView(option: AdvantageOption.fetchObject(named: organovore, in: context)!, kindred: Kindred.example, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
+    // No rating range, square dots, no add button, contained
+    AdvantageOptionView(container: container2)
+      .previewLayout(.sizeThatFits)
+    
     // No rating range, no button, selection range
-    AdvantageOptionView(container: container)
+    AdvantageOptionView(container: container1)
       .previewLayout(.sizeThatFits)
   }
 }

@@ -104,7 +104,7 @@ extension Kindred {
     kindred.addToPowers(Power.example)
     
     // Add some advantages
-    let advantageNames = ["Stunning", "Archaic", "Bond Junkie", "Bond Resistance", "Short Bond"]
+    let advantageNames = ["Stunning", "Archaic", "Bond Junkie", "Bond Resistance", "Short Bond", "Organovore"]
     for name in advantageNames {
       let container = AdvantageContainer(context: dataController.container.viewContext)
       container.option = AdvantageOption.fetchObject(named: name, in: dataController.container.viewContext)!

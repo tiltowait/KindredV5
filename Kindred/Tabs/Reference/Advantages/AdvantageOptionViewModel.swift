@@ -49,7 +49,7 @@ extension AdvantageOptionView {
     }
     
     var showRatingSelection: Bool {
-      container != nil
+      container != nil && !isSingleOption
     }
     
     // Minimum and maximum rating are defined in terms of magnitude, not strict numerical

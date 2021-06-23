@@ -18,7 +18,7 @@ struct DotSelector: View {
   
   var body: some View {
     HStack {
-      ForEach(1...Int(max)) { index in
+      ForEach(Int(min)...Int(max)) { index in
         Circle()
           .fill(color(for: index))
           .frame(width: size, height: size)
