@@ -85,8 +85,10 @@ struct CharacterDetail: View {
         }
         
         // Disciplines
-        Section(header: DisciplineHeader("Disciplines", binding: $showingPowerAdder)) {
-          KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+        if viewModel.kindred.clan?.template != .mortal {
+          Section(header: DisciplineHeader("Disciplines", binding: $showingPowerAdder)) {
+            KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+          }
         }
         
         // Trackers (HP, WP, Humanity, Blood Potency)
