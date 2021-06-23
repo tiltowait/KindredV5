@@ -21,8 +21,10 @@ struct ClanRow: View {
   }
 }
 
+#if DEBUG
 struct ClanRow_Previews: PreviewProvider {
   static var previews: some View {
     ClanRow(clan: Clan.example)
   }
 }
+#endif

@@ -52,6 +52,7 @@ struct BasicInfoDetail: View {
   
 }
 
+#if DEBUG
 struct BasicInfoDetail_Previews: PreviewProvider {
   static var previews: some View {
     List {
@@ -59,3 +60,4 @@ struct BasicInfoDetail_Previews: PreviewProvider {
     }
   }
 }
+#endif

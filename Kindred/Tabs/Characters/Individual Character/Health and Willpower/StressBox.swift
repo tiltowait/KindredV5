@@ -39,7 +39,7 @@ struct StressBox: View {
       color = .red
     default:
       stress = .none
-      color = .black
+      color = .primary
     }
   }
   

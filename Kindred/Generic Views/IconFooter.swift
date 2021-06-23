@@ -26,9 +26,11 @@ struct IconFooter: View {
   
 }
 
+#if DEBUG
 struct IconFooter_Previews: PreviewProvider {
   static var previews: some View {
     IconFooter(icon: Discipline.example.icon)
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

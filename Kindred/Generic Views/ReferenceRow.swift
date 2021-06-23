@@ -89,6 +89,7 @@ struct ReferenceRow: View {
   }
 }
 
+#if DEBUG
 struct ReferenceRow_Previews: PreviewProvider {
   
   static let icon = Image(uiImage: UIImage(data: KindredImage.examples[0].thumb!)!)
@@ -104,3 +105,4 @@ struct ReferenceRow_Previews: PreviewProvider {
   }
   
 }
+#endif

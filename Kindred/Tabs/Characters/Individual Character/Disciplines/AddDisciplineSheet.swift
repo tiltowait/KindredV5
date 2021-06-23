@@ -100,8 +100,10 @@ struct AddDisciplineSheet: View {
   }
 }
 
+#if DEBUG
 struct AddDisciplineSheet_Previews: PreviewProvider {
   static var previews: some View {
     AddDisciplineSheet(kindred: Kindred.example, dataController: DataController.preview, link: .constant(false))
   }
 }
+#endif

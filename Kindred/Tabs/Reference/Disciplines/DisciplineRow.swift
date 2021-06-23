@@ -23,25 +23,14 @@ struct DisciplineRow: View {
   
   var body: some View {
     ReferenceRow(name, subtitle: discipline.info, icon: Image(discipline.icon))
-//    HStack {
-//      Image(discipline.icon)
-//        .resizable()
-//        .frame(width: 55, height: 55)
-//      VStack(alignment: .leading) {
-//        Text(name)
-//          .font(.headline)
-//
-//        Text(discipline.info)
-//          .foregroundColor(.secondary)
-//      }
-//    }
-    
   }
 }
 
+#if DEBUG
 struct DisciplineRow_Previews: PreviewProvider {
   static var previews: some View {
     DisciplineRow(discipline: Discipline.example, level: 3)
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

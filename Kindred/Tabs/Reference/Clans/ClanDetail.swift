@@ -119,6 +119,7 @@ struct ClanDetail: View {
   
 }
 
+#if DEBUG
 struct ClanDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -126,6 +127,7 @@ struct ClanDetail_Previews: PreviewProvider {
     }
   }
 }
+#endif
 
 /// A view modifier for fixing line limit issues in ScrollViews.
 ///

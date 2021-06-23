@@ -52,8 +52,10 @@ struct CharacterNotesView: View {
   
 }
 
+#if DEBUG
 struct CharacterNotesView_Previews: PreviewProvider {
   static var previews: some View {
     CharacterNotesView(kindred: Kindred.example)
   }
 }
+#endif

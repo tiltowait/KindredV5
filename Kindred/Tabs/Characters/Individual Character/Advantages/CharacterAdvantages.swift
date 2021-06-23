@@ -76,6 +76,7 @@ struct CharacterAdvantages: View {
   
 }
 
+#if DEBUG
 struct CharacterAdvantages_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -83,3 +84,4 @@ struct CharacterAdvantages_Previews: PreviewProvider {
     }
   }
 }
+#endif

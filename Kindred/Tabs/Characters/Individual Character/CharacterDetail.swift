@@ -185,6 +185,7 @@ struct CharacterDetail: View {
   
 }
 
+#if DEBUG
 struct KindredDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -192,3 +193,4 @@ struct KindredDetail_Previews: PreviewProvider {
     }
   }
 }
+#endif

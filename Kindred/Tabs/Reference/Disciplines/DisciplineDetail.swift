@@ -64,6 +64,7 @@ struct DisciplineDetail: View {
   }
 }
 
+#if DEBUG
 struct AddPowerSheet_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -71,3 +72,4 @@ struct AddPowerSheet_Previews: PreviewProvider {
     }
   }
 }
+#endif

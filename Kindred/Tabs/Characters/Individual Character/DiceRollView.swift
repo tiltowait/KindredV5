@@ -35,8 +35,10 @@ struct DiceRollView: View {
   
 }
 
+#if DEBUG
 struct DiceRollView_Previews: PreviewProvider {
     static var previews: some View {
       DiceRollView(kindred: Kindred.example)
     }
 }
+#endif

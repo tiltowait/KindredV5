@@ -55,6 +55,7 @@ struct KnownDisciplinesGroups: View {
   }
 }
 
+#if DEBUG
 struct KnownDisciplinesList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -67,3 +68,4 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     }
   }
 }
+#endif

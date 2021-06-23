@@ -165,9 +165,11 @@ struct PowerCard: View {
   
 }
 
+#if DEBUG
 struct PowerCard_Previews: PreviewProvider {
   static var previews: some View {
     PowerCard(power: Power.example) { _ in }
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

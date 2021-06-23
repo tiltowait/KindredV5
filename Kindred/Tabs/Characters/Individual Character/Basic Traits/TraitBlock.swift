@@ -57,6 +57,7 @@ struct TraitBlock: View {
   
 }
 
+#if DEBUG
 struct TraitBlock_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -64,3 +65,4 @@ struct TraitBlock_Previews: PreviewProvider {
     }
   }
 }
+#endif

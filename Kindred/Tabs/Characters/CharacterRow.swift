@@ -43,9 +43,11 @@ struct CharacterRow: View {
   
 }
 
+#if DEBUG
 struct KindredRow_Previews: PreviewProvider {
   static var previews: some View {
     CharacterRow(kindred: Kindred.example)
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

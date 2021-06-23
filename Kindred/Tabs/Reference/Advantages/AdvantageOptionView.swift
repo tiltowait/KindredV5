@@ -108,6 +108,7 @@ struct AdvantageOptionView: View {
   
 }
 
+#if DEBUG
 struct AdvantageOptionView_Previews: PreviewProvider {
   
   static let context = DataController.preview.container.viewContext
@@ -143,3 +144,4 @@ struct AdvantageOptionView_Previews: PreviewProvider {
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

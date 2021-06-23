@@ -37,10 +37,11 @@ struct PowerRow: View {
   
 }
 
-
+#if DEBUG
 struct PowerLabelRow_Previews: PreviewProvider {
   static var previews: some View {
     PowerRow(power: Power.example)
       .previewLayout(.sizeThatFits)
   }
 }
+#endif

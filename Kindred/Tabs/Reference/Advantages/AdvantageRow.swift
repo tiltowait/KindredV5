@@ -22,8 +22,10 @@ struct AdvantageRow: View {
   }
 }
 
+#if DEBUG
 struct AdvantageRow_Previews: PreviewProvider {
   static var previews: some View {
     AdvantageRow(advantage: Advantage.example)
   }
 }
+#endif

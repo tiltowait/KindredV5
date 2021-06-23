@@ -75,9 +75,11 @@ struct TraitRater: View {
   
 }
 
+#if DEBUG
 struct TraitRater_Previews: PreviewProvider {
   static var previews: some View {
     TraitRater(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
       .previewLayout(.sizeThatFits)
   }
 }
+#endif
