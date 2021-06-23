@@ -63,6 +63,16 @@ extension Kindred {
     set { zWeight = newValue }
   }
   
+  var healthString: String {
+    get { zHealthString ?? String(repeating: ".", count: Int(self.health)) }
+    set { zHealthString = newValue }
+  }
+  
+  var willpowerString: String {
+    get { zWillpowerString ?? String(repeating: ".", count: Int(self.willpower)) }
+    set { zWillpowerString = newValue }
+  }
+  
   var notes: String {
     get { zNotes ?? "" }
     set { zNotes = newValue }

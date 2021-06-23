@@ -91,8 +91,14 @@ struct CharacterDetail: View {
         
         // Trackers (HP, WP, Humanity, Blood Potency)
         Section(header: Text("Trackers")) {
-          derivedTrait("Health", rating: viewModel.kindred.health, max: 15)
-          derivedTrait("Willpower", rating: viewModel.kindred.willpower, max: 15)
+          StressTrack("Health", track: $viewModel.kindred.healthString)
+            .padding(.bottom, 5)
+            .centered()
+          
+          StressTrack("Willpower", track: $viewModel.kindred.willpowerString)
+            .padding(.bottom, 5)
+            .centered()
+          
           derivedTrait("Humanity", rating: viewModel.kindred.humanity, max: 10)
           derivedTrait("Hunger", rating: viewModel.kindred.hunger, max: 5)
           derivedTrait("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)

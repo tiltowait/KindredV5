@@ -53,3 +53,15 @@ extension StringProtocol {
   }
   
 }
+
+extension String {
+  
+  /// Replace the character at a given index with a substring.
+  /// - Parameters:
+  ///   - index: The index of the character to replace.
+  ///   - substring: The substring to replace it with.
+  mutating func replace(_ index: Int, with substring: String) {
+    self = self.prefix(index) + substring + self.dropFirst(index + 1)
+  }
+  
+}
