@@ -30,7 +30,7 @@ struct StressTrack: View {
         .bold()
       
       HStack {
-        ForEach(Array(track).indices) { index in
+        ForEach(Array(track).indices, id: \.self) { index in
           StressBox(code: Array(track)[index])
             .onTapGesture {
               promote(at: index)

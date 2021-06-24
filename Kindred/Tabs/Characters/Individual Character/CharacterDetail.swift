@@ -92,21 +92,22 @@ struct CharacterDetail: View {
         }
         
         // Trackers (HP, WP, Humanity, Blood Potency)
-        Section(header: Text("Trackers")) {
-          StressTrack("Health", track: $viewModel.kindred.healthString)
-            .padding(.bottom, 5)
-            .centered()
-          
-          StressTrack("Willpower", track: $viewModel.kindred.willpowerString)
-            .padding(.bottom, 5)
-            .centered()
-          
-          derivedTrait("Humanity", rating: viewModel.kindred.humanity, max: 10)
-          derivedTrait("Hunger", rating: viewModel.kindred.hunger, max: 5)
-          derivedTrait("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
-        }
+        Trackers(kindred: viewModel.kindred)
+        
+        // A bit of a kludge. Trackers has two display modes: edit and
+        // view. The edit mode is shorter than the view mode, so when
+        // switching between them, the view mode gets cut off at the
+        // bottom. To prevent this, we put a gap at the bottom of the
+        // list.
+        //
+        // It can't be padding attached to Trackers, or that causes
+        // weird graphical glitches. It also can't be a Color.clear
+        // by itself, because that creates a list row. Therefore, it
+        // has to be a section header, which has no background and
+        // doesn't create a list row.
+        Section(header: Color.clear.frame(width: 1, height: 100)) { }
       }
-      .listStyle(GroupedListStyle())
+      .listStyle(InsetGroupedListStyle())
       .navigationTitle(viewModel.kindred.name)
       .toolbar {
         menu

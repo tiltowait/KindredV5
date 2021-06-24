@@ -56,6 +56,7 @@
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
 		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
 		2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */; };
+		2866C6892683F73B00614E85 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866C6882683F73B00614E85 /* Trackers.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
 		286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
@@ -113,6 +114,8 @@
 		28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */; };
 		28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */; };
 		28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* BasicInfoDetail.swift */; };
+		28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C8582684DFE700EFE34C /* TrackerStepper.swift */; };
+		28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
 		28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* CharacterRow.swift */; };
 		28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlock.swift */; };
@@ -192,6 +195,7 @@
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
 		2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewController.swift; sourceTree = "<group>"; };
+		2866C6882683F73B00614E85 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
 		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 		28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceRow.swift; sourceTree = "<group>"; };
 		28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+.swift"; sourceTree = "<group>"; };
 		28DD0640267A706E00C9669F /* BasicInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoDetail.swift; sourceTree = "<group>"; };
+		28E2C8582684DFE700EFE34C /* TrackerStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerStepper.swift; sourceTree = "<group>"; };
+		28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewModel.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		28EBBE0626784E90004DD186 /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		28EBBE0A2678529B004DD186 /* TraitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlock.swift; sourceTree = "<group>"; };
@@ -535,6 +541,7 @@
 				2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
+				28E2C85C2684F00800EFE34C /* Trackers */,
 				287F88042682A20500DF140E /* Health and Willpower */,
 				28C656D6267BC13200865EE3 /* Disciplines */,
 				287F87FE26829DED00DF140E /* Basic Traits */,
@@ -574,6 +581,16 @@
 				28C656DB267BDD8400865EE3 /* PowerCard.swift */,
 			);
 			path = Powers;
+			sourceTree = "<group>";
+		};
+		28E2C85C2684F00800EFE34C /* Trackers */ = {
+			isa = PBXGroup;
+			children = (
+				2866C6882683F73B00614E85 /* Trackers.swift */,
+				28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */,
+				28E2C8582684DFE700EFE34C /* TrackerStepper.swift */,
+			);
+			path = Trackers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -720,6 +737,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */,
 				287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */,
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
@@ -737,6 +755,7 @@
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
+				28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */,
 				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
@@ -793,6 +812,7 @@
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
 				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
+				2866C6892683F73B00614E85 /* Trackers.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
 				28138772267D70CF006DA73C /* ClanDetail.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */,
