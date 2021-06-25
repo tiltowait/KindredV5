@@ -11,9 +11,11 @@ extension ClanList {
   class ViewModel: OptionalKindredViewModel {
     
     let clans: [Clan]
+    let showCancelButton: Bool
     
     init(kindred: Kindred? = nil, dataController: DataController) {
       self.clans = dataController.clans
+      showCancelButton = kindred != nil
       super.init(kindred: kindred, dataController: dataController)
     }
     

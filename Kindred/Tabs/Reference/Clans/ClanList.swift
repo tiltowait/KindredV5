@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ClanList: View {
   
+  @Environment(\.presentationMode) var presentationMode
+  
   @StateObject private var viewModel: ViewModel
   
   init(kindred: Kindred? = nil, dataController: DataController) {
@@ -30,6 +32,17 @@ struct ClanList: View {
     }
     .listStyle(GroupedListStyle())
     .navigationBarTitle("Clans", displayMode: .inline)
+    .toolbar {
+      ToolbarItem(placement: .cancellationAction) {
+        if viewModel.showCancelButton {
+          Button("Cancel", action: dismiss)
+        }
+      }
+    }
+  }
+  
+  func dismiss() {
+    presentationMode.wrappedValue.dismiss()
   }
 }
 
