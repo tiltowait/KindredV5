@@ -10,11 +10,6 @@ import CoreData
 extension KnownDisciplinesGroups {
   class ViewModel: BaseSavingKindredViewModel {
     
-    /// True if the referenced character knows no Discipline.
-    var noKnownDisciplines: Bool {
-      kindred.knownDisciplines.isEmpty
-    }
-    
     /// Retrieve the powers the character knows within a Discipline.
     /// - Parameter discipline: The Discipline of interest.
     /// - Returns: The powers from that Discipline the character knows.

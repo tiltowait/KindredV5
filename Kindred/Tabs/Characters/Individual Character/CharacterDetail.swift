@@ -86,8 +86,19 @@ struct CharacterDetail: View {
         
         // Disciplines
         if viewModel.kindred.clan?.template != .mortal {
-          Section(header: DisciplineHeader("Disciplines", binding: $showingPowerAdder)) {
-            KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+          Section(
+            header: DisciplineHeader(buttonPressed: $showingPowerAdder)
+          ) {
+            if viewModel.noKnownDisciplines {
+              Button {
+                showingPowerAdder.toggle()
+              } label: {
+                Text("Tap to add a Discipline")
+                  .foregroundColor(.secondary)
+              }
+            } else {
+              KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+            }
           }
         }
         

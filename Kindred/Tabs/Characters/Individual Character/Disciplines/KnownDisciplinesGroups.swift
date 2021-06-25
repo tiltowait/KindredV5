@@ -19,27 +19,22 @@ struct KnownDisciplinesGroups: View {
   }
   
   var body: some View {
-    if viewModel.noKnownDisciplines {
-      Text("Tap the button above to add a Discipline")
-        .foregroundColor(.secondary)
-    } else {
-      ForEach(viewModel.kindred.knownDisciplines) { discipline in
-        DisclosureGroup {
-          ForEach(viewModel.knownPowers(for: discipline)) { power in
-            Button {
-              show(power: power)
-            } label: {
-              PowerRow(power: power)
-                .contentShape(Rectangle())
-            }
-            .buttonStyle(PlainButtonStyle())
+    ForEach(viewModel.kindred.knownDisciplines) { discipline in
+      DisclosureGroup {
+        ForEach(viewModel.knownPowers(for: discipline)) { power in
+          Button {
+            show(power: power)
+          } label: {
+            PowerRow(power: power)
+              .contentShape(Rectangle())
           }
-          .onDelete { offsets in
-            removePowers(at: offsets, in: discipline)
-          }
-        } label: {
-          DisciplineRow(discipline: discipline, level: viewModel.kindred.level(of: discipline))
+          .buttonStyle(PlainButtonStyle())
         }
+        .onDelete { offsets in
+          removePowers(at: offsets, in: discipline)
+        }
+      } label: {
+        DisciplineRow(discipline: discipline, level: viewModel.kindred.level(of: discipline))
       }
     }
   }
@@ -60,7 +55,7 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: DisciplineHeader("Disciplines", binding: .constant(false))) {
+        Section(header: DisciplineHeader(buttonPressed: .constant(false))) {
           KnownDisciplinesGroups(kindred: Kindred.example, dataController: DataController.preview)
         }
       }

@@ -16,6 +16,11 @@ extension CharacterDetail {
     
     @Published var clanName: String
     
+    /// True if the referenced character knows no Discipline.
+    var noKnownDisciplines: Bool {
+      kindred.knownDisciplines.isEmpty
+    }
+    
     var zippedAttributes: [[(String, Int16)]] {
       [
         [

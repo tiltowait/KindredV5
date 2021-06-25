@@ -9,22 +9,17 @@ import SwiftUI
 
 struct DisciplineHeader: View {
   
-  let label: LocalizedStringKey
   @Binding var buttonPressed: Bool
-  
-  init(_ label: LocalizedStringKey, binding: Binding<Bool>) {
-    self.label = label
-    _buttonPressed = binding
-  }
   
   var body: some View {
     HStack {
-      Text(label)
+      Text("Disciplines")
       Spacer()
       Button {
         buttonPressed.toggle()
       } label: {
-        Image(systemName: "plus.circle")
+        Label("Add Power", systemImage: "plus.circle")
+          .labelStyle(IconOnlyLabelStyle())
       }
     }
   }
@@ -34,7 +29,7 @@ struct AdvantageHeader_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: DisciplineHeader("Disciplines", binding: .constant(false))) {
+        Section(header: DisciplineHeader(buttonPressed: .constant(false))) {
           Text("Stuff goes here")
         }
         .listStyle(GroupedListStyle())
