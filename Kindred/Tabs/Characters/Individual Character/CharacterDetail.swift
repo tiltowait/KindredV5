@@ -80,7 +80,7 @@ struct CharacterDetail: View {
             TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
           }
           NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
-            TraitSummary(title: "Abilities", traits: viewModel.zippedAbilities)
+            TraitSummary(title: "Skills", traits: viewModel.zippedAbilities)
           }
         }
         
