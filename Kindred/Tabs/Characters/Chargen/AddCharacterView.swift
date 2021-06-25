@@ -13,18 +13,23 @@ struct AddCharacterView: View {
   @Environment(\.presentationMode) var presentationMode
   
   @State private var showingFileImporter = false
-  @State private var showingFileErrorAlert = false
+  @State private var fileAlertMessage: String?
+  
+  var footer: some View {
+    Text("Imports most data from an interactive character sheet PDF. Certain details, such as disciplines and clan, must be an exact match in order for the importer to find them.")
+      .padding(.top)
+  }
   
   var body: some View {
     NavigationView {
       List {
-        Section {
-          NavigationLink(destination: CreateCharacterView(dataController: dataController)) {
-            Label("Create new character", systemImage: "square.and.pencil")
-          }
+        Section { } // Empty section for spacing
+
+        NavigationLink(destination: CreateCharacterView(dataController: dataController)) {
+          Label("Create new character", systemImage: "square.and.pencil")
         }
         
-        Section(footer: Text("Imports most data from an interactive character sheet PDF. Certain details, such as disciplines and clan, must be an exact match in order for the importer to find them.")) {
+        Section(footer: footer) {
           Button {
             showingFileImporter.toggle()
           } label: {
@@ -42,8 +47,12 @@ struct AddCharacterView: View {
       }
     }
     .fileImporter(isPresented: $showingFileImporter, allowedContentTypes: [.pdf], onCompletion: importCharacter)
-    .alert(isPresented: $showingFileErrorAlert) {
-      Alert(title: Text("Unable to open file"))
+    .alert(item: $fileAlertMessage) { message in
+      Alert(
+        title: Text("Error importing PDF"),
+        message: Text(message),
+        dismissButton: .default(Text("OK"))
+      )
     }
   }
   
@@ -56,14 +65,15 @@ struct AddCharacterView: View {
             context: dataController.container.viewContext
           )
           dataController.save()
+          self.dismiss()
+        } else {
+          fileAlertMessage = "The selected file is not a valid V5 PDF."
         }
       } else {
-        // Unable to access file
-        showingFileErrorAlert.toggle()
+        fileAlertMessage = "Unable to access the selected file."
       }
       selectedFile.stopAccessingSecurityScopedResource()
     }
-    self.dismiss()
   }
   
   func dismiss() {
