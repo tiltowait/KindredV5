@@ -23,8 +23,7 @@ struct ClanList: View {
       NavigationLink(
         destination: ClanDetail(
           clan: clan,
-          kindred: viewModel.kindred,
-          dataController: viewModel.dataController
+          kindred: viewModel.kindred
         )
       ) {
         ClanRow(clan: clan)

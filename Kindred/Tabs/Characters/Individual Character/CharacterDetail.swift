@@ -180,7 +180,7 @@ struct CharacterDetail: View {
   var clanLink: some View {
     Group {
       if let clan = viewModel.kindred.clan {
-        NavigationLink(destination: ClanDetail(clan: clan)) {
+        NavigationLink(destination: ClanDetail(clan: clan, kindred: viewModel.kindred, reselection: changeClan)) {
           BoldLabel("Clan:", details: viewModel.clanName, layout: .picker)
         }
       } else {
@@ -193,6 +193,10 @@ struct CharacterDetail: View {
         .buttonStyle(PlainButtonStyle())
       }
     }
+  }
+  
+  func changeClan() {
+    showingClanSelectionSheet.toggle()
   }
   
 }

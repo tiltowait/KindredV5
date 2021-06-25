@@ -13,15 +13,22 @@ struct ClanDetail: View {
   
   @State private var selectedDiscipline: Discipline?
   
-  init(clan: Clan, kindred: Kindred? = nil, dataController: DataController? = nil) {
-    let viewModel = ViewModel(clan: clan, kindred: kindred, dataController: dataController)
+  /// Create a new clan detail view.
+  /// - Parameters:
+  ///   - clan: The clan to display.
+  ///   - kindred: Optionally, a Kindred to which to apply a clan.
+  ///   - reselection: Optionally, a completion handler for showing the clan selection sheet.
+  init(clan: Clan, kindred: Kindred? = nil, reselection: (() -> Void)? = nil) {
+    let viewModel = ViewModel(clan: clan, kindred: kindred, reselection: reselection)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
-  var selectClanButton: some View {
+  var selectionButton: some View {
     Group {
       if viewModel.selectButtonVisible {
         Button("Select Clan", action: selectClan)
+      } else if viewModel.reselectButtonVisible {
+        Button("Change Clan", action: viewModel.reselection!)
       }
     }
   }
@@ -78,7 +85,7 @@ struct ClanDetail: View {
     }
     .sheet(item: $selectedDiscipline, content: disciplineSheet)
     .navigationBarTitleDisplayMode(.inline)
-    .navigationBarItems(trailing: selectClanButton)
+    .navigationBarItems(trailing: selectionButton)
   }
   
   func disciplineBox(_ discipline: Discipline) -> some View {
@@ -123,7 +130,7 @@ struct ClanDetail: View {
 struct ClanDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      ClanDetail(clan: Clan.example, kindred: Kindred.example, dataController: DataController.preview)
+      ClanDetail(clan: Clan.example, kindred: Kindred.example)
     }
   }
 }
