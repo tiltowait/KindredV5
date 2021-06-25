@@ -63,6 +63,7 @@ struct CharacterList: View {
     }
     .sheet(isPresented: $showingCreationSheet) {
       AddCharacterView()
+        .allowAutoDismiss(false)
     }
   }
   

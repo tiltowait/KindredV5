@@ -34,4 +34,7 @@ extension Color {
   /// The color for content layered on top of the main background.
   static let secondarySystemBackground = Color(UIColor.secondarySystemBackground)
   
+  /// The color for placeholder text in controls or text views.
+  static let placeholderText = Color(UIColor.placeholderText)
+  
 }

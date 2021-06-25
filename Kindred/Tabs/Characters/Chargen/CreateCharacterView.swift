@@ -23,10 +23,21 @@ struct CreateCharacterView: View {
       
       Section {
         BoldTextField("Name", binding: $viewModel.name)
-        BoldTextField("Concept", binding: $viewModel.concept)
+        Button {
+          viewModel.showClanSheet()
+        } label: {
+          BoldLabel(
+            "Clan:",
+            details: viewModel.selectedClan,
+            layout: viewModel.clanIsSelected ? .secondary : .placeholder
+          )
+          .contentShape(Rectangle())
+        }
+        .buttonStyle(PlainButtonStyle())
       }
       
       Section {
+        BoldTextField("Concept", binding: $viewModel.concept)
         BoldTextField("Ambition", binding: $viewModel.ambition)
         BoldTextField("Desire", binding: $viewModel.desire)
       }
@@ -48,18 +59,26 @@ struct CreateCharacterView: View {
     }
     .listStyle(GroupedListStyle())
     .navigationTitle("Create Character")
-  }
-  
-  func dismiss() {
-    // Use the root view controller, because this sheet is part
-    // of a larger navigation stack
-    UIViewController.root?.dismiss(animated: true)
+    .sheet(isPresented: $viewModel.showingClanSheet) {
+      NavigationView {
+        ClanList(kindred: viewModel.dummyCharacter, dataController: viewModel.dataController)
+      }
+    }
+    .onDisappear(perform: viewModel.deleteDummy)
   }
   
   func createCharacter() {
     viewModel.createCharacter()
     self.dismiss()
   }
+  
+  func dismiss() {
+    // Use the root view controller, because this sheet is part
+    // of a larger navigation stack
+    viewModel.deleteDummy()
+    UIViewController.root?.dismiss(animated: true)
+  }
+  
 }
 
 struct CreateCharacterView_Previews: PreviewProvider {

@@ -121,7 +121,7 @@ struct ClanDetail: View {
   func selectClan() {
     viewModel.selectClan()
     // This is being displayed in a sheet, so all we have to do is pop it off
-    UIViewController.root?.dismiss(animated: true)
+    UIViewController.topMost?.dismiss(animated: true)
   }
   
 }

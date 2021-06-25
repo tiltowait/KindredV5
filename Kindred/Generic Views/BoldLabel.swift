@@ -19,6 +19,12 @@ struct BoldLabel: View {
     /// "Label, -spacer-, Details", with details in the
     /// secondary color.
     case picker
+    
+    /// "Label, Details", with details as placeholder color.
+    case placeholder
+    
+    /// "Label, Details" with details as secondary color.
+    case secondary
   }
   
   let label: LocalizedStringKey
@@ -48,10 +54,17 @@ struct BoldLabel: View {
       Text(label)
         .bold()
       
-      if layout == .standard {
+      switch layout {
+      case .standard:
         Text(details)
-      } else {
+      case .picker:
         Spacer()
+        Text(details)
+          .foregroundColor(.secondary)
+      case .placeholder:
+        Text(details)
+          .foregroundColor(.placeholderText)
+      case .secondary:
         Text(details)
           .foregroundColor(.secondary)
       }

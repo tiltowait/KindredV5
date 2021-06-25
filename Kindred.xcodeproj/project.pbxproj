@@ -69,6 +69,7 @@
 		2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436D26824110005F6589 /* AdvantageContainer+.swift */; };
 		2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436F26824847005F6589 /* CharacterAdvantages.swift */; };
 		287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */; };
+		287689CB26867B9D00343F59 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287689CA26867B9D00343F59 /* ModalView.swift */; };
 		2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2877343D265703000098E27B /* KindredModel.xcdatamodeld */; };
 		2877344A265713360098E27B /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28773449265713360098E27B /* DataController.swift */; };
 		287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87F82682575D00DF140E /* AdvantageRow.swift */; };
@@ -208,6 +209,7 @@
 		2870436D26824110005F6589 /* AdvantageContainer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageContainer+.swift"; sourceTree = "<group>"; };
 		2870436F26824847005F6589 /* CharacterAdvantages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdvantages.swift; sourceTree = "<group>"; };
 		287043712682485A005F6589 /* CharacterAdvantagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAdvantagesViewModel.swift; sourceTree = "<group>"; };
+		287689CA26867B9D00343F59 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		2877343E265703000098E27B /* KindredModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindredModel.xcdatamodel; sourceTree = "<group>"; };
 		28773449265713360098E27B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		287F87F82682575D00DF140E /* AdvantageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageRow.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
+				287689CA26867B9D00343F59 /* ModalView.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -434,6 +437,16 @@
 				28E13FB6265C917B003E3DDF /* Powers */,
 			);
 			path = Disciplines;
+			sourceTree = "<group>";
+		};
+		287689C9268670EE00343F59 /* Chargen */ = {
+			isa = PBXGroup;
+			children = (
+				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
+				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
+				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
+			);
+			path = Chargen;
 			sourceTree = "<group>";
 		};
 		287F87F72682553200DF140E /* Advantages */ = {
@@ -456,14 +469,14 @@
 			path = "Basic Traits";
 			sourceTree = "<group>";
 		};
-		287F88042682A20500DF140E /* Health and Willpower */ = {
+		287F88042682A20500DF140E /* Stress Tracks */ = {
 			isa = PBXGroup;
 			children = (
 				287F88052682A22100DF140E /* StressTrack.swift */,
 				287F88092682A27D00DF140E /* StressBox.swift */,
 				287F88072682A23100DF140E /* StressTrackViewModel.swift */,
 			);
-			path = "Health and Willpower";
+			path = "Stress Tracks";
 			sourceTree = "<group>";
 		};
 		28921689267E5C8F004911EA /* Importers */ = {
@@ -485,9 +498,7 @@
 				28BD80732676FBC900FEE5F9 /* CharacterList.swift */,
 				281F80372680FAC600B5B387 /* CharacterListViewModel.swift */,
 				28EBBE0626784E90004DD186 /* CharacterRow.swift */,
-				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
-				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
-				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
+				287689C9268670EE00343F59 /* Chargen */,
 				28C656D1267BBCF100865EE3 /* Individual Character */,
 			);
 			path = Characters;
@@ -535,16 +546,16 @@
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
-				28CEE0A72686540D0088D218 /* Dice Roller */,
 				28DD0640267A706E00C9669F /* BasicInfoDetail.swift */,
 				2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
-				28E2C85C2684F00800EFE34C /* Trackers */,
-				287F88042682A20500DF140E /* Health and Willpower */,
-				28C656D6267BC13200865EE3 /* Disciplines */,
-				287F87FE26829DED00DF140E /* Basic Traits */,
 				287F87F72682553200DF140E /* Advantages */,
+				287F87FE26829DED00DF140E /* Basic Traits */,
+				28CEE0A72686540D0088D218 /* Dice Roller */,
+				28C656D6267BC13200865EE3 /* Disciplines */,
+				28E2C85C2684F00800EFE34C /* Derived Traits */,
+				287F88042682A20500DF140E /* Stress Tracks */,
 			);
 			path = "Individual Character";
 			sourceTree = "<group>";
@@ -591,14 +602,14 @@
 			path = Powers;
 			sourceTree = "<group>";
 		};
-		28E2C85C2684F00800EFE34C /* Trackers */ = {
+		28E2C85C2684F00800EFE34C /* Derived Traits */ = {
 			isa = PBXGroup;
 			children = (
 				2866C6882683F73B00614E85 /* Trackers.swift */,
 				28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */,
 				28E2C8582684DFE700EFE34C /* TrackerStepper.swift */,
 			);
-			path = Trackers;
+			path = "Derived Traits";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -786,6 +797,7 @@
 				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,
+				287689CB26867B9D00343F59 /* ModalView.swift in Sources */,
 				28C656E5267BEC4C00865EE3 /* DisciplineDetail.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,

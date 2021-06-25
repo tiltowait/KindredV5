@@ -35,6 +35,11 @@ struct AddCharacterView: View {
       }
       .listStyle(InsetGroupedListStyle())
       .navigationTitle("Add Character")
+      .toolbar {
+        ToolbarItem(placement: .cancellationAction) {
+          Button("Cancel", action: dismiss)
+        }
+      }
     }
     .fileImporter(isPresented: $showingFileImporter, allowedContentTypes: [.pdf], onCompletion: importCharacter)
     .alert(isPresented: $showingFileErrorAlert) {
@@ -58,6 +63,10 @@ struct AddCharacterView: View {
       }
       selectedFile.stopAccessingSecurityScopedResource()
     }
+    self.dismiss()
+  }
+  
+  func dismiss() {
     presentationMode.wrappedValue.dismiss()
   }
 
