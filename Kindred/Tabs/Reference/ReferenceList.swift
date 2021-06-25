@@ -23,18 +23,16 @@ struct ReferenceList: View {
         Section(footer: footer) {
           NavigationLink(destination: AdvantageList(dataController: dataController)) {
             Text("Advantages")
-              .font(.subheadline)
+              .font(.headline)
           }
-          
           NavigationLink(destination:
                           DisciplineList()) {
             Text("Disciplines")
-              .font(.subheadline)
+              .font(.headline)
           }
-          
           NavigationLink(destination: ClanList(dataController: dataController)) {
             Text("Clans")
-              .font(.subheadline)
+              .font(.headline)
           }
         }
       }
