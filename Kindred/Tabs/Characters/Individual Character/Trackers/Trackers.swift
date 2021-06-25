@@ -41,26 +41,42 @@ struct Trackers: View {
     }
   }
   
-  var modifyView: some View {
+  var trackerModifier: some View {
     VStack {
-      TrackerStepper("Health:", value: $viewModel.kindred.health, in: 4...15, onIncrement: viewModel.incrementHealth, onDecrement: viewModel.decrementHealth)
-      TrackerStepper("Willpower:", value: $viewModel.kindred.willpower, in: 3...15, onIncrement: viewModel.incrementWillpower, onDecrement: viewModel.decrementWillpower)
-      
+      TrackerStepper(
+        "Health:",
+        value: $viewModel.kindred.health,
+        in: 4...15, onIncrement:
+          viewModel.incrementHealth,
+        onDecrement: viewModel.decrementHealth
+      )
       Divider()
-      
-      TrackerStepper("Humanity:", value: $viewModel.kindred.humanity, in: 0...10)
+      TrackerStepper(
+        "Willpower:",
+        value: $viewModel.kindred.willpower,
+        in: 3...15,
+        onIncrement: viewModel.incrementWillpower,
+        onDecrement: viewModel.decrementWillpower
+      )
+      Divider()
+      TrackerStepper(
+        "Humanity:",
+        value: $viewModel.kindred.humanity,
+        in: 0...10
+      )
       
       if viewModel.kindred.clan?.template == .kindred {
-        TrackerStepper("Blood Potency:", value: $viewModel.kindred.bloodPotency, in: 0...10)
-        
         Divider()
-        
-        TrackerStepper("Hunger:", value: $viewModel.kindred.hunger, in: 0...5)
+        TrackerStepper(
+          "Blood Potency:",
+          value: $viewModel.kindred.bloodPotency,
+          in: 0...10
+        )
       }
     }
   }
   
-  var trackers: some View {
+  var trackerDetail: some View {
     VStack {
       StressTrack("Health", track: $viewModel.kindred.healthString)
         .padding(.bottom, 5)
@@ -89,9 +105,9 @@ struct Trackers: View {
   var body: some View {
     Section(header: header) {
       if showingEditView {
-        modifyView
+        trackerModifier
       } else {
-        trackers
+        trackerDetail
       }
       if viewModel.kindred.clan == nil {
         Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
