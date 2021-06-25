@@ -29,6 +29,7 @@ struct PowerRow: View {
         }
         
         Text(power.sourceBook.reference(page: power.page))
+          .multilineTextAlignment(.trailing)
           .font(.caption)
           .foregroundColor(.secondary)
       }

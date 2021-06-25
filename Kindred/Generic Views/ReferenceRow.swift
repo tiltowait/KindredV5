@@ -82,6 +82,7 @@ struct ReferenceRow: View {
       
       if let secondary = secondary {
         Text(secondary)
+          .multilineTextAlignment(.trailing)
           .font(.caption)
           .foregroundColor(.secondary)
       }
