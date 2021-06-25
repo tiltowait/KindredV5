@@ -24,7 +24,7 @@ struct TraitBlock: View {
   var body: some View {
     List {
       // Tell the user the XP cost to increase a trait
-      Section(header: Text(viewModel.costToIncrease)) { EmptyView() }
+      Section(header: Text(viewModel.costToIncrease)) { }
       
       // Display the trait blocks
       section(named: "Physical", forTraits: viewModel.physical)
