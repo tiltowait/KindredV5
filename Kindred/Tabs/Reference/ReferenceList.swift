@@ -11,25 +11,35 @@ struct ReferenceList: View {
   
   @EnvironmentObject var dataController: DataController
   
+  var footer: some View {
+      Text("Vampire: The Masquerade and World of Darkness are copyright © Paradox Interactive.")
+        .multilineTextAlignment(.center)
+        .padding(.top)
+  }
+  
   var body: some View {
     NavigationView {
       List {
-        
-        NavigationLink(destination: AdvantageList(dataController: dataController)) {
-          Text("Advantages")
-        }
-        
-        NavigationLink(destination:
-          DisciplineList()) {
-          Text("Disciplines")
-        }
-        
-        NavigationLink(destination: ClanList(dataController: dataController)) {
-          Text("Clans")
+        Section(footer: footer) {
+          NavigationLink(destination: AdvantageList(dataController: dataController)) {
+            Text("Advantages")
+              .font(.subheadline)
+          }
+          
+          NavigationLink(destination:
+                          DisciplineList()) {
+            Text("Disciplines")
+              .font(.subheadline)
+          }
+          
+          NavigationLink(destination: ClanList(dataController: dataController)) {
+            Text("Clans")
+              .font(.subheadline)
+          }
         }
       }
-      .font(.headline)
       .navigationTitle("Reference")
+      .listStyle(InsetGroupedListStyle())
     }
   }
   
