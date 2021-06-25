@@ -20,6 +20,8 @@ struct ReferenceList: View {
   var body: some View {
     NavigationView {
       List {
+        Section { } // Empty section for spacing
+        
         Section(footer: footer) {
           NavigationLink(destination: AdvantageList(dataController: dataController)) {
             Text("Advantages")
