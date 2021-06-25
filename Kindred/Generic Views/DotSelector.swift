@@ -12,9 +12,23 @@ struct DotSelector: View {
   @Binding var current: Int16
   let min: Int16
   let max: Int16
+  let allowZero: Bool
   
   let size: CGFloat = 17
   let spacing: CGFloat = 5
+  
+  /// Create a new DotSelector.
+  /// - Parameters:
+  ///   - current: The binding to the current dot rating.
+  ///   - min: The minimum number of dots.
+  ///   - max: The maximum number of dots.
+  ///   - allowZero: Whether zero dots are allowed.
+  init(current: Binding<Int16>, min: Int16, max: Int16, allowZero: Bool = true) {
+    _current = current
+    self.min = min
+    self.max = max
+    self.allowZero = allowZero
+  }
   
   var body: some View {
     HStack {
@@ -23,7 +37,7 @@ struct DotSelector: View {
           .fill(color(for: index))
           .frame(width: size, height: size)
           .onTapGesture {
-            current = Int16(index)
+            select(dots: index)
           }
         
         // Make a gap every 5 dots for legibility purposes
@@ -43,6 +57,17 @@ struct DotSelector: View {
   /// - Returns: The color the dot should take.
   func color(for rating: Int) -> Color {
     rating <= current ? .vampireRed : .tertiarySystemGroupedBackground
+  }
+  
+  /// Select the given number of dots. If "one" is double-tapped, set to 0.
+  /// - Parameter dots: The number of dots to select.
+  func select(dots: Int) {
+    if dots > 1 {
+      current = Int16(dots)
+    } else {
+      // If the current value is 1, set to 0. Otherwise, set to 1.
+      current = (current == 1 && allowZero) ? 0 : 1
+    }
   }
   
 }

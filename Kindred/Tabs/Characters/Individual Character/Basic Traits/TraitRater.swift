@@ -70,7 +70,13 @@ struct TraitRater: View {
   /// Update the referenced value.
   /// - Parameter newValue: The receiver's new value.
   func updateValue(to newValue: Int) {
-    kindred[keyPath: keyPath] = Int16(newValue)
+    if newValue > 1 {
+      kindred[keyPath: keyPath] = Int16(newValue)
+    } else {
+      // If the current value is 1, set to 0. Otherwise, set to 1.
+      let current = kindred[keyPath: keyPath]
+      kindred[keyPath: keyPath] = current == 1 ? 0 : 1
+    }
   }
   
 }

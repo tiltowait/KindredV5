@@ -73,7 +73,8 @@ struct AdvantageOptionView: View {
             DotSelector(
               current: $viewModel.currentRating,
               min: viewModel.minAllowableRating,
-              max: viewModel.maxAllowableRating
+              max: viewModel.maxAllowableRating,
+              allowZero: false
             )
           }
           Spacer()

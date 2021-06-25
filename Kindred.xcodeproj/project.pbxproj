@@ -410,7 +410,6 @@
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
-				28252068267916CD0066F09B /* TraitRater.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
@@ -452,6 +451,7 @@
 				28A1E9EE2677B6C40084F483 /* TraitSummary.swift */,
 				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
+				28252068267916CD0066F09B /* TraitRater.swift */,
 			);
 			path = "Basic Traits";
 			sourceTree = "<group>";
