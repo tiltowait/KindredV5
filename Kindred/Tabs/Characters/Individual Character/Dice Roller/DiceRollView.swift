@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DiceRollView: View {
   
+  @Environment(\.presentationMode) var presentationMode
+  
   @StateObject var viewModel: ViewModel
   
   init(kindred: Kindred) {
@@ -25,12 +27,22 @@ struct DiceRollView: View {
         }
       }
       .toolbar {
-        Button("Roll \(viewModel.pool) dice") {
-          print("Rolling dice")
+        ToolbarItem(placement: .cancellationAction) {
+          Button("Close", action: dismiss)
+        }
+        
+        ToolbarItem(placement: .primaryAction) {
+          Button("Roll \(viewModel.pool) dice") {
+            print("Rolling dice")
+          }
         }
       }
       .navigationBarTitleDisplayMode(.inline)
     }
+  }
+  
+  func dismiss() {
+    presentationMode.wrappedValue.dismiss()
   }
   
 }

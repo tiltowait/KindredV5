@@ -535,8 +535,7 @@
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
-				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
-				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+				28CEE0A72686540D0088D218 /* Dice Roller */,
 				28DD0640267A706E00C9669F /* BasicInfoDetail.swift */,
 				2833CAC5267A794E00160A96 /* BasicInfoDetailViewModel.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
@@ -572,6 +571,15 @@
 				28138771267D70CF006DA73C /* ClanDetail.swift */,
 			);
 			path = Clans;
+			sourceTree = "<group>";
+		};
+		28CEE0A72686540D0088D218 /* Dice Roller */ = {
+			isa = PBXGroup;
+			children = (
+				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
+				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+			);
+			path = "Dice Roller";
 			sourceTree = "<group>";
 		};
 		28E13FB6265C917B003E3DDF /* Powers */ = {
