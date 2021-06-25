@@ -47,8 +47,6 @@ extension ScrollingImageHeader {
         dataController.delete(image)
         fullSizeImageData.remove(at: index)
         thumbnailImageData.remove(at: index)
-      } else {
-        print("Can't delete index \(index).")
       }
     }
     

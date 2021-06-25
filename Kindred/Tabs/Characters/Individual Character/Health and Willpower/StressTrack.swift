@@ -44,7 +44,6 @@ struct StressTrack: View {
   }
   
   func promote(at index: Int) {
-    print(index)
     let current = Array(track)[index]
     
     switch current {
