@@ -60,7 +60,7 @@ extension CharacterDetail {
           ("Insight", kindred.insight),
           ("Intimidation", kindred.intimidation),
           ("Leadership", kindred.leadership),
-          ("Performance", kindred.performance),
+          ("Perform", kindred.performance),
           ("Persuasion", kindred.persuasion),
           ("Streetwise", kindred.streetwise),
           ("Subterfuge", kindred.subterfuge),
