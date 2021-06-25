@@ -30,7 +30,7 @@ extension CharacterDetail {
         ],
         [
           ("Charisma", kindred.charisma),
-          ("Manipulation", kindred.manipulation),
+          ("Manipulate", kindred.manipulation),
           ("Composure", kindred.composure)
         ],
         [
