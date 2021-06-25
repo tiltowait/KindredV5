@@ -49,11 +49,14 @@ struct Trackers: View {
       Divider()
       
       TrackerStepper("Humanity:", value: $viewModel.kindred.humanity, in: 0...10)
-      TrackerStepper("Blood Potency:", value: $viewModel.kindred.bloodPotency, in: 0...10)
       
-      Divider()
-      
-      TrackerStepper("Hunger:", value: $viewModel.kindred.hunger, in: 0...5)
+      if viewModel.kindred.clan?.template == .kindred {
+        TrackerStepper("Blood Potency:", value: $viewModel.kindred.bloodPotency, in: 0...10)
+        
+        Divider()
+        
+        TrackerStepper("Hunger:", value: $viewModel.kindred.hunger, in: 0...5)
+      }
     }
   }
   
@@ -68,10 +71,18 @@ struct Trackers: View {
         .centered()
       Divider()
       tracker("Humanity", rating: viewModel.kindred.humanity, max: 10)
-      Divider()
-      tracker("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
-      Divider()
-      tracker("Hunger", rating: viewModel.kindred.hunger, max: 5)
+      
+      if viewModel.kindred.clan?.template == .kindred {
+        Divider()
+        tracker("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
+        Divider()
+        VStack {
+          Text("Hunger")
+            .bold()
+          DotSelector(current: $viewModel.kindred.hunger, min: 1, max: 5)
+        }
+        .padding(.bottom, 5)
+      }
     }
   }
   
@@ -81,6 +92,11 @@ struct Trackers: View {
         modifyView
       } else {
         trackers
+      }
+      if viewModel.kindred.clan == nil {
+        Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
+          .font(.caption)
+          .foregroundColor(.secondary)
       }
     }
   }

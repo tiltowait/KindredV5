@@ -56,7 +56,7 @@
         <attribute name="finance" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firearms" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="generation" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
-        <attribute name="health" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="health" attributeType="Integer 16" defaultValueString="4" usesScalarValueType="YES"/>
         <attribute name="humanity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hunger" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="insight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -81,7 +81,7 @@
         <attribute name="subterfuge" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="survival" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="technology" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="willpower" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="willpower" attributeType="Integer 16" defaultValueString="3" usesScalarValueType="YES"/>
         <attribute name="wits" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="zAmbition" optional="YES" attributeType="String"/>
         <attribute name="zChronicle" optional="YES" attributeType="String"/>
@@ -148,11 +148,11 @@
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="944"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>
+        <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="44"/>
+        <element name="LoresheetItem" positionX="-252" positionY="-450" width="128" height="59"/>
         <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="163"/>
         <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>
         <element name="ReferenceItem" positionX="83.31640625" positionY="-420.234375" width="128" height="59"/>
         <element name="Ritual" positionX="343.1796875" positionY="-420.5546875" width="128" height="88"/>
-        <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="44"/>
-        <element name="LoresheetItem" positionX="-252" positionY="-450" width="128" height="59"/>
     </elements>
 </model>

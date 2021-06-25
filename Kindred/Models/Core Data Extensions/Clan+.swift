@@ -38,8 +38,8 @@ extension Clan {
   }
   
   var inClanDisciplines: [Discipline] {
-    let disciplines = disciplines?.allObjects as? [Discipline] ?? []
-    return disciplines.sorted()
+    let disciplines = disciplines as? Set<Discipline>
+    return disciplines?.sorted() ?? []
   }
   
   var template: Template {

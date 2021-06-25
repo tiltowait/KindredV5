@@ -30,8 +30,8 @@ extension Discipline {
   
   /// An array of all `Powers`s associated with the `Discipline`, from all sources.
   var allPowers: [Power] {
-    let powerArray = self.powers?.allObjects as? [Power] ?? []
-    return powerArray.sorted()
+    let powers = powers as? Set<Power>
+    return powers?.sorted() ?? []
   }
   
   /// Retrieve all `Power`s from a given `Source`.

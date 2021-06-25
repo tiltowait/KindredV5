@@ -44,13 +44,11 @@ struct CharacterList: View {
   var body: some View {
     NavigationView {
       List {
-        Group {
-          if viewModel.hasCharacters {
-            characterList
-          } else {
-            Section(header: instructions) { }
-              .textCase(nil)
-          }
+        if viewModel.hasCharacters {
+          characterList
+        } else {
+          Section(header: instructions) { }
+            .textCase(nil)
         }
       }
       .navigationTitle("Characters")
