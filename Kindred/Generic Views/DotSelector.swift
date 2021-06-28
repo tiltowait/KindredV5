@@ -62,11 +62,10 @@ struct DotSelector: View {
   /// Select the given number of dots. If "one" is double-tapped, set to 0.
   /// - Parameter dots: The number of dots to select.
   func select(dots: Int) {
-    if dots > 1 {
-      current = Int16(dots)
+    if allowZero {
+      current = (current == 1 && dots == 1) ? 0 : Int16(dots)
     } else {
-      // If the current value is 1, set to 0. Otherwise, set to 1.
-      current = (current == 1 && allowZero) ? 0 : 1
+      current = Int16(dots)
     }
   }
   
