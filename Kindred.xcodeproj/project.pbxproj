@@ -55,7 +55,7 @@
 		284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageTabs.swift */; };
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
 		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
-		2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */; };
+		2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */; };
 		2866C6892683F73B00614E85 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866C6882683F73B00614E85 /* Trackers.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
 		286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7C265D57C400AAA469 /* InfoItem+.swift */; };
@@ -195,7 +195,7 @@
 		284CF5BE2677D401007B298B /* ImageTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabs.swift; sourceTree = "<group>"; };
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
-		2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewController.swift; sourceTree = "<group>"; };
+		2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewModel.swift; sourceTree = "<group>"; };
 		2866C6882683F73B00614E85 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
 		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 			children = (
 				28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */,
 				2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */,
-				2852D308267D3A7D009AF8D1 /* CreateCharacterViewController.swift */,
+				2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */,
 			);
 			path = Chargen;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */,
-				2852D309267D3A7D009AF8D1 /* CreateCharacterViewController.swift in Sources */,
+				2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */,
 				28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
 				28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */,
