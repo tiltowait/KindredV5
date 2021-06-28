@@ -16,9 +16,8 @@ struct ScrollingImageHeader: View {
   @StateObject var viewModel: ViewModel
   
   @State private var showingImagePicker = false
-  @State private var imageToAdd: UIImage?
-  
   @State private var showingImageIndex: Int?
+  @State private var imagePickerError: String?
   
   let thumbnailHeight: CGFloat = 100
   
@@ -59,7 +58,7 @@ struct ScrollingImageHeader: View {
           }
         }
         .id(UUID())
-        
+
         Button {
           showingImagePicker.toggle()
         } label: {
@@ -67,8 +66,8 @@ struct ScrollingImageHeader: View {
         }
       }
     }
-    .sheet(isPresented: $showingImagePicker, onDismiss: addImage) {
-      ImagePicker(image: $imageToAdd)
+    .sheet(isPresented: $showingImagePicker) {
+      PhotoPicker(imageHandler: addImage, errorHandler: imageError)
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
@@ -84,26 +83,36 @@ struct ScrollingImageHeader: View {
         dismissButton: nil
       )
     }
+    .alert(item: $imagePickerError) { error in
+      Alert(
+        title: Text("Unable to Load"),
+        message: Text(error),
+        dismissButton: nil
+      )
+    }
     .onDisappear(perform: viewModel.save)
   }
   
   /// Adds the selected image to the view model.
-  func addImage() {
-    if let image = imageToAdd {
-      let scaledImage = image.resize(height: thumbnailHeight)
-      
-      // Theoretically, we should present an alert to the user; however, under
-      // no normal circumstances should this fail. In the event we ever start
-      // picking images from outside the photo library, we will revisit this
-      // topic.
-      guard let fullSize = image.pngData(),
-            let thumbnail = scaledImage.pngData()
-      else { return }
-
-      viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
-      imageToAdd = nil
-    }
+  func addImage(_ image: UIImage) {
+    print("Adding")
+    let scaledImage = image.resize(height: thumbnailHeight)
+    
+    // Theoretically, we should present an alert to the user; however, under
+    // no normal circumstances should this fail. In the event we ever start
+    // picking images from outside the photo library, we will revisit this
+    // topic.
+    guard let fullSize = image.pngData(),
+          let thumbnail = scaledImage.pngData()
+    else { return }
+    
+    viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
   }
+  
+  func imageError(_ error: String) {
+    imagePickerError = error
+  }
+  
 }
 
 #if DEBUG

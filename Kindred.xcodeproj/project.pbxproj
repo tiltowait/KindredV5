@@ -51,7 +51,6 @@
 		283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */; };
 		28474426267832D200C1E3A5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28474425267832D200C1E3A5 /* DotView.swift */; };
 		284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B8582267D0FDD00F159DC /* UIViewController+.swift */; };
-		284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5B82677CE6B007B298B /* ImagePicker.swift */; };
 		284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageTabs.swift */; };
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
 		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
@@ -121,6 +120,7 @@
 		28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* CharacterRow.swift */; };
 		28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlock.swift */; };
 		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
+		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,7 +191,6 @@
 		283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeaderViewModel.swift; sourceTree = "<group>"; };
 		28474425267832D200C1E3A5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		284B8582267D0FDD00F159DC /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		284CF5B82677CE6B007B298B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		284CF5BE2677D401007B298B /* ImageTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabs.swift; sourceTree = "<group>"; };
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
@@ -259,6 +258,7 @@
 		28EBBE0626784E90004DD186 /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		28EBBE0A2678529B004DD186 /* TraitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlock.swift; sourceTree = "<group>"; };
 		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
+		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,8 +415,8 @@
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
-				284CF5B82677CE6B007B298B /* ImagePicker.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
+				28F169D3268A487C0039F2BE /* PhotoPicker.swift */,
 				2870436926823C71005F6589 /* PlainTextHeader.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
@@ -806,7 +806,6 @@
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
-				284CF5B92677CE6B007B298B /* ImagePicker.swift in Sources */,
 				287F880A2682A27D00DF140E /* StressBox.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
 				2892168B267E5C9A004911EA /* Importer.swift in Sources */,
@@ -837,6 +836,7 @@
 				28138772267D70CF006DA73C /* ClanDetail.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */,
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
+				28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
 				281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */,
