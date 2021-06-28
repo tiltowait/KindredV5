@@ -77,10 +77,10 @@ struct CharacterDetail: View {
         // Traits
         Section(header: Text("Traits")) {
           NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
-            TraitSummary(title: "Attributes", traits: viewModel.zippedAttributes)
+            TraitSummary(title: "Attributes", traits: viewModel.attributePreviews)
           }
           NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
-            TraitSummary(title: "Skills", traits: viewModel.zippedAbilities)
+            TraitSummary(title: "Skills", traits: viewModel.skillPreviews)
           }
         }
         
@@ -138,6 +138,7 @@ struct CharacterDetail: View {
           ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
       }
+      .onAppear(perform: viewModel.generateTraitPreviews)
       .onDisappear(perform: viewModel.save)
   }
   

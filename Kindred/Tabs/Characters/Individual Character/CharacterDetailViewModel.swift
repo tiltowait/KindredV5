@@ -10,18 +10,35 @@ import Foundation
 extension CharacterDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
-    private(set) lazy var clans: [Clan] = {
-      dataController.clans
-    }()
-    
+    /// The name of the character's clan.
     @Published var clanName: String
+    
+    @Published private(set) var attributePreviews: [[(String, Int16)]] = []
+    @Published private(set) var skillPreviews: [[(String, Int16)]] = []
     
     /// True if the referenced character knows no Discipline.
     var noKnownDisciplines: Bool {
       kindred.knownDisciplines.isEmpty
     }
     
-    var zippedAttributes: [[(String, Int16)]] {
+    override init(kindred: Kindred, dataController: DataController) {
+      clanName = kindred.clan?.name ?? "Tap to select"
+      super.init(kindred: kindred, dataController: dataController)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(clanWasSelected), name: .didSelectClan, object: nil)
+    }
+    
+    // MARK: - Trait Previews
+    
+    /// Generate trait previews.
+    ///
+    /// This method should be called when the view appears.
+    func generateTraitPreviews() {
+      attributePreviews = makeAttributePreviews()
+      skillPreviews = makeSkillPreviews()
+    }
+    
+    private func makeAttributePreviews() -> [[(String, Int16)]] {
       [
         [
           ("Strength", kindred.strength),
@@ -41,7 +58,7 @@ extension CharacterDetail {
       ]
     }
     
-    var zippedAbilities: [[(String, Int16)]] {
+    private func makeSkillPreviews() -> [[(String, Int16)]] {
       [
         [
           ("Athletics", kindred.athletics),
@@ -79,12 +96,7 @@ extension CharacterDetail {
       ]
     }
     
-    override init(kindred: Kindred, dataController: DataController) {
-      clanName = kindred.clan?.name ?? "Tap to select"
-      super.init(kindred: kindred, dataController: dataController)
-      
-      NotificationCenter.default.addObserver(self, selector: #selector(clanWasSelected), name: .didSelectClan, object: nil)
-    }
+    // MARK: - Notification Handlers
     
     /// Inform the view model the clan was changed so that CharacterDetail can update its relevant fields.
     /// - Parameter notification: The clan selection notification.
