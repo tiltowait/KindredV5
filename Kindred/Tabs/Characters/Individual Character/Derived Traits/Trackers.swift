@@ -41,6 +41,16 @@ struct Trackers: View {
     }
   }
   
+  var footer: some View {
+    Group {
+      if viewModel.kindred.clan == nil {
+        Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
+          .font(.caption)
+          .foregroundColor(.secondary)
+      }
+    }
+  }
+  
   var trackerModifier: some View {
     VStack {
       TrackerStepper(
@@ -103,17 +113,13 @@ struct Trackers: View {
   }
   
   var body: some View {
-    Section(header: header) {
-      if showingEditView {
-        trackerModifier
-      } else {
+    Section(header: header, footer: footer) {
+      SwapView(showingLeft: !showingEditView) {
         trackerDetail
+      } right: {
+        trackerModifier
       }
-      if viewModel.kindred.clan == nil {
-        Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
-          .font(.caption)
-          .foregroundColor(.secondary)
-      }
+
     }
   }
   

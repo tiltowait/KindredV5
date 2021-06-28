@@ -112,6 +112,7 @@
 		28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */; };
 		28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */; };
 		28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */; };
+		28DB5E82268A873600649103 /* SwapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB5E81268A873600649103 /* SwapView.swift */; };
 		28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DD0640267A706E00C9669F /* BasicInfoDetail.swift */; };
 		28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C8582684DFE700EFE34C /* TrackerStepper.swift */; };
 		28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */; };
@@ -249,6 +250,7 @@
 		28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailViewModel.swift; sourceTree = "<group>"; };
 		28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceRow.swift; sourceTree = "<group>"; };
 		28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+.swift"; sourceTree = "<group>"; };
+		28DB5E81268A873600649103 /* SwapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapView.swift; sourceTree = "<group>"; };
 		28DD0640267A706E00C9669F /* BasicInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoDetail.swift; sourceTree = "<group>"; };
 		28E2C8582684DFE700EFE34C /* TrackerStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerStepper.swift; sourceTree = "<group>"; };
 		28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
+				28DB5E81268A873600649103 /* SwapView.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
@@ -789,6 +792,7 @@
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
 				281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */,
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
+				28DB5E82268A873600649103 /* SwapView.swift in Sources */,
 				28252069267916CD0066F09B /* TraitRater.swift in Sources */,
 				287F87FB2682738800DF140E /* DotSelector.swift in Sources */,
 				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
