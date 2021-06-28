@@ -54,7 +54,7 @@ struct CharacterDetail: View {
   var body: some View {
       List {
         // Basic info
-        Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController)) {
+        Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController).padding(.bottom, 5)) {
           BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
           BoldTextField("Desire", binding: $viewModel.kindred.desire)
           clanLink
