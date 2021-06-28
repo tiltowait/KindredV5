@@ -6,11 +6,45 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 /// Global enums and constants used throughout the app.
 enum Global {
   
+  /// The path to the reference database.
   static let dbPath = Bundle.main.path(forResource: "reference", ofType: "sqlite")
+  
+  /// A simple, sharp haptic tap pattern.
+  private static let hapticTapPattern: CHHapticPattern? = {
+    do {
+      let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+      let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+      let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+      let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+      let parameter = CHHapticParameterCurve(parameterID: .hapticIntensityControl, controlPoints: [start, end], relativeTime: 0)
+      
+      let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+      
+      let pattern = try CHHapticPattern(events: [event], parameterCurves: [parameter])
+
+      return pattern
+    } catch {
+      return nil
+    }
+  }()
+  
+  /// Provide a quick, sharp haptic tap.
+  /// - Parameter engine: The haptic engine to use.
+  static func hapticTap(engine: CHHapticEngine?) {
+    guard let tap = Global.hapticTapPattern else { return }
+    
+    do {
+      try engine?.start()
+      
+      let player = try engine?.makePlayer(with: tap)
+      try player?.start(atTime: 0)
+    } catch { }
+  }
   
   /// Enums and constants pertaining to advantages.
   enum Advantage {

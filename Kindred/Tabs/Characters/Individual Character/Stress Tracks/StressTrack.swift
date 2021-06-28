@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct StressTrack: View {
+  
+  @State private var engine = try? CHHapticEngine()
   
   let label: LocalizedStringKey
   @Binding var track: String
@@ -54,7 +57,9 @@ struct StressTrack: View {
     default:
       track.replace(index, with: "/")
     }
+    Global.hapticTap(engine: engine)
   }
+  
 }
 
 struct StressTrack_Previews: PreviewProvider {

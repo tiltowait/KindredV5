@@ -77,7 +77,6 @@
 		287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F87FF26829E5800DF140E /* CharacterNotesView.swift */; };
 		287F880326829E7800DF140E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 287F880226829E7800DF140E /* TextView */; };
 		287F88062682A22200DF140E /* StressTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F88052682A22100DF140E /* StressTrack.swift */; };
-		287F88082682A23100DF140E /* StressTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F88072682A23100DF140E /* StressTrackViewModel.swift */; };
 		287F880A2682A27D00DF140E /* StressBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F88092682A27D00DF140E /* StressBox.swift */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
@@ -216,7 +215,6 @@
 		287F87FC2682943400DF140E /* AdvantageOptionMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionMarker.swift; sourceTree = "<group>"; };
 		287F87FF26829E5800DF140E /* CharacterNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterNotesView.swift; sourceTree = "<group>"; };
 		287F88052682A22100DF140E /* StressTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressTrack.swift; sourceTree = "<group>"; };
-		287F88072682A23100DF140E /* StressTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressTrackViewModel.swift; sourceTree = "<group>"; };
 		287F88092682A27D00DF140E /* StressBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressBox.swift; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
@@ -474,7 +472,6 @@
 			children = (
 				287F88052682A22100DF140E /* StressTrack.swift */,
 				287F88092682A27D00DF140E /* StressBox.swift */,
-				287F88072682A23100DF140E /* StressTrackViewModel.swift */,
 			);
 			path = "Stress Tracks";
 			sourceTree = "<group>";
@@ -846,7 +843,6 @@
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
 				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
-				287F88082682A23100DF140E /* StressTrackViewModel.swift in Sources */,
 				281F8045268138A200B5B387 /* AdvantageListViewController.swift in Sources */,
 				28386F6326586E2E00E90445 /* Power+.swift in Sources */,
 				28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */,
