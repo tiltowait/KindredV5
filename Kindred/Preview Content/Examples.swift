@@ -100,6 +100,8 @@ extension Kindred {
     kindred.bloodPotency = 1
     kindred.hunger = 2
     
+    kindred.clan = Clan.example
+    
     // Add some Disciplines
     kindred.addToPowers(Power.example)
     

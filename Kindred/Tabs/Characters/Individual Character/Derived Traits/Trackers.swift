@@ -51,8 +51,37 @@ struct Trackers: View {
     }
   }
   
-  var trackerModifier: some View {
+  var trackerDetailView: some View {
     VStack {
+      StressTrack("Health", track: $viewModel.kindred.healthString)
+        .padding(.bottom, 5)
+        .centered()
+      Divider()
+      StressTrack("Willpower", track: $viewModel.kindred.willpowerString)
+        .padding(.bottom, 5)
+        .centered()
+      Divider()
+      tracker("Humanity", rating: viewModel.kindred.humanity, max: 10)
+      
+      if viewModel.kindred.clan?.template == .kindred {
+        Divider()
+        tracker("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
+        Divider()
+        VStack {
+          Text("Hunger")
+            .bold()
+          DotSelector(current: $viewModel.kindred.hunger, min: 1, max: 5)
+        }
+        .padding(.bottom, 5)
+      }
+    }
+  }
+  
+  var trackerModifierView: some View {
+    VStack {
+      Text("Modify Trackers")
+        .font(.headline)
+      Divider()
       TrackerStepper(
         "Health:",
         value: $viewModel.kindred.health,
@@ -82,44 +111,30 @@ struct Trackers: View {
           value: $viewModel.kindred.bloodPotency,
           in: 0...10
         )
+        Divider()
+        TrackerStepper(
+          "Hunger:",
+          value: $viewModel.kindred.hunger,
+          in: 0...5
+        )
       }
     }
   }
   
-  var trackerDetail: some View {
-    VStack {
-      StressTrack("Health", track: $viewModel.kindred.healthString)
-        .padding(.bottom, 5)
-        .centered()
-      Divider()
-      StressTrack("Willpower", track: $viewModel.kindred.willpowerString)
-        .padding(.bottom, 5)
-        .centered()
-      Divider()
-      tracker("Humanity", rating: viewModel.kindred.humanity, max: 10)
-      
-      if viewModel.kindred.clan?.template == .kindred {
-        Divider()
-        tracker("Blood Potency", rating: viewModel.kindred.bloodPotency, max: 10)
-        Divider()
-        VStack {
-          Text("Hunger")
-            .bold()
-          DotSelector(current: $viewModel.kindred.hunger, min: 1, max: 5)
-        }
-        .padding(.bottom, 5)
-      }
-    }
+  var swapHeight: CGFloat {
+    viewModel.kindred.clan?.template == .kindred ? 330 : 200
   }
   
   var body: some View {
     Section(header: header, footer: footer) {
-      SwapView(showingLeft: !showingEditView) {
-        trackerDetail
+      SwapView(
+        showingLeft: !showingEditView,
+        height: swapHeight
+      ) {
+        trackerDetailView
       } right: {
-        trackerModifier
+        trackerModifierView
       }
-
     }
   }
   
