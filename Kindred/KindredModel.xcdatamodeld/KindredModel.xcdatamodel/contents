@@ -57,8 +57,8 @@
         <attribute name="firearms" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="generation" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
         <attribute name="health" attributeType="Integer 16" defaultValueString="4" usesScalarValueType="YES"/>
-        <attribute name="humanity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="hunger" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="humanity" attributeType="Integer 16" defaultValueString="7" usesScalarValueType="YES"/>
+        <attribute name="hunger" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="insight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="intelligence" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="intimidation" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
