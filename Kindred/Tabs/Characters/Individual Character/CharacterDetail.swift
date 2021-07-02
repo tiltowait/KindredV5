@@ -30,7 +30,7 @@ struct CharacterDetail: View {
       Button {
         showingRenameAlert.toggle()
       } label: {
-        Label("Rename \(viewModel.kindred.name)", systemImage: "rectangle.and.pencil.and.ellipsis")
+        Label("Rename", systemImage: "rectangle.and.pencil.and.ellipsis")
       }
       Button {
         showingDiceRoller.toggle()
@@ -104,19 +104,6 @@ struct CharacterDetail: View {
         
         // Trackers (HP, WP, Humanity, Blood Potency)
         Trackers(kindred: viewModel.kindred)
-        
-        // A bit of a kludge. Trackers has two display modes: edit and
-        // view. The edit mode is shorter than the view mode, so when
-        // switching between them, the view mode gets cut off at the
-        // bottom. To prevent this, we put a gap at the bottom of the
-        // list.
-        //
-        // It can't be padding attached to Trackers, or that causes
-        // weird graphical glitches. It also can't be a Color.clear
-        // by itself, because that creates a list row. Therefore, it
-        // has to be a section header, which has no background and
-        // doesn't create a list row.
-        Section(header: Color.clear.frame(width: 1, height: 100)) { }
       }
       .listStyle(InsetGroupedListStyle())
       .navigationTitle(viewModel.kindred.name)
