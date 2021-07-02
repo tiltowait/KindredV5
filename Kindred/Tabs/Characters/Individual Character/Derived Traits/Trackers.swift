@@ -27,8 +27,7 @@ struct Trackers: View {
       if showingEditView {
         Text("Done")
       } else {
-        Label("Edit", systemImage: "square.and.pencil")
-          .labelStyle(IconOnlyLabelStyle())
+        Text("Edit")
       }
     }
   }
