@@ -44,6 +44,7 @@ extension PhotoPicker {
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+      defer { picker.dismiss(animated: true) }
       guard let result = results.first else { return }
       
       DispatchQueue.main.async {
@@ -59,7 +60,6 @@ extension PhotoPicker {
           }
         }
       }
-      picker.dismiss(animated: true)
     }
     
   }
