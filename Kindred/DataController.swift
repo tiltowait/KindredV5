@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SQLite
 
 class DataController: ObservableObject {
   
@@ -39,6 +40,7 @@ class DataController: ObservableObject {
     }
   }()
   
+  /// Every single `Advantage` and associated options in the database, sorted alphabetically.
   private(set) lazy var advantages: [Advantage] = {
     do {
       let advantages = try container.viewContext.fetch(Advantage.sortedFetchRequest)
@@ -48,6 +50,7 @@ class DataController: ObservableObject {
     }
   }()
   
+  /// Every single `AdvantageOption` in the database, sorted by value and name.
   private(set) lazy var advantageOptions: [AdvantageOption] = {
     do {
       let options = try container.viewContext.fetch(AdvantageOption.sortedFetchRequest)
@@ -57,12 +60,44 @@ class DataController: ObservableObject {
     }
   }()
   
+  /// Every `Loresheet` and associated entry in the database, sorted alphabetically.
+  private(set) lazy var loresheets: [Loresheet] = {
+    do {
+      let loresheets = try container.viewContext.fetch(Loresheet.sortedFetchRequest)
+      return loresheets
+    } catch {
+      fatalError("Unable to fetch loresheets.\n\(error.localizedDescription)")
+    }
+  }()
+  
+  /// Every `LoresheetEntry` in the database, sorted by value and name.
+  private(set) lazy var loresheetEntries: [LoresheetItem] = {
+    do {
+      let entries = try container.viewContext.fetch(LoresheetItem.sortedFetchRequest)
+      return entries
+    } catch {
+      fatalError("Unable to fetch loresheet entries.\n\(error.localizedDescription)")
+    }
+  }()
+  
   private(set) lazy var traitReference: [String: String] = {
     guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
           let traitReference = NSDictionary(contentsOf: url) as? [String: String]
     else { return [:] }
     
     return traitReference
+  }()
+  
+  private lazy var sqliteReferenceVersion: Int = {
+    guard let dbPath = Global.dbPath else { fatalError("The reference database doesn't exist!") }
+    let db = try? Connection(dbPath, readonly: true)
+    let table = Table("current_version")
+    let column = Expression<Int>("version")
+    
+    guard let version = try? db?.scalar(table.select(column.max)) else {
+      fatalError("Unable to fetch the reference database version.")
+    }
+    return version
   }()
   
   /// Static model file to prevent errors when testing.
@@ -93,13 +128,19 @@ class DataController: ObservableObject {
     }
     
     // Load up reference material
-    if self.isEmpty {
+    let coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
+    
+    if coreDataReferenceVersion < self.sqliteReferenceVersion {
       do {
         try DisciplineImporter.importAll(context: container.viewContext)
         try PowerImporter.importAll(context: container.viewContext)
         try ClanImporter.importAll(context: container.viewContext)
         try AdvantageImporter.importAll(context: container.viewContext)
         try AdvantageOptionImporter.importAll(context: container.viewContext)
+        try LoresheetImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        
+        self.save()
+        
       } catch ImportError.databaseNotFound {
         fatalError("Unable to locate the database.")
       } catch ImportError.invalidReference(let object) {
@@ -107,31 +148,28 @@ class DataController: ObservableObject {
       } catch {
         fatalError(error.localizedDescription)
       }
-      
-      #if DEBUG
-      let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)
-      
-      print("Empty container. Populating ...")
-      print("\tLoaded \(disciplines.count) disciplines")
-      print("\t\tWith \(powerCount) powers")
-      print("\tLoaded \(clans.count) clans")
-      print("\tLoaded \(advantages.count) advantages")
-      print("\t\tWith \(advantageOptions.count) options")
-      #endif
-      
-      self.save()
+      UserDefaults.standard.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
     }
-  }
-  
-  /// `True` if the data store is empty.
-  private var isEmpty: Bool {
-    let request: NSFetchRequest<Discipline> = Discipline.fetchRequest()
-    do {
-      let disciplines = try container.viewContext.fetch(request)
-      return disciplines.isEmpty
-    } catch {
-      fatalError("Unable to test core data storage.")
-    }
+    
+    // Update the reference version
+    
+    
+    
+    #if DEBUG
+    let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)
+    
+    print("Stored version: \(coreDataReferenceVersion)")
+    print("SQLite version: \(sqliteReferenceVersion)")
+    
+    print("\n\(disciplines.count) disciplines")
+    print("\tWith \(powerCount) powers")
+    print("\(clans.count) clans")
+    print("\(advantages.count) advantages")
+    print("\tWith \(advantageOptions.count) options")
+    print("\(loresheets.count) loresheets")
+    print("\tWith \(loresheetEntries.count) entries")
+    #endif
+    
   }
   
   /// Retrieve a Clan by name.

@@ -14,6 +14,8 @@ enum Global {
   /// The path to the reference database.
   static let dbPath = Bundle.main.path(forResource: "reference", ofType: "sqlite")
   
+  static let referenceVersionKey = "referenceVersion"
+  
   /// A simple, sharp haptic tap pattern.
   private static let hapticTapPattern: CHHapticPattern? = {
     do {

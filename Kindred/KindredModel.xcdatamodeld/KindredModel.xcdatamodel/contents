@@ -26,6 +26,7 @@
         <attribute name="zNicknames" optional="YES" attributeType="String"/>
         <relationship name="disciplines" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="referencingClans" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
+        <relationship name="referencingLoresheets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Loresheet" inverseName="requiredClan" inverseEntity="Loresheet"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="zIcon" attributeType="String"/>
@@ -35,6 +36,7 @@
         <relationship name="referencingPredatorTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="disciplineOptions" inverseEntity="PredatorType"/>
     </entity>
     <entity name="InfoItem" representedClassName="InfoItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="refID" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
         <attribute name="zInfo" attributeType="String"/>
         <attribute name="zName" attributeType="String"/>
     </entity>
@@ -108,7 +110,8 @@
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="images" inverseEntity="Kindred"/>
     </entity>
     <entity name="Loresheet" representedClassName="Loresheet" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LoresheetItem" inverseName="parent" inverseEntity="LoresheetItem"/>
+        <relationship name="items" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="LoresheetItem" inverseName="parent" inverseEntity="LoresheetItem"/>
+        <relationship name="requiredClan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Clan" inverseName="referencingLoresheets" inverseEntity="Clan"/>
     </entity>
     <entity name="LoresheetItem" representedClassName="LoresheetItem" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -143,12 +146,12 @@
         <element name="Advantage" positionX="324.50390625" positionY="2.96484375" width="128" height="73"/>
         <element name="AdvantageContainer" positionX="-261" positionY="-459" width="128" height="74"/>
         <element name="AdvantageOption" positionX="118.55859375" positionY="-12.31640625" width="128" height="104"/>
-        <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="164"/>
+        <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="179"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
-        <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="73"/>
+        <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="74"/>
         <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="944"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>
-        <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="44"/>
+        <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="59"/>
         <element name="LoresheetItem" positionX="-252" positionY="-450" width="128" height="59"/>
         <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="163"/>
         <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>

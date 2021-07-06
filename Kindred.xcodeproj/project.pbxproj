@@ -96,6 +96,9 @@
 		28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */; };
 		28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* ToggleButton.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
+		28B9A5452694EA3100A48250 /* LoresheetImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5442694EA3100A48250 /* LoresheetImporter.swift */; };
+		28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5462694F1B900A48250 /* Loresheet+.swift */; };
+		28B9A5492694F21D00A48250 /* LoresheetItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5482694F21D00A48250 /* LoresheetItem+.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* CharacterList.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -234,6 +237,9 @@
 		28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewModel.swift; sourceTree = "<group>"; };
 		28A39EBE2679711200867AB9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		28B9A5442694EA3100A48250 /* LoresheetImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetImporter.swift; sourceTree = "<group>"; };
+		28B9A5462694F1B900A48250 /* Loresheet+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loresheet+.swift"; sourceTree = "<group>"; };
+		28B9A5482694F21D00A48250 /* LoresheetItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoresheetItem+.swift"; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -400,6 +406,8 @@
 				28921691267E64DE004911EA /* NSManagedObject+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
+				28B9A5462694F1B900A48250 /* Loresheet+.swift */,
+				28B9A5482694F21D00A48250 /* LoresheetItem+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -486,6 +494,7 @@
 				281F80392681302300B5B387 /* AdvantageImporter.swift */,
 				281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */,
 				2892168C267E5D4C004911EA /* ClanImporter.swift */,
+				28B9A5442694EA3100A48250 /* LoresheetImporter.swift */,
 				28921699267E6F71004911EA /* DisciplineImporter.swift */,
 				28921697267E6C40004911EA /* PowerImporter.swift */,
 			);
@@ -808,12 +817,14 @@
 				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
 				287F880A2682A27D00DF140E /* StressBox.swift in Sources */,
+				28B9A5452694EA3100A48250 /* LoresheetImporter.swift in Sources */,
 				28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */,
 				2892168B267E5C9A004911EA /* Importer.swift in Sources */,
 				287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
+				28B9A5492694F21D00A48250 /* LoresheetItem+.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
 				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,
@@ -827,6 +838,7 @@
 				2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
+				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,
 				2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */,
 				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
