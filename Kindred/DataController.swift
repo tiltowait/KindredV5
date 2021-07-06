@@ -89,8 +89,7 @@ class DataController: ObservableObject {
   }()
   
   private lazy var sqliteReferenceVersion: Int = {
-    guard let dbPath = Global.dbPath else { fatalError("The reference database doesn't exist!") }
-    let db = try? Connection(dbPath, readonly: true)
+    let db = try? Connection(Global.referenceDatabasePath, readonly: true)
     let table = Table("current_version")
     let column = Expression<Int>("version")
     
@@ -141,8 +140,6 @@ class DataController: ObservableObject {
         
         self.save()
         
-      } catch ImportError.databaseNotFound {
-        fatalError("Unable to locate the database.")
       } catch ImportError.invalidReference(let object) {
         fatalError(object)
       } catch {
@@ -150,10 +147,6 @@ class DataController: ObservableObject {
       }
       UserDefaults.standard.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
     }
-    
-    // Update the reference version
-    
-    
     
     #if DEBUG
     let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)

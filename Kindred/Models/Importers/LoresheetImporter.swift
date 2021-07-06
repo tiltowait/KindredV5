@@ -11,10 +11,7 @@ import SQLite
 enum LoresheetImporter {
   
   static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
-    guard let dbPath = Global.dbPath else {
-      throw ImportError.databaseNotFound
-    }
-    let db = try Connection(dbPath, readonly: true)
+    let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let version = Expression<Int>("version")
     let loresheets = Table("loresheets").filter(version > currentVersion)
     
@@ -49,10 +46,7 @@ enum LoresheetImporter {
   }
   
   private static func importLoresheetItems(after currentVersion: Int, context: NSManagedObjectContext) throws {
-    guard let dbPath = Global.dbPath else {
-      throw ImportError.databaseNotFound
-    }
-    let db = try Connection(dbPath, readonly: true)
+    let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let version = Expression<Int>("version")
     let loresheetItems = Table("loresheet_items").filter(version > currentVersion)
 

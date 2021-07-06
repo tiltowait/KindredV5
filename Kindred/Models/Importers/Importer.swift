@@ -9,7 +9,6 @@ import CoreData
 import Foundation
 
 enum ImportError: Error {
-  case databaseNotFound
   case invalidReference(String)
 }
 

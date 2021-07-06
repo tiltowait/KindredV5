@@ -12,7 +12,12 @@ import CoreHaptics
 enum Global {
   
   /// The path to the reference database.
-  static let dbPath = Bundle.main.path(forResource: "reference", ofType: "sqlite")
+  static let referenceDatabasePath: String = {
+    guard let path = Bundle.main.path(forResource: "reference", ofType: "sqlite") else {
+      fatalError("Unable to locate reference database!")
+    }
+    return path
+  }()
   
   static let referenceVersionKey = "referenceVersion"
   

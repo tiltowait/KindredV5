@@ -11,10 +11,7 @@ import SQLite
 enum DisciplineImporter: Importer {
   
   static func importAll(context: NSManagedObjectContext) throws {
-    guard let dbPath = Global.dbPath else {
-      throw ImportError.databaseNotFound
-    }
-    let db = try Connection(dbPath, readonly: true)
+    let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let disciplines = Table("disciplines")
     
     let name = Expression<String>("name")
