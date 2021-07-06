@@ -42,13 +42,13 @@ enum LoresheetImporter: Importer {
       }
     }
     
-    try Self.importLoresheetItems(after: currentVersion, context: context)
+    try Self.importLoresheetEntries(after: currentVersion, context: context)
   }
   
-  private static func importLoresheetItems(after currentVersion: Int, context: NSManagedObjectContext) throws {
+  private static func importLoresheetEntries(after currentVersion: Int, context: NSManagedObjectContext) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let version = Expression<Int>("version")
-    let loresheetItems = Table("loresheet_items").filter(version > currentVersion)
+    let loresheetItems = Table("loresheet_entries").filter(version > currentVersion)
 
     // Set up the columns
     let name = Expression<String>("name")
@@ -59,7 +59,7 @@ enum LoresheetImporter: Importer {
     
     for row in try db.prepare(loresheetItems) {
       let refID = Int16(row[refID])
-      let loresheetItem = LoresheetItem.fetchItem(id: refID, in: context) ?? LoresheetItem(context: context)
+      let loresheetItem = LoresheetEntry.fetchItem(id: refID, in: context) ?? LoresheetEntry(context: context)
       
       loresheetItem.name = row[name]
       loresheetItem.info = row[info]

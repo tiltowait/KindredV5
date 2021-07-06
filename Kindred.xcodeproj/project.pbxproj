@@ -98,7 +98,7 @@
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28B9A5452694EA3100A48250 /* LoresheetImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5442694EA3100A48250 /* LoresheetImporter.swift */; };
 		28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5462694F1B900A48250 /* Loresheet+.swift */; };
-		28B9A5492694F21D00A48250 /* LoresheetItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5482694F21D00A48250 /* LoresheetItem+.swift */; };
+		28B9A5492694F21D00A48250 /* LoresheetEntry+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9A5482694F21D00A48250 /* LoresheetEntry+.swift */; };
 		28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */; };
 		28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80732676FBC900FEE5F9 /* CharacterList.swift */; };
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
@@ -239,7 +239,7 @@
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		28B9A5442694EA3100A48250 /* LoresheetImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetImporter.swift; sourceTree = "<group>"; };
 		28B9A5462694F1B900A48250 /* Loresheet+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loresheet+.swift"; sourceTree = "<group>"; };
-		28B9A5482694F21D00A48250 /* LoresheetItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoresheetItem+.swift"; sourceTree = "<group>"; };
+		28B9A5482694F21D00A48250 /* LoresheetEntry+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoresheetEntry+.swift"; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
 				28B9A5462694F1B900A48250 /* Loresheet+.swift */,
-				28B9A5482694F21D00A48250 /* LoresheetItem+.swift */,
+				28B9A5482694F21D00A48250 /* LoresheetEntry+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
-				28B9A5492694F21D00A48250 /* LoresheetItem+.swift in Sources */,
+				28B9A5492694F21D00A48250 /* LoresheetEntry+.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
 				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,

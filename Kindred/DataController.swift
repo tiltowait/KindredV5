@@ -71,9 +71,9 @@ class DataController: ObservableObject {
   }()
   
   /// Every `LoresheetEntry` in the database, sorted by value and name.
-  private(set) lazy var loresheetEntries: [LoresheetItem] = {
+  private(set) lazy var loresheetEntries: [LoresheetEntry] = {
     do {
-      let entries = try container.viewContext.fetch(LoresheetItem.sortedFetchRequest)
+      let entries = try container.viewContext.fetch(LoresheetEntry.sortedFetchRequest)
       return entries
     } catch {
       fatalError("Unable to fetch loresheet entries.\n\(error.localizedDescription)")
