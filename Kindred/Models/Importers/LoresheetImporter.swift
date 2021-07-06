@@ -8,7 +8,7 @@
 import CoreData
 import SQLite
 
-enum LoresheetImporter {
+enum LoresheetImporter: Importer {
   
   static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)

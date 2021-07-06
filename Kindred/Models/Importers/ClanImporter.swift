@@ -10,9 +10,10 @@ import SQLite
 
 enum ClanImporter: Importer {
   
-  static func importAll(context: NSManagedObjectContext) throws {
+  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let clans = Table("clans")
+    let version = Expression<Int>("version")
+    let clans = Table("clans").filter(version > currentVersion)
     
     let name = Expression<String>("name")
     let nicknames = Expression<String>("nicknames")
@@ -26,9 +27,12 @@ enum ClanImporter: Importer {
     let template = Expression<Int>("template")
     let icon = Expression<String>("icon")
     let header = Expression<String>("header")
+    let refID = Expression<Int>("refID")
     
     for row in try db.prepare(clans) {
-      let clan = Clan(context: context)
+      let refID = Int16(row[refID])
+      let clan = Clan.fetchItem(id: refID, in: context) ?? Clan(context: context)
+      
       clan.name = row[name]
       clan.zNicknames = row[nicknames]
       clan.info = row[info]
@@ -38,20 +42,24 @@ enum ClanImporter: Importer {
       clan.compulsion = row[compulsion]
       clan.compulsionDetails = row[compulsionDetails]
       
-      // Add the in-clan disciplines
-      if let disciplines = row[disciplines] {
-        let inClanDisciplines = disciplines.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        for name in inClanDisciplines {
-          guard let discipline = Discipline.fetchObject(named: name, in: context) else {
-            throw ImportError.invalidReference("\(name) is not a known Discipline!")
+      // Add the in-clan disciplines, but only if the clan is new
+      if clan.refID == -1 {
+        if let disciplines = row[disciplines] {
+          let inClanDisciplines = disciplines.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+          for name in inClanDisciplines {
+            guard let discipline = Discipline.fetchObject(named: name, in: context) else {
+              throw ImportError.invalidReference("\(name) is not a known Discipline!")
+            }
+            clan.addToDisciplines(discipline)
           }
-          clan.addToDisciplines(discipline)
         }
       }
       
       clan.rawTemplate = Int16(row[template])
       clan.icon = row[icon]
       clan.header = row[header]
+      
+      clan.refID = refID
     }
   }
   

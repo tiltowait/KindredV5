@@ -130,12 +130,13 @@ class DataController: ObservableObject {
     let coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
     
     if coreDataReferenceVersion < self.sqliteReferenceVersion {
+      print("Fetching new items")
       do {
-        try DisciplineImporter.importAll(context: container.viewContext)
-        try PowerImporter.importAll(context: container.viewContext)
-        try ClanImporter.importAll(context: container.viewContext)
-        try AdvantageImporter.importAll(context: container.viewContext)
-        try AdvantageOptionImporter.importAll(context: container.viewContext)
+        try DisciplineImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try PowerImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try ClanImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try AdvantageImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try AdvantageOptionImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try LoresheetImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         
         self.save()

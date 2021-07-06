@@ -10,9 +10,10 @@ import SQLite
 
 enum PowerImporter: Importer {
   
-  static func importAll(context: NSManagedObjectContext) throws {
+  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let powers = Table("powers")
+    let version = Expression<Int>("version")
+    let powers = Table("powers").filter(version > currentVersion)
     
     let name = Expression<String>("name")
     let disciplineName = Expression<String>("discipline")
@@ -24,9 +25,11 @@ enum PowerImporter: Importer {
     let prerequisite = Expression<String?>("prerequisite")
     let source = Expression<Int>("source")
     let page = Expression<Int>("page")
+    let refID = Expression<Int>("refID")
     
     for row in try db.prepare(powers) {
-      let power = Power(context: context)
+      let refID = Int16(row[refID])
+      let power = Power.fetchItem(id: refID, in: context) ?? Power(context: context)
       power.name = row[name]
       power.level = Int16(row[level])
       power.rouse = Int16(row[rouse])
@@ -43,6 +46,7 @@ enum PowerImporter: Importer {
         throw ImportError.invalidReference("\(disciplineName) is not a valid Discipline!")
       }
       power.discipline = discipline
+      power.refID = refID
     }
   }
   

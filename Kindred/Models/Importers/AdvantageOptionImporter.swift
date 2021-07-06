@@ -10,9 +10,10 @@ import SQLite
 
 enum AdvantageOptionImporter: Importer {
   
-  static func importAll(context: NSManagedObjectContext) throws {
+  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let advantageOptions = Table("advantage_options")
+    let version = Expression<Int>("version")
+    let advantageOptions = Table("advantage_options").filter( version > currentVersion)
     
     let name = Expression<String>("name")
     let info = Expression<String>("info")
@@ -21,9 +22,12 @@ enum AdvantageOptionImporter: Importer {
     let min = Expression<Int>("min")
     let max = Expression<Int>("max")
     let parent = Expression<String>("parent")
+    let refID = Expression<Int>("refID")
     
     for row in try db.prepare(advantageOptions) {
-      let option = AdvantageOption(context: context)
+      let refID = Int16(row[refID])
+      let option = AdvantageOption.fetchItem(id: refID, in: context) ?? AdvantageOption(context: context)
+      
       option.name = row[name]
       option.info = row[info]
       option.source = Int16(row[source])
@@ -35,6 +39,7 @@ enum AdvantageOptionImporter: Importer {
         throw ImportError.invalidReference("No Advantage named \(row[parent])")
       }
       option.parent = parentAdvantage
+      option.refID = refID
     }
   }
   
