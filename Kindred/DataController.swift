@@ -50,16 +50,6 @@ class DataController: ObservableObject {
     }
   }()
   
-  /// Every single `AdvantageOption` in the database, sorted by value and name.
-  private(set) lazy var advantageOptions: [AdvantageOption] = {
-    do {
-      let options = try container.viewContext.fetch(AdvantageOption.sortedFetchRequest)
-      return options
-    } catch {
-      fatalError("Unable to fetch advantage options.\n\(error.localizedDescription)")
-    }
-  }()
-  
   /// Every `Loresheet` and associated entry in the database, sorted alphabetically.
   private(set) lazy var loresheets: [Loresheet] = {
     do {
@@ -70,16 +60,7 @@ class DataController: ObservableObject {
     }
   }()
   
-  /// Every `LoresheetEntry` in the database, sorted by value and name.
-  private(set) lazy var loresheetEntries: [LoresheetEntry] = {
-    do {
-      let entries = try container.viewContext.fetch(LoresheetEntry.sortedFetchRequest)
-      return entries
-    } catch {
-      fatalError("Unable to fetch loresheet entries.\n\(error.localizedDescription)")
-    }
-  }()
-  
+  /// A dictionary of traits-as-keys and descriptions of what they are used for.
   private(set) lazy var traitReference: [String: String] = {
     guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
           let traitReference = NSDictionary(contentsOf: url) as? [String: String]
@@ -88,6 +69,9 @@ class DataController: ObservableObject {
     return traitReference
   }()
   
+  // MARK: - Database Members
+  
+  /// The highest revision number in the SQLite reference database.
   private lazy var sqliteReferenceVersion: Int = {
     let db = try? Connection(Global.referenceDatabasePath, readonly: true)
     let table = Table("current_version")
@@ -109,6 +93,8 @@ class DataController: ObservableObject {
     }
     return managedObjectModel
   }()
+  
+  // MARK: - Methods
   
   /// Creates a `DataController` and initializes reference data if the store is empty.
   /// - Parameter inMemory: Set to `true` if the data should not persist across launches. Default `false`.
@@ -150,34 +136,41 @@ class DataController: ObservableObject {
     }
     
     #if DEBUG
-    let powerCount = try! container.viewContext.count(for: Power.allPowersFetchRequest)
-    
     print("Stored version: \(coreDataReferenceVersion)")
     print("SQLite version: \(sqliteReferenceVersion)")
     
-    print("\n\(disciplines.count) disciplines")
-    print("\tWith \(powerCount) powers")
-    print("\(clans.count) clans")
-    print("\(advantages.count) advantages")
-    print("\tWith \(advantageOptions.count) options")
-    print("\(loresheets.count) loresheets")
-    print("\tWith \(loresheetEntries.count) entries")
+    print("\n\(self.countAll(Discipline.self)) disciplines")
+    print("\tWith \(self.countAll(Power.self)) powers")
+    print("\(self.countAll(Clan.self)) clans")
+    print("\(self.countAll(Advantage.self)) advantages")
+    print("\tWith \(self.countAll(AdvantageOption.self)) options")
+    print("\(self.countAll(Loresheet.self)) loresheets")
+    print("\tWith \(self.countAll(LoresheetEntry.self)) entries")
     #endif
     
   }
   
-  /// Retrieve a Clan by name.
-  /// - Parameter name: The name of the Clan to retrieve.
-  /// - Returns: The clan, or nil if not found.
-  func clan(named name: String) -> Clan? {
-    clans.first { $0.name == name }
-  }
-  
-  /// Fetches all objects matching a particular request.
+  /// Fetch all objects matching a particular request.
+  ///
+  /// If the request is malformed, this method will return an empty array.
   /// - Parameter request: The request.
   /// - Returns: The objects matching the request.
   func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
     (try? container.viewContext.fetch(request)) ?? []
+  }
+  
+  /// Fetch all objects of a class.
+  /// - Parameter type: The class of the object to fetch.
+  /// - Returns: All objects of the particular class.
+  func fetchAll<T: NSManagedObject>(_ type: T.Type) -> [T] {
+    (try? container.viewContext.fetch(T.fetchRequest())) as? [T] ?? []
+  }
+  
+  /// Count all objects of a class.
+  /// - Parameter type: The class to count.
+  /// - Returns: The number of objects contained in the datastore.
+  func countAll<T: NSManagedObject>(_ type: T.Type) -> Int {
+    (try? container.viewContext.count(for: T.fetchRequest())) ?? 0
   }
   
   /// Saves the data.

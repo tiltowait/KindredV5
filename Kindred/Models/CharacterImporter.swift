@@ -29,7 +29,7 @@ enum CharacterImporter {
     kindred.title = pdf.information(for: .title)
     
     // Figure out its clan
-    if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {//dataController.clan(named: pdf.information(for: .clan)) {
+    if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {
       kindred.clan = clan
     }
     

@@ -29,12 +29,11 @@ extension InfoItem {
   ///   - context: The managed object context containing the referenced item.
   /// - Returns: The fetched item, or nil if no item with that reference ID exists.
   static func fetchItem(id: Int16, in context: NSManagedObjectContext) -> Self? {
-    let className = NSStringFromClass(Self.self)
-    let request = NSFetchRequest<Self>(entityName: className)
+    let request: NSFetchRequest<NSFetchRequestResult> = Self.fetchRequest()
     request.predicate = NSPredicate(format: "refID = %d", id)
     request.fetchLimit = 1
     
-    return try? context.fetch(request).first
+    return (try? context.fetch(request).first) as? Self
   }
   
 }
