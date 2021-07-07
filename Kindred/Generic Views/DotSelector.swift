@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct DotSelector: View {
+  
+  @State private var engine = try? CHHapticEngine()
   
   @Binding var current: Int16
   let min: Int16
@@ -76,10 +79,31 @@ struct DotSelector: View {
   /// Select the given number of dots. If "one" is double-tapped, set to 0.
   /// - Parameter dots: The number of dots to select.
   func select(dots: Int) {
-    if allowZero {
-      current = (current == 1 && dots == 1) ? 0 : Int16(dots)
-    } else {
+    // Normally, if the user taps a dot, we simply select it; however,
+    // there are some considerations for tapping an already-selected
+    // dot.
+    //
+    // 1. Smallest magnitude dot - do we allow zero?
+    // 2. Ranges can be negative. Do we increment or decrement?
+    //
+    // We also want to use the correct haptic tap—sharp or error.
+    
+    if dots != current {
       current = Int16(dots)
+      Global.hapticTap(engine: engine)
+    } else {
+      if current == 1 {
+        if allowZero {
+          current = 0
+          Global.hapticTap(engine: engine)
+        } else {
+          // Don't allow the selection
+          UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        }
+      } else {
+        current += current < 0 ? 1 : -1 // bring closer to 0
+        Global.hapticTap(engine: engine)
+      }
     }
   }
   
