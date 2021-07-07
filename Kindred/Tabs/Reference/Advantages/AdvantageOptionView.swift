@@ -41,6 +41,7 @@ struct AdvantageOptionView: View {
     HStack(alignment: .center, spacing: 5) {
       VStack(alignment: .leading) {
         HStack(alignment: .center) {
+          // No range. Show dots or squares.
           if let magnitude = viewModel.singleOptionMagnitude {
             AdvantageOptionMarker(
               count: magnitude,
@@ -49,6 +50,8 @@ struct AdvantageOptionView: View {
           }
           Text(viewModel.option.name)
             .bold()
+          
+          // Reference. Ex: "(• to •••)"
           if viewModel.showRatingRange {
             Text(
               ratingRange(
@@ -66,6 +69,7 @@ struct AdvantageOptionView: View {
           .lineLimitFix()
         
         HStack {
+          // Non-reference. Attached to character.
           if viewModel.showRatingSelection {
             Text("Rating:")
               .bold()
