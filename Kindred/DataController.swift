@@ -103,9 +103,13 @@ class DataController: ObservableObject {
   init(inMemory: Bool = false) {
     container = NSPersistentCloudKitContainer(name: "KindredModel", managedObjectModel: Self.model)
     
+    // Load up reference material
+    var coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
+
     if inMemory {
       print("Running in memory! Data will not persist.")
       container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+      coreDataReferenceVersion = 0
     }
     
     container.loadPersistentStores { _, error in
@@ -113,10 +117,7 @@ class DataController: ObservableObject {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
     }
-    
-    // Load up reference material
-    let coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
-    
+        
     // Each importer reads only those reference items that have a revision number higher than the
     // Core Data version number stored in user defaults. For each row in the reference database,
     // the importers first try to fetch an object with that row's reference ID; if they can't, then
