@@ -20,6 +20,8 @@ class DataController: ObservableObject {
   /// that all preview data uses the same managed object context.
   static let preview = DataController(inMemory: true)
   
+  // TODO: Remove these lazy variables and have the appropriate view models manage them.
+  
   /// Every single `Clan`, sorted alphabetically.
   private(set) lazy var clans: [Clan] = {
     do {
@@ -114,6 +116,11 @@ class DataController: ObservableObject {
     
     // Load up reference material
     let coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
+    
+    // Each importer reads only those reference items that have a revision number higher than the
+    // Core Data version number stored in user defaults. For each row in the reference database,
+    // the importers first try to fetch an object with that row's reference ID; if they can't, then
+    // they create a new item with that ID.
     
     if coreDataReferenceVersion < self.sqliteReferenceVersion {
       print("Fetching new items")

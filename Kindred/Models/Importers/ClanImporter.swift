@@ -43,6 +43,12 @@ enum ClanImporter: Importer {
       clan.compulsionDetails = row[compulsionDetails]
       
       // Add the in-clan disciplines, but only if the clan is new
+      //
+      // This approach has an important limitation regarding clans: namely, it isn't currently possible
+      // to update the disciplines associated with a clan. As in-clan disciplines have historically
+      // been stable, this is not likely to be a problem in the future; however, should it become one
+      // somewhere down the line, it will be easy enough to fix.
+      
       if clan.refID == -1 {
         if let disciplines = row[disciplines] {
           let inClanDisciplines = disciplines.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
