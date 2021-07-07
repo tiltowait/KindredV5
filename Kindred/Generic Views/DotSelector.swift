@@ -9,31 +9,47 @@ import SwiftUI
 import CoreHaptics
 
 struct DotSelector: View {
-  
-  @State private var engine = try? CHHapticEngine()
-  
+    
+  // User-supplied
   @Binding var currentValue: Int16
   let min: Int16
   let max: Int16
-  let allowZero: Bool
   
+  // Derived
+  private let allowZero: Bool
   private var negativeSelection: Bool
   @State private var currentValueProxy: Int16
+  
+  // Haptics
+  @State private var engine = try? CHHapticEngine()
+
   
   let size: CGFloat = 17
   let spacing: CGFloat = 5
   
   /// Create a new DotSelector.
+  ///
+  /// The minimum and maximum ratings must have the same sign.
   /// - Parameters:
   ///   - current: The binding to the current dot rating.
   ///   - min: The minimum number of dots.
   ///   - max: The maximum number of dots.
-  ///   - allowZero: Whether zero dots are allowed.
-  init(current: Binding<Int16>, min: Int16, max: Int16, allowZero: Bool = true) {
+  init(current: Binding<Int16>, min: Int16, max: Int16) {
     assert((min <= 0 && max <= 0) || (min >= 0 && max >= 0), "Minimum and maximum values must have a matching sign.")
     
     _currentValue = current
-    self.allowZero = allowZero
+    
+    // Figure out if we're allowing a rating of zero. If we are, we
+    // want to change min to +/- 1 so that we don't draw an extra
+    // box or circle.
+    
+    var min = min
+    if min == 0 {
+      allowZero = true
+      min = max < 0 ? -1 : 1 // Make sure signs match
+    } else {
+      allowZero = false
+    }
     
     // Trait ranges can be either positive or negative (but cannot be
     // both). If a trait is negative, its range is something like
@@ -147,6 +163,6 @@ struct DotSelector: View {
 
 struct DotSelector_Previews: PreviewProvider {
   static var previews: some View {
-    DotSelector(current: .constant(3), min: 1, max: 11)
+    DotSelector(current: .constant(3), min: 0, max: 11)
   }
 }

@@ -69,7 +69,7 @@ struct Trackers: View {
         VStack {
           Text("Hunger")
             .bold()
-          DotSelector(current: $viewModel.kindred.hunger, min: 1, max: 5)
+          DotSelector(current: $viewModel.kindred.hunger, min: 0, max: 5)
         }
         .padding(.bottom, 5)
       }

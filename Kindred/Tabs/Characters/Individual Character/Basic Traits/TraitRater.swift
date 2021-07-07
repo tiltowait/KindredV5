@@ -44,7 +44,7 @@ struct TraitRater: View {
       
       Spacer()
       
-      DotSelector(current: $binding, min: 1, max: max, allowZero: true)
+      DotSelector(current: $binding, min: 0, max: max)
       
       // Reference button
       Button {
