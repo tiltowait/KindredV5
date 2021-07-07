@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct TrackerStepper: View {
+  
+  @State private var engine = try? CHHapticEngine()
   
   let label: LocalizedStringKey
   @Binding var value: Int16
@@ -43,6 +46,9 @@ struct TrackerStepper: View {
         Text("\(value)")
           .padding(.trailing)
       }
+    }
+    .onChange(of: value) { _ in
+      Global.hapticTap(engine: engine)
     }
   }
   
