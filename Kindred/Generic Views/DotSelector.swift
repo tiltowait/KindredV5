@@ -12,10 +12,13 @@ struct DotSelector: View {
   
   @State private var engine = try? CHHapticEngine()
   
-  @Binding var current: Int16
+  @Binding var currentValue: Int16
   let min: Int16
   let max: Int16
   let allowZero: Bool
+  
+  private var negativeSelection: Bool
+  @State private var currentValueProxy: Int16
   
   let size: CGFloat = 17
   let spacing: CGFloat = 5
@@ -27,10 +30,36 @@ struct DotSelector: View {
   ///   - max: The maximum number of dots.
   ///   - allowZero: Whether zero dots are allowed.
   init(current: Binding<Int16>, min: Int16, max: Int16, allowZero: Bool = true) {
-    _current = current
-    self.min = min
-    self.max = max
+    assert((min <= 0 && max <= 0) || (min >= 0 && max >= 0), "Minimum and maximum values must have a matching sign.")
+    
+    _currentValue = current
     self.allowZero = allowZero
+    
+    // Trait ranges can be either positive or negative (but cannot be
+    // both). If a trait is negative, its range is something like
+    // -3...-1. If we were to draw the boxes based on currentValue
+    // directly, then we would wind up with a bug. A current value
+    // of -1 would lead to all boxes being filled rather than just
+    // one. If we get slightly more clever and use absolute values
+    // for determining box color, we wind up with a single box filled
+    // ... but right-aligned rather than left.
+    //
+    // The solution is to wrap up the value in a proxy and make the
+    // ranges always be positive. Then, when the proxy's value
+    // changes, we simply assign the proxy's value to the receiver,
+    // flipping the sign if necessary.
+    
+    if min < 0 && max < 0 {
+      negativeSelection = true
+      self.min = -max
+      self.max = -min
+      _currentValueProxy = State(wrappedValue: -current.wrappedValue)
+    } else {
+      negativeSelection = false
+      self.min = min
+      self.max = max
+      _currentValueProxy = State(wrappedValue: current.wrappedValue)
+    }
   }
   
   var body: some View {
@@ -47,16 +76,17 @@ struct DotSelector: View {
           }
       }
     }
+    .onChange(of: currentValueProxy, perform: updateReceiver)
   }
   
   /// Determine the color for a dot at a given rating.
   ///
-  /// If `rating` is greater than the receiver's current value, then the dot is an "unfilled" color.
-  /// Otherwise, it will receive a "filled" color.
+  /// If `rating` is greater than the receiver's current value, then the dot is an
+  /// "unfilled" color. Otherwise, it will receive a "filled" color.
   /// - Parameter rating: The index of the dot in question.
   /// - Returns: The color the dot should take.
   func color(for rating: Int) -> Color {
-    rating <= current ? .vampireRed : .tertiarySystemGroupedBackground
+    rating <= currentValueProxy ? .vampireRed : .tertiarySystemGroupedBackground
   }
   
   /// Create a square for negative indices and a circle for positive.
@@ -65,7 +95,7 @@ struct DotSelector: View {
   /// - Parameter index: The shape's index.
   /// - Returns: The generated shape.
   @ViewBuilder func shape(for index: Int) -> some View {
-    if index < 0 {
+    if negativeSelection {
       Rectangle()
         .fill(color(for: index))
         .frame(width: size, height: size)
@@ -88,23 +118,29 @@ struct DotSelector: View {
     //
     // We also want to use the correct haptic tap—sharp or error.
     
-    if dots != current {
-      current = Int16(dots)
+    if dots != currentValueProxy {
+      currentValueProxy = Int16(dots)
       Global.hapticTap(engine: engine)
     } else {
-      if current == 1 {
+      if currentValueProxy == 1 {
         if allowZero {
-          current = 0
+          currentValueProxy = 0
           Global.hapticTap(engine: engine)
         } else {
           // Don't allow the selection
           UINotificationFeedbackGenerator().notificationOccurred(.warning)
         }
       } else {
-        current += current < 0 ? 1 : -1 // bring closer to 0
+        currentValueProxy += currentValueProxy < 0 ? 1 : -1 // bring closer to 0
         Global.hapticTap(engine: engine)
       }
     }
+  }
+  
+  /// Updates the receiver with the proxy's value.
+  /// - Parameter newValue: The proxy's new value.
+  func updateReceiver(_ newValue: Int16) {
+    currentValue = newValue * (negativeSelection ? -1 : 1)
   }
   
 }
