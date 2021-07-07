@@ -63,6 +63,7 @@ struct CreateCharacterView: View {
       NavigationView {
         ClanList(kindred: viewModel.dummyCharacter, dataController: viewModel.dataController)
       }
+      .navigationViewStyle(StackNavigationViewStyle())
     }
     .onDisappear(perform: viewModel.deleteDummy)
   }

@@ -150,6 +150,7 @@ struct PowerCard: View {
           .fill(Color.systemBackground)
           .shadow(radius: 5)
       )
+      .frame(maxWidth: 327)
       .fixedSize(horizontal: false, vertical: true)
       .padding()
       .padding()

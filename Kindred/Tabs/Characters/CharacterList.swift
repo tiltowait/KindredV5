@@ -60,6 +60,8 @@ struct CharacterList: View {
           Label("Add Kindred", systemImage: "plus")
         }
       }
+      Text("Select or create a character to begin.")
+        .foregroundColor(.secondary)
     }
     .sheet(isPresented: $showingCreationSheet) {
       AddCharacterView()

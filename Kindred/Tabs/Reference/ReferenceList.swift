@@ -40,6 +40,9 @@ struct ReferenceList: View {
       }
       .navigationTitle("Reference")
       .listStyle(InsetGroupedListStyle())
+      
+      Text("Select an item on the left.")
+        .foregroundColor(.secondary)
     }
   }
   
