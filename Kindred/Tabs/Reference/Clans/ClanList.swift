@@ -29,7 +29,7 @@ struct ClanList: View {
         ClanRow(clan: clan)
       }
     }
-    .listStyle(GroupedListStyle())
+    .listStyle(InsetGroupedListStyle())
     .navigationBarTitle("Clans", displayMode: .inline)
     .toolbar {
       ToolbarItem(placement: .cancellationAction) {

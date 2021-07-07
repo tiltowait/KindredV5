@@ -20,6 +20,7 @@ struct DisciplineList: View {
         DisciplineRow(discipline: discipline)
       }
     }
+    .listStyle(InsetGroupedListStyle())
     .navigationBarTitle("Disciplines", displayMode: .inline)
   }
 }
