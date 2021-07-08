@@ -95,18 +95,19 @@ struct ScrollingImageHeader: View {
   
   /// Adds the selected image to the view model.
   func addImage(_ image: UIImage) {
-    print("Adding")
-    let scaledImage = image.resize(height: thumbnailHeight)
-    
-    // Theoretically, we should present an alert to the user; however, under
-    // no normal circumstances should this fail. In the event we ever start
-    // picking images from outside the photo library, we will revisit this
-    // topic.
-    guard let fullSize = image.pngData(),
-          let thumbnail = scaledImage.pngData()
-    else { return }
-    
-    viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
+    DispatchQueue.main.async {
+      let scaledImage = image.resize(height: thumbnailHeight)
+      
+      // Theoretically, we should present an alert to the user;
+      // however, under no normal circumstances should this fail. In
+      // the event we ever start picking images from outside the
+      // photo library, we will revisit this topic.
+      guard let fullSize = image.pngData(),
+            let thumbnail = scaledImage.pngData()
+      else { return }
+      
+      viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
+    }
   }
   
   func imageError(_ error: String) {

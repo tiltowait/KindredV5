@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import UniformTypeIdentifiers
 
 struct PhotoPicker: UIViewControllerRepresentable {
   
@@ -47,17 +48,15 @@ extension PhotoPicker {
       defer { picker.dismiss(animated: true) }
       guard let result = results.first else { return }
       
-      DispatchQueue.main.async {
-        result.itemProvider.loadDataRepresentation(forTypeIdentifier: "public.image") { data, _ in
-          if let data = data {
-            if let image = UIImage(data: data) {
-              self.parent.imageHandler(image)
-            } else {
-              self.parent.errorHandler?("Unable to load the image.")
-            }
+      result.itemProvider.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, _ in
+        if let data = data {
+          if let image = UIImage(data: data) {
+            self.parent.imageHandler(image)
           } else {
-            self.parent.errorHandler?("Unable to locate the image.")
+            self.parent.errorHandler?("Unable to load the image.")
           }
+        } else {
+          self.parent.errorHandler?("Unable to locate the image.")
         }
       }
     }
