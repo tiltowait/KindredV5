@@ -197,20 +197,80 @@ class CharacterPDF {
     ]
   ]
   
+  /// The dot fields associated with a given discipline group.
+  let disciplineDots: [String: [String]] = [
+    "disciplineslist1": [
+      "dot149b",
+      "dot150b",
+      "dot151b",
+      "dot152b",
+      "dot152ab"
+    ],
+    "disciplineslist2": [
+      "dot149qb",
+      "dot150qb",
+      "dot151qb",
+      "dot152qb",
+      "dot152qab"
+    ],
+    "disciplineslist3": [
+      "dot309b",
+      "dot310b",
+      "dot311b",
+      "dot312b",
+      "dot312ab"
+    ],
+    "disciplineslist4": [
+      "dot229b",
+      "dot230b",
+      "dot231b",
+      "dot232b",
+      "dot232ab"
+    ],
+    "disciplineslist5": [
+      "dot229qb",
+      "dot230qb",
+      "dot231qb",
+      "dot232qb",
+      "dot232qab"
+    ],
+    "disciplineslist6": [
+      "dot309qb",
+      "dot310qb",
+      "dot311qb",
+      "dot312qb",
+      "dot312qab"
+    ]
+  ]
+  
+  /// Fields for the clan bane.
+  let baneFields: [String] = [
+    "CB1", "CB2", "CB3", "CB4", "CB5", "CB6"
+  ]
+  
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
   private let allAnnotations: [String: PDFAnnotation]
   
-  // MARK: - Public Methods and Initializers
+  // MARK: - Initializers
   
   /// Create a CharacterImporter. If there is no PDF at the supplied URL, or if the URL is invalid, it will return `nil`.
   ///
   /// While attribute and ability names are hardcoded, "dot" fields are not and are automatically generated. This importer
   /// assumes a standard layout.
   /// - Parameter url: The URL of the PDF to import.
-  init?(url: URL) {
+  convenience init?(url: URL) {
     guard let pdf = PDFDocument(url: url) else {
       return nil
     }
+    self.init(pdf: pdf)
+  }
+  
+  convenience init?(data: Data) {
+    let pdf = PDFDocument(data: data) ?? PDFDocument()
+    self.init(pdf: pdf)
+  }
+  
+  private init?(pdf: PDFDocument) {
     self.pdf = pdf
     
     // Make sure the PDF isn't obviously the wrong format
@@ -312,6 +372,7 @@ class CharacterPDF {
     self.specialtyFields = specialtyFields
   }
   
+  // MARK: - Public Accessors
   
   /// Retrieve the character's rating in a given attribute or ability. If the `trait` is invalid, it will return 0.
   /// - Parameter trait: The trait to look up.
@@ -341,6 +402,11 @@ class CharacterPDF {
   /// - Returns: The requested information, which may be an empty string.
   func information(for trait: BasicField) -> String {
     value(for: trait.rawValue) ?? ""
+  }
+  
+  /// Returns a representation of the document as an NSData object.
+  func dataRepresentation() -> Data? {
+    pdf.dataRepresentation()
   }
   
   // MARK: - Public Variables
@@ -456,6 +522,211 @@ extension CharacterPDF: CustomStringConvertible {
       "\(trait.rawValue): \(information(for: trait))"
     }
     return info.joined(separator: "\n")
+  }
+  
+}
+
+// MARK: - PDF Creation
+
+extension CharacterPDF {
+  
+  /// The string value of enabled checkboxes.
+  private var enabled: String { "Yes" }
+  
+  convenience init(character: Kindred) {
+    guard let url = Bundle.main.url(forResource: "Blank Character Sheet", withExtension: "pdf") else {
+      fatalError("Unable to locate blank character sheet.")
+    }
+    self.init(url: url)!
+    
+    self.setBasicFields(character: character)
+    self.setTraits(character: character)
+    
+    self.setHealth(to: character.health)
+    self.setWillpower(to: character.willpower)
+    self.setHumanity(to: character.humanity)
+    self.setHunger(to: character.hunger)
+    self.setBloodPotency(to: character.bloodPotency)
+    
+    _ = self.setDisciplines(character: character)
+    
+    self.setBaneDescription(to: character.clan?.bane ?? "")
+    self.setBloodPotencyFields(potency: character.bloodPotency)
+  }
+  
+  func setField(_ field: BasicField, to newValue: String) {
+    if let annotation = allAnnotations[field.rawValue] {
+      annotation.widgetStringValue = newValue
+    }
+  }
+  
+  func setTrait(_ trait: Trait, to newValue: Int16) {
+    let fields = traitFields[trait.capitalized]!
+    
+    for index in 0..<Int(newValue) {
+      let field = fields[index]
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setHealth(to health: Int16) {
+    let fields = (1...15).map { "check\($0)" }
+    let drop = 15 - Int(health)
+    
+    for field in fields.dropFirst(drop) {
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setWillpower(to willpower: Int16) {
+    let fields = (16...30).map { "check\($0)" }
+    let drop = 15 - Int(willpower)
+    
+    for field in fields.dropFirst(drop) {
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setHumanity(to humanity: Int16) {
+    let fields = (31...40).map { "check\($0)" }
+    let drop = 10 - Int(humanity)
+    
+    for field in fields.dropLast(drop) {
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setHunger(to hunger: Int16) {
+    let fields = (41...45).map { "check\($0)" }
+    let drop = 5 - Int(hunger)
+    
+    for field in fields.dropLast(drop) {
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setBloodPotency(to bloodPotency: Int16) {
+    let fields = (1...10).map { "hdot\($0)" }
+    let drop = 10 - Int(bloodPotency)
+    
+    for field in fields.dropLast(drop) {
+      allAnnotations[field]?.widgetStringValue = enabled
+    }
+  }
+  
+  func setDisciplines(character: Kindred) -> Bool {
+    let disciplines = character.knownDisciplines
+    let powers = character.knownPowers
+    
+    var couldFitAll = true
+    
+    for (index, discipline) in disciplines.enumerated() {
+      let list = "disciplineslist\(index + 1)"
+      if let fields = disciplineFields[list] {
+        allAnnotations[list]?.widgetStringValue = discipline.name
+        
+        // Set the powers
+        let powers = powers.filter { $0.discipline == discipline }
+        for (index, power) in powers.enumerated() {
+          if index < fields.count {
+            let field = fields[index]
+            allAnnotations[field]?.widgetStringValue = power.name
+          } else {
+            couldFitAll = false
+          }
+        }
+        
+        // Set the dots
+        let dots = powers.count
+        let dotFields = disciplineDots[list]!.dropLast(5 - dots)
+        for field in dotFields {
+          allAnnotations[field]?.widgetStringValue = enabled
+        }
+      } else {
+        couldFitAll = false
+      }
+    }
+    return couldFitAll
+  }
+  
+  func setBaneDescription(to bane: String) {
+    let lines = bane.split(lines: baneFields.count).components(separatedBy: .newlines)
+    for (line, field) in zip(lines, baneFields) {
+      allAnnotations[field]?.widgetStringValue = line
+    }
+  }
+  
+  func setBloodPotencyFields(potency: Int16) {
+    let bloodPotency = BloodPotency(potency)
+    
+    allAnnotations["BPstat1"]?.widgetStringValue = bloodPotency.surgeString
+    allAnnotations["BPstat2"]?.widgetStringValue = bloodPotency.mendString
+    allAnnotations["BPstat3"]?.widgetStringValue = bloodPotency.powerBonusString
+    allAnnotations["BPstat4"]?.widgetStringValue = bloodPotency.rouseRerollString
+    allAnnotations["BPstat5"]?.widgetStringValue = bloodPotency.penalty
+    allAnnotations["BPstat6"]?.widgetStringValue = String(bloodPotency.baneSeverity)
+  }
+  
+  // MARK: - Private Mass Setters
+  
+  private func setBasicFields(character: Kindred) {
+    self.setField(.characterName, to: character.name)
+    self.setField(.concept, to: character.concept)
+    self.setField(.chronicle, to: character.chronicle)
+    self.setField(.ambition, to: character.ambition)
+    self.setField(.desire, to: character.desire)
+    self.setField(.predator, to: character.predatorType?.name ?? "")
+    self.setField(.generation, to: String(character.generation))
+    self.setField(.sire, to: character.sire)
+    self.setField(.title, to: character.title)
+    self.setField(.clan, to: character.clan?.name ?? "")
+  }
+  
+  private func setTraits(character: Kindred) {
+    // Attributes
+    self.setTrait(.strength, to: character.strength)
+    self.setTrait(.dexterity, to: character.dexterity)
+    self.setTrait(.stamina, to: character.stamina)
+    self.setTrait(.charisma, to: character.charisma)
+    self.setTrait(.charisma, to: character.charisma)
+    self.setTrait(.manipulation, to: character.manipulation)
+    self.setTrait(.composure, to: character.composure)
+    self.setTrait(.intelligence, to: character.intelligence)
+    self.setTrait(.wits, to: character.wits)
+    self.setTrait(.resolve, to: character.resolve)
+    
+    // Physical Skills
+    self.setTrait(.athletics, to: character.athletics)
+    self.setTrait(.brawl, to: character.brawl)
+    self.setTrait(.craft, to: character.craft)
+    self.setTrait(.drive, to: character.drive)
+    self.setTrait(.firearms, to: character.firearms)
+    self.setTrait(.larceny, to: character.larceny)
+    self.setTrait(.melee, to: character.melee)
+    self.setTrait(.stealth, to: character.stealth)
+    self.setTrait(.survival, to: character.survival)
+
+    // Mental Skills
+    self.setTrait(.animalKen, to: character.animalKen)
+    self.setTrait(.etiquette, to: character.etiquette)
+    self.setTrait(.insight, to: character.insight)
+    self.setTrait(.intimidation, to: character.intimidation)
+    self.setTrait(.leadership, to: character.leadership)
+    self.setTrait(.performance, to: character.performance)
+    self.setTrait(.persuasion, to: character.persuasion)
+    self.setTrait(.streetwise, to: character.streetwise)
+    self.setTrait(.subterfuge, to: character.subterfuge)
+
+    // Social Skills
+    self.setTrait(.academics, to: character.academics)
+    self.setTrait(.awareness, to: character.awareness)
+    self.setTrait(.finance, to: character.finance)
+    self.setTrait(.investigation, to: character.investigation)
+    self.setTrait(.medicine, to: character.medicine)
+    self.setTrait(.occult, to: character.occult)
+    self.setTrait(.politics, to: character.politics)
+    self.setTrait(.science, to: character.science)
+    self.setTrait(.technology, to: character.technology)
   }
   
 }

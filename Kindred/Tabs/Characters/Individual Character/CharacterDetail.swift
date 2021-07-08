@@ -18,6 +18,7 @@ struct CharacterDetail: View {
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
+  @State private var showingExporter = false
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -42,6 +43,11 @@ struct CharacterDetail: View {
         showingNotesSheet.toggle()
       } label: {
         Label("Character notes", systemImage: "note.text")
+      }
+      Button {
+        showingExporter.toggle()
+      } label: {
+        Label("Export character", systemImage: "square.and.arrow.up")
       }
       
     // Menu label
@@ -123,6 +129,14 @@ struct CharacterDetail: View {
         NavigationView {
           ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
+      }
+      .fileExporter(
+        isPresented: $showingExporter,
+        document: CharacterExporter(character: viewModel.kindred),
+        contentType: .pdf,
+        defaultFilename: "\(viewModel.kindred.name).pdf"
+      ) { result in
+        print(result)
       }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)

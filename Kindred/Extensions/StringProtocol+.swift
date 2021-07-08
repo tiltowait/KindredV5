@@ -64,8 +64,35 @@ extension String {
     self = self.prefix(index) + substring + self.dropFirst(index + 1)
   }
   
+  /// Returns a string split evenly into a given number of lines.
+  ///
+  /// If the length of the string is not a multiple of the line number, then the lines will be
+  /// as close to even as possible.
+  func split(lines lineCount: Int) -> String {
+    let words = self.components(separatedBy: .whitespacesAndNewlines)
+    let wordsPerLine = words.count / lineCount
+    var remainder = words.count % lineCount
+    
+    var lines: [String] = []
+    var delta = 0
+    for line in 0..<lineCount {
+      let start = line * wordsPerLine + delta
+      var end = start + wordsPerLine
+      if remainder > 0 {
+        end += 1
+        delta += 1
+        remainder -= 1
+      }
+      let slice = words[start..<end]
+      lines.append(slice.joined(separator: " "))
+    }
+    return lines.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+  }
+  
 }
 
 extension String: Identifiable {
+  
   public var id: Int { self.hashValue }
+  
 }
