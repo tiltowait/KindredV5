@@ -127,10 +127,8 @@ class DataController: ObservableObject {
       print("Fetching new items")
       do {
         try DisciplineImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try PowerImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try ClanImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try AdvantageImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try AdvantageOptionImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try LoresheetImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         
         self.save()

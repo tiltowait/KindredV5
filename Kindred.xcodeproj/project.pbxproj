@@ -23,7 +23,6 @@
 		281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281E21F8267D419200B49C37 /* CenteredModifier.swift */; };
 		281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80372680FAC600B5B387 /* CharacterListViewModel.swift */; };
 		281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80392681302300B5B387 /* AdvantageImporter.swift */; };
-		281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */; };
 		281F803E2681337700B5B387 /* Advantage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803D2681337700B5B387 /* Advantage+.swift */; };
 		281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F803F268133D200B5B387 /* AdvantageOption+.swift */; };
 		281F80432681388900B5B387 /* AdvantageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F80422681388900B5B387 /* AdvantageList.swift */; };
@@ -88,7 +87,6 @@
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
 		28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921691267E64DE004911EA /* NSManagedObject+.swift */; };
 		28921696267E6BDB004911EA /* reference.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28921695267E6BDB004911EA /* reference.sqlite */; };
-		28921698267E6C40004911EA /* PowerImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921697267E6C40004911EA /* PowerImporter.swift */; };
 		2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28921699267E6F71004911EA /* DisciplineImporter.swift */; };
 		28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
@@ -170,7 +168,6 @@
 		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
 		281F80372680FAC600B5B387 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		281F80392681302300B5B387 /* AdvantageImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageImporter.swift; sourceTree = "<group>"; };
-		281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionImporter.swift; sourceTree = "<group>"; };
 		281F803D2681337700B5B387 /* Advantage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advantage+.swift"; sourceTree = "<group>"; };
 		281F803F268133D200B5B387 /* AdvantageOption+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageOption+.swift"; sourceTree = "<group>"; };
 		281F80422681388900B5B387 /* AdvantageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageList.swift; sourceTree = "<group>"; };
@@ -239,7 +236,6 @@
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		28921695267E6BDB004911EA /* reference.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = reference.sqlite; sourceTree = "<group>"; };
-		28921697267E6C40004911EA /* PowerImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerImporter.swift; sourceTree = "<group>"; };
 		28921699267E6F71004911EA /* DisciplineImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineImporter.swift; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
@@ -523,11 +519,9 @@
 			children = (
 				2892168A267E5C9A004911EA /* Importer.swift */,
 				281F80392681302300B5B387 /* AdvantageImporter.swift */,
-				281F803B2681315700B5B387 /* AdvantageOptionImporter.swift */,
 				2892168C267E5D4C004911EA /* ClanImporter.swift */,
-				28B9A5442694EA3100A48250 /* LoresheetImporter.swift */,
 				28921699267E6F71004911EA /* DisciplineImporter.swift */,
-				28921697267E6C40004911EA /* PowerImporter.swift */,
+				28B9A5442694EA3100A48250 /* LoresheetImporter.swift */,
 			);
 			path = Importers;
 			sourceTree = "<group>";
@@ -831,7 +825,6 @@
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
 				28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */,
-				28921698267E6C40004911EA /* PowerImporter.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */,
@@ -904,7 +897,6 @@
 				28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
-				281F803C2681315700B5B387 /* AdvantageOptionImporter.swift in Sources */,
 				2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */,
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */,
