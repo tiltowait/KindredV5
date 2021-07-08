@@ -8,7 +8,7 @@
 import CoreData
 
 extension KnownDisciplinesGroups {
-  class ViewModel: BaseSavingKindredViewModel {
+  class ViewModel: BaseKindredViewModel {
     
     /// Retrieve the powers the character knows within a Discipline.
     /// - Parameter discipline: The Discipline of interest.

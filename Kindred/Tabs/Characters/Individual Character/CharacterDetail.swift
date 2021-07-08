@@ -97,7 +97,7 @@ struct CharacterDetail: View {
                   .foregroundColor(.secondary)
               }
             } else {
-              KnownDisciplinesGroups(kindred: viewModel.kindred, dataController: viewModel.dataController)
+              KnownDisciplinesGroups(kindred: viewModel.kindred)
             }
           }
         }
