@@ -57,13 +57,12 @@ struct TraitRater: View {
     .alert(isPresented: $showingReferenceAlert) {
       Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
     }
-    .onChange(of: binding, perform: updateTrait)
+    .onDisappear(perform: updateTrait)
   }
   
-  /// Update the Kindred's trait (represented by the key path) to a new value.
-  /// - Parameter newValue: The trait's new value.
-  func updateTrait(_ newValue: Int16) {
-    kindred[keyPath: keyPath] = newValue
+  /// Update the character's trait with the value of the binding.
+  func updateTrait() {
+    kindred[keyPath: keyPath] = binding
   }
   
 }
