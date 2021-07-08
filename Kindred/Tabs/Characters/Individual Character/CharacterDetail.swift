@@ -69,9 +69,9 @@ struct CharacterDetail: View {
               dataController: viewModel.dataController
             )
           ) {
-              Text("Advantages")
-                .bold()
-            }
+            Text("Advantages")
+              .font(.headline)
+          }
         }
         
         // Traits

@@ -11,8 +11,7 @@ extension CharacterAdvantages {
   class ViewModel: BaseSavingKindredViewModel {
     
     var hasLoresheets: Bool {
-      print(kindred.loresheetEntries.isEmpty)
-      return !kindred.loresheetEntries.isEmpty
+      !kindred.loresheetEntries.isEmpty
     }
    
     var coalesced: [Kindred.CoalescedAdvantage] {
