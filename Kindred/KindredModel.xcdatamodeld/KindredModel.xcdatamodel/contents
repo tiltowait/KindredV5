@@ -100,6 +100,7 @@
         <relationship name="advantages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageContainer" inverseName="kindred" inverseEntity="AdvantageContainer"/>
         <relationship name="clan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Clan" inverseName="kindred" inverseEntity="Clan"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="KindredImage" inverseName="parent" inverseEntity="KindredImage"/>
+        <relationship name="loresheets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoresheetEntry" inverseName="referencingKindred" inverseEntity="LoresheetEntry"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Power" inverseName="kindred" inverseEntity="Power"/>
         <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PredatorType" inverseName="kindred" inverseEntity="PredatorType"/>
     </entity>
@@ -116,6 +117,7 @@
     <entity name="LoresheetEntry" representedClassName="LoresheetEntry" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Loresheet" inverseName="items" inverseEntity="Loresheet"/>
+        <relationship name="referencingKindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="loresheets" inverseEntity="Kindred"/>
     </entity>
     <entity name="Power" representedClassName="Power" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="String"/>
@@ -149,10 +151,10 @@
         <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="179"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="74"/>
-        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="944"/>
+        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="959"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>
         <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="59"/>
-        <element name="LoresheetEntry" positionX="-252" positionY="-450" width="128" height="59"/>
+        <element name="LoresheetEntry" positionX="-252" positionY="-450" width="128" height="74"/>
         <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="163"/>
         <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>
         <element name="ReferenceItem" positionX="83.31640625" positionY="-420.234375" width="128" height="59"/>

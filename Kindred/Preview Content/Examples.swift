@@ -114,6 +114,12 @@ extension Kindred {
       kindred.addToAdvantages(container)
     }
     
+    // Add some loresheets
+    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Dangerous Reputation", in: dataController.container.viewContext)!)
+    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "First-Cursed", in: dataController.container.viewContext)!)
+    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Book of the Grave-War", in: dataController.container.viewContext)!)
+    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Trophy Kill", in: dataController.container.viewContext)!)
+    
     return kindred
   }
   
@@ -141,6 +147,22 @@ extension KindredImage {
       images.append(ki)
     }
     return images
+  }
+  
+}
+
+extension Loresheet {
+  
+  static var example: Loresheet {
+    Loresheet.fetchObject(named: "The Bahari", in: DataController.preview.container.viewContext)!
+  }
+  
+}
+
+extension LoresheetEntry {
+  
+  static var example: LoresheetEntry {
+    Loresheet.example.entries[0]
   }
   
 }

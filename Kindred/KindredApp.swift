@@ -13,6 +13,7 @@ struct KindredApp: App {
   @StateObject var dataController: DataController
   
   init() {
+//    let dataController = DataController.preview
     let dataController = DataController(inMemory: false)
     _dataController = StateObject(wrappedValue: dataController)
   }

@@ -21,6 +21,11 @@ extension CharacterDetail {
       kindred.knownDisciplines.isEmpty
     }
     
+    /// True if the referenced character has no loresheets.
+    var noLoresheets: Bool {
+      kindred.loresheetEntries.isEmpty
+    }
+    
     override init(kindred: Kindred, dataController: DataController) {
       clanName = kindred.clan?.name ?? "Tap to select"
       super.init(kindred: kindred, dataController: dataController)

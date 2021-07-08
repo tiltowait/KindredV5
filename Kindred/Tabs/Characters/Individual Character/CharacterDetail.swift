@@ -87,7 +87,7 @@ struct CharacterDetail: View {
         // Disciplines
         if viewModel.kindred.clan?.template != .mortal {
           Section(
-            header: DisciplineHeader(buttonPressed: $showingPowerAdder)
+            header: DisciplineHeader("Disciplines", buttonPressed: $showingPowerAdder)
           ) {
             if viewModel.noKnownDisciplines {
               Button {
@@ -116,7 +116,6 @@ struct CharacterDetail: View {
       .sheet(isPresented: $showingDiceRoller) {
         DiceRollView(kindred: viewModel.kindred)
       }
-      .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .sheet(isPresented: $showingPowerAdder) {
         AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $showingPowerAdder)
       }
@@ -125,6 +124,7 @@ struct CharacterDetail: View {
           ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
       }
+      .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)
       .onDisappear(perform: viewModel.save)
   }

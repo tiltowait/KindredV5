@@ -13,7 +13,7 @@ struct CharacterAdvantages: View {
   
   @State private var showingAddAdvantageSheet = false
   @State private var showingDeleteAdvantageAlert = false
-  @State private var optionsToBeDeleted = 0
+  @State private var showingLoresheetAdder = false
   
   
   init(kindred: Kindred, dataController: DataController) {
@@ -21,39 +21,55 @@ struct CharacterAdvantages: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
+  var menu: some View {
+    Menu {
+      Button {
+        showingAddAdvantageSheet.toggle()
+      } label: {
+        Label("Add advantage or flaw", systemImage: "person")
+      }
+      Button {
+        showingLoresheetAdder.toggle()
+      } label: {
+        Label("Add loresheet", systemImage: "book")
+      }
+    } label: {
+      Label("Add advantage", systemImage: "plus.circle")
+        .imageScale(.large)
+        .labelStyle(IconOnlyLabelStyle())
+    }
+  }
+  
   var instructions: some View {
-    Text("Press + to add a merit, background, or flaw.")
+    Text("Press + to add a merit, background, loresheet, or flaw.")
       .font(.system(size: 18))
       .padding(.top)
   }
   
   var advantageList: some View {
-    ForEach(viewModel.coalesced) { coalesced in
-      Section {
-        AdvantageRow(advantage: coalesced.advantage)
-        ForEach(coalesced.containers) { container in
-          AdvantageOptionView(container: container)
+    Group {
+      ForEach(viewModel.coalesced) { coalesced in
+        Section {
+          AdvantageRow(advantage: coalesced.advantage)
+          ForEach(coalesced.containers) { container in
+            AdvantageOptionView(container: container)
+          }
+          .onDelete { offsets in
+            viewModel.deleteOption(offsets, parent: coalesced)
+          }
         }
-        .onDelete { offsets in
-          viewModel.deleteOption(offsets, parent: coalesced)
+      }
+      if viewModel.hasLoresheets {
+        Section(header: Text("Loresheets")) {
+          KnownLoresheetGroups(kindred: viewModel.kindred)
         }
       }
     }
   }
   
-  var addAdvantageButton: some View {
-    Button {
-      showingAddAdvantageSheet.toggle()
-    }
-    label: {
-      Image(systemName: "plus")
-        .imageScale(.large)
-    }
-  }
-  
   var body: some View {
     List {
-      if viewModel.coalesced.isEmpty {
+      if !viewModel.hasAdvantages {
         Section(header: instructions) { }
           .textCase(nil)
       } else {
@@ -61,11 +77,15 @@ struct CharacterAdvantages: View {
       }
     }
     .listStyle(InsetGroupedListStyle())
-    .navigationBarItems(trailing: addAdvantageButton)
+    .navigationBarItems(trailing: menu)
     .navigationBarTitle("Advantages", displayMode: .inline)
     .sheet(isPresented: $showingAddAdvantageSheet) {
       addAdvantageSheet
     }
+    .sheet(isPresented: $showingLoresheetAdder) {
+      AddLoresheetList(kindred: viewModel.kindred, dataController: viewModel.dataController)
+    }
+    .onDisappear(perform: viewModel.save)
   }
   
   var addAdvantageSheet: some View {

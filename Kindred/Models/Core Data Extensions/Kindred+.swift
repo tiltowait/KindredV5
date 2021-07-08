@@ -169,3 +169,30 @@ extension Kindred {
   }
   
 }
+
+// MARK: - Loresheet Stuff
+
+extension Kindred {
+  
+  /// All loresheet entries, unsorted.
+  var loresheetEntries: [LoresheetEntry] {
+    self.loresheets?.allObjects as? [LoresheetEntry] ?? []
+  }
+  
+  /// Fetch all loresheet entries for a particular loresheet that the Kindred prosseses.
+  /// - Parameter loresheet: The loresheet in question.
+  /// - Returns: All loresheet entries for the loresheet that the Kindred possesses.
+  func entries(for loresheet: Loresheet) -> [LoresheetEntry] {
+    self.loresheetEntries.filter { $0.parent == loresheet }.sorted()
+  }
+  
+  /// All the loresheets for which the character has at least one entry.
+  var knownLoresheets: [Loresheet] {
+    var loresheets: Set<Loresheet> = []
+    for entry in self.loresheetEntries {
+      loresheets.insert(entry.parent!)
+    }
+    return loresheets.sorted()
+  }
+  
+}

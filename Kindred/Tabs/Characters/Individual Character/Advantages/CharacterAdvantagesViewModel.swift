@@ -9,9 +9,18 @@ import Foundation
 
 extension CharacterAdvantages {
   class ViewModel: BaseSavingKindredViewModel {
+    
+    var hasLoresheets: Bool {
+      print(kindred.loresheetEntries.isEmpty)
+      return !kindred.loresheetEntries.isEmpty
+    }
    
     var coalesced: [Kindred.CoalescedAdvantage] {
       kindred.coalescedAdvantages
+    }
+    
+    var hasAdvantages: Bool {
+      !coalesced.isEmpty || hasLoresheets
     }
     
     func deleteOption(_ offsets: IndexSet, parent coalesced: Kindred.CoalescedAdvantage) {

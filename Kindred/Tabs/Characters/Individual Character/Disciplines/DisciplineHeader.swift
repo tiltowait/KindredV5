@@ -1,5 +1,5 @@
 //
-//  AdvantageHeader.swift
+//  DisciplineHeader.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/17/21.
@@ -9,16 +9,22 @@ import SwiftUI
 
 struct DisciplineHeader: View {
   
+  let title: String
   @Binding var buttonPressed: Bool
+  
+  init(_ title: String, buttonPressed: Binding<Bool>) {
+    self.title = title
+    _buttonPressed = buttonPressed
+  }
   
   var body: some View {
     HStack {
-      Text("Disciplines")
+      Text(title)
       Spacer()
       Button {
         buttonPressed.toggle()
       } label: {
-        Label("Add Power", systemImage: "plus.circle")
+        Label("Add \(title)", systemImage: "plus.circle")
           .labelStyle(IconOnlyLabelStyle())
       }
     }
@@ -29,7 +35,7 @@ struct AdvantageHeader_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: DisciplineHeader(buttonPressed: .constant(false))) {
+        Section(header: DisciplineHeader("Disciplines", buttonPressed: .constant(false))) {
           Text("Stuff goes here")
         }
         .listStyle(GroupedListStyle())

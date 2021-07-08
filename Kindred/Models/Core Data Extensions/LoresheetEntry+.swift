@@ -19,3 +19,11 @@ extension LoresheetEntry {
   }
   
 }
+
+extension LoresheetEntry: Comparable {
+  
+  public static func < (lhs: LoresheetEntry, rhs: LoresheetEntry) -> Bool {
+    lhs.level < rhs.level
+  }
+  
+}

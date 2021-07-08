@@ -15,6 +15,7 @@ struct ReferenceList: View {
       Text("Vampire: The Masquerade and World of Darkness are copyright © Paradox Interactive.")
         .multilineTextAlignment(.center)
         .padding(.top)
+        .centered()
   }
   
   var body: some View {
@@ -34,6 +35,10 @@ struct ReferenceList: View {
           }
           NavigationLink(destination: ClanList(dataController: dataController)) {
             Text("Clans")
+              .font(.headline)
+          }
+          NavigationLink(destination: LoresheetList()) {
+            Text("Loresheets")
               .font(.headline)
           }
         }

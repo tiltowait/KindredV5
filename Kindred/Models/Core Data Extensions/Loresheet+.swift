@@ -15,4 +15,16 @@ extension Loresheet {
     return request
   }
   
+  var entries: [LoresheetEntry] {
+    self.items?.array as? [LoresheetEntry] ?? []
+  }
+  
+}
+
+extension Loresheet: Comparable {
+  
+  public static func <(lhs: Loresheet, rhs: Loresheet) -> Bool {
+    lhs.name < rhs.name
+  }
+  
 }
