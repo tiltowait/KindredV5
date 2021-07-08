@@ -18,6 +18,11 @@ extension LoresheetEntry {
     return request
   }
   
+  /// The name of the entry, plus its loresheet, in the format of "Loresheet, entry".
+  var fullName: String {
+    "\(parent!.name), \(name)"
+  }
+  
 }
 
 extension LoresheetEntry: Comparable {

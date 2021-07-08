@@ -18,6 +18,23 @@ extension AdvantageContainer {
     option.parentAdvantage
   }
   
+  var isBackground: Bool {
+    option.parentAdvantage.isBackground
+  }
+  
+  var isFlaw: Bool {
+    option.isFlaw
+  }
+  
+  var isMerit: Bool {
+    !isBackground && !isFlaw
+  }
+  
+  /// The full name of the contained AdvantageOption, in the format "Advantage, option".
+  var fullName:String {
+    option.fullName
+  }
+  
 }
 
 extension AdvantageContainer: Comparable {

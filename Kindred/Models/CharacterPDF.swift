@@ -244,8 +244,58 @@ class CharacterPDF {
   ]
   
   /// Fields for the clan bane.
-  let baneFields: [String] = [
+  let baneFields = [
     "CB1", "CB2", "CB3", "CB4", "CB5", "CB6"
+  ]
+  
+  /// Fields for setting background titles.
+  let backgroundFields = [
+    "backgrounds1", "backgrounds2", "backgrounds3", "backgrounds4", "backgrounds5",
+    "backgrounds6", "backgrounds7", "backgrounds8", "backgrounds9"
+  ]
+  
+  let backgroundDotFields = [
+    "backgrounds1": ["dot317b", "dot318b", "dot319b", "dot320b", "dot320ab"],
+    "backgrounds2": ["dot325b", "dot326b", "dot327b", "dot328b", "dot328ab"],
+    "backgrounds3": ["dot333b", "dot334b", "dot335b", "dot336b", "dot336ab"],
+    "backgrounds4": ["dot341b", "dot342b", "dot343b", "dot344b", "dot344ab"],
+    "backgrounds5": ["dot349b", "dot350b", "dot351b", "dot352b", "dot352ab"],
+    "backgrounds6": ["dot357b", "dot358b", "dot359b", "dot360b", "dot360ab"],
+    "backgrounds7": ["dot365b", "dot366b", "dot367b", "dot368b", "dot368ab"],
+    "backgrounds8": ["dot373b", "dot374b", "dot375b", "dot376b", "dot376ab"],
+    "backgrounds9": ["dot381b", "dot382b", "dot383b", "dot384b", "dot384ab"]
+  ]
+  
+  let meritDotFields = [
+    "merits1": ["dot389b", "dot390b", "dot391b", "dot392b", "dot392ab"],
+    "merits2": ["dot397b", "dot398b", "dot399b", "dot400b", "dot400ab"],
+    "merits3": ["dot405b", "dot406b", "dot407b", "dot408b", "dot408ab"],
+    "merits4": ["dot541b", "dot542b", "dot543b", "dot544b", "dot544ab"],
+    "merits5": ["dot549b", "dot550b", "dot551b", "dot552b", "dot552ab"],
+    "merits6": ["dot557b", "dot558b", "dot559b", "dot560b", "dot560ab"],
+    "merits7": ["dot557qb", "dot558qb", "dot559qb", "dot560qb", "dot560qab"]
+  ]
+  
+  let flawDotFields = [
+    "flaws1": ["dot566b", "dot567b", "dot568b", "dot569b", "dot569ab"],
+    "flaws2": ["dot574b", "dot575b", "dot576b", "dot577b", "dot577ab"],
+    "flaws3": ["dot582b", "dot583b", "dot584b", "dot585b", "dot585ab"],
+    "flaws4": ["dot582qb", "dot583qb", "dot584qb", "dot585qb", "dot585qab"],
+    "flaws5": ["dot590b", "dot591b", "dot592b", "dot593b", "dot593ab"],
+    "flaws6": ["dot598b", "dot599b", "dot600b", "dot601b", "dot601ab"],
+    "flaws7": ["dot606b", "dot607b", "dot608b", "dot609b", "dot609ab"]
+  ]
+  
+  /// Fields for setting merit titles.
+  let meritFields: [String] = [
+    "merits1", "merits2", "merits3", "merits4",
+    "merits5", "merits6", "merits7"
+  ]
+  
+  /// Fields for setting flaw titles.
+  let flawFields: [String] = [
+    "flaws1", "flaws2", "flaws3", "flaws4",
+    "flaws5", "flaws6", "flaws7"
   ]
   
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
@@ -283,11 +333,13 @@ class CharacterPDF {
     let contents = page.string!
     
     // Create the quick-lookup annotations dictionary
-    
+    // We'll get the annotations from all pages, however.
     var allAnnotations: [String: PDFAnnotation] = [:]
-    for annotation in page.annotations {
-      if let fieldName = annotation.fieldName {
-        allAnnotations[fieldName] = annotation
+    for pageIndex in 0..<pdf.pageCount {
+      for annotation in pdf.page(at: pageIndex)!.annotations {
+        if let fieldName = annotation.fieldName {
+          allAnnotations[fieldName] = annotation
+        }
       }
     }
     self.allAnnotations = allAnnotations
@@ -548,11 +600,33 @@ extension CharacterPDF {
     self.setHunger(to: character.hunger)
     self.setBloodPotency(to: character.bloodPotency)
     
+    // TODO: Do something with the return values.
+    
     _ = self.setDisciplines(character: character)
     
     self.setBaneDescription(to: character.clan?.bane ?? "")
     self.setBloodPotencyFields(potency: character.bloodPotency)
+    
+    _ = self.setBackgrounds(character: character)
+    _ = self.setMerits(character: character)
+    _ = self.setFlaws(character: character)
+    
+    // Set birth- and death-dates
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy"
+    
+    if let birthdate = character.birthdate {
+      allAnnotations["bio3"]?.widgetStringValue = dateFormatter.string(from: birthdate)
+    }
+    if let deathdate = character.embraceDate {
+      allAnnotations["bio4"]?.widgetStringValue = dateFormatter.string(from: deathdate)
+    }
+    
+    self.setNotes(character.notes)
   }
+  
+  // MARK: - Setters
   
   func setField(_ field: BasicField, to newValue: String) {
     if let annotation = allAnnotations[field.rawValue] {
@@ -667,6 +741,48 @@ extension CharacterPDF {
     allAnnotations["BPstat6"]?.widgetStringValue = String(bloodPotency.baneSeverity)
   }
   
+  func setBackgrounds(character: Kindred) -> Bool {
+    let backgrounds = character.advantageContainers.filter { $0.isBackground }
+    let backgroundNames = backgrounds.map { $0.fullName }
+    let ratings = backgrounds.map { $0.currentRating }
+    
+    return setFields(backgroundFields, to: backgroundNames, with: ratings, for: backgroundDotFields)
+  }
+  
+  func setMerits(character: Kindred) -> Bool {
+    let merits = character.advantageContainers.filter { $0.isMerit }
+    let meritNames = merits.map { $0.fullName }
+    let ratings = merits.map { $0.currentRating }
+    
+    return setFields(meritFields, to: meritNames, with: ratings, for: meritDotFields)
+  }
+  
+  func setFlaws(character: Kindred) -> Bool {
+    let flaws = character.advantageContainers.filter { $0.isFlaw }
+    let flawNames = flaws.map { $0.fullName }
+    let ratings = flaws.map { $0.currentRating }
+    
+    return setFields(flawFields, to: flawNames, with: ratings, for: flawDotFields)
+  }
+  
+  func setNotes(_ text: String) {
+    let idealLineLength = 20
+    let words = text.components(separatedBy: .whitespacesAndNewlines).count
+    
+    // If the notes are longer than 260 words, then we will just split
+    // evenly across all 13 lines. Otherwise, we split according to the
+    // ideal line length.
+    
+    let numLines = words < 260 ? words / idealLineLength : words / 13
+    if numLines > 0 {
+      let lines = text.split(lines: numLines).components(separatedBy: .newlines)
+      
+      for (index, line) in lines.enumerated() {
+        allAnnotations["notes\(index + 1)"]?.widgetStringValue = line
+      }
+    }
+  }
+  
   // MARK: - Private Mass Setters
   
   private func setBasicFields(character: Kindred) {
@@ -727,6 +843,54 @@ extension CharacterPDF {
     self.setTrait(.politics, to: character.politics)
     self.setTrait(.science, to: character.science)
     self.setTrait(.technology, to: character.technology)
+  }
+  
+  /// Set a number of fields to specified values, and fill in the dot ratings.
+  ///
+  /// This is used for setting flaws, merits, backgrounds, and haven details on the second page.
+  ///
+  /// Each argument should contain the same number of elements, or the app may crash.
+  /// - Parameters:
+  ///   - fields: The fields for storing the names of the advantages.
+  ///   - values: The values associated with the fields.
+  ///   - ratings: The rating for each advantage.
+  ///   - ratingFields: The dot fields associated with each advantage row.
+  /// - Returns: True if there was enough space on the sheet to fit all the given advantages.
+  private func setFields(
+    _ fields: [String],
+    to values: [String],
+    with ratings: [Int16],
+    for ratingFields: [String: [String]]
+  ) -> Bool {
+    
+    var couldFitAll = true
+    let fieldCount = fields.count
+    
+    for (index, value) in values.enumerated() {
+      if index < fieldCount {
+        let field = fields[index]
+        allAnnotations[field]?.widgetStringValue = value
+                
+        // Check the appropriate dots
+        if let dotFields = ratingFields[field] {
+          self.selectDots(ratings[index], in: dotFields)
+        }
+      } else {
+        couldFitAll = false
+        break
+      }
+    }
+    return couldFitAll
+  }
+  
+  func selectDots(_ rating: Int16, in fields: [String]) {
+    let rating = abs(rating) // Flaws have negative ratings
+    
+    for (index, field) in fields.enumerated() {
+      if rating > index {
+        allAnnotations[field]?.widgetStringValue = enabled
+      }
+    }
   }
   
 }

@@ -27,6 +27,11 @@ extension AdvantageOption {
     self.parent!
   }
   
+  /// The full name of the option, plus its parent advantage, in the format "Advantage, option".
+  var fullName: String {
+    "\(parentAdvantage.name), \(name)"
+  }
+  
 }
 
 extension AdvantageOption: Comparable {

@@ -134,10 +134,9 @@ struct CharacterDetail: View {
         isPresented: $showingExporter,
         document: CharacterExporter(character: viewModel.kindred),
         contentType: .pdf,
-        defaultFilename: "\(viewModel.kindred.name).pdf"
-      ) { result in
-        print(result)
-      }
+        defaultFilename: "\(viewModel.kindred.name).pdf",
+        onCompletion: { _ in } // We don't care about this just yet
+      )
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)
       .onDisappear(perform: viewModel.save)
