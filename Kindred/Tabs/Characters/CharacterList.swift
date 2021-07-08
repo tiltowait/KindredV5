@@ -63,6 +63,7 @@ struct CharacterList: View {
       Text("Select or create a character to begin.")
         .foregroundColor(.secondary)
     }
+    .phoneOnlyStackNavigationView()
     .sheet(isPresented: $showingCreationSheet) {
       AddCharacterView()
         .allowAutoDismiss(false)

@@ -28,15 +28,18 @@ struct ReferenceList: View {
             Text("Advantages")
               .font(.headline)
           }
-          NavigationLink(destination:
-                          DisciplineList()) {
+          .isDetailLink(true)
+          
+          NavigationLink(destination: DisciplineList()) {
             Text("Disciplines")
               .font(.headline)
           }
+          
           NavigationLink(destination: ClanList(dataController: dataController)) {
             Text("Clans")
               .font(.headline)
           }
+          
           NavigationLink(destination: LoresheetList()) {
             Text("Loresheets")
               .font(.headline)
