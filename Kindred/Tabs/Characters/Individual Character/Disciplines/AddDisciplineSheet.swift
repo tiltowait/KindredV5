@@ -97,6 +97,7 @@ struct AddDisciplineSheet: View {
         }
       }
     }
+    .onDisappear(perform: viewModel.save)
   }
 }
 
