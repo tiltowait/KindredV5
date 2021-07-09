@@ -128,7 +128,7 @@ extension Kindred {
 
 extension Kindred {
   /// A container type for grouping AdvantageContainers with their parent Advantage
-  class CoalescedAdvantage: Identifiable {
+  class CoalescedAdvantage: Identifiable, Comparable {
     
     var id: ObjectIdentifier { advantage.id }
     
@@ -147,9 +147,20 @@ extension Kindred {
     @discardableResult func add(container: AdvantageContainer) -> Bool {
       if container.advantage == self.advantage {
         containers.append(container)
+        print("Added \(container.option.name) to container: \(containers.map { $0.option.name })")
+        containers.sort()
+        print("After sorting: \(containers.map { $0.option.name })")
         return true
       }
       return false
+    }
+    
+    static func == (lhs: Kindred.CoalescedAdvantage, rhs: Kindred.CoalescedAdvantage) -> Bool {
+      lhs.advantage == rhs.advantage
+    }
+    
+    static func <(lhs: CoalescedAdvantage, rhs: CoalescedAdvantage) -> Bool {
+      lhs.advantage.name < rhs.advantage.name
     }
     
   }
@@ -165,7 +176,7 @@ extension Kindred {
         coalescedAdvantages.append(CoalescedAdvantage(container: container))
       }
     }
-    return coalescedAdvantages
+    return coalescedAdvantages.sorted()
   }
   
 }
