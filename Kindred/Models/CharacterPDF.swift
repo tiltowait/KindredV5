@@ -695,9 +695,10 @@ extension CharacterPDF {
     var couldFitAll = true
     
     for (index, discipline) in disciplines.enumerated() {
-      let list = "disciplineslist\(index + 1)"
-      if let fields = disciplineFields[list] {
-        allAnnotations[list]?.widgetStringValue = discipline.name
+      let labelField = "disciplineslist\(index + 1)"
+      if let fields = disciplineFields[labelField] {
+        allAnnotations[labelField]?.widgetFieldType = .text
+        allAnnotations[labelField]?.widgetStringValue = discipline.name
         
         // Set the powers
         let powers = powers.filter { $0.discipline == discipline }
@@ -712,7 +713,7 @@ extension CharacterPDF {
         
         // Set the dots
         let dots = powers.count
-        let dotFields = disciplineDots[list]!.dropLast(5 - dots)
+        let dotFields = disciplineDots[labelField]!.dropLast(5 - dots)
         for field in dotFields {
           allAnnotations[field]?.widgetStringValue = enabled
         }
@@ -753,8 +754,16 @@ extension CharacterPDF {
   /// - Returns: True if there was enough space to mark all the character's backgrounds.
   func setBackgrounds(character: Kindred) -> Bool {
     let backgrounds = character.advantageContainers.filter { $0.isBackground }
-    let backgroundNames = backgrounds.map { $0.fullName }
-    let ratings = backgrounds.map { $0.currentRating }
+    var backgroundNames = backgrounds.map { $0.fullName }
+    var ratings = backgrounds.map { $0.currentRating }
+    
+    // Loresheets also go under backgrounds, so we'll add them here
+    let loresheets = character.loresheetEntries
+    let loresheetNames = loresheets.map { $0.fullName }
+    let loresheetRatings = loresheets.map { $0.level }
+    
+    backgroundNames.append(contentsOf: loresheetNames)
+    ratings.append(contentsOf: loresheetRatings)
     
     let ratedBackgrounds = Dictionary(uniqueKeysWithValues: zip(backgroundNames, ratings))
     
@@ -887,6 +896,7 @@ extension CharacterPDF {
       if index < sortedFields.count {
         let (labelField, ratingFields) = sortedFields[index]
         
+        allAnnotations[labelField]?.widgetFieldType = .text
         allAnnotations[labelField]?.widgetStringValue = label
         self.selectDots(rating, in: ratingFields)
         
