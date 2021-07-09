@@ -155,6 +155,8 @@ enum CharacterImporter {
         container.currentRating = advantageOption.isFlaw ? -rating : rating
         
         kindred.addToAdvantages(container)
+      } else if let loresheetEntry = LoresheetEntry.fetchObject(named: advantage, in: context) {
+        kindred.addToLoresheets(loresheetEntry)
       }
     }
   }
