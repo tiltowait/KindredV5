@@ -80,10 +80,10 @@ class CharacterPDF {
     }
   }
   
-  // MARK: - Private Variables
-  
   /// The user-provided PDF.
-  private let pdf: PDFDocument
+  let pdf: PDFDocument
+  
+  // MARK: - Private Variables
   
   /// A dictionary of trait names (both attributes and abilities) and the names of the
   /// associated fields in the PDF representing their dots.

@@ -134,6 +134,7 @@
 		28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0626784E90004DD186 /* CharacterRow.swift */; };
 		28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlock.swift */; };
 		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
+		28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED3B7B2698C992007C31C4 /* PDF+.swift */; };
 		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -286,6 +287,7 @@
 		28EBBE0626784E90004DD186 /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		28EBBE0A2678529B004DD186 /* TraitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlock.swift; sourceTree = "<group>"; };
 		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
+		28ED3B7B2698C992007C31C4 /* PDF+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PDF+.swift"; sourceTree = "<group>"; };
 		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -576,6 +578,7 @@
 			children = (
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				2825206A267918E30066F09B /* KeyPath+.swift */,
+				28ED3B7B2698C992007C31C4 /* PDF+.swift */,
 				28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */,
 				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
 				28A39EB22679614000867AB9 /* UIImage+.swift */,
@@ -864,6 +867,7 @@
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */,
+				28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,

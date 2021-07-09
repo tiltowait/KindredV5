@@ -27,8 +27,9 @@ struct CharacterExporter: FileDocument {
     self.character = character
   }
   
-  func generatePDF() -> CharacterPDF {
-    CharacterPDF(character: character)
+  func generatePDF() -> PDFDocument {
+    let pdf = CharacterPDF(character: character).pdf
+    return pdf.flattened(withDPI: 250)
   }
   
   func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
