@@ -29,7 +29,11 @@ extension AdvantageOption {
   
   /// The full name of the option, plus its parent advantage, in the format "Advantage, option".
   var fullName: String {
-    "\(parentAdvantage.name), \(name)"
+    if parentAdvantage.name != name {
+      return "\(parentAdvantage.name), \(name)"
+    } else {
+      return name
+    }
   }
   
 }
