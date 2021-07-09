@@ -513,8 +513,11 @@ class CharacterPDF {
   
   // MARK: - Haven Stuff
   
+  let noHavenField = "havencheck1"
+  let havenRatingDotFields = ["havendot1", "havendot2", "havendot3", "havendot4", "havendot5"]
+  
   var noHaven: Bool {
-    allAnnotations["havencheck1"]?.buttonWidgetState == .onState
+    allAnnotations[noHavenField]?.buttonWidgetState == .onState
   }
   
   var havenRating: Int16 {
@@ -654,6 +657,7 @@ extension CharacterPDF {
       allAnnotations["bio4"]?.widgetStringValue = dateFormatter.string(from: deathdate)
     }
     
+    _ = self.setHaven(character: character)
     self.setNotes(character.notes)
   }
   
@@ -801,7 +805,11 @@ extension CharacterPDF {
   /// Fill out the backgrounds section on the second page of the character sheet.
   /// - Returns: True if there was enough space to mark all the character's backgrounds.
   func setBackgrounds(character: Kindred) -> Bool {
-    let backgrounds = character.advantageContainers.filter { $0.isBackground }
+    // Omit Haven, because that is a special-case background
+    let backgrounds = character.advantageContainers.filter {
+      $0.isBackground && $0.advantage.name != "Haven"
+    }
+    
     var backgroundNames = backgrounds.map { $0.fullName }
     var ratings = backgrounds.map { $0.currentRating }
     
@@ -840,6 +848,37 @@ extension CharacterPDF {
     let ratedFlaws = Dictionary(uniqueKeysWithValues: zip(flawNames, ratings))
     
     return setFields(flawFields, to: ratedFlaws)
+  }
+  
+  /// Fill in the haven details for the character.
+  /// - Parameter character: The character being exported.
+  func setHaven(character: Kindred) -> Bool {
+    guard let havenAdvantages = (character.coalescedAdvantages.first { $0.advantage.name == "Haven" })
+    else { return false }
+    
+    // "No Haven" and haven rating are special cases.
+    
+    if (havenAdvantages.containers.first { $0.option.name == "No Haven" } != nil) {
+      allAnnotations[noHavenField]?.buttonWidgetState = .onState
+    }
+    
+    if let havenRating = (havenAdvantages.containers.first { $0.option.name == "Haven" }?.currentRating) {
+      let drop = 5 - Int(havenRating)
+      for field in havenRatingDotFields.dropLast(drop) {
+        allAnnotations[field]?.buttonWidgetState = .onState
+      }
+    }
+    
+    // Haven merits and flaws follow the same pattern as regular advantages
+    let havenAdvantageNames = havenAdvantages.containers.map { $0.option.name }
+    let havenAdvantageRatings = havenAdvantages.containers.map { $0.currentRating }
+    var havenDictionary = Dictionary(uniqueKeysWithValues: zip(havenAdvantageNames, havenAdvantageRatings))
+    
+    // Remove "Haven" and "No Haven" because we already took care of those
+    havenDictionary["Haven"] = nil
+    havenDictionary["No Haven"] = nil
+    
+    return setFields(havenFields, to: havenDictionary)
   }
   
   /// Fill out the contents of the "notes" section on the second page.
