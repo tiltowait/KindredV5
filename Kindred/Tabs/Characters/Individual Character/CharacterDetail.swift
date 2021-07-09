@@ -113,6 +113,11 @@ struct CharacterDetail: View {
         
         // Trackers (HP, WP, Humanity, Blood Potency)
         Trackers(kindred: viewModel.kindred)
+        
+        if viewModel.kindred.clan?.template == .kindred {
+          BloodPotencyDetail(bloodPotency: BloodPotency(viewModel.kindred.bloodPotency))
+        }
+        
       }
       .listStyle(InsetGroupedListStyle())
       .navigationTitle(viewModel.kindred.name)
