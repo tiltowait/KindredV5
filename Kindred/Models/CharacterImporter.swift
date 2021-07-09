@@ -130,7 +130,7 @@ enum CharacterImporter {
       if let advantageOption = AdvantageOption.fetchObject(named: advantage, in: context) {
         let container = AdvantageContainer(context: context)
         container.zOption = advantageOption
-        container.currentRating = rating
+        container.currentRating = advantageOption.isFlaw ? -rating : rating
         
         kindred.addToAdvantages(container)
       }
