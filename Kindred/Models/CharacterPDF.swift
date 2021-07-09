@@ -645,18 +645,16 @@ extension CharacterPDF {
   
   func setHealth(to health: Int16) {
     let fields = (1...15).map { "check\($0)" }
-    let drop = 15 - Int(health)
     
-    for field in fields.dropFirst(drop) {
+    for field in fields.dropFirst(Int(health)) {
       allAnnotations[field]?.widgetStringValue = enabled
     }
   }
   
   func setWillpower(to willpower: Int16) {
     let fields = (16...30).map { "check\($0)" }
-    let drop = 15 - Int(willpower)
     
-    for field in fields.dropFirst(drop) {
+    for field in fields.dropFirst(Int(willpower)) {
       allAnnotations[field]?.widgetStringValue = enabled
     }
   }
