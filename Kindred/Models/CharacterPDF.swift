@@ -731,10 +731,10 @@ extension CharacterPDF {
   func setBloodPotencyFields(potency: Int16) {
     let bloodPotency = BloodPotency(potency)
     
-    allAnnotations["BPstat1"]?.widgetStringValue = bloodPotency.surgeString
-    allAnnotations["BPstat2"]?.widgetStringValue = bloodPotency.mendString
-    allAnnotations["BPstat3"]?.widgetStringValue = bloodPotency.powerBonusString
-    allAnnotations["BPstat4"]?.widgetStringValue = bloodPotency.rouseRerollString
+    allAnnotations["BPstat1"]?.widgetStringValue = "\(bloodPotency.surgeString)"
+    allAnnotations["BPstat2"]?.widgetStringValue = "\(bloodPotency.mendString)"
+    allAnnotations["BPstat3"]?.widgetStringValue = "\(bloodPotency.powerBonusString)"
+    allAnnotations["BPstat4"]?.widgetStringValue = "\(bloodPotency.rouseRerollString)"
     allAnnotations["BPstat5"]?.widgetStringValue = bloodPotency.penalty
     allAnnotations["BPstat6"]?.widgetStringValue = String(bloodPotency.baneSeverity)
   }

@@ -5,7 +5,7 @@
 //  Created by Jared Lindsay on 7/8/21.
 //
 
-import Foundation
+import SwiftUI
 
 /// A structure containing all the costs and benefits for a character's blood potency.
 struct BloodPotency {
@@ -102,22 +102,22 @@ struct BloodPotency {
     }
   }
   
-  var surgeString: String {
+  var surgeString: LocalizedStringKey {
     "Add \(surge) die"
   }
   
-  var mendString: String {
+  var mendString: LocalizedStringKey {
     "\(mend) point of superficial damage"
   }
   
-  var powerBonusString: String {
+  var powerBonusString: LocalizedStringKey {
     if let powerBonus = powerBonus {
       return "Add \(powerBonus) die"
     }
     return "None"
   }
   
-  var rouseRerollString: String {
+  var rouseRerollString: LocalizedStringKey {
     if let rouseReroll = rouseReroll {
       return "Add \(rouseReroll) die"
     }
