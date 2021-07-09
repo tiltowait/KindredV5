@@ -248,13 +248,7 @@ class CharacterPDF {
     "CB1", "CB2", "CB3", "CB4", "CB5", "CB6"
   ]
   
-  /// Fields for setting background titles.
   let backgroundFields = [
-    "backgrounds1", "backgrounds2", "backgrounds3", "backgrounds4", "backgrounds5",
-    "backgrounds6", "backgrounds7", "backgrounds8", "backgrounds9"
-  ]
-  
-  let backgroundDotFields = [
     "backgrounds1": ["dot317b", "dot318b", "dot319b", "dot320b", "dot320ab"],
     "backgrounds2": ["dot325b", "dot326b", "dot327b", "dot328b", "dot328ab"],
     "backgrounds3": ["dot333b", "dot334b", "dot335b", "dot336b", "dot336ab"],
@@ -266,7 +260,7 @@ class CharacterPDF {
     "backgrounds9": ["dot381b", "dot382b", "dot383b", "dot384b", "dot384ab"]
   ]
   
-  let meritDotFields = [
+  let meritFields = [
     "merits1": ["dot389b", "dot390b", "dot391b", "dot392b", "dot392ab"],
     "merits2": ["dot397b", "dot398b", "dot399b", "dot400b", "dot400ab"],
     "merits3": ["dot405b", "dot406b", "dot407b", "dot408b", "dot408ab"],
@@ -276,7 +270,7 @@ class CharacterPDF {
     "merits7": ["dot557qb", "dot558qb", "dot559qb", "dot560qb", "dot560qab"]
   ]
   
-  let flawDotFields = [
+  let flawFields = [
     "flaws1": ["dot566b", "dot567b", "dot568b", "dot569b", "dot569ab"],
     "flaws2": ["dot574b", "dot575b", "dot576b", "dot577b", "dot577ab"],
     "flaws3": ["dot582b", "dot583b", "dot584b", "dot585b", "dot585ab"],
@@ -284,18 +278,6 @@ class CharacterPDF {
     "flaws5": ["dot590b", "dot591b", "dot592b", "dot593b", "dot593ab"],
     "flaws6": ["dot598b", "dot599b", "dot600b", "dot601b", "dot601ab"],
     "flaws7": ["dot606b", "dot607b", "dot608b", "dot609b", "dot609ab"]
-  ]
-  
-  /// Fields for setting merit titles.
-  let meritFields: [String] = [
-    "merits1", "merits2", "merits3", "merits4",
-    "merits5", "merits6", "merits7"
-  ]
-  
-  /// Fields for setting flaw titles.
-  let flawFields: [String] = [
-    "flaws1", "flaws2", "flaws3", "flaws4",
-    "flaws5", "flaws6", "flaws7"
   ]
   
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
@@ -585,6 +567,7 @@ extension CharacterPDF {
   /// The string value of enabled checkboxes.
   private var enabled: String { "Yes" }
   
+  /// Create a character sheet for a given character.
   convenience init(character: Kindred) {
     guard let url = Bundle.main.url(forResource: "Blank Character Sheet", withExtension: "pdf") else {
       fatalError("Unable to locate blank character sheet.")
@@ -628,12 +611,20 @@ extension CharacterPDF {
   
   // MARK: - Setters
   
+  /// Fill in the details for a basic field, such as name, concept, sire, etc.
+  /// - Parameters:
+  ///   - field: The field to fill.
+  ///   - newValue: The field's new contents.
   func setField(_ field: BasicField, to newValue: String) {
     if let annotation = allAnnotations[field.rawValue] {
       annotation.widgetStringValue = newValue
     }
   }
   
+  /// Fill in the dots for a trait.
+  /// - Parameters:
+  ///   - trait: The trait to fill.
+  ///   - newValue: The number of dots to fill.
   func setTrait(_ trait: Trait, to newValue: Int16) {
     let fields = traitFields[trait.capitalized]!
     
@@ -643,6 +634,9 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill the health boxes on the first page.
+  ///
+  /// The boxes are filled in from the right.
   func setHealth(to health: Int16) {
     let fields = (1...15).map { "check\($0)" }
     
@@ -651,6 +645,9 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill the willpower boxes on the first page.
+  ///
+  /// The boxes are filled in from the right.
   func setWillpower(to willpower: Int16) {
     let fields = (16...30).map { "check\($0)" }
     
@@ -659,6 +656,7 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill the humanity dots on the first page.
   func setHumanity(to humanity: Int16) {
     let fields = (31...40).map { "check\($0)" }
     let drop = 10 - Int(humanity)
@@ -668,6 +666,7 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill the hunger dots on the first page.
   func setHunger(to hunger: Int16) {
     let fields = (41...45).map { "check\($0)" }
     let drop = 5 - Int(hunger)
@@ -677,6 +676,7 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill the blood potency dots on the first page.
   func setBloodPotency(to bloodPotency: Int16) {
     let fields = (1...10).map { "hdot\($0)" }
     let drop = 10 - Int(bloodPotency)
@@ -686,6 +686,8 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill out the disciplines section on the first page.
+  /// - Returns: True if there was enough space to fit all the disciplines.
   func setDisciplines(character: Kindred) -> Bool {
     let disciplines = character.knownDisciplines
     let powers = character.knownPowers
@@ -721,6 +723,10 @@ extension CharacterPDF {
     return couldFitAll
   }
   
+  /// Fill out the character's bane description on the front page.
+  ///
+  /// The details are split across the available lines as evenly as possible.
+  /// - Parameter bane: The bane description.
   func setBaneDescription(to bane: String) {
     let lines = bane.split(lines: baneFields.count).components(separatedBy: .newlines)
     for (line, field) in zip(lines, baneFields) {
@@ -728,6 +734,10 @@ extension CharacterPDF {
     }
   }
   
+  /// Fill out the blood potency fields on the first page.
+  ///
+  /// This method relies on the BloodPotency struct.
+  /// - Parameter potency: The character's blood potency.
   func setBloodPotencyFields(potency: Int16) {
     let bloodPotency = BloodPotency(potency)
     
@@ -739,30 +749,45 @@ extension CharacterPDF {
     allAnnotations["BPstat6"]?.widgetStringValue = String(bloodPotency.baneSeverity)
   }
   
+  /// Fill out the backgrounds section on the second page of the character sheet.
+  /// - Returns: True if there was enough space to mark all the character's backgrounds.
   func setBackgrounds(character: Kindred) -> Bool {
     let backgrounds = character.advantageContainers.filter { $0.isBackground }
     let backgroundNames = backgrounds.map { $0.fullName }
     let ratings = backgrounds.map { $0.currentRating }
     
-    return setFields(backgroundFields, to: backgroundNames, with: ratings, for: backgroundDotFields)
+    let ratedBackgrounds = Dictionary(uniqueKeysWithValues: zip(backgroundNames, ratings))
+    
+    return setFields(backgroundFields, to: ratedBackgrounds)
   }
   
+  /// Fill out the merits section on the second page of the character sheet.
+  /// - Returns: True if there was enough space to mark all the character's merits.
   func setMerits(character: Kindred) -> Bool {
     let merits = character.advantageContainers.filter { $0.isMerit }
     let meritNames = merits.map { $0.fullName }
     let ratings = merits.map { $0.currentRating }
     
-    return setFields(meritFields, to: meritNames, with: ratings, for: meritDotFields)
+    let ratedMerits = Dictionary(uniqueKeysWithValues: zip(meritNames, ratings))
+    
+    return setFields(meritFields, to: ratedMerits)
   }
   
+  /// Fill out the flaws section on the second page of the character sheet.
+  /// - Returns: True if there was enough space to mark all the character's flaws.
   func setFlaws(character: Kindred) -> Bool {
     let flaws = character.advantageContainers.filter { $0.isFlaw }
     let flawNames = flaws.map { $0.fullName }
     let ratings = flaws.map { $0.currentRating }
     
-    return setFields(flawFields, to: flawNames, with: ratings, for: flawDotFields)
+    let ratedFlaws = Dictionary(uniqueKeysWithValues: zip(flawNames, ratings))
+    
+    return setFields(flawFields, to: ratedFlaws)
   }
   
+  /// Fill out the contents of the "notes" section on the second page.
+  ///
+  /// The notes are divided among the lines as evenly as possible.
   func setNotes(_ text: String) {
     let idealLineLength = 20
     let words = text.components(separatedBy: .whitespacesAndNewlines).count
@@ -783,6 +808,7 @@ extension CharacterPDF {
   
   // MARK: - Private Mass Setters
   
+  /// Fill out the character's basic attributes, such as name, clan, concept, etc.
   private func setBasicFields(character: Kindred) {
     self.setField(.characterName, to: character.name)
     self.setField(.concept, to: character.concept)
@@ -796,6 +822,7 @@ extension CharacterPDF {
     self.setField(.clan, to: character.clan?.name ?? "")
   }
   
+  /// Fill out the character's skills and attributes.
   private func setTraits(character: Kindred) {
     // Attributes
     self.setTrait(.strength, to: character.strength)
@@ -843,36 +870,26 @@ extension CharacterPDF {
     self.setTrait(.technology, to: character.technology)
   }
   
-  /// Set a number of fields to specified values, and fill in the dot ratings.
+  /// Fill out a number of fields to given and fill in the dot ratings.
   ///
   /// This is used for setting flaws, merits, backgrounds, and haven details on the second page.
   ///
   /// Each argument should contain the same number of elements, or the app may crash.
   /// - Parameters:
-  ///   - fields: The fields for storing the names of the advantages.
-  ///   - values: The values associated with the fields.
-  ///   - ratings: The rating for each advantage.
-  ///   - ratingFields: The dot fields associated with each advantage row.
+  ///   - fields: The names of the labels and associated dot fields for storing the names and ratings of the advantages.
+  ///   - ratings: The name and associated rating for each advantage.
   /// - Returns: True if there was enough space on the sheet to fit all the given advantages.
-  private func setFields(
-    _ fields: [String],
-    to values: [String],
-    with ratings: [Int16],
-    for ratingFields: [String: [String]]
-  ) -> Bool {
-    
+  private func setFields(_ fields: [String: [String]], to ratings: [String: Int16]) -> Bool {
     var couldFitAll = true
-    let fieldCount = fields.count
+    let sortedFields = fields.sorted { $0.key < $1.key }
     
-    for (index, value) in values.enumerated() {
-      if index < fieldCount {
-        let field = fields[index]
-        allAnnotations[field]?.widgetStringValue = value
-                
-        // Check the appropriate dots
-        if let dotFields = ratingFields[field] {
-          self.selectDots(ratings[index], in: dotFields)
-        }
+    for (index, (label, rating)) in ratings.enumerated() {
+      if index < sortedFields.count {
+        let (labelField, ratingFields) = sortedFields[index]
+        
+        allAnnotations[labelField]?.widgetStringValue = label
+        self.selectDots(rating, in: ratingFields)
+        
       } else {
         couldFitAll = false
         break
@@ -881,7 +898,11 @@ extension CharacterPDF {
     return couldFitAll
   }
   
-  func selectDots(_ rating: Int16, in fields: [String]) {
+  /// Fill out a number of dots based on a given rating.
+  /// - Parameters:
+  ///   - rating: The number of dots in the sequence to select.
+  ///   - fields: The names of the fields to be selected.
+  private func selectDots(_ rating: Int16, in fields: [String]) {
     let rating = abs(rating) // Flaws have negative ratings
     
     for (index, field) in fields.enumerated() {
