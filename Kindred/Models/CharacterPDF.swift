@@ -280,6 +280,8 @@ class CharacterPDF {
     "flaws7": ["dot606b", "dot607b", "dot608b", "dot609b", "dot609ab"]
   ]
   
+  let noteFields = (1...13).map { "notes\($0)" }
+  
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
   private let allAnnotations: [String: PDFAnnotation]
   
@@ -475,6 +477,7 @@ class CharacterPDF {
     return countSelected(for: fields)
   }
   
+  /// All advantages with their associated ratings.
   var advantages: [String: Int16] {
     var advantages: [String: Int16] = [:]
 
@@ -487,6 +490,17 @@ class CharacterPDF {
       }
     }
     return advantages
+  }
+  
+  /// The contents of the PDF's "notes" section, with line breaks.
+  var notes: String {
+    var noteLines: [String] = []
+    for noteField in noteFields {
+      if let line = allAnnotations[noteField]?.widgetStringValue {
+        noteLines.append(line)
+      }
+    }
+    return noteLines.joined(separator: "\n")
   }
   
   // MARK: - Private Methods

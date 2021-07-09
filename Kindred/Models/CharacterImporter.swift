@@ -80,6 +80,8 @@ enum CharacterImporter {
     kindred.hunger = pdf.hunger
     kindred.bloodPotency = pdf.bloodPotency
     
+    kindred.notes = pdf.notes
+    
     Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
     Self.fetchAdvantages(context: context, kindred: kindred, pdf: pdf)
     
