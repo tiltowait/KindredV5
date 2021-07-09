@@ -81,19 +81,30 @@ enum CharacterImporter {
     kindred.bloodPotency = pdf.bloodPotency
     
     Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
+    Self.fetchAdvantages(context: context, kindred: kindred, pdf: pdf)
     
     return kindred
   }
   
+  /// Attempt to import disciplines.
+  ///
+  /// This function will not work if the disciplines and powers are misspelled.
+  /// - Parameters:
+  ///   - context: The context in which the data lives.
+  ///   - kindred: The character to add the disciplines to.
+  ///   - pdf: The PDF from which to import.
   private static func fetchDisciplines(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+    let allDisciplines = try? context.fetch(Discipline.fetchRequest()) as? [Discipline]
+    let allPowers = try? context.fetch(Power.fetchRequest()) as? [Power]
+    
     for (key, fields) in pdf.disciplineFields {
       let disciplineName = pdf.value(for: key) ?? ""
       
-      if let discipline = Discipline.fetchObject(named: disciplineName, in: context) {
+      if let discipline = (allDisciplines?.first { disciplineName.contains($0.name) }) {
         for field in fields {
           let powerName = pdf.value(for: field) ?? ""
           
-          if let power = Power.fetchObject(named: powerName, in: context) {
+          if let power = (allPowers?.first { powerName.contains($0.name) }) {
             if power.discipline == discipline {
               kindred.addToPowers(power)
             }
@@ -102,5 +113,29 @@ enum CharacterImporter {
       }
     }
   }
+  
+  /// Attempt to import advantages (merits, flaws, and backgrounds).
+  /// - Parameters:
+  ///   - context: The context in which the data lives.
+  ///   - kindred: The character to apply the advantages to.
+  ///   - pdf: The PDF from which to import.
+  private static func fetchAdvantages(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+    let advantages = pdf.advantages
+    
+    for (advantage, rating) in advantages {
+      // On the official PDF, some advantages are given a compound name, such as "Looks, Stunning".
+      // We want to take only the specific advantage option name.
+      let advantage = advantage.components(separatedBy: ", ").last!
+      
+      if let advantageOption = AdvantageOption.fetchObject(named: advantage, in: context) {
+        let container = AdvantageContainer(context: context)
+        container.zOption = advantageOption
+        container.currentRating = rating
+        
+        kindred.addToAdvantages(container)
+      }
+    }
+  }
+
   
 }

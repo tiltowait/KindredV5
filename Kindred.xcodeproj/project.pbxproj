@@ -87,6 +87,8 @@
 		287F880A2682A27D00DF140E /* StressBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F88092682A27D00DF140E /* StressBox.swift */; };
 		288EB7C22698CDC400E27652 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 288EB7C12698CDC400E27652 /* Localizable.stringsdict */; };
 		288EB7C62698D08600E27652 /* BloodPotencyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288EB7C52698D08600E27652 /* BloodPotencyDetail.swift */; };
+		288EB7C82698EEF700E27652 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288EB7C72698EEF700E27652 /* Dictionary+.swift */; };
+		288EB7CA2698F23D00E27652 /* Nadea Theron.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 288EB7C92698F23D00E27652 /* Nadea Theron.pdf */; };
 		2892168B267E5C9A004911EA /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168A267E5C9A004911EA /* Importer.swift */; };
 		2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892168C267E5D4C004911EA /* ClanImporter.swift */; };
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
@@ -243,6 +245,8 @@
 		287F88092682A27D00DF140E /* StressBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressBox.swift; sourceTree = "<group>"; };
 		288EB7C12698CDC400E27652 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		288EB7C52698D08600E27652 /* BloodPotencyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPotencyDetail.swift; sourceTree = "<group>"; };
+		288EB7C72698EEF700E27652 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
+		288EB7C92698F23D00E27652 /* Nadea Theron.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Nadea Theron.pdf"; sourceTree = "<group>"; };
 		2892168A267E5C9A004911EA /* Importer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importer.swift; sourceTree = "<group>"; };
 		2892168C267E5D4C004911EA /* ClanImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanImporter.swift; sourceTree = "<group>"; };
 		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
@@ -384,6 +388,7 @@
 		282EC83B2656EEB90086B14F /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				288EB7C92698F23D00E27652 /* Nadea Theron.pdf */,
 				28ADF7F2267A579200D97D2A /* Examples.swift */,
 				282EC83C2656EEB90086B14F /* Preview Assets.xcassets */,
 			);
@@ -582,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
+				288EB7C72698EEF700E27652 /* Dictionary+.swift */,
 				2825206A267918E30066F09B /* KeyPath+.swift */,
 				28ED3B7B2698C992007C31C4 /* PDF+.swift */,
 				28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */,
@@ -800,6 +806,7 @@
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
 				2825206D26792A9D0066F09B /* TraitReference.plist in Resources */,
 				28452BB426976942002BA7EA /* Blank Character Sheet.pdf in Resources */,
+				288EB7CA2698F23D00E27652 /* Nadea Theron.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,6 +850,7 @@
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
+				288EB7C82698EEF700E27652 /* Dictionary+.swift in Sources */,
 				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
 				28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,

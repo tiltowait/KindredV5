@@ -443,13 +443,6 @@ class CharacterPDF {
     pdf.dataRepresentation()
   }
   
-  // MARK: - Public Variables
-  
-  /// An alphabetized list of every attribute and ability.
-  private(set) lazy var traitNames: [String] = {
-    Array(traitFields.keys).sorted()
-  }()
-  
   // MARK: - Derived Traits
   
   /// The character's maximum Health rating.
@@ -480,6 +473,20 @@ class CharacterPDF {
   var bloodPotency: Int16 {
     let fields = (1...10).map { "hdot\($0)" }
     return countSelected(for: fields)
+  }
+  
+  var advantages: [String: Int16] {
+    var advantages: [String: Int16] = [:]
+
+    let advantageFields = backgroundFields.merging(with: meritFields, flawFields)
+    
+    for (advantageLabel, dotFields) in advantageFields {
+      if let advantage = allAnnotations[advantageLabel]?.widgetStringValue {
+        let rating = countSelected(for: dotFields)
+        advantages[advantage] = rating
+      }
+    }
+    return advantages
   }
   
   // MARK: - Private Methods
