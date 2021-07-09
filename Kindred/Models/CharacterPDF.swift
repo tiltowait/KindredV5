@@ -478,10 +478,10 @@ class CharacterPDF {
   }
   
   /// All advantages with their associated ratings.
-  var advantages: [String: Int16] {
+  var allAdvantages: [String: Int16] {
     var advantages: [String: Int16] = [:]
 
-    let advantageFields = backgroundFields.merging(with: meritFields, flawFields)
+    let advantageFields = backgroundFields.merging(with: meritFields, flawFields, havenFields)
     
     for (advantageLabel, dotFields) in advantageFields {
       if let advantage = allAnnotations[advantageLabel]?.widgetStringValue {
@@ -510,6 +510,25 @@ class CharacterPDF {
     }
     return noteLines.joined(separator: "\n")
   }
+  
+  // MARK: - Haven Stuff
+  
+  var noHaven: Bool {
+    allAnnotations["havencheck1"]?.buttonWidgetState == .onState
+  }
+  
+  var havenRating: Int16 {
+    let dots = (1...5).map { "havendot\($0)" }
+    return countSelected(for: dots)
+  }
+  
+  let havenFields: [String: [String]] = [
+    "havenmf1": ["havendot6", "havendot7", "havendot8", "havendot9", "havendot10"],
+    "havenmf2": ["havendot11", "havendot12", "havendot13", "havendot14", "havendot15"],
+    "havenmf3": ["havendot16", "havendot17", "havendot18", "havendot19", "havendot20"],
+    "havenmf4": ["havendot21", "havendot22", "havendot23", "havendot24", "havendot25"]
+  ]
+  
   
   // MARK: - Private Methods
   

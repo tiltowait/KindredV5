@@ -95,6 +95,7 @@ enum CharacterImporter {
     
     Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
     Self.fetchAdvantages(context: context, kindred: kindred, pdf: pdf)
+    Self.fetchHavenRating(context: context, kindred: kindred, pdf: pdf)
     
     // Birthdate and embrace date
     if let birthdateString = pdf.birthdateString {
@@ -141,7 +142,7 @@ enum CharacterImporter {
   ///   - kindred: The character to apply the advantages to.
   ///   - pdf: The PDF from which to import.
   private static func fetchAdvantages(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
-    let advantages = pdf.advantages
+    let advantages = pdf.allAdvantages
     
     for (advantage, rating) in advantages {
       // On the official PDF, some advantages are given a compound name, such as "Looks, Stunning".
@@ -155,6 +156,38 @@ enum CharacterImporter {
         
         kindred.addToAdvantages(container)
       }
+    }
+  }
+  
+  /// Import the haven rating.
+  ///
+  /// Haven is a special section of the PDF that must be handled differently than other advantages.
+  /// Importantly, this function *only* imports the rating (or No Haven); other haven merits are handled
+  /// by `fetchAdvantages()`.
+  /// - Parameters:
+  ///   - context: The context in which the data lives.
+  ///   - kindred: The character to grant haven.
+  ///   - pdf: The PDF from which to import.
+  private static func fetchHavenRating(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+    let havenRating = pdf.havenRating
+    
+    if havenRating > 0 {
+      guard let haven = AdvantageOption.fetchObject(named: "Haven", in: context) else { return }
+      
+      let container = AdvantageContainer(context: context)
+      container.option = haven
+      container.currentRating = havenRating
+      
+      kindred.addToAdvantages(container)
+      
+    } else if pdf.noHaven {
+      guard let noHaven = AdvantageOption.fetchObject(named: "No Haven", in: context) else { return }
+      
+      let container = AdvantageContainer(context: context)
+      container.option = noHaven
+      container.currentRating = -1
+      
+      kindred.addToAdvantages(container)
     }
   }
   
