@@ -492,6 +492,14 @@ class CharacterPDF {
     return advantages
   }
   
+  var birthdateString: String? {
+    allAnnotations["bio3"]?.widgetStringValue
+  }
+  
+  var embraceDateString: String? {
+    allAnnotations["bio4"]?.widgetStringValue
+  }
+  
   /// The contents of the PDF's "notes" section, with line breaks.
   var notes: String {
     var noteLines: [String] = []

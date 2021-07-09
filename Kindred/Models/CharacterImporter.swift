@@ -10,6 +10,17 @@ import CoreData
 /// A caseless enum that does the actual legwork of creating a new character from a PDF.
 enum CharacterImporter {
   
+  /// Date format strings for attempting to get the character's birth- and embrace dates.
+  static let dateFormatStrings: [String] = {
+    [
+      "y", // year only, no padding
+      "M/y", // month and year, / delimeter, no padding on either
+      "M/d/y", // month, day, year, no padding on any
+      "MM/dd/yyyy", // month, day, year, padding on all
+      "MM/dd/yy" // month, day, year, with padding except for 2-digit year
+    ]
+  }()
+  
   /// Import a character from a PDF.
   /// - Parameters:
   ///   - pdf: The PDF from which to import the character.
@@ -85,6 +96,14 @@ enum CharacterImporter {
     Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
     Self.fetchAdvantages(context: context, kindred: kindred, pdf: pdf)
     
+    // Birthdate and embrace date
+    if let birthdateString = pdf.birthdateString {
+      kindred.birthdate = Self.dateFromString(birthdateString)
+    }
+    if let embraceDateString = pdf.embraceDateString {
+      kindred.embraceDate = Self.dateFromString(embraceDateString)
+    }
+    
     return kindred
   }
   
@@ -137,6 +156,22 @@ enum CharacterImporter {
         kindred.addToAdvantages(container)
       }
     }
+  }
+  
+  /// Attempt to fetch a date from a string.
+  /// - Parameter dateString: The date string to match.
+  /// - Returns: The matched date, or nil.
+  private static func dateFromString(_ dateString: String) -> Date? {
+    // This is technically a fairly expensive operation, but it is only done twice per import.
+    for formatString in CharacterImporter.dateFormatStrings {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = formatString
+      
+      if let date = dateFormatter.date(from: dateString) {
+        return date
+      }
+    }
+    return nil
   }
 
   
