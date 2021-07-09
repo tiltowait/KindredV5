@@ -44,6 +44,9 @@ struct CharacterDetail: View {
       } label: {
         Label("Character notes", systemImage: "note.text")
       }
+      
+      Divider()
+      
       Button {
         showingExporter.toggle()
       } label: {
