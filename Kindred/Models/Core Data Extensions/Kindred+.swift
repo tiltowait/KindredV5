@@ -147,9 +147,7 @@ extension Kindred {
     @discardableResult func add(container: AdvantageContainer) -> Bool {
       if container.advantage == self.advantage {
         containers.append(container)
-        print("Added \(container.option.name) to container: \(containers.map { $0.option.name })")
         containers.sort()
-        print("After sorting: \(containers.map { $0.option.name })")
         return true
       }
       return false
