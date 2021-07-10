@@ -5,7 +5,7 @@
 //  Created by Jared Lindsay on 7/8/21.
 //
 
-import SwiftUI
+import Foundation
 
 /// A structure containing all the costs and benefits for a character's blood potency.
 struct BloodPotency {
@@ -102,26 +102,30 @@ struct BloodPotency {
     }
   }
   
-  var surgeString: LocalizedStringKey {
-    "Add \(surge) die"
+  var surgeString: String {
+    localize(format: "Add %lld die", withArgument: surge)
   }
   
-  var mendString: LocalizedStringKey {
-    "\(mend) point of superficial damage"
+  var mendString: String {
+    localize(format: "%lld point of superficial damage", withArgument: mend)
   }
   
-  var powerBonusString: LocalizedStringKey {
+  var powerBonusString: String {
     if let powerBonus = powerBonus {
-      return "Add \(powerBonus) die"
+      return localize(format: "Add %lld die", withArgument: powerBonus)
     }
     return "None"
   }
   
-  var rouseRerollString: LocalizedStringKey {
+  var rouseRerollString: String {
     if let rouseReroll = rouseReroll {
-      return "Add \(rouseReroll) die"
+      return localize(format: "Add %lld die", withArgument: rouseReroll)
     }
     return "None"
+  }
+  
+  private func localize(format stringFormat: String, withArgument argument: Int) -> String {
+    String(format: NSLocalizedString(stringFormat, comment: "Blood potency"), argument)
   }
   
 }
