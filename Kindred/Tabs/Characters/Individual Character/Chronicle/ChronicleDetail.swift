@@ -92,6 +92,7 @@ struct ChronicleDetail: View {
   }
 }
 
+#if DEBUG
 struct ChronicleDetail_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
@@ -99,3 +100,4 @@ struct ChronicleDetail_Previews: PreviewProvider {
     }
   }
 }
+#endif
