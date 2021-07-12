@@ -29,6 +29,10 @@ enum CharacterImporter {
   static func importCharacter(pdf: CharacterPDF, context: NSManagedObjectContext) -> Kindred {
     let kindred = Kindred(context: context)
     
+    // Convictions and chronicle tenets
+    kindred.chronicleTenets = pdf.chronicleTenets.joined(separator: "\n")
+    kindred.convictions = pdf.convictions.joined(separator: "\n")
+    
     // Set basic traits
     kindred.name = pdf.information(for: .characterName)
     kindred.concept = pdf.information(for: .concept)

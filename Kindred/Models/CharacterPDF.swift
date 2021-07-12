@@ -243,6 +243,12 @@ class CharacterPDF {
     ]
   ]
   
+  /// Fields for the chronicle tenets.
+  let chronicleTenetFields = ["CT1", "CT2", "CT3", "CT4", "CT5", "CT6"]
+  
+  /// Fields for the character's convictions.
+  let convitionFields = ["TC1", "TC2", "TC3", "TC4", "TC5", "TC6"]
+  
   /// Fields for the clan bane.
   let baneFields = [
     "CB1", "CB2", "CB3", "CB4", "CB5", "CB6"
@@ -469,6 +475,20 @@ class CharacterPDF {
   
   // MARK: - Derived Traits
   
+  /// The tenets for the chronicle the character is in.
+  var chronicleTenets: [String] {
+    values(in: chronicleTenetFields).filter { !$0.isEmpty }
+  }
+  
+  /// The character's convictions.
+  ///
+  /// The PDF section is "Touchstones and Convictions", but there is no way to differentiate
+  /// between them. Therefore, we will simply import everything as convictions and let the
+  /// user fix things as necessary.
+  var convictions: [String] {
+    values(in: convitionFields).filter { !$0.isEmpty }
+  }
+  
   /// The character's maximum Health rating.
   var health: Int16 {
     let fields = (1...15).map { "check\($0)" }
@@ -615,10 +635,24 @@ class CharacterPDF {
     var values: [String] = []
     for field in fields {
       if let value = allAnnotations[field]?.widgetStringValue {
-        values.append(value)
+        values.append(value.trimmingCharacters(in: .whitespacesAndNewlines))
       }
     }
     return values
+  }
+  
+  /// Fill in the values for a list of fields.
+  ///
+  /// `fields` and `values` must have the same number of elements.
+  /// - Parameters:
+  ///   - fields: The fields to set.
+  ///   - values: The values to set them to.
+  func setValues(in fields: [String], to values: [String]) {
+    assert(fields.count == values.count)
+    
+    for (field, value) in zip(fields, values) {
+      allAnnotations[field]?.widgetStringValue = value
+    }
   }
   
 }
@@ -681,6 +715,13 @@ extension CharacterPDF {
     
     self.setBasicFields(character: character)
     self.setTraits(character: character)
+    
+    // Tenets and convictions
+    let tenets = character.chronicleTenets.components(separatedBy: .newlines)
+    setValues(in: chronicleTenetFields, to: tenets)
+    
+    let convictions = character.convictions.components(separatedBy: .newlines)
+    setValues(in: convitionFields, to: convictions)
     
     self.setHealth(to: character.health)
     self.setWillpower(to: character.willpower)
