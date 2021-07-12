@@ -51,6 +51,18 @@ extension Kindred {
     set { zTitle = newValue }
   }
   
+  var healthString: String {
+    get { zHealthString ?? String(repeating: ".", count: Int(self.health)) }
+    set { zHealthString = newValue }
+  }
+  
+  var willpowerString: String {
+    get { zWillpowerString ?? String(repeating: ".", count: Int(self.willpower)) }
+    set { zWillpowerString = newValue }
+  }
+  
+  // MARK: - Biographical Data
+  
   /// The character's height.
   var height: String {
     get { zHeight ?? "" }
@@ -63,20 +75,32 @@ extension Kindred {
     set { zWeight = newValue }
   }
   
-  var healthString: String {
-    get { zHealthString ?? String(repeating: ".", count: Int(self.health)) }
-    set { zHealthString = newValue }
+  var appearance: String {
+    get { zAppearance ?? "" }
+    set { zAppearance = newValue }
   }
   
-  var willpowerString: String {
-    get { zWillpowerString ?? String(repeating: ".", count: Int(self.willpower)) }
-    set { zWillpowerString = newValue }
+  var distinguishingFeatures: String {
+    get { zDistinguishingFeatures ?? "" }
+    set { zDistinguishingFeatures = newValue }
+  }
+  
+  var history: String {
+    get { zHistory ?? "" }
+    set { zHistory = newValue }
+  }
+  
+  var possessions: String {
+    get { zPossessions ?? "" }
+    set { zPossessions = newValue }
   }
   
   var notes: String {
     get { zNotes ?? "" }
     set { zNotes = newValue }
   }
+  
+  // MARK: - Referenced Data
   
   /// The image containers, sorted by date they were added.
   var allImageObjects: [KindredImage] {

@@ -280,7 +280,29 @@ class CharacterPDF {
     "flaws7": ["dot606b", "dot607b", "dot608b", "dot609b", "dot609ab"]
   ]
   
-  let noteFields = (1...13).map { "notes\($0)" }
+  /// Fields for the character's physical appearance.
+  let appearanceFields = ["bio5", "bio6", "bio7", "bio8", "bio9", "bio10"]
+  
+  /// Fields for the character's distinguishing characteristics.
+  let distinguishingFeaturesFields = ["bio11", "bio12", "bio13", "bio14", "bio15"]
+  
+  /// Fields for the character's personal history.
+  let historyFields = [
+    "bio16", "bio17", "bio18", "bio19", "bio20", "bio21", "bio22", "bio23", "bio24",
+    "bio25", "bio26", "bio27", "bio28", "bio29"
+  ]
+  
+  /// Fields for the character's possessions.
+  let possessionsFields = [
+    "possessions1", "possessions2", "possessions3",
+    "possessions4", "possessions5", "possessions6"
+  ]
+  
+  /// Fields for character notes.
+  let noteFields = [
+    "notes1", "notes2", "notes3", "notes4", "notes5", "notes6", "notes7",
+    "notes8", "notes9", "notes10", "notes11", "notes12", "notes13"
+  ]
   
   /// A dictionary of all annotations on the PDF's first page, with the annotation name as the key.
   private let allAnnotations: [String: PDFAnnotation]
@@ -500,14 +522,33 @@ class CharacterPDF {
     allAnnotations["bio4"]?.widgetStringValue
   }
   
+  /// The contents of the PDF's "appearance" section, with line breaks.
+  var appearance: String {
+    let appearanceLines = values(in: appearanceFields)
+    return appearanceLines.joined(separator: "\n")
+  }
+  
+  /// The contents of the PDF's "distinguishing features" section, with line breaks.
+  var distinguishingFeatures: String {
+    let distinguishingLines = values(in: distinguishingFeaturesFields)
+    return distinguishingLines.joined(separator: "\n")
+  }
+  
+  /// The contents of the PDF's "history" section, with line breaks.
+  var history: String {
+    let historyLines = values(in: historyFields)
+    return historyLines.joined(separator: "\n")
+  }
+  
+  /// The contents of the PDF's "possessions" section, with line breaks.
+  var possessions: String {
+    let possessionsLines = values(in: possessionsFields)
+    return possessionsLines.joined(separator: "\n")
+  }
+  
   /// The contents of the PDF's "notes" section, with line breaks.
   var notes: String {
-    var noteLines: [String] = []
-    for noteField in noteFields {
-      if let line = allAnnotations[noteField]?.widgetStringValue {
-        noteLines.append(line)
-      }
-    }
+    let noteLines = values(in: noteFields)
     return noteLines.joined(separator: "\n")
   }
   
@@ -565,6 +606,19 @@ class CharacterPDF {
       }
     }
     return nil
+  }
+  
+  /// Retrieve all values stored in a list of fields.
+  /// - Parameter fields: The fields of interest.
+  /// - Returns: The list of values stored in the fields.
+  func values(in fields: [String]) -> [String] {
+    var values: [String] = []
+    for field in fields {
+      if let value = allAnnotations[field]?.widgetStringValue {
+        values.append(value)
+      }
+    }
+    return values
   }
   
 }
@@ -658,7 +712,13 @@ extension CharacterPDF {
     }
     
     _ = self.setHaven(character: character)
-    self.setNotes(character.notes)
+    
+    // Set biographical detail
+    self.setBiography(section: .appearance, text: character.appearance)
+    self.setBiography(section: .distinguishingFeatures, text: character.distinguishingFeatures)
+    self.setBiography(section: .history, text: character.history)
+    self.setBiography(section: .possessions, text: character.possessions)
+    self.setBiography(section: .notes, text: character.notes)
   }
   
   // MARK: - Setters
@@ -881,23 +941,48 @@ extension CharacterPDF {
     return setFields(havenFields, to: havenDictionary)
   }
   
-  /// Fill out the contents of the "notes" section on the second page.
-  ///
-  /// The notes are divided among the lines as evenly as possible.
-  func setNotes(_ text: String) {
+  /// Second-page biographical sections.
+  enum BiographicalSection {
+    case appearance
+    case distinguishingFeatures
+    case history
+    case possessions
+    case notes
+  }
+  
+  /// Fill out one of the biographical sections on the PDF's second page.
+  /// - Parameters:
+  ///   - type: The section to fill.
+  ///   - text: The text to fill it with.
+  func setBiography(section: BiographicalSection, text: String) {
+    let fields: [String]
+    switch section {
+    case .appearance:
+      fields = appearanceFields
+    case .distinguishingFeatures:
+      fields = distinguishingFeaturesFields
+    case .history:
+      fields = historyFields
+    case .possessions:
+      fields = possessionsFields
+    case .notes:
+      fields = noteFields
+    }
+    
     let idealLineLength = 20
-    let words = text.components(separatedBy: .whitespacesAndNewlines).count
+    let maxLines = fields.count
+    let numWords = text.components(separatedBy: .whitespacesAndNewlines).count
     
     // If the notes are longer than 260 words, then we will just split
     // evenly across all 13 lines. Otherwise, we split according to the
     // ideal line length.
     
-    let numLines = words < 260 ? words / idealLineLength : words / 13
+    let numLines = numWords < 260 ? numWords / idealLineLength : numWords / maxLines
     if numLines > 0 {
       let lines = text.split(lines: numLines).components(separatedBy: .newlines)
       
       for (index, line) in lines.enumerated() {
-        allAnnotations["notes\(index + 1)"]?.widgetStringValue = line
+        allAnnotations[fields[index]]?.widgetStringValue = line
       }
     }
   }

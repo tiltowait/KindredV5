@@ -16,6 +16,8 @@
 		28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138777267D7BC4006DA73C /* ClanListViewController.swift */; };
 		2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */; };
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
+		2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC4269CA25A005356D9 /* BiographyDetail.swift */; };
+		2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */; };
 		28189D642681449E0099E8DF /* AdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D632681449E0099E8DF /* AdvantageView.swift */; };
 		28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D65268145CF0099E8DF /* AdvantageViewModel.swift */; };
 		28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D6726814A520099E8DF /* AdvantageOptionView.swift */; };
@@ -169,6 +171,8 @@
 		28138777267D7BC4006DA73C /* ClanListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanListViewController.swift; sourceTree = "<group>"; };
 		28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalKindredViewModel.swift; sourceTree = "<group>"; };
 		2813877B267D7DA2006DA73C /* ClanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanRow.swift; sourceTree = "<group>"; };
+		2813CAC4269CA25A005356D9 /* BiographyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyDetail.swift; sourceTree = "<group>"; };
+		2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyDetailViewModel.swift; sourceTree = "<group>"; };
 		28189D632681449E0099E8DF /* AdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageView.swift; sourceTree = "<group>"; };
 		28189D65268145CF0099E8DF /* AdvantageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageViewModel.swift; sourceTree = "<group>"; };
 		28189D6726814A520099E8DF /* AdvantageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionView.swift; sourceTree = "<group>"; };
@@ -326,6 +330,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2813CAC3269CA24B005356D9 /* Biography */ = {
+			isa = PBXGroup;
+			children = (
+				2813CAC4269CA25A005356D9 /* BiographyDetail.swift */,
+				2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */,
+			);
+			path = Biography;
+			sourceTree = "<group>";
+		};
 		281F80412681387F00B5B387 /* Advantages */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +627,7 @@
 		28C656D1267BBCF100865EE3 /* Individual Character */ = {
 			isa = PBXGroup;
 			children = (
+				2813CAC3269CA24B005356D9 /* Biography */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
@@ -838,11 +852,13 @@
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				287F88062682A22200DF140E /* StressTrack.swift in Sources */,
+				2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */,
 				28189D642681449E0099E8DF /* AdvantageView.swift in Sources */,
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				28DD0641267A706E00C9669F /* BasicInfoDetail.swift in Sources */,
+				2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */,
 				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
 				28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */,
 				286BE43C2696360900C19D57 /* AddLoresheetList.swift in Sources */,

@@ -64,6 +64,8 @@ extension Kindred {
     dateFormatter.dateFormat = "yyyy/MM/dd"
     kindred.birthdate = dateFormatter.date(from: "1982/03/17")!
     kindred.embraceDate = dateFormatter.date(from: "2009/06/21")!
+    kindred.inGameDate = dateFormatter.date(from: "2021/06/12")!
+    
     kindred.sire = "Vivette de Klerk"
     
     KindredImage.examples.forEach { kindred.addToImages($0) }
@@ -119,6 +121,13 @@ extension Kindred {
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "First-Cursed", in: dataController.container.viewContext)!)
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Book of the Grave-War", in: dataController.container.viewContext)!)
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Trophy Kill", in: dataController.container.viewContext)!)
+    
+    // Set some biographical detail
+    kindred.appearance = "An unkempt hunchback with heterochromia."
+    kindred.distinguishingFeatures = "A tattoo of a third eye on her forehead."
+    kindred.history = "She once went to the market."
+    kindred.possessions = "A tent and a dream."
+    kindred.notes = "This is a fake character."
     
     return kindred
   }
