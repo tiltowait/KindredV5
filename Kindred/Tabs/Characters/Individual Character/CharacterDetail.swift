@@ -70,17 +70,6 @@ struct CharacterDetail: View {
           if (viewModel.kindred.clan != nil) {
             RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
           }
-          BasicInfoDetail(kindred: viewModel.kindred)
-          
-          NavigationLink(
-            destination: ChronicleDetail(
-              kindred: viewModel.kindred,
-              dataController: viewModel.dataController
-            )
-          ) {
-            Text("Chronicle")
-              .font(.headline)
-          }
           
           NavigationLink(
             destination: BiographyDetail(
@@ -89,6 +78,16 @@ struct CharacterDetail: View {
             )
           ) {
             Text("Biography")
+              .font(.headline)
+          }
+          
+          NavigationLink(
+            destination: ChronicleDetail(
+              kindred: viewModel.kindred,
+              dataController: viewModel.dataController
+            )
+          ) {
+            Text("Chronicle")
               .font(.headline)
           }
           
