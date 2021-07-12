@@ -73,6 +73,16 @@ struct CharacterDetail: View {
           BasicInfoDetail(kindred: viewModel.kindred)
           
           NavigationLink(
+            destination: ChronicleDetail(
+              kindred: viewModel.kindred,
+              dataController: viewModel.dataController
+            )
+          ) {
+            Text("Chronicle")
+              .font(.headline)
+          }
+          
+          NavigationLink(
             destination: BiographyDetail(
               kindred: viewModel.kindred,
               dataController: viewModel.dataController

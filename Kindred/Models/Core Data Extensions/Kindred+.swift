@@ -61,6 +61,23 @@ extension Kindred {
     set { zWillpowerString = newValue }
   }
   
+  // MARK: - Morality
+  
+  var chronicleTenets: String {
+    get { zChronicleTenets ?? "" }
+    set { zChronicleTenets = newValue }
+  }
+  
+  var convictions: String {
+    get { zConvictions ?? "" }
+    set { zConvictions = newValue }
+  }
+  
+  var touchstones: String {
+    get { zTouchstones ?? "" }
+    set { zTouchstones = newValue }
+  }
+  
   // MARK: - Biographical Data
   
   /// The character's height.

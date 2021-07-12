@@ -89,7 +89,9 @@
         <attribute name="zAmbition" optional="YES" attributeType="String"/>
         <attribute name="zAppearance" optional="YES" attributeType="String"/>
         <attribute name="zChronicle" optional="YES" attributeType="String"/>
+        <attribute name="zChronicleTenets" optional="YES" attributeType="String"/>
         <attribute name="zConcept" optional="YES" attributeType="String"/>
+        <attribute name="zConvictions" optional="YES" attributeType="String"/>
         <attribute name="zDesire" optional="YES" attributeType="String"/>
         <attribute name="zDistinguishingFeatures" optional="YES" attributeType="String"/>
         <attribute name="zHealthString" optional="YES" attributeType="String"/>
@@ -100,6 +102,7 @@
         <attribute name="zPossessions" optional="YES" attributeType="String"/>
         <attribute name="zSire" optional="YES" attributeType="String"/>
         <attribute name="zTitle" optional="YES" attributeType="String"/>
+        <attribute name="zTouchstones" optional="YES" attributeType="String"/>
         <attribute name="zWeight" optional="YES" attributeType="String"/>
         <attribute name="zWillpowerString" optional="YES" attributeType="String"/>
         <relationship name="advantages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageContainer" inverseName="kindred" inverseEntity="AdvantageContainer"/>
@@ -156,7 +159,7 @@
         <element name="Clan" positionX="-268.0234375" positionY="-316.41796875" width="128" height="179"/>
         <element name="Discipline" positionX="-78.1015625" positionY="-286.34375" width="128" height="104"/>
         <element name="InfoItem" positionX="89.77734375" positionY="-622.6328125" width="128" height="74"/>
-        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="1034"/>
+        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="1079"/>
         <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="103"/>
         <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="59"/>
         <element name="LoresheetEntry" positionX="-252" positionY="-450" width="128" height="74"/>

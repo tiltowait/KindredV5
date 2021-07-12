@@ -18,6 +18,8 @@
 		2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813877B267D7DA2006DA73C /* ClanRow.swift */; };
 		2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC4269CA25A005356D9 /* BiographyDetail.swift */; };
 		2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */; };
+		2813CACA269CB2B6005356D9 /* ChronicleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */; };
+		2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */; };
 		28189D642681449E0099E8DF /* AdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D632681449E0099E8DF /* AdvantageView.swift */; };
 		28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D65268145CF0099E8DF /* AdvantageViewModel.swift */; };
 		28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D6726814A520099E8DF /* AdvantageOptionView.swift */; };
@@ -173,6 +175,8 @@
 		2813877B267D7DA2006DA73C /* ClanRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanRow.swift; sourceTree = "<group>"; };
 		2813CAC4269CA25A005356D9 /* BiographyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyDetail.swift; sourceTree = "<group>"; };
 		2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyDetailViewModel.swift; sourceTree = "<group>"; };
+		2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronicleDetail.swift; sourceTree = "<group>"; };
+		2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronicleDetailViewModel.swift; sourceTree = "<group>"; };
 		28189D632681449E0099E8DF /* AdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageView.swift; sourceTree = "<group>"; };
 		28189D65268145CF0099E8DF /* AdvantageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageViewModel.swift; sourceTree = "<group>"; };
 		28189D6726814A520099E8DF /* AdvantageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionView.swift; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 				2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */,
 			);
 			path = Biography;
+			sourceTree = "<group>";
+		};
+		2813CAC8269CB2AD005356D9 /* Chronicle */ = {
+			isa = PBXGroup;
+			children = (
+				2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */,
+				2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */,
+			);
+			path = Chronicle;
 			sourceTree = "<group>";
 		};
 		281F80412681387F00B5B387 /* Advantages */ = {
@@ -629,6 +642,7 @@
 			children = (
 				2813CAC3269CA24B005356D9 /* Biography */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
+				2813CAC8269CB2AD005356D9 /* Chronicle */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
 				288EB7C52698D08600E27652 /* BloodPotencyDetail.swift */,
@@ -846,6 +860,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */,
 				28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */,
 				287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */,
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
@@ -934,6 +949,7 @@
 				28692FB82696288100CEA2C5 /* LoresheetEntryDetail.swift in Sources */,
 				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
+				2813CACA269CB2B6005356D9 /* ChronicleDetail.swift in Sources */,
 				2866C6892683F73B00614E85 /* Trackers.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
 				28138772267D70CF006DA73C /* ClanDetail.swift in Sources */,
