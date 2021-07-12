@@ -120,8 +120,8 @@ enum CharacterImporter {
   ///   - kindred: The character to add the disciplines to.
   ///   - pdf: The PDF from which to import.
   private static func fetchDisciplines(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
-    let allDisciplines = try? context.fetch(Discipline.fetchRequest()) as? [Discipline]
-    let allPowers = try? context.fetch(Power.fetchRequest()) as? [Power]
+    let allDisciplines = try? context.fetch(Discipline.fetchRequest()) as [Discipline]
+    let allPowers = try? context.fetch(Power.fetchRequest()) as [Power]
     
     for (key, fields) in pdf.disciplineFields {
       let disciplineName = pdf.value(for: key) ?? ""

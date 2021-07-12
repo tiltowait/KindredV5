@@ -9,32 +9,20 @@ import SwiftUI
 import PDFKit
 import UniformTypeIdentifiers
 
-struct CharacterExporter: FileDocument {
-  enum PDFError: Error {
-    case invalidPDFData
-  }
+struct CharacterExporter: Identifiable {
   
-  static var readableContentTypes = [UTType.pdf]
+  var id = UUID()
   
   let character: Kindred
-  
-  init(configuration: ReadConfiguration) throws {
-    print("init(configuration:)")
-    character = Kindred()
-  }
+  let pdf: PDFDocument
   
   init(character: Kindred) {
     self.character = character
+    self.pdf = CharacterPDF(character: character).pdf
   }
   
-  func generatePDF() -> PDFDocument {
-    let pdf = CharacterPDF(character: character).pdf
-    return pdf.flattened(withDPI: 250)
-  }
-  
-  func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-    let data = generatePDF().dataRepresentation()
-    return FileWrapper(regularFileWithContents: data!)
+  func flattenedPDF() -> PDFDocument {
+    pdf.flattened(withDPI: Global.pdfDPI)
   }
   
 }

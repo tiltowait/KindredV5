@@ -11,6 +11,8 @@ import CoreHaptics
 /// Global enums and constants used throughout the app.
 enum Global {
   
+  static let pdfDPI: CGFloat = 250
+  
   /// The path to the reference database.
   static let referenceDatabasePath: String = {
     guard let path = Bundle.main.path(forResource: "reference", ofType: "sqlite") else {

@@ -18,7 +18,8 @@ struct CharacterDetail: View {
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
-  @State private var showingExporter = false
+  
+  @State private var pdfExporter: CharacterExporter?
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -48,7 +49,7 @@ struct CharacterDetail: View {
       Divider()
       
       Button {
-        showingExporter.toggle()
+        pdfExporter = CharacterExporter(character: viewModel.kindred)
       } label: {
         Label("Export character", systemImage: "square.and.arrow.up")
       }
@@ -157,13 +158,9 @@ struct CharacterDetail: View {
           ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
         }
       }
-      .fileExporter(
-        isPresented: $showingExporter,
-        document: CharacterExporter(character: viewModel.kindred),
-        contentType: .pdf,
-        defaultFilename: "\(viewModel.kindred.name).pdf",
-        onCompletion: { _ in } // We don't care about this just yet
-      )
+      .sheet(item: $pdfExporter) { exporter in
+        PDFShare(name: viewModel.kindred.name, document: exporter.flattenedPDF())
+      }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)
       .onDisappear(perform: viewModel.save)

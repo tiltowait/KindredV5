@@ -134,6 +134,9 @@
 		28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */; };
 		28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */; };
 		28DB5E82268A873600649103 /* SwapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB5E81268A873600649103 /* SwapView.swift */; };
+		28E02DDE269CC71000BBC86E /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E02DDD269CC71000BBC86E /* PDFViewer.swift */; };
+		28E02DE0269CC7F500BBC86E /* PDFShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E02DDF269CC7F500BBC86E /* PDFShare.swift */; };
+		28E02DE2269CCAB700BBC86E /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */; };
 		28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C8582684DFE700EFE34C /* TrackerStepper.swift */; };
 		28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */; };
 		28EBBE0526784902004DD186 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28EBBE0426784902004DD186 /* Colors.xcassets */; };
@@ -293,6 +296,9 @@
 		28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceRow.swift; sourceTree = "<group>"; };
 		28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RandomAccessCollection+.swift"; sourceTree = "<group>"; };
 		28DB5E81268A873600649103 /* SwapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapView.swift; sourceTree = "<group>"; };
+		28E02DDD269CC71000BBC86E /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
+		28E02DDF269CC7F500BBC86E /* PDFShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFShare.swift; sourceTree = "<group>"; };
+		28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		28E2C8582684DFE700EFE34C /* TrackerStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerStepper.swift; sourceTree = "<group>"; };
 		28E2C85A2684E3BD00EFE34C /* TrackersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewModel.swift; sourceTree = "<group>"; };
 		28EBBE0426784902004DD186 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -439,9 +445,9 @@
 			isa = PBXGroup;
 			children = (
 				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
+				28452BB526976AB3002BA7EA /* CharacterExporter.swift */,
 				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
 				2861A0D526979C74003AFED1 /* BloodPotency.swift */,
-				28452BB526976AB3002BA7EA /* CharacterExporter.swift */,
 				28452BB326976942002BA7EA /* Blank Character Sheet.pdf */,
 				28921695267E6BDB004911EA /* reference.sqlite */,
 				2825206C26792A9D0066F09B /* TraitReference.plist */,
@@ -474,7 +480,10 @@
 		28386F5F265868B800E90445 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
+				28E02DDD269CC71000BBC86E /* PDFViewer.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
+				28E02DDF269CC7F500BBC86E /* PDFShare.swift */,
+				28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
@@ -950,6 +959,7 @@
 				28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
+				28E02DE2269CCAB700BBC86E /* ActivityViewController.swift in Sources */,
 				2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */,
 				28452BB626976AB3002BA7EA /* CharacterExporter.swift in Sources */,
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
@@ -967,11 +977,13 @@
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				28692FBA2696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
+				28E02DE0269CC7F500BBC86E /* PDFShare.swift in Sources */,
 				28138776267D7BB7006DA73C /* ClanList.swift in Sources */,
 				28B40CF126961E360058BE50 /* LoresheetDetailViewController.swift in Sources */,
 				28189D6A26814C060099E8DF /* AdvantageOptionViewModel.swift in Sources */,
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 				287F87FD2682943400DF140E /* AdvantageOptionMarker.swift in Sources */,
+				28E02DDE269CC71000BBC86E /* PDFViewer.swift in Sources */,
 				286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
