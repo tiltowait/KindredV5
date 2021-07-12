@@ -22,6 +22,8 @@ extension ChronicleDetail {
     @Published var convictions: [String]
     @Published var touchstones: [String]
     
+    @Published var errorMessage: String? = nil
+    
     override init(kindred: Kindred, dataController: DataController) {
       chronicle = kindred.chronicle
       inGameDate = kindred.inGameDate ?? Date()
@@ -50,7 +52,12 @@ extension ChronicleDetail {
       switch moralityItem {
       case .tenet: tenets.append("")
       case .conviction: convictions.append("")
-      case .touchstone: touchstones.append("")
+      case .touchstone:
+        if touchstones.count < convictions.count {
+          touchstones.append("")
+        } else {
+          errorMessage = "Add a conviction before adding another touchstone."
+        }
       }
     }
     

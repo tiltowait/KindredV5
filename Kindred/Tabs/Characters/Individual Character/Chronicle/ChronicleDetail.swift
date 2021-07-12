@@ -63,6 +63,13 @@ struct ChronicleDetail: View {
     }
     .listStyle(InsetGroupedListStyle())
     .navigationBarTitle("Chronicle", displayMode: .inline)
+    .alert(item: $viewModel.errorMessage) { message in
+      Alert(
+        title: Text("Error"),
+        message: Text(message),
+        dismissButton: .default(Text("OK"))
+      )
+    }
     .onDisappear(perform: viewModel.commitChanges)
   }
   

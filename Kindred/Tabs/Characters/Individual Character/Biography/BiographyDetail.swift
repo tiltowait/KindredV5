@@ -38,13 +38,18 @@ struct BiographyDetail: View {
         BoldTextField("Concept", binding: $viewModel.concept)
         BoldTextField("Title", binding: $viewModel.title)
         
-        DatePicker(selection: $viewModel.birthdate, displayedComponents: .date) {
+        DatePicker(
+          selection: $viewModel.birthdate,
+          in: ...viewModel.inGameDate,
+          displayedComponents: .date
+        ) {
           Text("Born:")
             .bold()
         }
         if let transitionTerm = viewModel.transitionTerm {
           DatePicker(
             selection: $viewModel.transitionDate,
+            in: viewModel.birthdate...viewModel.inGameDate,
             displayedComponents: .date
           ) {
             Text("\(transitionTerm):")

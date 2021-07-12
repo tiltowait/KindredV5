@@ -636,14 +636,14 @@
 		28C656D1267BBCF100865EE3 /* Individual Character */ = {
 			isa = PBXGroup;
 			children = (
-				2813CAC3269CA24B005356D9 /* Biography */,
 				28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */,
-				2813CAC8269CB2AD005356D9 /* Chronicle */,
 				283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */,
 				287F87FF26829E5800DF140E /* CharacterNotesView.swift */,
 				288EB7C52698D08600E27652 /* BloodPotencyDetail.swift */,
 				283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */,
 				283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */,
+				2813CAC3269CA24B005356D9 /* Biography */,
+				2813CAC8269CB2AD005356D9 /* Chronicle */,
 				287F87F72682553200DF140E /* Advantages */,
 				286BE43A269635F800C19D57 /* Loresheets */,
 				287F87FE26829DED00DF140E /* Basic Traits */,
