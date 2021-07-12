@@ -9,20 +9,30 @@ import SwiftUI
 import PDFKit
 import UniformTypeIdentifiers
 
-struct CharacterExporter: Identifiable {
+class CharacterExporter: Identifiable {
   
   var id = UUID()
   
-  let character: Kindred
-  let pdf: PDFDocument
+  let fileURL: URL
   
-  init(character: Kindred) {
-    self.character = character
-    self.pdf = CharacterPDF(character: character).pdf
+  init?(character: Kindred) {
+    let pdf = CharacterPDF(character: character).pdf.flattened(withDPI: Global.pdfDPI)
+    guard let data = pdf.dataRepresentation() else { return nil }
+    
+    let tempURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+    let destination = tempURL.appendingPathComponent("\(character.name).pdf")
+    
+    do {
+      try data.write(to: destination)
+      fileURL = destination
+    } catch {
+      print(error.localizedDescription)
+      return nil
+    }
   }
   
-  func flattenedPDF() -> PDFDocument {
-    pdf.flattened(withDPI: Global.pdfDPI)
+  deinit {
+    try? FileManager.default.removeItem(at: fileURL)
   }
   
 }

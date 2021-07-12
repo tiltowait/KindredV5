@@ -159,7 +159,7 @@ struct CharacterDetail: View {
         }
       }
       .sheet(item: $pdfExporter) { exporter in
-        PDFShare(name: viewModel.kindred.name, document: exporter.flattenedPDF())
+        ActivityViewController(activityItems: [exporter.fileURL], excludedActivityTypes: [.copyToPasteboard])
       }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)
