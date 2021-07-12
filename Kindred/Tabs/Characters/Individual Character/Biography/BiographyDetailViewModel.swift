@@ -10,6 +10,9 @@ import Foundation
 extension BiographyDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
+    @Published var concept: String
+    @Published var title: String
+    
     @Published var appearance: String
     @Published var distinguishingFeatures: String
     @Published var history: String
@@ -48,6 +51,9 @@ extension BiographyDetail {
     }
     
     override init(kindred: Kindred, dataController: DataController) {
+      concept = kindred.concept
+      title = kindred.title
+      
       appearance = kindred.appearance
       distinguishingFeatures = kindred.distinguishingFeatures
       history = kindred.history
@@ -81,6 +87,9 @@ extension BiographyDetail {
     }
     
     func commitChanges() {
+      kindred.concept = concept
+      kindred.title = title
+      
       kindred.appearance = appearance
       kindred.distinguishingFeatures = distinguishingFeatures
       kindred.history = history

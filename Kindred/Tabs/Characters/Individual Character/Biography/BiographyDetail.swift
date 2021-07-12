@@ -26,17 +26,18 @@ struct BiographyDetail: View {
   
   var body: some View {
     List {
-      Section {
-        DatePicker(
-          selection: $viewModel.inGameDate,
-          displayedComponents: .date
-        ) {
-          Text("In-game date:")
-            .bold()
-        }
+      DatePicker(
+        selection: $viewModel.inGameDate,
+        displayedComponents: .date
+      ) {
+        Text("In-game date:")
+          .bold()
       }
       
       Section {
+        BoldTextField("Concept", binding: $viewModel.concept)
+        BoldTextField("Title", binding: $viewModel.title)
+        
         DatePicker(selection: $viewModel.birthdate, displayedComponents: .date) {
           Text("Born:")
             .bold()
