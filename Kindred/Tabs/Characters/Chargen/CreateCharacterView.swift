@@ -29,7 +29,7 @@ struct CreateCharacterView: View {
           BoldLabel(
             "Clan:",
             details: viewModel.selectedClan,
-            layout: viewModel.clanIsSelected ? .secondary : .placeholder
+            layout: viewModel.clanIsSelected ? .standard : .placeholder
           )
           .contentShape(Rectangle())
         }
