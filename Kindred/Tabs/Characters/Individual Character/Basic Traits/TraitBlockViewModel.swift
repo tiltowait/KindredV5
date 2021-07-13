@@ -10,14 +10,9 @@ import Foundation
 extension TraitBlock {
   class ViewModel: BaseSavingKindredViewModel {
     
-    enum TraitGroup: String {
-      case attributes
-      case skills
-    }
+    let traits: Global.TraitType
     
-    let traits: TraitGroup
-    
-    init(kindred: Kindred, dataController: DataController, traits: TraitGroup) {
+    init(kindred: Kindred, dataController: DataController, traits: Global.TraitType) {
       self.traits = traits
       super.init(kindred: kindred, dataController: dataController)
     }

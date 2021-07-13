@@ -129,6 +129,12 @@ extension Kindred {
     kindred.possessions = "A tent and a dream."
     kindred.notes = "This is a fake character."
     
+    // Set some specialties
+    let specialty = Specialty(context: dataController.container.viewContext)
+    specialty.skillName = "Occult"
+    specialty.specialties = ["Grave Rituals", "Summoning"]
+    specialty.parent = kindred
+    
     return kindred
   }
   

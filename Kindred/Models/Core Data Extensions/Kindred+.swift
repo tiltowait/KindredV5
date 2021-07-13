@@ -163,6 +163,16 @@ extension Kindred {
     knownPowers.filter { $0.discipline == discipline }.count
   }
   
+  var allSpecialties: [Specialty] {
+    specialties?.allObjects as? [Specialty] ?? []
+  }
+  
+  func specialties(for skill: String) -> [String]? {
+    let allSpecialties = specialties as? Set<Specialty>
+    let skillSpecialties = allSpecialties?.first { $0.skillName == skill }
+    return skillSpecialties?.specialties
+  }
+  
 }
 
 // MARK: - Advantage Stuff

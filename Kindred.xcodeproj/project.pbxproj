@@ -144,6 +144,9 @@
 		28EBBE0B2678529B004DD186 /* TraitBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0A2678529B004DD186 /* TraitBlock.swift */; };
 		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
 		28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED3B7B2698C992007C31C4 /* PDF+.swift */; };
+		28F05C23269DFCC400E81D5B /* Specialty+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C22269DFCC400E81D5B /* Specialty+.swift */; };
+		28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C24269E03A800E81D5B /* SpecialtyManager.swift */; };
+		28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */; };
 		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +309,9 @@
 		28EBBE0A2678529B004DD186 /* TraitBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlock.swift; sourceTree = "<group>"; };
 		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
 		28ED3B7B2698C992007C31C4 /* PDF+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PDF+.swift"; sourceTree = "<group>"; };
+		28F05C22269DFCC400E81D5B /* Specialty+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specialty+.swift"; sourceTree = "<group>"; };
+		28F05C24269E03A800E81D5B /* SpecialtyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManager.swift; sourceTree = "<group>"; };
+		28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManagerViewModel.swift; sourceTree = "<group>"; };
 		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -473,6 +479,7 @@
 				28921691267E64DE004911EA /* NSManagedObject+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
+				28F05C22269DFCC400E81D5B /* Specialty+.swift */,
 			);
 			path = "Core Data Extensions";
 			sourceTree = "<group>";
@@ -553,6 +560,8 @@
 				28EBBE0A2678529B004DD186 /* TraitBlock.swift */,
 				28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */,
 				28252068267916CD0066F09B /* TraitRater.swift */,
+				28F05C24269E03A800E81D5B /* SpecialtyManager.swift */,
+				28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */,
 			);
 			path = "Basic Traits";
 			sourceTree = "<group>";
@@ -937,6 +946,7 @@
 				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
+				28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */,
 				284635902697616D00898E84 /* View+.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */,
@@ -954,6 +964,7 @@
 				2866C6892683F73B00614E85 /* Trackers.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
 				28138772267D70CF006DA73C /* ClanDetail.swift in Sources */,
+				28F05C23269DFCC400E81D5B /* Specialty+.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */,
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */,
@@ -965,6 +976,7 @@
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */,
 				2861A0D626979C74003AFED1 /* BloodPotency.swift in Sources */,
+				28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
 				28B40CEF26961E100058BE50 /* LoresheetDetail.swift in Sources */,

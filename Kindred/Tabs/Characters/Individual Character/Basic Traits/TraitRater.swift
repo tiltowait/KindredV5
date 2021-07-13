@@ -9,50 +9,93 @@ import SwiftUI
 
 struct TraitRater: View {
   
+  @EnvironmentObject var dataController: DataController
+  
   @ObservedObject var kindred: Kindred
   let keyPath: ReferenceWritableKeyPath<Kindred, Int16>
   let max: Int16
   let reference: String
   
+  let showingSpecialties: Bool
+  @State private var specialties: String?
+  
   @State private var binding: Int16
+  @State private var showingSpecialtyManager = false
   @State private var showingReferenceAlert = false
   
+  let label: String
   let size: CGFloat = 17
   let spacing: CGFloat = 5
 
   init(
     kindred: Kindred,
     keyPath: ReferenceWritableKeyPath<Kindred, Int16>,
-    max: Int16, reference: String
+    max: Int16,
+    type: Global.TraitType,
+    reference: String
   ) {
     self.kindred = kindred
     self.keyPath = keyPath
-    self.reference = reference
     self.max = max
+    self.reference = reference
     
     _binding = State(wrappedValue: kindred[keyPath: keyPath])
+    label = keyPath.stringValue.unCamelCased.capitalized
+    
+    // Specialties
+    showingSpecialties = type == .skills
+    let specialties = kindred.specialties(for: label)?.joined(separator: ", ")
+    _specialties = State(wrappedValue: specialties)
   }
   
-  var label: String {
-    keyPath.stringValue.unCamelCased.capitalized
+  var addSpecialtyButton: some View {
+    Group {
+      if showingSpecialties {
+        Button {
+          showingSpecialtyManager.toggle()
+        } label: {
+          Label("Add specialty", systemImage: "circle.grid.2x2")
+            .labelStyle(IconOnlyLabelStyle())
+        }
+        .buttonStyle(BorderlessButtonStyle())
+      }
+    }
+  }
+  
+  var specialtiesLabel: some View {
+    Group {
+      if let specialties = specialties {
+        BoldLabel("Specialties:", details: specialties)
+          .font(.caption)
+      }
+    }
   }
   
   var body: some View {
-    HStack {
-      Text("\(label):")
-        .bold()
-      
-      Spacer()
-      
-      DotSelector(current: $binding, min: 0, max: max)
-      
-      // Reference button
-      Button {
-        showingReferenceAlert.toggle()
-      } label: {
-        Label("Reference", systemImage: "info.circle")
-          .labelStyle(IconOnlyLabelStyle())
+    VStack(alignment: .leading) {
+      HStack {
+        addSpecialtyButton
+        
+        Text("\(label):")
+          .bold()
+        
+        Spacer()
+        
+        DotSelector(current: $binding, min: 0, max: max)
+        
+        // Reference button
+        Button {
+          showingReferenceAlert.toggle()
+        } label: {
+          Label("Reference", systemImage: "info.circle")
+            .labelStyle(IconOnlyLabelStyle())
+        }
+        .buttonStyle(BorderlessButtonStyle())
       }
+      specialtiesLabel
+    }
+    .sheet(isPresented: $showingSpecialtyManager) {
+      SpecialtyManager(skill: label, kindred: kindred, dataController: dataController, binding: $specialties)
     }
     .alert(isPresented: $showingReferenceAlert) {
       Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
@@ -70,7 +113,7 @@ struct TraitRater: View {
 #if DEBUG
 struct TraitRater_Previews: PreviewProvider {
   static var previews: some View {
-    TraitRater(kindred: Kindred.example, keyPath: \.strength, max: 5, reference: "Test reference")
+    TraitRater(kindred: Kindred.example, keyPath: \.occult, max: 5, type: .skills, reference: "Test reference")
       .previewLayout(.sizeThatFits)
   }
 }

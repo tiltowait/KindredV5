@@ -11,6 +11,11 @@ import CoreHaptics
 /// Global enums and constants used throughout the app.
 enum Global {
   
+  enum TraitType: String {
+    case attributes
+    case skills
+  }
+  
   static let pdfDPI: CGFloat = 250
   
   /// The path to the reference database.

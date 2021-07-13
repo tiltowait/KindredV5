@@ -16,7 +16,7 @@ struct TraitBlock: View {
   ///   - kindred: The `Kindred` to observe.
   ///   - dataController: The data controller responsible for saving and retrieving data.
   ///   - traits: The type of trait we are looking for: attributes or skills.
-  init(kindred: Kindred, dataController: DataController, traits: ViewModel.TraitGroup) {
+  init(kindred: Kindred, dataController: DataController, traits: Global.TraitType) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController, traits: traits)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
@@ -49,6 +49,7 @@ struct TraitBlock: View {
           kindred: viewModel.kindred,
           keyPath: trait,
           max: 5,
+          type: viewModel.traits,
           reference: viewModel.reference(forKeyPath: trait)
         )
       }
