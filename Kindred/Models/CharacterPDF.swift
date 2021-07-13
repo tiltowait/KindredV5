@@ -723,10 +723,10 @@ extension CharacterPDF {
     
     // Tenets and convictions
     let tenets = character.chronicleTenets.components(separatedBy: .newlines)
-    setValues(in: chronicleTenetFields, to: tenets)
+    _ = setValues(in: chronicleTenetFields, to: tenets)
     
     let convictions = character.convictions.components(separatedBy: .newlines)
-    setValues(in: convitionFields, to: convictions)
+    _ = setValues(in: convitionFields, to: convictions)
     
     self.setHealth(to: character.health)
     self.setWillpower(to: character.willpower)
