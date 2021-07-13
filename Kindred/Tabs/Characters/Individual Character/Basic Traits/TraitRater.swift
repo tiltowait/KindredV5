@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+extension Binding {
+    func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
+        Binding(
+            get: { self.wrappedValue },
+            set: { newValue in
+                self.wrappedValue = newValue
+                handler(newValue)
+            }
+        )
+    }
+}
+
 struct TraitRater: View {
   
   @EnvironmentObject var dataController: DataController
@@ -79,7 +91,11 @@ struct TraitRater: View {
         
         Spacer()
         
-        DotSelector(current: $binding, min: 0, max: max)
+        DotSelector(
+          current: $binding.onChange(updateTrait),
+          min: 0,
+          max: max
+        )
         
         // Reference button
         Button {
@@ -98,7 +114,7 @@ struct TraitRater: View {
     .alert(isPresented: $showingReferenceAlert) {
       Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
     }
-    .onDisappear(perform: updateTrait)
+//    .onDisappear(perform: updateTrait)
   }
   
   /// Create a specialty manager for display.
@@ -112,8 +128,8 @@ struct TraitRater: View {
   }
   
   /// Update the character's trait with the value of the binding.
-  func updateTrait() {
-    kindred[keyPath: keyPath] = binding
+  func updateTrait(to newValue: Int16) {
+    kindred[keyPath: keyPath] = newValue
   }
   
 }
