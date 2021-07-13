@@ -61,6 +61,9 @@
 		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
 		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
 		2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */; };
+		2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD3269E332800B39866 /* DiceRoller.swift */; };
+		2856DCD6269E332F00B39866 /* DiceRollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */; };
+		2856DCD8269E33CB00B39866 /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD7269E33CB00B39866 /* MenuPicker.swift */; };
 		2861A0D626979C74003AFED1 /* BloodPotency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861A0D526979C74003AFED1 /* BloodPotency.swift */; };
 		2866C6892683F73B00614E85 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866C6882683F73B00614E85 /* Trackers.swift */; };
 		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
@@ -229,6 +232,9 @@
 		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
 		2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewModel.swift; sourceTree = "<group>"; };
+		2856DCD3269E332800B39866 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
+		2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModel.swift; sourceTree = "<group>"; };
+		2856DCD7269E33CB00B39866 /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
 		2861A0D526979C74003AFED1 /* BloodPotency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPotency.swift; sourceTree = "<group>"; };
 		2866C6882683F73B00614E85 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
 		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
@@ -509,8 +515,18 @@
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
 				287689CA26867B9D00343F59 /* ModalView.swift */,
+				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
 			);
 			path = "Generic Views";
+			sourceTree = "<group>";
+		};
+		2856DCCE269E32B800B39866 /* DiceRoller */ = {
+			isa = PBXGroup;
+			children = (
+				2856DCD3269E332800B39866 /* DiceRoller.swift */,
+				2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */,
+			);
+			path = DiceRoller;
 			sourceTree = "<group>";
 		};
 		286BE43A269635F800C19D57 /* Loresheets */ = {
@@ -620,6 +636,7 @@
 				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */,
 				28ADF7F4267A5DC500D97D2A /* Characters */,
+				2856DCCE269E32B800B39866 /* DiceRoller */,
 				28ADF7F5267A5DCE00D97D2A /* Reference */,
 			);
 			path = Tabs;
@@ -902,6 +919,7 @@
 				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */,
 				2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */,
+				2856DCD6269E332F00B39866 /* DiceRollerViewModel.swift in Sources */,
 				28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
 				28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */,
@@ -929,6 +947,7 @@
 				28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */,
 				28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
+				2856DCD8269E33CB00B39866 /* MenuPicker.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				281F803A2681302300B5B387 /* AdvantageImporter.swift in Sources */,
 				28A1E9E92677AA1A0084F483 /* Kindred+.swift in Sources */,
@@ -954,6 +973,7 @@
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
 				2841ACD1269E26EF00031983 /* Binding+.swift in Sources */,
 				2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */,
+				2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
 				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,
