@@ -169,7 +169,7 @@ extension Kindred {
   
   func specialties(for skill: String) -> [String]? {
     let allSpecialties = specialties as? Set<Specialty>
-    let skillSpecialties = allSpecialties?.first { $0.skillName == skill }
+    let skillSpecialties = allSpecialties?.first { $0.skill == skill }
     return skillSpecialties?.specialties
   }
   

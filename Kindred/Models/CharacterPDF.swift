@@ -519,6 +519,18 @@ class CharacterPDF {
     return countSelected(for: fields)
   }
   
+  /// The character's specialties
+  var specialties: [String: String] {
+    var specialties: [String: String] = [:]
+    
+    for (skill, field) in specialtyFields {
+      if let specialty = value(for: field) {
+        specialties[skill] = specialty
+      }
+    }
+    return specialties
+  }
+  
   /// All advantages with their associated ratings.
   var allAdvantages: [String: Int16] {
     var advantages: [String: Int16] = [:]
@@ -720,6 +732,7 @@ extension CharacterPDF {
     
     self.setBasicFields(character: character)
     self.setTraits(character: character)
+    self.setSpecialties(character.allSpecialties)
     
     // Tenets and convictions
     let tenets = character.chronicleTenets.components(separatedBy: .newlines)
@@ -792,6 +805,16 @@ extension CharacterPDF {
     for index in 0..<Int(newValue) {
       let field = fields[index]
       allAnnotations[field]?.buttonWidgetState = .onState
+    }
+  }
+  
+  /// Fill in the PDF's skill specialties.
+  /// - Parameter specialties: The character's specialties.
+  func setSpecialties(_ specialties: [Specialty]) {
+    for specialty in specialties {
+      if let field = specialtyFields[specialty.skill] {
+        allAnnotations[field]?.widgetStringValue = specialty.formatted
+      }
     }
   }
   

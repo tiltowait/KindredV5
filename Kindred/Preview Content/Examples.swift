@@ -131,7 +131,7 @@ extension Kindred {
     
     // Set some specialties
     let specialty = Specialty(context: dataController.container.viewContext)
-    specialty.skillName = "Occult"
+    specialty.skill = "Occult"
     specialty.specialties = ["Grave Rituals", "Summoning"]
     specialty.parent = kindred
     

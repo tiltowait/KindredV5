@@ -9,7 +9,7 @@ import Foundation
 
 extension Specialty {
   
-  var skillName: String {
+  var skill: String {
     get { zSkillName ?? "" }
     set { zSkillName = newValue }
   }

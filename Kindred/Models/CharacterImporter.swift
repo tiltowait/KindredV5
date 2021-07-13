@@ -43,6 +43,8 @@ enum CharacterImporter {
     kindred.sire = pdf.information(for: .sire)
     kindred.title = pdf.information(for: .title)
     
+    Self.assignSpecialties(context: context, kindred: kindred, pdf: pdf)
+    
     // Figure out its clan
     if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {
       kindred.clan = clan
@@ -114,6 +116,21 @@ enum CharacterImporter {
     }
     
     return kindred
+  }
+  
+  private static func assignSpecialties(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+    let specialtyDict = pdf.specialties
+    
+    for (skill, specialties) in specialtyDict {
+      let specialty = Specialty(context: context)
+      specialty.skill = skill
+      specialty.parent = kindred
+      
+      let specialties = specialties.components(separatedBy: ", ")
+        .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+      
+      specialty.specialties = specialties
+    }
   }
   
   /// Attempt to import disciplines.

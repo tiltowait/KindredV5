@@ -30,13 +30,13 @@ extension SpecialtyManager {
       let specialties = specialties.filter { !$0.isEmpty }
       
       let specialty: Specialty
-      if let container = (kindred.allSpecialties.first { $0.skillName == skill }) {
+      if let container = (kindred.allSpecialties.first { $0.skill == skill }) {
         specialty = container
       } else {
         specialty = Specialty(context: dataController.container.viewContext)
       }
       if !specialties.isEmpty {
-        specialty.skillName = skill
+        specialty.skill = skill
         specialty.specialties = specialties
         specialty.parent = kindred
         
