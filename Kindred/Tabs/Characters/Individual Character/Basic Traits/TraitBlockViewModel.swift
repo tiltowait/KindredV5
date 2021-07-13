@@ -17,16 +17,16 @@ extension TraitBlock {
       super.init(kindred: kindred, dataController: dataController)
     }
     
-    var title: String {
+    lazy var title: String = {
       traits.rawValue.capitalized
-    }
+    }()
     
-    var costToIncrease: String {
+    lazy var costToIncrease: String = {
       let cost = traits == .attributes ? 5 : 3
       return "Cost to increase: New Level × \(cost)"
-    }
+    }()
     
-    var physical: [ReferenceWritableKeyPath<Kindred, Int16>] {
+    lazy var physical: [ReferenceWritableKeyPath<Kindred, Int16>] = {
       if traits == .skills {
         return [
           \Kindred.athletics,
@@ -46,9 +46,9 @@ extension TraitBlock {
           \Kindred.stamina
         ]
       }
-    }
+    }()
     
-    var social: [ReferenceWritableKeyPath<Kindred, Int16>] {
+    lazy var social: [ReferenceWritableKeyPath<Kindred, Int16>] = {
       if traits == .skills {
         return [
           \Kindred.animalKen,
@@ -68,9 +68,9 @@ extension TraitBlock {
           \Kindred.composure
         ]
       }
-    }
+    }()
     
-    var mental: [ReferenceWritableKeyPath<Kindred, Int16>] {
+    lazy var mental: [ReferenceWritableKeyPath<Kindred, Int16>] = {
       if traits == .skills {
         return [
           \Kindred.academics,
@@ -90,7 +90,7 @@ extension TraitBlock {
           \Kindred.resolve
         ]
       }
-    }
+    }()
     
     func reference(forKeyPath keyPath: KeyPath<Kindred, Int16>) -> String {
       dataController.traitReference[keyPath.stringValue.unCamelCased.capitalized] ?? ""
