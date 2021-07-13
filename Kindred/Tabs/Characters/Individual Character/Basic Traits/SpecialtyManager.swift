@@ -25,17 +25,19 @@ struct SpecialtyManager: View, Identifiable {
   var body: some View {
     NavigationView {
       List {
-        ForEach(viewModel.specialties.indices, id: \.self) { index in
-          TextField("Specialty", text: $viewModel.specialties[index])
-        }
-        .onDelete(perform: viewModel.removeSpecialties)
-        
-        Button(action: addSpecialty) {
-          Label("Add specialty", systemImage: "plus.circle")
+        Section(header: Text("Specialties")) {
+          ForEach(viewModel.specialties.indices, id: \.self) { index in
+            TextField("Specialty", text: $viewModel.specialties[index])
+          }
+          .onDelete(perform: viewModel.removeSpecialties)
+          
+          Button(action: addSpecialty) {
+            Label("Add specialty", systemImage: "plus.circle")
+          }
         }
       }
       .listStyle(InsetGroupedListStyle())
-      .navigationBarTitle("\(viewModel.skill) Specialties", displayMode: .inline)
+      .navigationBarTitle(viewModel.skill, displayMode: .inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel", action: dismiss)
