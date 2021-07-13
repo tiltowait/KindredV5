@@ -32,7 +32,7 @@ struct TraitBlock: View {
       section(named: "Mental", forTraits: viewModel.mental)
     }
     .listStyle(GroupedListStyle())
-    .navigationBarTitle(viewModel.title)
+    .navigationBarTitle(viewModel.title, displayMode: .inline)
     .onDisappear(perform: viewModel.save)
   }
   
