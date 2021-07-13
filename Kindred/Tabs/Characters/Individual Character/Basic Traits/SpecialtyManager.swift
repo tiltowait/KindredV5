@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct SpecialtyManager: View {
+struct SpecialtyManager: View, Identifiable {
+  
+  let id = UUID()
   
   @Environment(\.presentationMode) var presentationMode
   

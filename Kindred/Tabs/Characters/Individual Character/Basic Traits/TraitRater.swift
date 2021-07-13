@@ -18,9 +18,9 @@ struct TraitRater: View {
   
   let showingSpecialties: Bool
   @State private var specialties: String?
+  @State private var specialtyManager: SpecialtyManager?
   
   @State private var binding: Int16
-  @State private var showingSpecialtyManager = false
   @State private var showingReferenceAlert = false
   
   let label: String
@@ -51,9 +51,7 @@ struct TraitRater: View {
   var addSpecialtyButton: some View {
     Group {
       if showingSpecialties {
-        Button {
-          showingSpecialtyManager.toggle()
-        } label: {
+        Button(action: createSpecialtyManager) {
           Label("Add specialty", systemImage: "circle.grid.2x2")
             .labelStyle(IconOnlyLabelStyle())
         }
@@ -94,13 +92,23 @@ struct TraitRater: View {
       }
       specialtiesLabel
     }
-    .sheet(isPresented: $showingSpecialtyManager) {
-      SpecialtyManager(skill: label, kindred: kindred, dataController: dataController, binding: $specialties)
+    .sheet(item: $specialtyManager) { manager in
+      manager
     }
     .alert(isPresented: $showingReferenceAlert) {
       Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
     }
     .onDisappear(perform: updateTrait)
+  }
+  
+  /// Create a specialty manager for display.
+  func createSpecialtyManager() {
+    specialtyManager = SpecialtyManager(
+      skill: label,
+      kindred: kindred,
+      dataController: dataController,
+      binding: $specialties
+    )
   }
   
   /// Update the character's trait with the value of the binding.
