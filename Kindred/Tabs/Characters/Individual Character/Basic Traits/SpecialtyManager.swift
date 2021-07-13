@@ -66,8 +66,10 @@ struct SpecialtyManager: View, Identifiable {
   
 }
 
+#if DEBUG
 struct SpecialtyManager_Previews: PreviewProvider {
   static var previews: some View {
     SpecialtyManager(skill: "Occult", kindred: Kindred.example, dataController: DataController.preview, binding: .constant(nil))
   }
 }
+#endif
