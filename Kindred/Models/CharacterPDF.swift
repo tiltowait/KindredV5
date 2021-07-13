@@ -642,17 +642,22 @@ class CharacterPDF {
   }
   
   /// Fill in the values for a list of fields.
-  ///
-  /// `fields` and `values` must have the same number of elements.
   /// - Parameters:
   ///   - fields: The fields to set.
   ///   - values: The values to set them to.
-  func setValues(in fields: [String], to values: [String]) {
-    assert(fields.count == values.count)
+  /// - Returns: False if there aren't enough fields to fit all the values.
+  func setValues(in fields: [String], to values: [String]) -> Bool {
+    let couldFitAll = values.count <= fields.count
     
     for (field, value) in zip(fields, values) {
-      allAnnotations[field]?.widgetStringValue = value
+      let field = allAnnotations[field]
+      field?.widgetStringValue = value
+      if field?.widgetFieldType == .choice {
+        field?.widgetFieldType = .text
+      }
+      
     }
+    return couldFitAll
   }
   
 }
@@ -704,7 +709,7 @@ extension CharacterPDF: CustomStringConvertible {
 extension CharacterPDF {
   
   /// The string value of enabled checkboxes.
-  private var enabled: String { "Yes" }
+//  private var enabled: String { "Yes" }
   
   /// Create a character sheet for a given character.
   convenience init(character: Kindred) {
@@ -771,6 +776,9 @@ extension CharacterPDF {
   func setField(_ field: BasicField, to newValue: String) {
     if let annotation = allAnnotations[field.rawValue] {
       annotation.widgetStringValue = newValue
+      if annotation.widgetFieldType == .choice {
+        annotation.widgetFieldType = .text
+      }
     }
   }
   
@@ -783,7 +791,7 @@ extension CharacterPDF {
     
     for index in 0..<Int(newValue) {
       let field = fields[index]
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -794,7 +802,7 @@ extension CharacterPDF {
     let fields = (1...15).map { "check\($0)" }
     
     for field in fields.dropFirst(Int(health)) {
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -805,7 +813,7 @@ extension CharacterPDF {
     let fields = (16...30).map { "check\($0)" }
     
     for field in fields.dropFirst(Int(willpower)) {
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -815,7 +823,7 @@ extension CharacterPDF {
     let drop = 10 - Int(humanity)
     
     for field in fields.dropLast(drop) {
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -825,7 +833,7 @@ extension CharacterPDF {
     let drop = 5 - Int(hunger)
     
     for field in fields.dropLast(drop) {
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -835,7 +843,7 @@ extension CharacterPDF {
     let drop = 10 - Int(bloodPotency)
     
     for field in fields.dropLast(drop) {
-      allAnnotations[field]?.widgetStringValue = enabled
+      allAnnotations[field]?.buttonWidgetState = .onState
     }
   }
   
@@ -868,7 +876,7 @@ extension CharacterPDF {
         let dots = powers.count
         let dotFields = disciplineDots[labelField]!.dropLast(5 - dots)
         for field in dotFields {
-          allAnnotations[field]?.widgetStringValue = enabled
+          allAnnotations[field]?.buttonWidgetState = .onState
         }
       } else {
         couldFitAll = false
@@ -1130,7 +1138,7 @@ extension CharacterPDF {
     
     for (index, field) in fields.enumerated() {
       if rating > index {
-        allAnnotations[field]?.widgetStringValue = enabled
+        allAnnotations[field]?.buttonWidgetState = .onState
       }
     }
   }

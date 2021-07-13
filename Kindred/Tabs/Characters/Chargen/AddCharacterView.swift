@@ -16,7 +16,7 @@ struct AddCharacterView: View {
   @State private var fileAlertMessage: String?
   
   var footer: some View {
-    Text("Imports most data from an interactive character sheet PDF. Certain details, such as disciplines and clan, must be an exact match in order for the importer to find them.")
+    Text("Imports most data from an official interactive character sheet PDF. Certain details, such as disciplines and clan, must be spelled correctly.")
       .padding(.top)
   }
   
