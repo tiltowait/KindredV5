@@ -35,12 +35,16 @@ extension SpecialtyManager {
       } else {
         specialty = Specialty(context: dataController.container.viewContext)
       }
-      specialty.skillName = skill
-      specialty.specialties = specialties
-      specialty.parent = kindred
-      
-      let formattedSpecialties = specialties.joined(separator: ", ")
-      return formattedSpecialties.isEmpty ? nil : formattedSpecialties
+      if !specialties.isEmpty {
+        specialty.skillName = skill
+        specialty.specialties = specialties
+        specialty.parent = kindred
+        
+        return specialty.formatted
+      } else {
+        dataController.delete(specialty)
+        return nil
+      }
     }
     
   }

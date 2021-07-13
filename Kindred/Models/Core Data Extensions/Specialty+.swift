@@ -19,4 +19,8 @@ extension Specialty {
     set { zSpecialties = newValue.joined(separator: "\n") }
   }
   
+  var formatted: String {
+    specialties.joined(separator: ", ")
+  }
+  
 }
