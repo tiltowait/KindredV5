@@ -12,6 +12,7 @@ struct HomeView: View {
   enum Tab: String {
     case kindred
     case reference
+    case diceRoller
   }
   
   @SceneStorage("selectedView") var selectedView = Tab.kindred
@@ -24,6 +25,13 @@ struct HomeView: View {
         .tabItem {
           Label("Characters", systemImage: "person.3")
         }
+      
+      DiceRoller()
+        .tag(Tab.diceRoller)
+        .tabItem {
+          Label("Roll Dice", systemImage: "diamond.fill")
+        }
+      
       ReferenceList()
         .tag(Tab.reference)
         .tabItem {

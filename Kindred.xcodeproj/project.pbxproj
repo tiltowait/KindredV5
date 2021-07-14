@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
+		280FF092269F428300A9643A /* DiceBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF091269F428300A9643A /* DiceBag.swift */; };
+		280FF094269F44A100A9643A /* Comparable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF093269F44A100A9643A /* Comparable+.swift */; };
+		280FF096269F51B500A9643A /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF095269F51B500A9643A /* DieView.swift */; };
+		280FF098269F5E0600A9643A /* BoldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF097269F5E0600A9643A /* BoldButton.swift */; };
+		280FF09A269F6D3200A9643A /* RollResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF099269F6D3200A9643A /* RollResultView.swift */; };
+		280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF09B269F758C00A9643A /* DiceScrollView.swift */; };
 		28138762267D579D006DA73C /* Clan Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28138761267D579D006DA73C /* Clan Icons.xcassets */; };
 		28138764267D57A4006DA73C /* Clan Headers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28138763267D57A4006DA73C /* Clan Headers.xcassets */; };
 		28138772267D70CF006DA73C /* ClanDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28138771267D70CF006DA73C /* ClanDetail.swift */; };
@@ -173,6 +179,12 @@
 
 /* Begin PBXFileReference section */
 		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
+		280FF091269F428300A9643A /* DiceBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBag.swift; sourceTree = "<group>"; };
+		280FF093269F44A100A9643A /* Comparable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+.swift"; sourceTree = "<group>"; };
+		280FF095269F51B500A9643A /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
+		280FF097269F5E0600A9643A /* BoldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldButton.swift; sourceTree = "<group>"; };
+		280FF099269F6D3200A9643A /* RollResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultView.swift; sourceTree = "<group>"; };
+		280FF09B269F758C00A9643A /* DiceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceScrollView.swift; sourceTree = "<group>"; };
 		28138761267D579D006DA73C /* Clan Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Clan Icons.xcassets"; sourceTree = "<group>"; };
 		28138763267D57A4006DA73C /* Clan Headers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Clan Headers.xcassets"; sourceTree = "<group>"; };
 		28138771267D70CF006DA73C /* ClanDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClanDetail.swift; sourceTree = "<group>"; };
@@ -458,11 +470,12 @@
 		282EC8662656EFFF0086B14F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				28452BB326976942002BA7EA /* Blank Character Sheet.pdf */,
+				2861A0D526979C74003AFED1 /* BloodPotency.swift */,
 				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
 				28452BB526976AB3002BA7EA /* CharacterExporter.swift */,
 				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
-				2861A0D526979C74003AFED1 /* BloodPotency.swift */,
-				28452BB326976942002BA7EA /* Blank Character Sheet.pdf */,
+				280FF091269F428300A9643A /* DiceBag.swift */,
 				28921695267E6BDB004911EA /* reference.sqlite */,
 				2825206C26792A9D0066F09B /* TraitReference.plist */,
 				28921689267E5C8F004911EA /* Importers */,
@@ -516,6 +529,7 @@
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
 				287689CA26867B9D00343F59 /* ModalView.swift */,
 				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
+				280FF097269F5E0600A9643A /* BoldButton.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -524,6 +538,9 @@
 			isa = PBXGroup;
 			children = (
 				2856DCD3269E332800B39866 /* DiceRoller.swift */,
+				280FF09B269F758C00A9643A /* DiceScrollView.swift */,
+				280FF099269F6D3200A9643A /* RollResultView.swift */,
+				280FF095269F51B500A9643A /* DieView.swift */,
 				2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */,
 			);
 			path = DiceRoller;
@@ -647,6 +664,7 @@
 			children = (
 				2841ACD0269E26EF00031983 /* Binding+.swift */,
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
+				280FF093269F44A100A9643A /* Comparable+.swift */,
 				288EB7C72698EEF700E27652 /* Dictionary+.swift */,
 				2825206A267918E30066F09B /* KeyPath+.swift */,
 				28ED3B7B2698C992007C31C4 /* PDF+.swift */,
@@ -892,6 +910,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				280FF094269F44A100A9643A /* Comparable+.swift in Sources */,
 				2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */,
 				28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */,
 				287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */,
@@ -900,6 +919,7 @@
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				287F88062682A22200DF140E /* StressTrack.swift in Sources */,
 				2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */,
+				280FF09A269F6D3200A9643A /* RollResultView.swift in Sources */,
 				28189D642681449E0099E8DF /* AdvantageView.swift in Sources */,
 				28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */,
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
@@ -959,6 +979,7 @@
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
 				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
+				280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */,
 				28B9A5492694F21D00A48250 /* LoresheetEntry+.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
@@ -974,6 +995,7 @@
 				2841ACD1269E26EF00031983 /* Binding+.swift in Sources */,
 				2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */,
 				2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */,
+				280FF098269F5E0600A9643A /* BoldButton.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
 				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,
@@ -981,6 +1003,7 @@
 				286BE43E2696361600C19D57 /* AddLoresheetListViewController.swift in Sources */,
 				28C656D5267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift in Sources */,
 				286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */,
+				280FF092269F428300A9643A /* DiceBag.swift in Sources */,
 				28692FB82696288100CEA2C5 /* LoresheetEntryDetail.swift in Sources */,
 				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
 				286FBF7D265D57C400AAA469 /* InfoItem+.swift in Sources */,
@@ -1013,6 +1036,7 @@
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				28692FBA2696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
+				280FF096269F51B500A9643A /* DieView.swift in Sources */,
 				28E02DE0269CC7F500BBC86E /* PDFShare.swift in Sources */,
 				28138776267D7BB7006DA73C /* ClanList.swift in Sources */,
 				28B40CF126961E360058BE50 /* LoresheetDetailViewController.swift in Sources */,

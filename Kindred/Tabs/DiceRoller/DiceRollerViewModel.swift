@@ -18,5 +18,36 @@ extension DiceRoller {
     let hungerRange = Array(0...5)
     let difficultyRange = Array(1...15)
     
+    @Published var diceBag: DiceBag?
+    
+    var allowRerollingFailures: Bool {
+      diceBag?.rerollOptions.contains(.rerollFailures) ?? false
+    }
+    
+    var allowMaximizingCriticals: Bool {
+      diceBag?.rerollOptions.contains(.maximizeCriticals) ?? false
+    }
+    
+    var allowAvoidingMessyCriticals: Bool {
+      diceBag?.rerollOptions.contains(.avoidMessyCritical) ?? false
+    }
+    
+    #if DEBUG
+    init() {
+      roll()
+    }
+    #endif
+    
+    /// Roll the dice!
+    func roll() {
+      diceBag = DiceBag(pool: pool, hunger: hunger, difficulty: difficulty)
+    }
+    
+    /// Make a willpower re-roll.
+    /// - Parameter method: The re-roll method to use.
+    func reroll(method: DiceBag.RerollMethod) {
+      diceBag?.reroll(method: method)
+    }
+    
   }
 }
