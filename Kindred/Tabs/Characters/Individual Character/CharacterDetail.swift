@@ -11,6 +11,8 @@ import SwiftUI
 
 struct CharacterDetail: View {
   
+  @Environment(\.viewController) var viewController
+  
   @StateObject var viewModel: ViewModel
   
   @State private var showingNotesSheet = false
@@ -48,9 +50,7 @@ struct CharacterDetail: View {
       
       Divider()
       
-      Button {
-        pdfExporter = CharacterExporter(character: viewModel.kindred)
-      } label: {
+      Button(action: exportCharacter) {
         Label("Export character", systemImage: "square.and.arrow.up")
       }
       
@@ -222,6 +222,22 @@ struct CharacterDetail: View {
   
   func changeClan() {
     showingClanSelectionSheet.toggle()
+  }
+  
+  /// Prepare a character for export, showing a progress indicator while working.
+  func exportCharacter() {
+    viewController?.present {
+      LoadingIndicator("Exporting Character")
+    }
+    DispatchQueue.global(qos: .userInitiated).async {
+      let exporter = CharacterExporter(character: viewModel.kindred)
+      
+      DispatchQueue.main.async {
+        self.viewController?.dismiss(animated: true)
+        self.pdfExporter = exporter
+      }
+    }
+    
   }
   
 }

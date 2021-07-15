@@ -119,6 +119,7 @@
 		28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */; };
 		28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* ToggleButton.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
+		28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */; };
 		28B40CED26961A420058BE50 /* LoresheetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CEC26961A420058BE50 /* LoresheetList.swift */; };
 		28B40CEF26961E100058BE50 /* LoresheetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CEE26961E100058BE50 /* LoresheetDetail.swift */; };
 		28B40CF126961E360058BE50 /* LoresheetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CF026961E360058BE50 /* LoresheetDetailViewController.swift */; };
@@ -294,6 +295,7 @@
 		28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewModel.swift; sourceTree = "<group>"; };
 		28A39EBE2679711200867AB9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		28B40CEC26961A420058BE50 /* LoresheetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetList.swift; sourceTree = "<group>"; };
 		28B40CEE26961E100058BE50 /* LoresheetDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetDetail.swift; sourceTree = "<group>"; };
 		28B40CF026961E360058BE50 /* LoresheetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetDetailViewController.swift; sourceTree = "<group>"; };
@@ -508,28 +510,29 @@
 		28386F5F265868B800E90445 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
-				28E02DDD269CC71000BBC86E /* PDFViewer.swift */,
-				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
-				28E02DDF269CC7F500BBC86E /* PDFShare.swift */,
 				28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */,
+				280FF097269F5E0600A9643A /* BoldButton.swift */,
+				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
-				28DB5E81268A873600649103 /* SwapView.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
+				28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */,
+				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
+				287689CA26867B9D00343F59 /* ModalView.swift */,
+				28E02DDF269CC7F500BBC86E /* PDFShare.swift */,
+				28E02DDD269CC71000BBC86E /* PDFViewer.swift */,
 				28F169D3268A487C0039F2BE /* PhotoPicker.swift */,
 				2870436926823C71005F6589 /* PlainTextHeader.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
+				28DB5E81268A873600649103 /* SwapView.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
-				287689CA26867B9D00343F59 /* ModalView.swift */,
-				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
-				280FF097269F5E0600A9643A /* BoldButton.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -1010,6 +1013,7 @@
 				2813CACA269CB2B6005356D9 /* ChronicleDetail.swift in Sources */,
 				2866C6892683F73B00614E85 /* Trackers.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
+				28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */,
 				28138772267D70CF006DA73C /* ClanDetail.swift in Sources */,
 				28F05C23269DFCC400E81D5B /* Specialty+.swift in Sources */,
 				28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */,
