@@ -21,7 +21,7 @@ struct DiceRoller: View {
       array: viewModel.poolRange
     ) { dice in
       VStack {
-        Text(String(format: "%02d", dice - 1))
+        Text(String(format: "%02d", dice))
           .font(bigFont)
           .underline()
         
@@ -35,9 +35,9 @@ struct DiceRoller: View {
     MenuPicker(
       selected: $viewModel.hunger,
       array: viewModel.hungerRange
-    ) { value in
+    ) { hunger in
       VStack {
-        Text(String(format: "%02d", value))
+        Text(String(format: "%02d", hunger))
           .font(bigFont)
           .underline()
         
@@ -50,7 +50,7 @@ struct DiceRoller: View {
   var difficultyMenu: some View {
     MenuPicker(selected: $viewModel.difficulty, array: viewModel.difficultyRange) { difficulty in
       VStack {
-        Text(String(format: "%02d", difficulty - 1))
+        Text(String(format: "%02d", difficulty))
           .font(bigFont)
           .underline()
         
@@ -114,7 +114,6 @@ struct DiceRoller: View {
       if let diceBag = viewModel.diceBag {
         RollResultView(diceBag: diceBag)
           .padding(.vertical)
-//          .id(UUID())
       } else {
         Spacer()
       }
@@ -127,9 +126,7 @@ struct DiceRoller: View {
   }
   
   func roll() {
-    performOperation(count: 5) {
-      viewModel.roll()
-    }
+    performOperation(count: 5, operation: viewModel.roll)
   }
   
   func reroll(strategy: DiceBag.RerollStrategy) {

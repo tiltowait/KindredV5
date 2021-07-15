@@ -11,12 +11,12 @@ import SwiftUI
 @available (iOS 14.0, *)
 public struct MenuPicker<T: CustomStringConvertible & Hashable, V: View>: View {
   
-  @Binding var selected: Int
+  @Binding var selected: T
   var array: [T]
   var title: String?
   let mapping: (T) -> V
   
-  public init(selected: Binding<Int>, array: [T], title: String? = nil,
+  public init(selected: Binding<T>, array: [T], title: String? = nil,
               mapping: @escaping (T) -> V) {
     self._selected = selected
     self.array = array
@@ -41,23 +41,19 @@ public struct MenuPicker<T: CustomStringConvertible & Hashable, V: View>: View {
     Menu(content: {
       ForEach(array.indices, id: \.self) { index in
         Button(action: {
-          selected = index
+          selected = array[index]
         }, label: {
           view(for: index)
         })
       }
     }, label: {
-      mapping(array[selected])
+      mapping(selected)
     })
   }
   
   @ViewBuilder func view(for index: Int) -> some View {
-    if selected == index {
+    if selected == array[index] {
       Label(array[index].description, systemImage: "checkmark")
-//      HStack {
-//        Image(systemName: "checkmark")
-//        Text(array[index].description)
-//      }
     } else {
       Text(array[index].description)
     }
