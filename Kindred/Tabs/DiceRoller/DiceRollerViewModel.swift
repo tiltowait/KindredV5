@@ -10,9 +10,21 @@ import Foundation
 extension DiceRoller {
   class ViewModel: ObservableObject {
     
-    @Published var pool = 5
-    @Published var hunger = 1
-    @Published var difficulty = 3
+    @Published var pool: Int {
+      didSet {
+        UserDefaults.standard.setValue(pool, forKey: Self.poolKey)
+      }
+    }
+    @Published var hunger: Int {
+      didSet {
+        UserDefaults.standard.setValue(hunger, forKey: Self.hungerKey)
+      }
+    }
+    @Published var difficulty: Int {
+      didSet {
+        UserDefaults.standard.setValue(difficulty, forKey: Self.difficultyKey)
+      }
+    }
     
     let poolRange = Array(1...30)
     let hungerRange = Array(0...5)
@@ -32,11 +44,14 @@ extension DiceRoller {
       diceBag?.rerollOptions.contains(.avoidMessyCritical) ?? false
     }
     
-    #if DEBUG
     init() {
-      roll()
+      // We use value(forKey:) instead of integer(forKey:) so we can control the
+      // default values for each.
+      
+      self.pool = UserDefaults.standard.value(forKey: Self.poolKey) as? Int ?? 5
+      self.hunger = UserDefaults.standard.value(forKey: Self.hungerKey) as? Int ?? 1
+      self.difficulty = UserDefaults.standard.value(forKey: Self.difficultyKey) as? Int ?? 3
     }
-    #endif
     
     /// Roll the dice!
     func roll() {
@@ -47,6 +62,20 @@ extension DiceRoller {
     /// - Parameter method: The re-roll method to use.
     func reroll(strategy: DiceBag.RerollStrategy) {
       diceBag?.reroll(strategy: strategy)
+    }
+    
+    // MARK: - UserDefaults Keys
+    
+    private static var poolKey: String {
+      "PlainRollPoolKey"
+    }
+    
+    private static var hungerKey: String {
+      "PlainRollHungerKey"
+    }
+    
+    private static var difficultyKey: String {
+      "PlainRollDifficultyKey"
     }
     
   }
