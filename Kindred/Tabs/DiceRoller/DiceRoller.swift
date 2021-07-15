@@ -94,35 +94,46 @@ struct DiceRoller: View {
   }
   
   var body: some View {
-      VStack {
-        HStack(alignment: .bottom) {
-          diceMenu
-            .accentColor(.primary)
-          hungerMenu
-            .accentColor(.red)
-          difficultyMenu
-            .accentColor(.vampireRed)
-        }
-        .minimumScaleFactor(0.0001)
-        .lineLimit(1)
-        
-        rollButton
-          .padding(.top)
-        
-        Spacer()
-        
-        if let diceBag = viewModel.diceBag {
-          RollResultView(diceBag: diceBag)
-          Spacer()
-        }
-        
-        rerollButtons
+    VStack(spacing: 15) {
+      HStack(alignment: .bottom) {
+        diceMenu
+          .accentColor(.primary)
+        hungerMenu
+          .accentColor(.red)
+        difficultyMenu
+          .accentColor(.vampireRed)
       }
-      .padding()
+      .minimumScaleFactor(0.0001)
+      .lineLimit(1)
+      
+      rollButton
+//        .padding(.vertical)
+      
+      if let diceBag = viewModel.diceBag {
+        RollResultView(diceBag: diceBag)
+          .padding(.vertical)
+      } else {
+        Spacer()
+      }
+      
+      Text("Re-roll Strategy")
+        .font(.title2)
+      rerollButtons
+    }
+    .padding()
   }
   
   func roll() {
-    viewModel.roll()
+    var numRolls = 0
+    
+    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+      viewModel.roll()
+      numRolls += 1
+      
+      if numRolls == 5 {
+        timer.invalidate()
+      }
+    }
   }
   
   func reroll(method: DiceBag.RerollMethod) {

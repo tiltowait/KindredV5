@@ -45,11 +45,6 @@ struct RollResultView: View {
   
   var body: some View {
     VStack(spacing: 0) {
-      Text(diceBag.result.rawValue)
-        .multilineTextAlignment(.center)
-        .font(.system(size: 60, weight: .heavy))
-        .foregroundColor(resultTint)
-      
       HStack(spacing: 20) {
         Text("\(diceBag.totalSuccesses)")
           .font(.system(size: 100, weight: .black, design: .monospaced))
@@ -61,9 +56,16 @@ struct RollResultView: View {
       }
       .padding(.leading)
       .padding(.leading)
+      
+      Text(diceBag.result.rawValue)
+        .foregroundColor(resultTint)
+        .font(.system(size: 60, weight: .bold))
+        .padding(.horizontal)
+        .minimumScaleFactor(0.0001)
+        .lineLimit(1)
     }
     .padding()
-    .frame(maxWidth: .infinity)
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(
       RoundedRectangle(cornerRadius: 10)
         .strokeBorder(
