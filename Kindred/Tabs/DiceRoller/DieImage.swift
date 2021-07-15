@@ -1,5 +1,5 @@
 //
-//  DieView.swift
+//  DieImage.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 7/14/21.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct DieView: View {
+/// An resizable image representing a die result.
+struct DieImage: View {
   
   let imageName: String
   let tint: Color
@@ -35,27 +36,27 @@ struct DieView: View {
 
 struct DieView_Previews: PreviewProvider {
   static var previews: some View {
-    DieView(die: 5, hunger: false)
+    DieImage(die: 5, hunger: false)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
     
-    DieView(die: 7, hunger: false)
+    DieImage(die: 7, hunger: false)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
     
-    DieView(die: 10, hunger: false)
+    DieImage(die: 10, hunger: false)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
     
-    DieView(die: 5, hunger: true)
+    DieImage(die: 5, hunger: true)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
     
-    DieView(die: 7, hunger: true)
+    DieImage(die: 7, hunger: true)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
     
-    DieView(die: 10, hunger: true)
+    DieImage(die: 10, hunger: true)
       .frame(height: 75)
       .previewLayout(.sizeThatFits)
   }

@@ -10,11 +10,12 @@ import SwiftUI
 struct DiceRoller: View {
   
   @StateObject var viewModel = ViewModel()
+  @State private var rolling = false
   
   let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
   let smallFont = Font.system(size: 200, design: .monospaced)
   
-  var diceMenu: some View {
+  var poolMenu: some View {
     MenuPicker(
       selected: $viewModel.pool,
       array: viewModel.poolRange
@@ -69,34 +70,36 @@ struct DiceRoller: View {
       }
     }
     .buttonStyle(BoldButton(cornerRadius: 15, color: .red))
+    .disabled(rolling)
   }
   
   var rerollButtons: some View {
     HStack {
       Button("Failures") {
-        reroll(method: .rerollFailures)
+        reroll(strategy: .rerollFailures)
       }
       .buttonStyle(BoldButton(color: .blue))
-      .disabled(!viewModel.allowRerollingFailures)
+      .disabled(!viewModel.allowRerollingFailures || rolling)
       
       Button("Criticals") {
-        reroll(method: .maximizeCriticals)
+        reroll(strategy: .maximizeCriticals)
       }
       .buttonStyle(BoldButton(color: .blue))
-      .disabled(!viewModel.allowMaximizingCriticals)
+      .disabled(!viewModel.allowMaximizingCriticals || rolling)
       
       Button("Messy") {
-        reroll(method: .avoidMessyCritical)
+        reroll(strategy: .avoidMessyCritical)
       }
       .buttonStyle(BoldButton(color: .blue))
-      .disabled(!viewModel.allowAvoidingMessyCriticals)
+      .disabled(!viewModel.allowAvoidingMessyCriticals || rolling)
     }
   }
   
   var body: some View {
     VStack(spacing: 15) {
+      // Menus
       HStack(alignment: .bottom) {
-        diceMenu
+        poolMenu
           .accentColor(.primary)
         hungerMenu
           .accentColor(.red)
@@ -107,37 +110,65 @@ struct DiceRoller: View {
       .lineLimit(1)
       
       rollButton
-//        .padding(.vertical)
       
       if let diceBag = viewModel.diceBag {
         RollResultView(diceBag: diceBag)
           .padding(.vertical)
+//          .id(UUID())
       } else {
         Spacer()
       }
       
       Text("Re-roll Strategy")
-        .font(.title2)
+        .font(.title2.smallCaps())
       rerollButtons
     }
     .padding()
   }
   
   func roll() {
-    var numRolls = 0
-    
-    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+    performOperation(count: 5) {
       viewModel.roll()
-      numRolls += 1
-      
-      if numRolls == 5 {
-        timer.invalidate()
-      }
     }
   }
   
-  func reroll(method: DiceBag.RerollMethod) {
-    viewModel.reroll(method: method)
+  func reroll(strategy: DiceBag.RerollStrategy) {
+    performOperation(count: 5) {
+      viewModel.reroll(strategy: strategy)
+    }
+  }
+  
+  /// Perform an operation a specified number of times.
+  ///
+  /// The buttons are disabled for the duration.
+  ///
+  /// This method has to be in the view, not the view model, because
+  /// of the button state animations.
+  /// - Parameters:
+  ///   - count: The number of times to perform the operation.
+  ///   - operation: The
+  private func performOperation(
+    count: Int,
+    operation: @escaping () -> ()
+  ) {
+    var phonyRolls = 0
+    
+    withAnimation(.easeInOut(duration: 0.1)) {
+      rolling = true
+    }
+    
+    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+      operation()
+      phonyRolls += 1
+      
+      if phonyRolls == count {
+        timer.invalidate()
+        
+        withAnimation(.easeInOut(duration: 0.1)) {
+          rolling = false
+        }
+      }
+    }
   }
   
 }

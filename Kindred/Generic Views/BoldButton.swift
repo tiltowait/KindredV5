@@ -35,7 +35,11 @@ struct BoldButton: ButtonStyle {
         .foregroundColor(.white)
         .scaleEffect(configuration.isPressed ? 0.85 : 1)
         .opacity(isEnabled ? 1 : 0.5)
-        .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+        .animation(
+          .interactiveSpring(response: 0.15, dampingFraction: 0.4, blendDuration: 0.5),
+          value: configuration.isPressed
+        )
+//        .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
     
   }
@@ -45,8 +49,7 @@ struct BoldButton: ButtonStyle {
 struct BoldButton_Previews: PreviewProvider {
   static var previews: some View {
     Button("Test") { }
+      .padding()
       .buttonStyle(BoldButton(color: .red))
-      .disabled(true)
-      .previewLayout(.sizeThatFits)
   }
 }

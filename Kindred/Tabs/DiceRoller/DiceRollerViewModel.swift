@@ -45,8 +45,8 @@ extension DiceRoller {
     
     /// Make a willpower re-roll.
     /// - Parameter method: The re-roll method to use.
-    func reroll(method: DiceBag.RerollMethod) {
-      diceBag?.reroll(method: method)
+    func reroll(strategy: DiceBag.RerollStrategy) {
+      diceBag?.reroll(strategy: strategy)
     }
     
   }

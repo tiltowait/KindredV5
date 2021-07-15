@@ -10,7 +10,7 @@
 		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
 		280FF092269F428300A9643A /* DiceBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF091269F428300A9643A /* DiceBag.swift */; };
 		280FF094269F44A100A9643A /* Comparable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF093269F44A100A9643A /* Comparable+.swift */; };
-		280FF096269F51B500A9643A /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF095269F51B500A9643A /* DieView.swift */; };
+		280FF096269F51B500A9643A /* DieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF095269F51B500A9643A /* DieImage.swift */; };
 		280FF098269F5E0600A9643A /* BoldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF097269F5E0600A9643A /* BoldButton.swift */; };
 		280FF09A269F6D3200A9643A /* RollResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF099269F6D3200A9643A /* RollResultView.swift */; };
 		280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF09B269F758C00A9643A /* DiceScrollView.swift */; };
@@ -182,7 +182,7 @@
 		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
 		280FF091269F428300A9643A /* DiceBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBag.swift; sourceTree = "<group>"; };
 		280FF093269F44A100A9643A /* Comparable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+.swift"; sourceTree = "<group>"; };
-		280FF095269F51B500A9643A /* DieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
+		280FF095269F51B500A9643A /* DieImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieImage.swift; sourceTree = "<group>"; };
 		280FF097269F5E0600A9643A /* BoldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldButton.swift; sourceTree = "<group>"; };
 		280FF099269F6D3200A9643A /* RollResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollResultView.swift; sourceTree = "<group>"; };
 		280FF09B269F758C00A9643A /* DiceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceScrollView.swift; sourceTree = "<group>"; };
@@ -540,11 +540,11 @@
 		2856DCCE269E32B800B39866 /* DiceRoller */ = {
 			isa = PBXGroup;
 			children = (
+				2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */,
 				2856DCD3269E332800B39866 /* DiceRoller.swift */,
 				280FF09B269F758C00A9643A /* DiceScrollView.swift */,
 				280FF099269F6D3200A9643A /* RollResultView.swift */,
-				280FF095269F51B500A9643A /* DieView.swift */,
-				2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */,
+				280FF095269F51B500A9643A /* DieImage.swift */,
 			);
 			path = DiceRoller;
 			sourceTree = "<group>";
@@ -1040,7 +1040,7 @@
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				28692FBA2696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift in Sources */,
 				286FBF7F265D580E00AAA469 /* ReferenceItem+.swift in Sources */,
-				280FF096269F51B500A9643A /* DieView.swift in Sources */,
+				280FF096269F51B500A9643A /* DieImage.swift in Sources */,
 				28E02DE0269CC7F500BBC86E /* PDFShare.swift in Sources */,
 				28138776267D7BB7006DA73C /* ClanList.swift in Sources */,
 				28B40CF126961E360058BE50 /* LoresheetDetailViewController.swift in Sources */,

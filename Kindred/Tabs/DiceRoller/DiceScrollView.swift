@@ -16,7 +16,7 @@ struct DiceScrollView: View {
     ScrollView(.horizontal) {
       LazyHStack {
         ForEach(dice.indices, id: \.self) { index in
-          DieView(die: dice[index], hunger: hunger)
+          DieImage(die: dice[index], hunger: hunger)
         }
       }
     }

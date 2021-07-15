@@ -18,7 +18,7 @@ struct DiceBag {
     case bestialFailure = "Bestial Failure"
   }
   
-  enum RerollMethod: String {
+  enum RerollStrategy: String {
     case rerollFailures = "Re-roll Failures"
     case maximizeCriticals = "Maximize Criticals"
     case avoidMessyCritical = "Avoid Messy Critical"
@@ -45,7 +45,7 @@ struct DiceBag {
   var totalSuccesses = 0
   
   /// The willpower re-roll methods available for this roll.
-  var rerollOptions: [RerollMethod] = []
+  var rerollOptions: [RerollStrategy] = []
   
   init(pool: Int, hunger: Int, difficulty: Int) {
     // Technically, pool and difficulty must both be positive and hunger must be
@@ -66,9 +66,9 @@ struct DiceBag {
     self.rerollOptions = getRerollOptions()
   }
   
-  mutating func reroll(method rerollMethod: RerollMethod) {
+  mutating func reroll(strategy: RerollStrategy) {
     // A willpower reroll lets us reroll up to 3 non-hunger dice.
-    switch rerollMethod {
+    switch strategy {
     case .rerollFailures:
       normalDice = rerollThree(below: 6)
     case .maximizeCriticals:
@@ -169,8 +169,8 @@ struct DiceBag {
     return (totalSuccesses, result)
   }
   
-  func getRerollOptions() -> [RerollMethod] {
-    var options: [RerollMethod] = []
+  func getRerollOptions() -> [RerollStrategy] {
+    var options: [RerollStrategy] = []
     
     let hasFailures = !normalDice.filter { $0 < 6 }.isEmpty
     if hasFailures {

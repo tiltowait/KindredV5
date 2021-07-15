@@ -68,14 +68,8 @@ struct RollResultView: View {
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(
       RoundedRectangle(cornerRadius: 10)
-        .strokeBorder(
-          successTint,
-          style: StrokeStyle(
-            lineWidth: 4,
-            dash: [15]
-          )
-        )
-        .opacity(0.5)
+        .fill(Color.tertiarySystemGroupedBackground)
+        .shadow(radius: 5)
     )
   }
 }
