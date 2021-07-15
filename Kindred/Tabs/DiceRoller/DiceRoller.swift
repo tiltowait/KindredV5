@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct DiceRoller: View {
   
   @StateObject var viewModel = ViewModel()
   @State private var rolling = false
+  
+  @State private var engine = try? CHHapticEngine()
   
   let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
   let smallFont = Font.system(size: 200, design: .monospaced)
@@ -108,10 +111,12 @@ struct DiceRoller: View {
   }
   
   func roll() {
+    runHaptics(taps: 7)
     performOperation(count: 5, operation: viewModel.roll)
   }
   
   func reroll(strategy: DiceBag.RerollStrategy) {
+    runHaptics(taps: 5)
     performOperation(count: 5) {
       viewModel.reroll(strategy: strategy)
     }
@@ -176,6 +181,38 @@ struct DiceRoller: View {
       Text(label)
         .font(smallFont)
     }
+  }
+  
+  /// Rapidly tap a number of times.
+  /// - Parameter taps: The number of taps.
+  func runHaptics(taps: Int) {
+    do {
+      try engine?.start()
+      
+      let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+      let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+      
+      let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+      let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+      
+      let parameter = CHHapticParameterCurve(
+        parameterID: .hapticIntensityControl,
+        controlPoints: [start, end],
+        relativeTime: 0
+      )
+      
+      let events = (1...taps).map { run in
+        CHHapticEvent(
+          eventType: .hapticTransient,
+          parameters: [intensity, sharpness],
+          relativeTime: Double(run) * 0.0675
+        )
+      }
+      let pattern = try CHHapticPattern(events: events, parameterCurves: [parameter])
+      let player = try engine?.makePlayer(with: pattern)
+      try player?.start(atTime: 0)
+      
+    } catch { }
   }
   
 }
