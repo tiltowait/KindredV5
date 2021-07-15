@@ -20,14 +20,7 @@ struct DiceRoller: View {
       selected: $viewModel.pool,
       array: viewModel.poolRange
     ) { dice in
-      VStack {
-        Text(String(format: "%02d", dice))
-          .font(bigFont)
-          .underline()
-        
-        Text("pool")
-          .font(smallFont)
-      }
+      diceLabel("pool", value: dice, color: .black)
     }
   }
   
@@ -36,27 +29,13 @@ struct DiceRoller: View {
       selected: $viewModel.hunger,
       array: viewModel.hungerRange
     ) { hunger in
-      VStack {
-        Text(String(format: "%02d", hunger))
-          .font(bigFont)
-          .underline()
-        
-        Text("hung")
-          .font(smallFont)
-      }
+      diceLabel("hung", value: hunger, color: .red)
     }
   }
   
   var difficultyMenu: some View {
     MenuPicker(selected: $viewModel.difficulty, array: viewModel.difficultyRange) { difficulty in
-      VStack {
-        Text(String(format: "%02d", difficulty))
-          .font(bigFont)
-          .underline()
-        
-        Text("diff")
-          .font(smallFont)
-      }
+      diceLabel("diff", value: difficulty, color: .vampireRed)
     }
   }
   
@@ -98,7 +77,7 @@ struct DiceRoller: View {
   var body: some View {
     VStack(spacing: 15) {
       // Menus
-      HStack(alignment: .bottom) {
+      HStack(alignment: .top) {
         poolMenu
           .accentColor(.primary)
         hungerMenu
@@ -115,6 +94,9 @@ struct DiceRoller: View {
         RollResultView(diceBag: diceBag)
           .padding(.vertical)
       } else {
+        Spacer()
+        Text("Nothing rolled yet.")
+          .foregroundColor(.secondary)
         Spacer()
       }
       
@@ -165,6 +147,34 @@ struct DiceRoller: View {
           rolling = false
         }
       }
+    }
+  }
+  
+  func diceLabel(_ label: LocalizedStringKey, value: Int, color: Color) -> some View {
+    VStack {
+      Group {
+        if value < 10 {
+          HStack(spacing: 0) {
+            Text("0")
+              .opacity(0.15)
+            Text("\(value)")
+          }
+          .font(bigFont)
+        } else {
+          Text("\(value)")
+            .font(bigFont)
+        }
+      }
+      .overlay(
+        Rectangle()
+          .frame(height: 5)
+          .foregroundColor(color)
+          .padding(.top, -15),
+        alignment: .bottom
+      )
+      
+      Text(label)
+        .font(smallFont)
     }
   }
   
