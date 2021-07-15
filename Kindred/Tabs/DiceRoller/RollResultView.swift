@@ -61,7 +61,7 @@ struct RollResultView: View {
         .foregroundColor(resultTint)
         .font(.system(size: 60, weight: .bold))
         .padding(.horizontal)
-        .minimumScaleFactor(0.0001)
+        .minimumScaleFactor(0.01)
         .lineLimit(1)
     }
     .padding()

@@ -88,7 +88,7 @@ struct DiceRoller: View {
         difficultyMenu
           .accentColor(.vampireRed)
       }
-      .minimumScaleFactor(0.0001)
+      .minimumScaleFactor(0.01)
       .lineLimit(1)
       
       rollButton
@@ -111,7 +111,7 @@ struct DiceRoller: View {
   }
   
   func roll() {
-    runHaptics(taps: 7)
+    runHaptics(taps: 10)
     performOperation(count: 5, operation: viewModel.roll)
   }
   
@@ -183,38 +183,27 @@ struct DiceRoller: View {
     }
   }
   
-  /// Rapidly tap a number of times.
-  /// - Parameter taps: The number of taps.
+  /// Tap the user a bunch of times with decreasing intensity.
+  /// - Parameter taps: The number of times to tap.
   func runHaptics(taps: Int) {
+    var events: [CHHapticEvent] = []
+    
+    for i in stride(from: 0, to: 1, by: 1 / Double(taps)) {
+      let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: Float(1 - i))
+      let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: Float(1 - i))
+      let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: i / 2)
+      events.append(event)
+    }
+    
     do {
       try engine?.start()
-      
-      let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
-      let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
-      
-      let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
-      let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
-      
-      let parameter = CHHapticParameterCurve(
-        parameterID: .hapticIntensityControl,
-        controlPoints: [start, end],
-        relativeTime: 0
-      )
-      
-      let events = (1...taps).map { run in
-        CHHapticEvent(
-          eventType: .hapticTransient,
-          parameters: [intensity, sharpness],
-          relativeTime: Double(run) * 0.0675
-        )
-      }
-      let pattern = try CHHapticPattern(events: events, parameterCurves: [parameter])
+      let pattern = try CHHapticPattern(events: events, parameters: [])
       let player = try engine?.makePlayer(with: pattern)
       try player?.start(atTime: 0)
-      
-    } catch { }
+    } catch {
+      print("Failed to play pattern: \(error.localizedDescription).")
+    }
   }
-  
 }
 
 struct DiceRoller_Previews: PreviewProvider {
