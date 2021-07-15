@@ -27,7 +27,7 @@ struct DiceScrollView: View {
 }
 
 struct DiceScrollView_Previews: PreviewProvider {
-    static var previews: some View {
-        DiceScrollView(dice: [5,1,7,10], hunger: false)
-    }
+  static var previews: some View {
+    DiceScrollView(dice: [5,1,7,10], hunger: false)
+  }
 }
