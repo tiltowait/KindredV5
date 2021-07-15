@@ -19,7 +19,9 @@ struct DiceScrollView: View {
           DieImage(die: dice[index], hunger: hunger)
         }
       }
+      .padding(.leading, 10)
     }
+    .fadeHorizontalEdges()
     .frame(height: 40)
   }
 }

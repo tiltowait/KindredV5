@@ -132,6 +132,7 @@
 		28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */; };
 		28BFB607269647D5005DE923 /* KnownLoresheetGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFB606269647D5005DE923 /* KnownLoresheetGroups.swift */; };
 		28BFB609269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFB608269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift */; };
+		28C25DF826A0D8A200235170 /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C25DF726A0D8A200235170 /* ScrollView+.swift */; };
 		28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */; };
 		28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CB267BABBF00865EE3 /* DisciplineHeader.swift */; };
 		28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */; };
@@ -308,6 +309,7 @@
 		28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterView.swift; sourceTree = "<group>"; };
 		28BFB606269647D5005DE923 /* KnownLoresheetGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownLoresheetGroups.swift; sourceTree = "<group>"; };
 		28BFB608269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownLoresheetGroupsViewModel.swift; sourceTree = "<group>"; };
+		28C25DF726A0D8A200235170 /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
 		28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSavingKindredViewModel.swift; sourceTree = "<group>"; };
 		28C656CB267BABBF00865EE3 /* DisciplineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineHeader.swift; sourceTree = "<group>"; };
 		28C656CD267BADBC00865EE3 /* KnownDisciplinesGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroups.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				2825206A267918E30066F09B /* KeyPath+.swift */,
 				28ED3B7B2698C992007C31C4 /* PDF+.swift */,
 				28CD0D77267EA3CC00ED8635 /* RandomAccessCollection+.swift */,
+				28C25DF726A0D8A200235170 /* ScrollView+.swift */,
 				28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */,
 				28A39EB22679614000867AB9 /* UIImage+.swift */,
 				284B8582267D0FDD00F159DC /* UIViewController+.swift */,
@@ -913,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
+				28C25DF826A0D8A200235170 /* ScrollView+.swift in Sources */,
 				280FF094269F44A100A9643A /* Comparable+.swift in Sources */,
 				2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */,
 				28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */,

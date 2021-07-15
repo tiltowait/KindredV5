@@ -45,7 +45,7 @@ struct RollResultView: View {
   
   var body: some View {
     VStack(spacing: 0) {
-      HStack(spacing: 20) {
+      HStack(spacing: 10) {
         Text("\(diceBag.totalSuccesses)")
           .font(.system(size: 100, weight: .black, design: .monospaced))
           .foregroundColor(successTint)
@@ -67,9 +67,8 @@ struct RollResultView: View {
     .padding()
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(
-      RoundedRectangle(cornerRadius: 10)
-        .fill(Color.tertiarySystemGroupedBackground)
-        .shadow(radius: 5)
+      RoundedRectangle(cornerRadius: 15)
+        .strokeBorder(Color.primary, lineWidth: 4)
     )
   }
 }
