@@ -67,6 +67,7 @@ struct CharacterList: View {
     .sheet(isPresented: $showingCreationSheet) {
       AddCharacterView()
         .allowAutoDismiss(false)
+        .environmentObject(viewModel.dataController)
     }
   }
   
