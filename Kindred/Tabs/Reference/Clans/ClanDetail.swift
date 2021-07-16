@@ -115,6 +115,11 @@ struct ClanDetail: View {
   func disciplineSheet(_ discipline: Discipline) -> some View {
     NavigationView {
       DisciplineDetail(discipline: discipline, kindred: nil)
+        .toolbar {
+          ToolbarItem(placement: .cancellationAction) {
+            Button("Close") { selectedDiscipline = nil }
+          }
+        }
     }
   }
   
