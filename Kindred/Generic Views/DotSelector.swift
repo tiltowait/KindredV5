@@ -88,7 +88,9 @@ struct DotSelector: View {
         
         shape(for: index)
           .onTapGesture {
-            select(dots: index)
+            withAnimation(.easeInOut(duration: 0.12)) {
+              select(dots: index)
+            }
           }
       }
     }
