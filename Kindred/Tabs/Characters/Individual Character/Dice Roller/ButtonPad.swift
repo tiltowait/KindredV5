@@ -9,20 +9,24 @@ import SwiftUI
 
 struct ButtonPad: View {
   
+  @Binding var selection: [String]
   let columns: [[String]]
   let perform: (String) -> Void
   
   var body: some View {
-    HStack(spacing: 5) {
+    HStack(alignment: .top, spacing: 5) {
       ForEach(columns, id: \.self) { column in
-        VStack(spacing: 5) {
+        VStack(spacing: 8) {
           ForEach(column, id: \.self) { row in
-            ToggleButton(label: row, perform: perform)
+            ToggleButton(
+              isToggled: .constant(selection.contains(row)),
+              label: row,
+              perform: perform
+            )
           }
         }
       }
     }
-    .padding(.horizontal)
   }
   
 }
@@ -34,6 +38,6 @@ struct ButtonPad_Previews: PreviewProvider {
   static let column3 = ["Seven", "Eight", "Nine"]
 
   static var previews: some View {
-    ButtonPad(columns: [column1, column2, column3]) { _ in }
+    ButtonPad(selection: .constant([]), columns: [column1, column2, column3]) { _ in }
   }
 }

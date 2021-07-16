@@ -8,15 +8,24 @@
 import SwiftUI
 import CoreHaptics
 
-struct DiceRoller: View {
+struct DiceRoller: View, Identifiable {
   
-  @StateObject var viewModel = ViewModel()
+  var id = UUID()
+  
+  @StateObject var viewModel: ViewModel
   @State private var rolling = false
   
   @State private var engine = try? CHHapticEngine()
   
   let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
   let smallFont = Font.system(size: 200, design: .monospaced)
+  
+  init(pool: Int = 5) {
+    let viewModel = ViewModel()
+    _viewModel = StateObject(wrappedValue: viewModel)
+    
+    viewModel.pool = pool
+  }
   
   var poolMenu: some View {
     MenuPicker(

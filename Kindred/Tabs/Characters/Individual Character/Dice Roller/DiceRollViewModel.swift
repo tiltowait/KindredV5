@@ -8,14 +8,21 @@
 import Foundation
 
 extension DiceRollView {
-  class ViewModel: BaseKindredViewModel {
+  class ViewModel: ObservableObject {
+    
+    @Published var showingAttributes = true
+    @Published var showingSkills = false
+    @Published var showingDisciplines = false
     
     @Published var pool = 0
+    @Published var bonusDice: Int16 = 0
     
     let traitValues: [String: Int]
-    var traits: [String] = []
+    @Published var selectedTraits: [String] = []
     
-    override init(kindred: Kindred) {
+    private var hasShownSkills = false
+    
+    init(kindred: Kindred) {
       // Initialize the trait values
       var dict: [String: Int] = [:]
       
@@ -33,17 +40,73 @@ extension DiceRollView {
         let value = Int(kindred[keyPath: keyPath])
         dict[trait] = value
       }
-      traitValues = dict
       
-      super.init(kindred: kindred)
+      // Figure out the discipline columns and values
+      let knownDisciplines = kindred.knownDisciplines
+      var disciplineNames: [String] = []
+      
+      for discipline in knownDisciplines {
+        let level = kindred.level(of: discipline)
+        let name = discipline.name
+        
+        dict[name] = level
+        disciplineNames.append(name)
+      }
+      
+      print(disciplineNames)
+      let numRows = Int(ceil(Double(disciplineNames.count) / 3))
+      print(numRows)
+      var disciplineColumns: [[String]] = []
+      repeat {
+        let row = disciplineNames.first(numRows)
+        print(row)
+        disciplineNames.removeFirst(numRows.clamp(low: 0, high: disciplineNames.count))
+        print(disciplineNames)
+        disciplineColumns.append(row)
+      } while !disciplineNames.isEmpty
+      
+      self.disciplineColumns = disciplineColumns
+      
+      traitValues = dict
     }
     
-    func toggle(_ trait: String) {
-      if let index = traits.firstIndex(of: trait) {
-        traits.remove(at: index)
+    func toggleAttribute(_ attribute: String) {
+      toggle(attribute)
+
+      // 99% of the time, the user will only want to select one
+      // attribute and one skill, so let's go ahead and handle
+      // the expansion of the appropriate groups.
+      
+      if !hasShownSkills {
+        showingAttributes = false
+        showingSkills = true
+        hasShownSkills = true
+      }
+    }
+    
+    func toggleSkill(_ skill: String) {
+      toggle(skill)
+    }
+    
+    func deselectTrait(_ trait: String) {
+      toggle(trait)
+    }
+    
+    /// Reset everything to the initial state.
+    func reset() {
+      selectedTraits.removeAll()
+      hasShownSkills = false
+      showingSkills = false
+      showingAttributes = true
+      showingDisciplines = false
+    }
+    
+    private func toggle(_ trait: String) {
+      if let index = selectedTraits.firstIndex(of: trait) {
+        selectedTraits.remove(at: index)
         pool -= traitValues[trait]!
       } else {
-        traits.append(trait)
+        selectedTraits.append(trait)
         pool += traitValues[trait]!
       }
     }
@@ -81,7 +144,7 @@ extension DiceRollView {
         "Survival"
       ],
       [
-        "AnimalKen",
+        "Animal Ken",
         "Etiquette",
         "Insight",
         "Intimidation",
@@ -103,6 +166,8 @@ extension DiceRollView {
         "Technology"
       ]
     ]
+    
+    let disciplineColumns: [[String]]
     
   }
 }

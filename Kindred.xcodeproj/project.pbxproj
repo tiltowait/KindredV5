@@ -159,6 +159,7 @@
 		28F05C23269DFCC400E81D5B /* Specialty+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C22269DFCC400E81D5B /* Specialty+.swift */; };
 		28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C24269E03A800E81D5B /* SpecialtyManager.swift */; };
 		28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */; };
+		28F1141E26A227AB00C47B79 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1141D26A227AB00C47B79 /* Array+.swift */; };
 		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -336,6 +337,7 @@
 		28F05C22269DFCC400E81D5B /* Specialty+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specialty+.swift"; sourceTree = "<group>"; };
 		28F05C24269E03A800E81D5B /* SpecialtyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManager.swift; sourceTree = "<group>"; };
 		28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManagerViewModel.swift; sourceTree = "<group>"; };
+		28F1141D26A227AB00C47B79 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -516,7 +518,6 @@
 				280FF097269F5E0600A9643A /* BoldButton.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
-				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
@@ -667,6 +668,7 @@
 		28ADF7F7267A60AD00D97D2A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				28F1141D26A227AB00C47B79 /* Array+.swift */,
 				2841ACD0269E26EF00031983 /* Binding+.swift */,
 				286FBF8F265D9EDF00AAA469 /* Color+.swift */,
 				280FF093269F44A100A9643A /* Comparable+.swift */,
@@ -746,6 +748,7 @@
 			children = (
 				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
 				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 			);
 			path = "Dice Roller";
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				281F80432681388900B5B387 /* AdvantageList.swift in Sources */,
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
+				28F1141E26A227AB00C47B79 /* Array+.swift in Sources */,
 				28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */,
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
 				281F8040268133D200B5B387 /* AdvantageOption+.swift in Sources */,
