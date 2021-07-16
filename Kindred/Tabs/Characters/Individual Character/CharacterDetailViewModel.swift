@@ -52,7 +52,7 @@ extension CharacterDetail {
         ],
         [
           ("Charisma", kindred.charisma),
-          ("Manipulate", kindred.manipulation),
+          ("Manipulation", kindred.manipulation),
           ("Composure", kindred.composure)
         ],
         [

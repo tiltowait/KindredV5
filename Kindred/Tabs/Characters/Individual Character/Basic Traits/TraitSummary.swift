@@ -16,7 +16,7 @@ struct TraitSummary: View {
     VStack(alignment: .leading) {
       Text(title)
         .font(.headline)
-      HStack {
+      HStack(alignment: .center) {
         ForEach(traits.indices) { index in
           VStack(alignment: .leading) {
             ForEach(self.traits[index], id: \.0) { trait in
@@ -31,6 +31,8 @@ struct TraitSummary: View {
           }
         }
       }
+      .minimumScaleFactor(0.01)
+      .lineLimit(1)
     }
   }
   
