@@ -147,11 +147,12 @@ enum CharacterImporter {
     for (key, fields) in pdf.disciplineFields {
       let disciplineName = pdf.value(for: key) ?? ""
       
-      if let discipline = (allDisciplines?.first { disciplineName.contains($0.name) }) {
+      // We aren't directly comparing the names, so we can't simply use fetchObject
+      if let discipline = (allDisciplines?.first { disciplineName.lowercased().contains($0.name.lowercased()) }) {
         for field in fields {
           let powerName = pdf.value(for: field) ?? ""
           
-          if let power = (allPowers?.first { powerName.contains($0.name) }) {
+          if let power = (allPowers?.first { powerName.lowercased().contains($0.name.lowercased()) }) {
             if power.discipline == discipline {
               kindred.addToPowers(power)
             }
