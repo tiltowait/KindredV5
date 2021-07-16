@@ -50,8 +50,12 @@ struct RollResultView: View {
           .font(.system(size: 100, weight: .black, design: .monospaced))
           .foregroundColor(successTint)
         VStack {
-          DiceScrollView(dice: diceBag.normalDice, hunger: false)
-          DiceScrollView(dice: diceBag.hungerDice, hunger: true)
+          if !diceBag.normalDice.isEmpty {
+            DiceScrollView(dice: diceBag.normalDice, hunger: false)
+          }
+          if !diceBag.hungerDice.isEmpty {
+            DiceScrollView(dice: diceBag.hungerDice, hunger: true)
+          }
         }
       }
       .padding(.leading)
