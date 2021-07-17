@@ -53,15 +53,11 @@ extension PoolSelector {
         disciplineNames.append(name)
       }
       
-      print(disciplineNames)
       let numRows = Int(ceil(Double(disciplineNames.count) / 3))
-      print(numRows)
       var disciplineColumns: [[String]] = []
       repeat {
         let row = disciplineNames.first(numRows)
-        print(row)
         disciplineNames.removeFirst(numRows.clamp(low: 0, high: disciplineNames.count))
-        print(disciplineNames)
         disciplineColumns.append(row)
       } while !disciplineNames.isEmpty
       
