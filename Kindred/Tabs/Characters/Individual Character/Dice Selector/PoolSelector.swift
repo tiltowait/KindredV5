@@ -148,7 +148,10 @@ struct PoolSelector: View {
   }
   
   func roll() {
-    diceRoller = DiceRoller(pool: viewModel.pool, hunger: viewModel.pool)
+    diceRoller = DiceRoller(
+      pool: viewModel.pool,
+      hunger: viewModel.hunger
+    )
   }
   
   func toggleAttribute(_ attribute: String) {

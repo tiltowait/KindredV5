@@ -15,6 +15,7 @@ extension PoolSelector {
     @Published var showingDisciplines = false
     
     @Published var pool = 0
+    let hunger: Int
     @Published var bonusDice: Int16 = 0
     
     let traitValues: [String: Int]
@@ -23,6 +24,7 @@ extension PoolSelector {
     private var hasShownSkills = false
     
     init(kindred: Kindred) {
+      hunger = Int(kindred.hunger)
       // Initialize the trait values
       var dict: [String: Int] = [:]
       
