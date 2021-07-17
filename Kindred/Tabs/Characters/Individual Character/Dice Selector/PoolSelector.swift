@@ -31,13 +31,19 @@ struct PoolSelector: View {
         HStack {
           ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { reader in
-              HStack {
+              HStack(spacing: 3) {
                 ForEach(viewModel.selectedTraits) { trait in
                   Button(trait) {
-                    withAnimation {
+                    withAnimation(.easeOut(duration: 0.25)) {
                       viewModel.deselectTrait(trait)
                     }
                   }
+                  .padding(.vertical, 4)
+                  .padding(.horizontal, 8)
+                  .background(
+                    RoundedRectangle(cornerRadius: 25)
+                      .fill(Color(UIColor.quaternarySystemFill))
+                  )
                   .id(trait)
                 }
               }
@@ -220,7 +226,8 @@ fileprivate extension VStack {
   /// - Returns: The inset VStack.
   func inset() -> some View {
     self
-      .padding()
+      .padding(.vertical, 10)
+      .padding(.horizontal, 20)
       .background(
         RoundedRectangle(cornerRadius: 10)
           .fill(Color.systemBackground)
