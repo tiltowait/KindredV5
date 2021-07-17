@@ -40,7 +40,7 @@ struct DiceRoller: View, Identifiable {
       selected: $viewModel.pool,
       array: viewModel.poolRange
     ) { dice in
-      diceLabel("pool", value: dice, color: .black)
+      diceLabel("pool", value: dice, color: .primary)
     }
   }
   
