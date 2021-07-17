@@ -1,5 +1,5 @@
 //
-//  DiceRollView.swift
+//  PoolSelector.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/15/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DiceRollView: View {
+struct PoolSelector: View {
   
   @Environment(\.presentationMode) var presentationMode
   
@@ -233,7 +233,7 @@ fileprivate extension VStack {
 #if DEBUG
 struct DiceRollView_Previews: PreviewProvider {
   static var previews: some View {
-    DiceRollView(kindred: Kindred.example)
+    PoolSelector(kindred: Kindred.example)
   }
 }
 #endif

@@ -148,7 +148,7 @@ struct CharacterDetail: View {
         CharacterNotesView(kindred: viewModel.kindred)
       }
       .sheet(isPresented: $showingDiceRoller) {
-        DiceRollView(kindred: viewModel.kindred)
+        PoolSelector(kindred: viewModel.kindred)
       }
       .sheet(isPresented: $showingPowerAdder) {
         AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $showingPowerAdder)

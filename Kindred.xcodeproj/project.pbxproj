@@ -115,8 +115,8 @@
 		28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabel.swift */; };
 		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
 		28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* ButtonPad.swift */; };
-		28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* DiceRollView.swift */; };
-		28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */; };
+		28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* PoolSelector.swift */; };
+		28A39EBD2679698E00867AB9 /* PoolSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */; };
 		28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* ToggleButton.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */; };
@@ -293,8 +293,8 @@
 		28A1E9F02677B73B0084F483 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		28A39EB42679630B00867AB9 /* ButtonPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPad.swift; sourceTree = "<group>"; };
-		28A39EBA2679698500867AB9 /* DiceRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollView.swift; sourceTree = "<group>"; };
-		28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollViewModel.swift; sourceTree = "<group>"; };
+		28A39EBA2679698500867AB9 /* PoolSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelector.swift; sourceTree = "<group>"; };
+		28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelectorViewModel.swift; sourceTree = "<group>"; };
 		28A39EBE2679711200867AB9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
@@ -540,7 +540,7 @@
 			path = "Generic Views";
 			sourceTree = "<group>";
 		};
-		2856DCCE269E32B800B39866 /* DiceRoller */ = {
+		2856DCCE269E32B800B39866 /* Dice Roller */ = {
 			isa = PBXGroup;
 			children = (
 				2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */,
@@ -549,7 +549,7 @@
 				280FF099269F6D3200A9643A /* RollResultView.swift */,
 				280FF095269F51B500A9643A /* DieImage.swift */,
 			);
-			path = DiceRoller;
+			path = "Dice Roller";
 			sourceTree = "<group>";
 		};
 		286BE43A269635F800C19D57 /* Loresheets */ = {
@@ -659,7 +659,7 @@
 				28C5D158267944A600E199DB /* BaseSavingKindredViewModel.swift */,
 				28138779267D7BD0006DA73C /* OptionalKindredViewModel.swift */,
 				28ADF7F4267A5DC500D97D2A /* Characters */,
-				2856DCCE269E32B800B39866 /* DiceRoller */,
+				2856DCCE269E32B800B39866 /* Dice Roller */,
 				28ADF7F5267A5DCE00D97D2A /* Reference */,
 			);
 			path = Tabs;
@@ -711,7 +711,7 @@
 				287F87F72682553200DF140E /* Advantages */,
 				286BE43A269635F800C19D57 /* Loresheets */,
 				287F87FE26829DED00DF140E /* Basic Traits */,
-				28CEE0A72686540D0088D218 /* Dice Roller */,
+				28CEE0A72686540D0088D218 /* Dice Selector */,
 				28C656D6267BC13200865EE3 /* Disciplines */,
 				28E2C85C2684F00800EFE34C /* Derived Traits */,
 				287F88042682A20500DF140E /* Stress Tracks */,
@@ -743,14 +743,14 @@
 			path = Clans;
 			sourceTree = "<group>";
 		};
-		28CEE0A72686540D0088D218 /* Dice Roller */ = {
+		28CEE0A72686540D0088D218 /* Dice Selector */ = {
 			isa = PBXGroup;
 			children = (
-				28A39EBA2679698500867AB9 /* DiceRollView.swift */,
-				28A39EBC2679698E00867AB9 /* DiceRollViewModel.swift */,
+				28A39EBA2679698500867AB9 /* PoolSelector.swift */,
+				28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */,
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 			);
-			path = "Dice Roller";
+			path = "Dice Selector";
 			sourceTree = "<group>";
 		};
 		28E13FB6265C917B003E3DDF /* Powers */ = {
@@ -946,7 +946,7 @@
 				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
 				28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
-				28A39EBD2679698E00867AB9 /* DiceRollViewModel.swift in Sources */,
+				28A39EBD2679698E00867AB9 /* PoolSelectorViewModel.swift in Sources */,
 				28C656CC267BABBF00865EE3 /* DisciplineHeader.swift in Sources */,
 				2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */,
 				2856DCD6269E332F00B39866 /* DiceRollerViewModel.swift in Sources */,
@@ -1028,7 +1028,7 @@
 				283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */,
 				28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */,
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
-				28A39EBB2679698500867AB9 /* DiceRollView.swift in Sources */,
+				28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */,
 				28E02DE2269CCAB700BBC86E /* ActivityViewController.swift in Sources */,
 				2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */,
 				28452BB626976AB3002BA7EA /* CharacterExporter.swift in Sources */,

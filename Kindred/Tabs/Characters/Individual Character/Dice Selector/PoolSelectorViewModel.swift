@@ -1,5 +1,5 @@
 //
-//  DiceRollViewModel.swift
+//  PoolSelectorViewModel.swift
 //  Kindred
 //
 //  Created by Jared Lindsay on 6/15/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension DiceRollView {
+extension PoolSelector {
   class ViewModel: ObservableObject {
     
     @Published var showingAttributes = true
