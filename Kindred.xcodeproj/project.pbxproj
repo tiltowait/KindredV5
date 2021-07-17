@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2801217B26793F540069C496 /* RangePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801217A26793F540069C496 /* RangePicker.swift */; };
+		280E100426A33C2B00A87955 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280E100326A33C2B00A87955 /* ToggleButton.swift */; };
 		280FF092269F428300A9643A /* DiceBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF091269F428300A9643A /* DiceBag.swift */; };
 		280FF094269F44A100A9643A /* Comparable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF093269F44A100A9643A /* Comparable+.swift */; };
 		280FF096269F51B500A9643A /* DieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280FF095269F51B500A9643A /* DieImage.swift */; };
@@ -117,7 +118,6 @@
 		28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* ButtonPad.swift */; };
 		28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* PoolSelector.swift */; };
 		28A39EBD2679698E00867AB9 /* PoolSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */; };
-		28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBE2679711200867AB9 /* ToggleButton.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */; };
 		28B40CED26961A420058BE50 /* LoresheetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CEC26961A420058BE50 /* LoresheetList.swift */; };
@@ -182,6 +182,7 @@
 
 /* Begin PBXFileReference section */
 		2801217A26793F540069C496 /* RangePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangePicker.swift; sourceTree = "<group>"; };
+		280E100326A33C2B00A87955 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		280FF091269F428300A9643A /* DiceBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBag.swift; sourceTree = "<group>"; };
 		280FF093269F44A100A9643A /* Comparable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+.swift"; sourceTree = "<group>"; };
 		280FF095269F51B500A9643A /* DieImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieImage.swift; sourceTree = "<group>"; };
@@ -295,7 +296,6 @@
 		28A39EB42679630B00867AB9 /* ButtonPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPad.swift; sourceTree = "<group>"; };
 		28A39EBA2679698500867AB9 /* PoolSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelector.swift; sourceTree = "<group>"; };
 		28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelectorViewModel.swift; sourceTree = "<group>"; };
-		28A39EBE2679711200867AB9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		28ADF7F2267A579200D97D2A /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		28B40CEC26961A420058BE50 /* LoresheetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetList.swift; sourceTree = "<group>"; };
@@ -514,11 +514,10 @@
 		28386F5F265868B800E90445 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
+				287BE4F926A3736A00CBCD41 /* Button Styles */,
 				28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */,
-				280FF097269F5E0600A9643A /* BoldButton.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
 				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
-				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
@@ -535,7 +534,6 @@
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 				28DB5E81268A873600649103 /* SwapView.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
-				28A39EBE2679711200867AB9 /* ToggleButton.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -583,6 +581,16 @@
 				2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */,
 			);
 			path = Chargen;
+			sourceTree = "<group>";
+		};
+		287BE4F926A3736A00CBCD41 /* Button Styles */ = {
+			isa = PBXGroup;
+			children = (
+				280FF097269F5E0600A9643A /* BoldButton.swift */,
+				280E100326A33C2B00A87955 /* ToggleButton.swift */,
+				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
+			);
+			path = "Button Styles";
 			sourceTree = "<group>";
 		};
 		287F87F72682553200DF140E /* Advantages */ = {
@@ -967,7 +975,6 @@
 				28DB5E82268A873600649103 /* SwapView.swift in Sources */,
 				28252069267916CD0066F09B /* TraitRater.swift in Sources */,
 				287F87FB2682738800DF140E /* DotSelector.swift in Sources */,
-				28A39EBF2679711200867AB9 /* ToggleButton.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,
 				28B40CED26961A420058BE50 /* LoresheetList.swift in Sources */,
@@ -1000,6 +1007,7 @@
 				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
+				280E100426A33C2B00A87955 /* ToggleButton.swift in Sources */,
 				28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */,
 				284635902697616D00898E84 /* View+.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,

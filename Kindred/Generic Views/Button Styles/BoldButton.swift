@@ -39,7 +39,6 @@ struct BoldButton: ButtonStyle {
           .interactiveSpring(response: 0.15, dampingFraction: 0.4, blendDuration: 0.5),
           value: configuration.isPressed
         )
-//        .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
     
   }

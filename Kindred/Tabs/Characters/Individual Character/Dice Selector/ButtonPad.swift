@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct ButtonPad: View {
+  
+  @State private var engine = try? CHHapticEngine()
   
   @Binding var selection: [String]
   let columns: [[String]]
@@ -18,15 +21,31 @@ struct ButtonPad: View {
       ForEach(columns, id: \.self) { column in
         VStack(spacing: 8) {
           ForEach(column, id: \.self) { row in
-            ToggleButton(
-              isToggled: .constant(selection.contains(row)),
-              label: row,
-              perform: perform
+            Button {
+              performHandler(row)
+            } label: {
+              HStack {
+                Spacer()
+                Text(row)
+                  .font(.callout)
+                Spacer()
+              }
+            }
+            .buttonStyle(
+              ToggleButton(
+                isToggled: .constant(selection.contains(row)),
+                color: .red
+              )
             )
           }
         }
       }
     }
+  }
+  
+  func performHandler(_ string: String) {
+    Global.hapticTap(engine: engine)
+    perform(string)
   }
   
 }
