@@ -19,12 +19,20 @@ struct DiceRoller: View, Identifiable {
   
   let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
   let smallFont = Font.system(size: 200, design: .monospaced)
+  let shouldRollOnAppear: Bool
   
-  init(pool: Int = 5) {
+  init(pool: Int? = nil, hunger: Int? = nil) {
     let viewModel = ViewModel()
     _viewModel = StateObject(wrappedValue: viewModel)
     
-    viewModel.pool = pool
+    if let pool = pool,
+       let hunger = hunger {
+      viewModel.pool = pool
+      viewModel.hunger = hunger
+      shouldRollOnAppear = true
+    } else {
+      shouldRollOnAppear = false
+    }
   }
   
   var poolMenu: some View {
@@ -117,6 +125,13 @@ struct DiceRoller: View, Identifiable {
       rerollButtons
     }
     .padding()
+    .onAppear {
+      if shouldRollOnAppear {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+          self.roll()
+        }
+      }
+    }
   }
   
   func roll() {
