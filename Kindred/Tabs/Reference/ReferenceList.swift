@@ -28,22 +28,25 @@ struct ReferenceList: View {
             Text("Advantages")
               .font(.headline)
           }
-          .isDetailLink(true)
+          .isDetailLink(false)
           
           NavigationLink(destination: DisciplineList()) {
             Text("Disciplines")
               .font(.headline)
           }
+          .isDetailLink(false)
           
           NavigationLink(destination: ClanList(dataController: dataController)) {
             Text("Clans")
               .font(.headline)
           }
+          .isDetailLink(false)
           
           NavigationLink(destination: LoresheetList()) {
             Text("Loresheets")
               .font(.headline)
           }
+          .isDetailLink(false)
         }
       }
       .navigationTitle("Reference")
