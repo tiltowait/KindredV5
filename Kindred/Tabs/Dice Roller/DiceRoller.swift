@@ -131,6 +131,7 @@ struct DiceRoller: View, Identifiable {
         }
       }
     }
+    .frame(maxWidth: 414)
     .onChange(of: viewModel.pool, perform: nullifyRollResult)
     .onChange(of: viewModel.hunger, perform: nullifyRollResult)
     .onChange(of: viewModel.difficulty, perform: nullifyRollResult)
