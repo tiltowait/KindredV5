@@ -65,7 +65,7 @@
 		28474426267832D200C1E3A5 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28474425267832D200C1E3A5 /* DotView.swift */; };
 		284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284B8582267D0FDD00F159DC /* UIViewController+.swift */; };
 		284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CF5BE2677D401007B298B /* ImageTabs.swift */; };
-		2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */; };
+		2852D305267D2AAB009AF8D1 /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D304267D2AAB009AF8D1 /* PopUpButton.swift */; };
 		2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */; };
 		2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */; };
 		2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD3269E332800B39866 /* DiceRoller.swift */; };
@@ -245,7 +245,7 @@
 		28474425267832D200C1E3A5 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		284B8582267D0FDD00F159DC /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		284CF5BE2677D401007B298B /* ImageTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabs.swift; sourceTree = "<group>"; };
-		2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		2852D304267D2AAB009AF8D1 /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
 		2852D306267D3A6F009AF8D1 /* CreateCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterView.swift; sourceTree = "<group>"; };
 		2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewModel.swift; sourceTree = "<group>"; };
 		2856DCD3269E332800B39866 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
@@ -587,8 +587,8 @@
 			isa = PBXGroup;
 			children = (
 				280FF097269F5E0600A9643A /* BoldButton.swift */,
+				2852D304267D2AAB009AF8D1 /* PopUpButton.swift */,
 				280E100326A33C2B00A87955 /* ToggleButton.swift */,
-				2852D304267D2AAB009AF8D1 /* ButtonStyles.swift */,
 			);
 			path = "Button Styles";
 			sourceTree = "<group>";
@@ -1016,7 +1016,7 @@
 				2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */,
 				280FF098269F5E0600A9643A /* BoldButton.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
-				2852D305267D2AAB009AF8D1 /* ButtonStyles.swift in Sources */,
+				2852D305267D2AAB009AF8D1 /* PopUpButton.swift in Sources */,
 				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,
 				2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */,
 				286BE43E2696361600C19D57 /* AddLoresheetListViewController.swift in Sources */,
