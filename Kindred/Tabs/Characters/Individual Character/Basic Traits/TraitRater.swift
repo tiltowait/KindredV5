@@ -98,6 +98,7 @@ struct TraitRater: View {
     }
     .sheet(item: $specialtyManager) { manager in
       manager
+        .allowAutoDismiss(false)
     }
     .alert(isPresented: $showingReferenceAlert) {
       Alert(title: Text(label), message: Text(reference), dismissButton: .default(Text("OK")))
