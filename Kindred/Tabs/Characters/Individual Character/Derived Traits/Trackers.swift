@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Trackers: View {
   
+  @Environment(\.viewController) var viewController
+  
   @StateObject var viewModel: ViewModel
   
   @State private var showingEditView = false
@@ -69,8 +71,19 @@ struct Trackers: View {
         VStack {
           Text("Hunger")
             .bold()
-          DotSelector(current: $viewModel.kindred.hunger, min: 0, max: 5)
+          ZStack {
+            DotSelector(current: $viewModel.kindred.hunger, min: 0, max: 5)
+            HStack {
+              Spacer()
+              Button("Rouse", action: rouse)
+                .font(.callout)
+                .accentColor(.vampireRed)
+                .disabled(!viewModel.canRouse)
+                .buttonStyle(BorderlessButtonStyle())
+            }
+          }
         }
+        .id(viewModel.kindred.hunger) // Force redraw on change
         .padding(.bottom, 5)
       }
     }
@@ -150,6 +163,17 @@ struct Trackers: View {
       DotView(rating: rating, max: max)
     }
     .padding(.bottom, 5)
+  }
+  
+  func rouse() {
+    let rouseResult = viewModel.rouseCheck()
+    viewController?.present {
+      RouseResult(successful: rouseResult)
+    }
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      viewController?.dismiss(animated: true)
+    }
   }
   
 }
