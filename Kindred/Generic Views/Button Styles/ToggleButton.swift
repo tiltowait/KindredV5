@@ -41,8 +41,7 @@ struct ToggleButton: ButtonStyle {
       configuration.label
         .frame(minHeight: 20)
         .padding(.vertical, 5)
-        .minimumScaleFactor(0.01)
-        .lineLimit(1)
+        .autoscaling()
         .background(
           ZStack {
             RoundedRectangle(cornerRadius: 7)

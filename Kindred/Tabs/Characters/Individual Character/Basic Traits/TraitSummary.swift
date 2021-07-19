@@ -31,8 +31,7 @@ struct TraitSummary: View {
           }
         }
       }
-      .minimumScaleFactor(0.01)
-      .lineLimit(1)
+      .autoscaling()
     }
   }
   
