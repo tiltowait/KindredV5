@@ -34,12 +34,19 @@ struct ClanDetail: View {
   }
   
   var body: some View {
-    ZStack(alignment: .bottom) {
-      Image(viewModel.clan.icon)
-        .resizable()
-        .scaledToFit()
-        .scaleEffect(0.5)
-        .opacity(0.1)
+    ZStack {
+      // Not using alignment: .bottom, because it doesn't
+      // guarantee the views will be pinned to the bottom
+      // of the screen, only the parent container.
+      VStack {
+        Spacer()
+        Image(viewModel.clan.icon)
+          .resizable()
+          .scaledToFit()
+          .frame(maxWidth: 300)
+          .opacity(0.1)
+      }
+      .padding(.bottom)
       
       ScrollView {
         // Embedding the content within a group so we can apply
