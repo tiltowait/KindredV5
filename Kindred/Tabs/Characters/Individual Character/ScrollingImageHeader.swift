@@ -65,9 +65,9 @@ struct ScrollingImageHeader: View {
           addImageButton
         }
       }
-    }
-    .sheet(isPresented: $showingImagePicker) {
-      PhotoPicker(imageHandler: addImage, errorHandler: imageError)
+      .sheet(isPresented: $showingImagePicker) {
+        PhotoPicker(imageHandler: addImage, errorHandler: imageError)
+      }
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
