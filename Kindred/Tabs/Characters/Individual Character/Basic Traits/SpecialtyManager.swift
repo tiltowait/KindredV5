@@ -56,7 +56,16 @@ struct SpecialtyManager: View, Identifiable {
   }
   
   func dismiss() {
-    presentationMode.wrappedValue.dismiss()
+    // Using topMost instead of presentationMode, because if
+    // the user taps either the cancel or done buttons while
+    // editing a specialty, the sheet will forever refuse
+    // to dismiss.
+    //
+    // I believe this to be due to using the specialties array
+    // as a binding, but I am not 100% sure at the moment, and
+    // refactoring SpecialtyManager isn't worth the effort when
+    // there is already an easy fix.
+    UIViewController.topMost?.dismiss(animated: true)
   }
   
   func confirm() {
