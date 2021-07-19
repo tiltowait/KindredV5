@@ -49,6 +49,7 @@ struct ClanDetail: View {
           Image(viewModel.clan.header)
             .resizable()
             .scaledToFit()
+            .frame(maxWidth: 400)
           
           Text(viewModel.clan.pageReference)
             .font(.subheadline)
