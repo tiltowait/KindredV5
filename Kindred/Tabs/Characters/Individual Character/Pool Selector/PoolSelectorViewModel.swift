@@ -65,6 +65,8 @@ extension PoolSelector {
       
       self.disciplineColumns = disciplineColumns
       
+      dict["Willpower"] = kindred.temporaryWillpower
+      
       traitValues = dict
     }
     
@@ -115,7 +117,8 @@ extension PoolSelector {
       [
         "Strength",
         "Dexterity",
-        "Stamina"
+        "Stamina",
+        "Willpower"
       ],
       [
         "Charisma",

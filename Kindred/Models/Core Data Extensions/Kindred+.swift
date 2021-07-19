@@ -61,6 +61,10 @@ extension Kindred {
     set { zWillpowerString = newValue }
   }
   
+  var temporaryWillpower: Int {
+    willpowerString.filter { $0 == "." }.count
+  }
+  
   // MARK: - Morality
   
   var chronicleTenets: String {
