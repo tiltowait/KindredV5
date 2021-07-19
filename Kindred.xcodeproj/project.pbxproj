@@ -73,7 +73,7 @@
 		2856DCD8269E33CB00B39866 /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD7269E33CB00B39866 /* MenuPicker.swift */; };
 		2861A0D626979C74003AFED1 /* BloodPotency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2861A0D526979C74003AFED1 /* BloodPotency.swift */; };
 		2866C6892683F73B00614E85 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866C6882683F73B00614E85 /* Trackers.swift */; };
-		28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* DisciplineIcons.xcassets */; };
+		28678D102658855F00289497 /* Discipline Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28678D0F2658855F00289497 /* Discipline Icons.xcassets */; };
 		28692FB82696288100CEA2C5 /* LoresheetEntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28692FB72696288100CEA2C5 /* LoresheetEntryDetail.swift */; };
 		28692FBA2696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28692FB92696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift */; };
 		286BE43C2696360900C19D57 /* AddLoresheetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BE43B2696360900C19D57 /* AddLoresheetList.swift */; };
@@ -253,7 +253,7 @@
 		2856DCD7269E33CB00B39866 /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
 		2861A0D526979C74003AFED1 /* BloodPotency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPotency.swift; sourceTree = "<group>"; };
 		2866C6882683F73B00614E85 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
-		28678D0F2658855F00289497 /* DisciplineIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DisciplineIcons.xcassets; sourceTree = "<group>"; };
+		28678D0F2658855F00289497 /* Discipline Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Discipline Icons.xcassets"; sourceTree = "<group>"; };
 		28692FB72696288100CEA2C5 /* LoresheetEntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetEntryDetail.swift; sourceTree = "<group>"; };
 		28692FB92696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetEntryDetailViewModel.swift; sourceTree = "<group>"; };
 		286BE43B2696360900C19D57 /* AddLoresheetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoresheetList.swift; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 				282EC8662656EFFF0086B14F /* Models */,
 				28386F5F265868B800E90445 /* Generic Views */,
 				288EB7C12698CDC400E27652 /* Localizable.stringsdict */,
-				28678D0F2658855F00289497 /* DisciplineIcons.xcassets */,
+				28678D0F2658855F00289497 /* Discipline Icons.xcassets */,
 				28EBBE0426784902004DD186 /* Colors.xcassets */,
 				28138761267D579D006DA73C /* Clan Icons.xcassets */,
 				28138763267D57A4006DA73C /* Clan Headers.xcassets */,
@@ -895,7 +895,7 @@
 				28138762267D579D006DA73C /* Clan Icons.xcassets in Resources */,
 				28921696267E6BDB004911EA /* reference.sqlite in Resources */,
 				288EB7C22698CDC400E27652 /* Localizable.stringsdict in Resources */,
-				28678D102658855F00289497 /* DisciplineIcons.xcassets in Resources */,
+				28678D102658855F00289497 /* Discipline Icons.xcassets in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				28138764267D57A4006DA73C /* Clan Headers.xcassets in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
