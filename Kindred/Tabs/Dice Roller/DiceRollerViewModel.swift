@@ -64,6 +64,11 @@ extension DiceRoller {
       diceBag?.reroll(strategy: strategy)
     }
     
+    /// Nullify the roll result.
+    func nullifyRollResult() {
+      self.diceBag = nil
+    }
+    
     // MARK: - UserDefaults Keys
     
     private static var poolKey: String {

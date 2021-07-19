@@ -131,6 +131,19 @@ struct DiceRoller: View, Identifiable {
         }
       }
     }
+    .onChange(of: viewModel.pool, perform: nullifyRollResult)
+    .onChange(of: viewModel.hunger, perform: nullifyRollResult)
+    .onChange(of: viewModel.difficulty, perform: nullifyRollResult)
+  }
+  
+  /// Animate removing the roll result.
+  ///
+  /// Takes an argument because of an API requirement, but nothing is done with it.
+  /// - Parameter ignoredValue: The ignored argument.
+  func nullifyRollResult(_ ignoredValue: Int) {
+    withAnimation {
+      viewModel.nullifyRollResult()
+    }
   }
   
   func roll() {
