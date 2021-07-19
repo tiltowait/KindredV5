@@ -17,11 +17,11 @@ struct DiceRoller: View, Identifiable {
   
   @State private var engine = try? CHHapticEngine()
   
-  let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
-  let smallFont = Font.system(size: 200, design: .monospaced)
+//  let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
+//  let smallFont = Font.system(size: 200, design: .monospaced)
   let shouldRollOnAppear: Bool
   
-  init(pool: Int? = nil, hunger: Int? = nil) {
+  init(pool: Int? = 10, hunger: Int? = nil) {
     let viewModel = ViewModel()
     _viewModel = StateObject(wrappedValue: viewModel)
     
@@ -40,7 +40,8 @@ struct DiceRoller: View, Identifiable {
       selected: $viewModel.pool,
       array: viewModel.poolRange
     ) { dice in
-      diceLabel("pool", value: dice, color: .primary)
+      diceLabel("pool", value: dice)
+        .accentColor(.primary)
     }
   }
   
@@ -49,13 +50,15 @@ struct DiceRoller: View, Identifiable {
       selected: $viewModel.hunger,
       array: viewModel.hungerRange
     ) { hunger in
-      diceLabel("hung", value: hunger, color: .red)
+      diceLabel("hung", value: hunger)
+        .accentColor(.red)
     }
   }
   
   var difficultyMenu: some View {
     MenuPicker(selected: $viewModel.difficulty, array: viewModel.difficultyRange) { difficulty in
-      diceLabel("diff", value: difficulty, color: .vampireRed)
+      diceLabel("diff", value: difficulty)
+        .accentColor(.vampireRed)
     }
   }
   
@@ -99,14 +102,10 @@ struct DiceRoller: View, Identifiable {
       // Menus
       HStack(alignment: .top) {
         poolMenu
-          .accentColor(.primary)
         hungerMenu
-          .accentColor(.red)
         difficultyMenu
-          .accentColor(.vampireRed)
       }
-      .minimumScaleFactor(0.01)
-      .lineLimit(1)
+      .autoscaling()
       
       rollButton
       
@@ -179,31 +178,23 @@ struct DiceRoller: View, Identifiable {
     }
   }
   
-  func diceLabel(_ label: LocalizedStringKey, value: Int, color: Color) -> some View {
+  func diceLabel(_ label: LocalizedStringKey, value: Int) -> some View {
     VStack {
-      Group {
-        if value < 10 {
-          HStack(spacing: 0) {
-            Text("0")
-              .opacity(0.15)
-            Text("\(value)")
-          }
-          .font(bigFont)
-        } else {
-          Text("\(value)")
-            .font(bigFont)
-        }
+      HStack(spacing: 0) {
+        Text("\(value / 10)")
+          .opacity(value < 10 ? 0.15 : 1)
+        Text("\(value % 10)")
       }
+      .font(.system(size: 700, weight: .black, design: .monospaced))
       .overlay(
         Rectangle()
           .frame(height: 5)
-          .foregroundColor(color)
           .padding(.top, -15),
         alignment: .bottom
       )
       
       Text(label)
-        .font(smallFont)
+        .font(.system(size: 200, design: .monospaced))
     }
   }
   

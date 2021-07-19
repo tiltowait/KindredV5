@@ -17,4 +17,11 @@ extension View {
     }
   }
   
+  /// Force the view to automatically scale its contents to fit the container.
+  func autoscaling() -> some View {
+    self
+      .minimumScaleFactor(0.01)
+      .lineLimit(1)
+  }
+  
 }
