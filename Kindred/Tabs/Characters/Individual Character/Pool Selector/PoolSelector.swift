@@ -85,59 +85,59 @@ struct PoolSelector: View {
   var body: some View {
     NavigationView {
       VStack {
-      selectedTraits
-      
-      ScrollView {
-        VStack(spacing: 20) {
-          PhonyDisclosureGroup(
-            label: "Attributes",
-            selection: $viewModel.selectedTraits,
-            isExpanded: $viewModel.showingAttributes,
-            columns: viewModel.attributeColumns,
-            handler: toggleAttribute
-          )
-          
-          Divider()
-          
-          PhonyDisclosureGroup(
-            label: "Skills",
-            selection: $viewModel.selectedTraits,
-            isExpanded: $viewModel.showingSkills,
-            columns: viewModel.skillColumns,
-            handler: toggleSkill
-          )
-          
-          if !viewModel.disciplineColumns.isEmpty {
+        selectedTraits
+        
+        ScrollView {
+          VStack(spacing: 20) {
+            PhonyDisclosureGroup(
+              label: "Attributes",
+              selection: $viewModel.selectedTraits,
+              isExpanded: $viewModel.showingAttributes,
+              columns: viewModel.attributeColumns,
+              handler: toggleAttribute
+            )
+            
             Divider()
             
             PhonyDisclosureGroup(
-              label: "Disciplines",
+              label: "Skills",
               selection: $viewModel.selectedTraits,
-              isExpanded: $viewModel.showingDisciplines, columns: viewModel.disciplineColumns,
+              isExpanded: $viewModel.showingSkills,
+              columns: viewModel.skillColumns,
               handler: toggleSkill
             )
+            
+            if !viewModel.disciplineColumns.isEmpty {
+              Divider()
+              
+              PhonyDisclosureGroup(
+                label: "Disciplines",
+                selection: $viewModel.selectedTraits,
+                isExpanded: $viewModel.showingDisciplines, columns: viewModel.disciplineColumns,
+                handler: toggleSkill
+              )
+            }
+          }
+          .inset()
+        }
+        .navigationBarTitle("Select Pool", displayMode: .inline)
+        .toolbar {
+          ToolbarItem(placement: .cancellationAction) {
+            Button("Close", action: dismiss)
+          }
+          
+          ToolbarItem(placement: .primaryAction) {
+            Button("Reset", action: clearAll)
+              .accentColor(.red)
           }
         }
-        .inset()
-      }
-      .toolbar {
-        ToolbarItem(placement: .cancellationAction) {
-          Button("Close", action: dismiss)
-        }
-        
-        ToolbarItem(placement: .primaryAction) {
-          Button("Reset", action: clearAll)
-            .foregroundColor(.red)
-        }
-      }
-      .navigationBarTitleDisplayMode(.inline)
       }
       .background(Color.tertiarySystemGroupedBackground)
     }
     .sheet(item: $diceRoller) { roller in
       NavigationView {
         roller
-          .navigationBarTitleDisplayMode(.inline)
+          .navigationBarTitle("Dice Roll", displayMode: .inline)
           .toolbar {
             ToolbarItem(placement: .cancellationAction) {
               Button("Close") { diceRoller = nil }
@@ -209,13 +209,13 @@ fileprivate struct PhonyDisclosureGroup: View {
           columns: columns,
           perform: handler
         )
-          .padding(.top)
-          .transition(
-            .asymmetric(
-              insertion: .opacity.animation(.easeInOut.delay(0.2)),
-              removal: .opacity.animation(.easeInOut(duration: 0.1))
-            )
+        .padding(.top)
+        .transition(
+          .asymmetric(
+            insertion: .opacity.animation(.easeInOut.delay(0.2)),
+            removal: .opacity.animation(.easeInOut(duration: 0.1))
           )
+        )
       }
     }
   }

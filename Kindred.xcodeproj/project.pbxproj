@@ -719,7 +719,7 @@
 				287F87F72682553200DF140E /* Advantages */,
 				286BE43A269635F800C19D57 /* Loresheets */,
 				287F87FE26829DED00DF140E /* Basic Traits */,
-				28CEE0A72686540D0088D218 /* Dice Selector */,
+				28CEE0A72686540D0088D218 /* Pool Selector */,
 				28C656D6267BC13200865EE3 /* Disciplines */,
 				28E2C85C2684F00800EFE34C /* Derived Traits */,
 				287F88042682A20500DF140E /* Stress Tracks */,
@@ -751,14 +751,14 @@
 			path = Clans;
 			sourceTree = "<group>";
 		};
-		28CEE0A72686540D0088D218 /* Dice Selector */ = {
+		28CEE0A72686540D0088D218 /* Pool Selector */ = {
 			isa = PBXGroup;
 			children = (
 				28A39EBA2679698500867AB9 /* PoolSelector.swift */,
 				28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */,
 				28A39EB42679630B00867AB9 /* ButtonPad.swift */,
 			);
-			path = "Dice Selector";
+			path = "Pool Selector";
 			sourceTree = "<group>";
 		};
 		28E13FB6265C917B003E3DDF /* Powers */ = {
