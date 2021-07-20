@@ -74,13 +74,14 @@ struct Trackers: View {
           ZStack {
             DotSelector(current: $viewModel.kindred.hunger, min: 0, max: 5)
             HStack {
+              Button("x2") { rouse(checks: 2) }
               Spacer()
-              Button("Rouse", action: rouse)
-                .font(.callout)
-                .accentColor(.vampireRed)
-                .disabled(!viewModel.canRouse)
-                .buttonStyle(BorderlessButtonStyle())
+              Button("Rouse") { rouse(checks: 1) }
             }
+            .font(.callout)
+            .accentColor(.vampireRed)
+            .disabled(!viewModel.canRouse)
+            .buttonStyle(BorderlessButtonStyle())
           }
         }
         .id(viewModel.kindred.hunger) // Force redraw on change
@@ -165,8 +166,8 @@ struct Trackers: View {
     .padding(.bottom, 5)
   }
   
-  func rouse() {
-    let rouseResult = viewModel.rouseCheck()
+  func rouse(checks: Int) {
+    let rouseResult = viewModel.rouse(checks: checks)
     
     if rouseResult {
       UINotificationFeedbackGenerator().notificationOccurred(.success)

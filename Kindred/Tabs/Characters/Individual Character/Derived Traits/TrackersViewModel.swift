@@ -32,14 +32,14 @@ extension Trackers {
     
     /// Perform a rouse check, increasing hunger as necessary.
     /// - Returns: Whether the check was successful (no hunger increase) or not.
-    func rouseCheck() -> Bool {
-      let rouseResult = Bool.random()
+    func rouse(checks: Int) -> Bool {
+      let successful = (1...checks).map { _ in Bool.random() }.contains(true)
       
-      if !rouseResult {
+      if !successful {
         kindred.hunger += 1
       }
       
-      return rouseResult
+      return successful
     }
     
   }
