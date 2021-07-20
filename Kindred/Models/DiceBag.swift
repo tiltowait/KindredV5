@@ -143,7 +143,7 @@ struct DiceBag {
     
     let criticals = totalTens / 2
     let remainingTens = totalTens % 2
-    let totalSuccesses = totalNonTenSuccesses + (criticals * 2) + remainingTens
+    let totalSuccesses = totalNonTenSuccesses + (criticals * 4) + remainingTens
     
     let result: RollResult
     
