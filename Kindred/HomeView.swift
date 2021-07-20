@@ -29,7 +29,7 @@ struct HomeView: View {
       DiceRoller()
         .tag(Tab.diceRoller)
         .tabItem {
-          Label("Roll Dice", systemImage: "diamond.fill")
+          Label("Dice", systemImage: "diamond.fill")
         }
       
       ReferenceList()
