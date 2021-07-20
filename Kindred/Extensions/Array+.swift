@@ -21,6 +21,10 @@ extension Array {
     return Array(dropLast(count - k))
   }
   
+}
+
+extension Collection {
+  
   /// Return the number of elements that satisfy a given predicate.
   /// - Parameter predicate: The predicate to match.
   /// - Throws: Any exception thrown by the predicate.

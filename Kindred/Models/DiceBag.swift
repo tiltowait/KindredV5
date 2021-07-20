@@ -157,10 +157,10 @@ struct DiceBag {
     // than to repeatedly filter and count, the arrays are so small that
     // this more concise method is preferable.
     
-    let normalSuccesses = normalDice.filter { 6...9 ~= $0 }.count
-    let normalTens = normalDice.filter { $0 == 10 }.count
-    let hungerSuccesses = hungerDice.filter { 6...9 ~= $0 }.count
-    let hungerTens = hungerDice.filter { $0 == 10 }.count
+    let normalSuccesses = normalDice.count { 6...9 ~= $0 }
+    let normalTens = normalDice.count { $0 == 10 }
+    let hungerSuccesses = hungerDice.count { 6...9 ~= $0 }
+    let hungerTens = hungerDice.count { $0 == 10 }
     
     let totalNonTenSuccesses = normalSuccesses + hungerSuccesses
     let totalTens = normalTens + hungerTens
@@ -201,12 +201,12 @@ struct DiceBag {
       options.append(.rerollFailures)
     }
     
-    let normalTens = normalDice.filter { $0 == 10 }.count
+    let normalTens = normalDice.count { $0 == 10 }
     if normalTens < normalDice.count {
       options.append(.maximizeCriticals)
     }
     
-    let hungerTens = hungerDice.filter { $0 == 10 }.count
+    let hungerTens = hungerDice.count { $0 == 10 }
     if hungerTens == 1 && normalTens < normalDice.count {
       options.append(.avoidMessyCritical)
     }

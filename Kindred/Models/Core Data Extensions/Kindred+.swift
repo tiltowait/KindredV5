@@ -62,7 +62,7 @@ extension Kindred {
   }
   
   var temporaryWillpower: Int {
-    willpowerString.filter { $0 == "." }.count
+    willpowerString.count { $0 == "." }
   }
   
   // MARK: - Morality
@@ -88,7 +88,7 @@ extension Kindred {
   }
   
   var humanity: Int16 {
-    get { Int16(humanityString.filter { $0 == "o" }.count) }
+    get { Int16(humanityString.count { $0 == "o" }) }
     set {
       let filled = String(repeating: "o", count: Int(newValue))
       let empty = String(repeating: ".", count: Int(10 - newValue))
@@ -178,7 +178,7 @@ extension Kindred {
   /// - Parameter discipline: The Discipline in question.
   /// - Returns: The level in that Discipline.
   func level(of discipline: Discipline) -> Int {
-    knownPowers.filter { $0.discipline == discipline }.count
+    knownPowers.count { $0.discipline == discipline }
   }
   
   var allSpecialties: [Specialty] {
