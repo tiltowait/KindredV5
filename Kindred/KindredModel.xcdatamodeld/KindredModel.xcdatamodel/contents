@@ -59,7 +59,6 @@
         <attribute name="firearms" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="generation" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
         <attribute name="health" attributeType="Integer 16" defaultValueString="4" usesScalarValueType="YES"/>
-        <attribute name="humanity" attributeType="Integer 16" defaultValueString="7" usesScalarValueType="YES"/>
         <attribute name="hunger" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="inGameDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="insight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -97,6 +96,7 @@
         <attribute name="zHealthString" optional="YES" attributeType="String"/>
         <attribute name="zHeight" optional="YES" attributeType="String"/>
         <attribute name="zHistory" optional="YES" attributeType="String"/>
+        <attribute name="zHumanityString" optional="YES" attributeType="String"/>
         <attribute name="zName" attributeType="String"/>
         <attribute name="zNotes" optional="YES" attributeType="String"/>
         <attribute name="zPossessions" optional="YES" attributeType="String"/>

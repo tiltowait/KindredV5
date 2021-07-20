@@ -157,6 +157,9 @@
 		28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */; };
 		28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED3B7B2698C992007C31C4 /* PDF+.swift */; };
 		28EEDCD426A5FF1900ABE6C3 /* RouseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EEDCD326A5FF1900ABE6C3 /* RouseResult.swift */; };
+		28F0214426A735ED00867504 /* MoralityTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0214326A735ED00867504 /* MoralityTrack.swift */; };
+		28F0214626A735FA00867504 /* MoralityTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0214526A735FA00867504 /* MoralityTrackViewModel.swift */; };
+		28F0214A26A74B2600867504 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0214926A74B2600867504 /* Popover.swift */; };
 		28F05C23269DFCC400E81D5B /* Specialty+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C22269DFCC400E81D5B /* Specialty+.swift */; };
 		28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C24269E03A800E81D5B /* SpecialtyManager.swift */; };
 		28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */; };
@@ -336,6 +339,9 @@
 		28EBBE0C267852CA004DD186 /* TraitBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitBlockViewModel.swift; sourceTree = "<group>"; };
 		28ED3B7B2698C992007C31C4 /* PDF+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PDF+.swift"; sourceTree = "<group>"; };
 		28EEDCD326A5FF1900ABE6C3 /* RouseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouseResult.swift; sourceTree = "<group>"; };
+		28F0214326A735ED00867504 /* MoralityTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoralityTrack.swift; sourceTree = "<group>"; };
+		28F0214526A735FA00867504 /* MoralityTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoralityTrackViewModel.swift; sourceTree = "<group>"; };
+		28F0214926A74B2600867504 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
 		28F05C22269DFCC400E81D5B /* Specialty+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specialty+.swift"; sourceTree = "<group>"; };
 		28F05C24269E03A800E81D5B /* SpecialtyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManager.swift; sourceTree = "<group>"; };
 		28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManagerViewModel.swift; sourceTree = "<group>"; };
@@ -532,6 +538,7 @@
 				28E02DDD269CC71000BBC86E /* PDFViewer.swift */,
 				28F169D3268A487C0039F2BE /* PhotoPicker.swift */,
 				2870436926823C71005F6589 /* PlainTextHeader.swift */,
+				28F0214926A74B2600867504 /* Popover.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 				28DB5E81268A873600649103 /* SwapView.swift */,
@@ -779,6 +786,8 @@
 				2866C6882683F73B00614E85 /* Trackers.swift */,
 				28E2C8582684DFE700EFE34C /* TrackerStepper.swift */,
 				28EEDCD326A5FF1900ABE6C3 /* RouseResult.swift */,
+				28F0214326A735ED00867504 /* MoralityTrack.swift */,
+				28F0214526A735FA00867504 /* MoralityTrackViewModel.swift */,
 			);
 			path = "Derived Traits";
 			sourceTree = "<group>";
@@ -937,6 +946,7 @@
 				287F880026829E5800DF140E /* CharacterNotesView.swift in Sources */,
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
+				28F0214426A735ED00867504 /* MoralityTrack.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				287F88062682A22200DF140E /* StressTrack.swift in Sources */,
 				2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */,
@@ -947,6 +957,7 @@
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */,
 				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
+				28F0214A26A74B2600867504 /* Popover.swift in Sources */,
 				28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */,
 				286BE43C2696360900C19D57 /* AddLoresheetList.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
@@ -1010,6 +1021,7 @@
 				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
+				28F0214626A735FA00867504 /* MoralityTrackViewModel.swift in Sources */,
 				280E100426A33C2B00A87955 /* ToggleButton.swift in Sources */,
 				28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */,
 				284635902697616D00898E84 /* View+.swift in Sources */,

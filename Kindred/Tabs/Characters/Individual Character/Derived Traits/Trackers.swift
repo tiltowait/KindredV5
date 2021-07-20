@@ -62,7 +62,7 @@ struct Trackers: View {
         .padding(.bottom, 5)
         .centered()
       Divider()
-      tracker("Humanity", rating: viewModel.kindred.humanity, max: 10)
+      MoralityTrack(kindred: viewModel.kindred)
       
       if viewModel.kindred.clan?.template == .kindred {
         Divider()
@@ -134,7 +134,7 @@ struct Trackers: View {
   }
   
   var swapHeight: CGFloat {
-    viewModel.kindred.clan?.template == .kindred ? 330 : 200
+    viewModel.kindred.clan?.template == .kindred ? 360 : 230
   }
   
   var body: some View {

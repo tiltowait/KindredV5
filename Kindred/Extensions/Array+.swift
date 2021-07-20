@@ -21,4 +21,12 @@ extension Array {
     return Array(dropLast(count - k))
   }
   
+  /// Return the number of elements that satisfy a given predicate.
+  /// - Parameter predicate: The predicate to match.
+  /// - Throws: Any exception thrown by the predicate.
+  /// - Returns: The number of elements that match the predicate.
+  func count(where predicate: (Element) throws -> Bool) rethrows  -> Int {
+    try self.filter(predicate).count
+  }
+  
 }

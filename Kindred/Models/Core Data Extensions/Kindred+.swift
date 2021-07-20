@@ -82,6 +82,20 @@ extension Kindred {
     set { zTouchstones = newValue }
   }
   
+  var humanityString: String {
+    get { zHumanityString ?? "ooooooo..." }
+    set { zHumanityString = newValue }
+  }
+  
+  var humanity: Int16 {
+    get { Int16(humanityString.filter { $0 == "o" }.count) }
+    set {
+      let filled = String(repeating: "o", count: Int(newValue))
+      let empty = String(repeating: ".", count: Int(10 - newValue))
+      zHumanityString = filled + empty
+    }
+  }
+  
   // MARK: - Biographical Data
   
   /// The character's height.

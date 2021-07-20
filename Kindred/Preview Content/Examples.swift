@@ -98,7 +98,7 @@ extension Kindred {
     
     kindred.health = 8
     kindred.willpower = 6
-    kindred.humanity = 7
+    kindred.humanityString = "ooooooo../"
     kindred.bloodPotency = 1
     kindred.hunger = 2
     
