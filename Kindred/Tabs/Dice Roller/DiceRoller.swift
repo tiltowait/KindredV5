@@ -14,6 +14,7 @@ struct DiceRoller: View, Identifiable {
   
   @StateObject var viewModel: ViewModel
   @State private var rolling = false
+  @State private var showingStrategyInfo = false
   
   @State private var engine = try? CHHapticEngine()
   
@@ -119,8 +120,21 @@ struct DiceRoller: View, Identifiable {
         Spacer()
       }
       
-      Text("Re-roll Strategy")
-        .font(.title2.smallCaps())
+      HStack(alignment: .center) {
+        // Using String.uppercased() rater than Font.smallCaps(),
+        // because Font.smallCaps() causes the info button to
+        // become off-centered.
+        Text("Re-roll Strategy".uppercased())
+          .font(.headline)
+        Button {
+          withAnimation {
+            showingStrategyInfo.toggle()
+          }
+        } label: {
+          Label("Strategy information", systemImage: "info.circle")
+            .labelStyle(IconOnlyLabelStyle())
+        }
+      }
       rerollButtons
     }
     .padding()
@@ -135,6 +149,13 @@ struct DiceRoller: View, Identifiable {
     .onChange(of: viewModel.pool, perform: nullifyRollResult)
     .onChange(of: viewModel.hunger, perform: nullifyRollResult)
     .onChange(of: viewModel.difficulty, perform: nullifyRollResult)
+    .alert(isPresented: $showingStrategyInfo) {
+      Alert(
+        title: Text("Re-roll Strategies"),
+        message: Text("Failures: Re-roll 1-3 failures.\nCriticals: Re-roll 1-3 non-criticals.\nMessy: Re-roll 1-3 criticals."),
+        dismissButton: .default(Text("OK"))
+      )
+    }
   }
   
   /// Animate removing the roll result.
