@@ -137,7 +137,7 @@ struct MoralityTrack: View {
     switch code {
     case "o": return Color.vampireRed
     case "/": return Color.purple
-    case "x": return Color.red
+    case "x": return Color.purple
     default: return Color.tertiarySystemGroupedBackground
     }
   }
