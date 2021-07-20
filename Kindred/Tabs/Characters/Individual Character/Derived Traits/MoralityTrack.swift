@@ -93,7 +93,7 @@ struct MoralityTrack: View {
       UINotificationFeedbackGenerator().notificationOccurred(.success)
     } else {
       popoverTitle = "No Remorse"
-      popoverContents = "Your Best gains sway."
+      popoverContents = "Your Beast gains sway."
       UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
     
