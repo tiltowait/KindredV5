@@ -167,6 +167,13 @@ struct Trackers: View {
   
   func rouse() {
     let rouseResult = viewModel.rouseCheck()
+    
+    if rouseResult {
+      UINotificationFeedbackGenerator().notificationOccurred(.success)
+    } else {
+      UINotificationFeedbackGenerator().notificationOccurred(.error)
+    }
+    
     viewController?.present {
       RouseResult(successful: rouseResult)
     }
