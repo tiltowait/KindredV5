@@ -47,10 +47,7 @@ extension MoralityTrack {
         // empty dots. Additionally, only the last filled dot
         // can be so marked.
         
-        if index == track.lastIndex(of: "o")
-            && (track.count { $0 == "." } == 0)
-            && (track.count { $0 == "x" } == 0)
-        {
+        if index == track.lastIndex(of: "o") && (track.count { $0 == "." } == 0) {
           code = "x"
         } else {
           return false
@@ -58,7 +55,11 @@ extension MoralityTrack {
       case "/":
         code = "."
       case "x":
-        code = "o"
+        if index == track.firstIndex(of: "x") {
+          code = "o"
+        } else {
+          return false
+        }
       default:
         code = "/"
       }
@@ -89,6 +90,8 @@ extension MoralityTrack {
     func degen() {
       kindred.humanity -= 1 // Automatically clears stains
       self.track = Array(kindred.humanityString)
+      
+      // Degeneration
     }
     
   }
