@@ -48,7 +48,6 @@ extension ChronicleDetail {
     }
     
     func add(_ moralityItem: MoralityItem) {
-      print("Adding!")
       switch moralityItem {
       case .tenet: tenets.append("")
       case .conviction: convictions.append("")
