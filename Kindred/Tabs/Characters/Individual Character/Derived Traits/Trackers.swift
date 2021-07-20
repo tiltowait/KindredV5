@@ -116,6 +116,12 @@ struct Trackers: View {
         value: $viewModel.kindred.humanity,
         in: 0...10
       )
+      HStack {
+        Text("Modifying this will clear all stains.")
+          .font(.caption)
+          .foregroundColor(.secondary)
+        Spacer()
+      }
       
       if viewModel.kindred.clan?.template == .kindred {
         Divider()
