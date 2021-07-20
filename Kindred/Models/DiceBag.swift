@@ -62,7 +62,10 @@ struct DiceBag {
     self.normalDice = (0..<normalPool).map { _ in Int.random(in: 1...10) }
     self.hungerDice = (0..<hungerPool).map { _ in Int.random(in: 1...10) }
     
-    (self.totalSuccesses, self.result) = self.calculateResults()
+    (self.totalSuccesses, self.result) = self.calculateResults(
+      normal: self.normalDice,
+      hunger: self.hungerDice
+    )
     self.rerollOptions = getRerollOptions()
   }
   
@@ -76,7 +79,10 @@ struct DiceBag {
     case .avoidMessyCritical:
       normalDice = avoidMessyCritical()
     }
-    (self.totalSuccesses, self.result) = self.calculateResults()
+    (self.totalSuccesses, self.result) = self.calculateResults(
+      normal: self.normalDice,
+      hunger: self.hungerDice
+    )
     self.rerollOptions = getRerollOptions()
   }
   
@@ -109,6 +115,12 @@ struct DiceBag {
         if die == 10 {
           sortedDice.removeFirst()
           rerolledDice.append(Int.random(in: 1...10))
+          
+          // No need to keep rerolling dice if we've already succeeded
+          // in avoiding a messy critical.
+          if self.calculateResults(normal: rerolledDice, hunger: hungerDice).result != .messyCritical {
+            break
+          }
         } else {
           break
         }
@@ -119,7 +131,19 @@ struct DiceBag {
     return (sortedDice + rerolledDice).shuffled()
   }
   
-  private func calculateResults() -> (successes: Int, result: RollResult) {
+  /// Calculate the results for a given set of rolled dice.
+  ///
+  /// This method returns the results rather than setting the properties
+  /// directly, because we check the results rather than storing them
+  /// when re-rolling to avoid messy criticals.
+  /// - Parameters:
+  ///   - normalDice: The "normal" dice rolled.
+  ///   - hungerDice: The hunger dice rolled.
+  /// - Returns: A tuple of the total successes and the type of result.
+  private func calculateResults(
+    normal normalDice: [Int],
+    hunger hungerDice: [Int]
+  ) -> (successes: Int, result: RollResult) {
     // Rules:
     // - Everything 6+ is a success
     // - Double 10s make a critical (4 successes total)
