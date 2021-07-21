@@ -8,7 +8,7 @@
 import CoreData
 
 /// A caseless enum that does the actual legwork of creating a new character from a PDF.
-enum CharacterImporter {
+struct CharacterImporter {
   
   /// Date format strings for attempting to get the character's birth- and embrace dates.
   static let dateFormatStrings: [String] = {
@@ -21,12 +21,26 @@ enum CharacterImporter {
     ]
   }()
   
-  /// Import a character from a PDF.
-  /// - Parameters:
-  ///   - pdf: The PDF from which to import the character.
-  ///   - dataController: The data controller responsible for saving the character.
+  let pdf: CharacterPDF
+  let context: NSManagedObjectContext
+  
+  var character: Kindred?
+  var importErrors: [String: [String]] = [:]
+  
   @discardableResult
-  static func importCharacter(pdf: CharacterPDF, context: NSManagedObjectContext) -> Kindred {
+  init(pdf: CharacterPDF, context: NSManagedObjectContext, completionHandler: @escaping (Self) -> ()) {
+    self.pdf = pdf
+    self.context = context
+    
+    importCharacter()
+    
+    completionHandler(self)
+  }
+  
+  // MARK: - Import Methods
+  
+  /// Import a character from a PDF.
+  private mutating func importCharacter() {
     let kindred = Kindred(context: context)
     
     // Convictions and chronicle tenets
@@ -43,7 +57,7 @@ enum CharacterImporter {
     kindred.sire = pdf.information(for: .sire)
     kindred.title = pdf.information(for: .title)
     
-    Self.assignSpecialties(context: context, kindred: kindred, pdf: pdf)
+    self.assignSpecialties(context: context, kindred: kindred, pdf: pdf)
     
     // Figure out its clan
     if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {
@@ -103,22 +117,26 @@ enum CharacterImporter {
     kindred.possessions = pdf.possessions
     kindred.notes = pdf.notes
     
-    Self.fetchDisciplines(context: context, kindred: kindred, pdf: pdf)
-    Self.fetchAdvantages(context: context, kindred: kindred, pdf: pdf)
-    Self.fetchHavenRating(context: context, kindred: kindred, pdf: pdf)
+    let disciplineErrors = self.fetchDisciplines()
+    importErrors = importErrors.merging(with: disciplineErrors)
+    
+    let advantageErrors = self.fetchAdvantages()
+    importErrors["Advantages"] = advantageErrors
+    
+    self.fetchHavenRating()
     
     // Birthdate and embrace date
     if let birthdateString = pdf.birthdateString {
-      kindred.birthdate = Self.dateFromString(birthdateString)
+      kindred.birthdate = self.dateFromString(birthdateString)
     }
     if let embraceDateString = pdf.embraceDateString {
-      kindred.embraceDate = Self.dateFromString(embraceDateString)
+      kindred.embraceDate = self.dateFromString(embraceDateString)
     }
     
-    return kindred
+    self.character = kindred
   }
   
-  private static func assignSpecialties(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+  private mutating func assignSpecialties(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
     let specialtyDict = pdf.specialties
     
     for (skill, specialties) in specialtyDict {
@@ -136,39 +154,54 @@ enum CharacterImporter {
   /// Attempt to import disciplines.
   ///
   /// This function will not work if the disciplines and powers are misspelled.
-  /// - Parameters:
-  ///   - context: The context in which the data lives.
-  ///   - kindred: The character to add the disciplines to.
-  ///   - pdf: The PDF from which to import.
-  private static func fetchDisciplines(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+  /// - Returns: The disciplines and powers that could not be found.
+  private mutating func fetchDisciplines() -> [String: [String]] {
     let allDisciplines = try? context.fetch(Discipline.fetchRequest()) as [Discipline]
     let allPowers = try? context.fetch(Power.fetchRequest()) as [Power]
     
+    var failedDisciplines: [String] = []
+    var failedPowers: [String] = []
+    
     for (key, fields) in pdf.disciplineFields {
-      let disciplineName = pdf.value(for: key) ?? ""
-      
-      // We aren't directly comparing the names, so we can't simply use fetchObject
-      if let discipline = (allDisciplines?.first { disciplineName.lowercased().contains($0.name.lowercased()) }) {
-        for field in fields {
-          let powerName = pdf.value(for: field) ?? ""
-          
-          if let power = (allPowers?.first { powerName.lowercased().contains($0.name.lowercased()) }) {
-            if power.discipline == discipline {
-              kindred.addToPowers(power)
+      if let disciplineName = pdf.value(for: key) {
+        
+        // We aren't directly comparing the names, so we can't simply use fetchObject
+        if let discipline = (allDisciplines?.first { disciplineName.lowercased().contains($0.name.lowercased()) }) {
+          for field in fields {
+            if let powerName = pdf.value(for: field) {
+              if let power = (allPowers?.first { powerName.lowercased().contains($0.name.lowercased()) }) {
+                if power.discipline == discipline {
+                  character?.addToPowers(power)
+                } else {
+                  failedPowers.append(powerName)
+                }
+              } else {
+                failedPowers.append(powerName)
+              }
             }
           }
+        } else {
+          failedDisciplines.append(disciplineName)
         }
       }
     }
+    
+    var errors: [String: [String]] = [:]
+    if !failedDisciplines.isEmpty {
+      errors["Disciplines"] = failedDisciplines
+    }
+    if !failedPowers.isEmpty {
+      errors["Powers"] = failedPowers
+    }
+    return errors
   }
   
   /// Attempt to import advantages (merits, flaws, and backgrounds).
-  /// - Parameters:
-  ///   - context: The context in which the data lives.
-  ///   - kindred: The character to apply the advantages to.
-  ///   - pdf: The PDF from which to import.
-  private static func fetchAdvantages(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+  /// - Returns: The advantages that could not be found.
+  private mutating func fetchAdvantages() -> [String] {
     let advantages = pdf.allAdvantages
+    
+    var failedAdvantages: [String] = []
     
     for (advantage, rating) in advantages {
       // On the official PDF, some advantages are given a compound name, such as "Looks, Stunning".
@@ -180,11 +213,14 @@ enum CharacterImporter {
         container.zOption = advantageOption
         container.currentRating = advantageOption.isFlaw ? -rating : rating
         
-        kindred.addToAdvantages(container)
+        character?.addToAdvantages(container)
       } else if let loresheetEntry = LoresheetEntry.fetchObject(named: advantage, in: context) {
-        kindred.addToLoresheets(loresheetEntry)
+        character?.addToLoresheets(loresheetEntry)
+      } else {
+        failedAdvantages.append(advantage)
       }
     }
+    return failedAdvantages
   }
   
   /// Import the haven rating.
@@ -196,7 +232,7 @@ enum CharacterImporter {
   ///   - context: The context in which the data lives.
   ///   - kindred: The character to grant haven.
   ///   - pdf: The PDF from which to import.
-  private static func fetchHavenRating(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
+  private mutating func fetchHavenRating() {
     let havenRating = pdf.havenRating
     
     if havenRating > 0 {
@@ -206,7 +242,7 @@ enum CharacterImporter {
       container.option = haven
       container.currentRating = havenRating
       
-      kindred.addToAdvantages(container)
+      character?.addToAdvantages(container)
       
     } else if pdf.noHaven {
       guard let noHaven = AdvantageOption.fetchObject(named: "No Haven", in: context) else { return }
@@ -215,14 +251,14 @@ enum CharacterImporter {
       container.option = noHaven
       container.currentRating = -1
       
-      kindred.addToAdvantages(container)
+      character?.addToAdvantages(container)
     }
   }
   
   /// Attempt to fetch a date from a string.
   /// - Parameter dateString: The date string to match.
   /// - Returns: The matched date, or nil.
-  private static func dateFromString(_ dateString: String) -> Date? {
+  private mutating func dateFromString(_ dateString: String) -> Date? {
     // This is technically a fairly expensive operation, but it is only done twice per import.
     for formatString in CharacterImporter.dateFormatStrings {
       let dateFormatter = DateFormatter()

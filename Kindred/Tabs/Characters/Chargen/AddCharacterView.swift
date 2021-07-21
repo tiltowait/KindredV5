@@ -15,6 +15,7 @@ struct AddCharacterView: View {
   @State private var showingFileImporter = false
   @State private var fileAlertMessage: String?
   @State private var showingLoadingIndicator = false
+  @State private var importWarnings: [String: [String]]?
   
   var footer: some View {
     Text("Imports most data from an official interactive character sheet PDF. Certain details, such as disciplines and clan, must be spelled correctly.")
@@ -55,6 +56,14 @@ struct AddCharacterView: View {
           message: Text(message),
           dismissButton: .default(Text("OK"))
         )
+      }
+      .sheet(item: $importWarnings) { warnings in
+        WarningSheet(
+          message: "The following items could not be found.",
+          warnings: warnings
+        ) {
+          self.dismiss()
+        }
       } // End NavigationView
       
       if showingLoadingIndicator {
@@ -71,12 +80,18 @@ struct AddCharacterView: View {
       if case let .success(selectedFile) = result {
         if selectedFile.startAccessingSecurityScopedResource() {
           if let pdf = CharacterPDF(url: selectedFile) {
-            CharacterImporter.importCharacter(
+            CharacterImporter(
               pdf: pdf,
               context: dataController.container.viewContext
-            )
-            dataController.save()
-            self.dismiss()
+            ) { importer in
+              dataController.save()
+              
+              if importer.importErrors.isEmpty {
+                self.dismiss()
+              } else {
+                importWarnings = importer.importErrors
+              }
+            }
           } else {
             fileAlertMessage = "The selected file is not a valid V5 PDF."
           }
@@ -88,6 +103,18 @@ struct AddCharacterView: View {
       toggleLoadingIndicator()
     }
   }
+  
+  func makeWarning(errors: [String: [String]]) {
+    var warnings = "The following items could not be found:\n\n"
+    var warningBlocks: [String] = []
+    for (category, items) in errors {
+      let block = "\(category):\n\(items.joined(separator: ", "))"
+      warningBlocks.append(block)
+    }
+    warnings.append(warningBlocks.joined(separator: "\n\n"))
+  }
+  
+  
   
   func dismiss() {
     presentationMode.wrappedValue.dismiss()

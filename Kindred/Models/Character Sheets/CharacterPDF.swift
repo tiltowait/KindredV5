@@ -538,7 +538,7 @@ class CharacterPDF {
     let advantageFields = backgroundFields.merging(with: meritFields, flawFields, havenFields)
     
     for (advantageLabel, dotFields) in advantageFields {
-      if let advantage = allAnnotations[advantageLabel]?.widgetStringValue {
+      if let advantage = value(for: advantageLabel) {
         let rating = countSelected(for: dotFields)
         advantages[advantage] = rating
       }
@@ -631,7 +631,7 @@ class CharacterPDF {
   /// - Returns: The value stored in that field. If the field is empty or doesn't exist, it returns `nil`.
   func value(for field: String) -> String? {
     if let annotation = allAnnotations[field] {
-      if let widgetStringValue = annotation.widgetStringValue {
+      if let widgetStringValue = annotation.widgetStringValue?.trimmingCharacters(in: .whitespacesAndNewlines) {
         if !widgetStringValue.isEmpty {
           return widgetStringValue
         }

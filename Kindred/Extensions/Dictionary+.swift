@@ -5,6 +5,8 @@
 //  Created by Jared Lindsay on 7/9/21.
 //
 
+import Foundation
+
 extension Dictionary {
   
   /// Create a dictionary by merging the key-value pairs of the given dictionaries.
@@ -17,5 +19,11 @@ extension Dictionary {
     }
     return merged
   }
+  
+}
+
+extension Dictionary: Identifiable {
+  
+  public var id: String { UUID().uuidString }
   
 }

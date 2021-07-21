@@ -58,6 +58,7 @@
 		283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */; };
 		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
 		283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */; };
+		283EB7D626A8AAC200F56447 /* WarningSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283EB7D526A8AAC200F56447 /* WarningSheet.swift */; };
 		2841ACD1269E26EF00031983 /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841ACD0269E26EF00031983 /* Binding+.swift */; };
 		28452BB426976942002BA7EA /* Blank Character Sheet.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28452BB326976942002BA7EA /* Blank Character Sheet.pdf */; };
 		28452BB626976AB3002BA7EA /* CharacterExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452BB526976AB3002BA7EA /* CharacterExporter.swift */; };
@@ -242,6 +243,7 @@
 		283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeader.swift; sourceTree = "<group>"; };
 		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
 		283DE7EF2677F3BB00876573 /* ScrollingImageHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeaderViewModel.swift; sourceTree = "<group>"; };
+		283EB7D526A8AAC200F56447 /* WarningSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningSheet.swift; sourceTree = "<group>"; };
 		2841ACD0269E26EF00031983 /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
 		28452BB326976942002BA7EA /* Blank Character Sheet.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Blank Character Sheet.pdf"; sourceTree = "<group>"; };
 		28452BB526976AB3002BA7EA /* CharacterExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExporter.swift; sourceTree = "<group>"; };
@@ -484,11 +486,8 @@
 		282EC8662656EFFF0086B14F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				28452BB326976942002BA7EA /* Blank Character Sheet.pdf */,
+				283EB7D026A8923700F56447 /* Character Sheets */,
 				2861A0D526979C74003AFED1 /* BloodPotency.swift */,
-				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
-				28452BB526976AB3002BA7EA /* CharacterExporter.swift */,
-				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
 				280FF091269F428300A9643A /* DiceBag.swift */,
 				28921695267E6BDB004911EA /* reference.sqlite */,
 				2825206C26792A9D0066F09B /* TraitReference.plist */,
@@ -534,6 +533,7 @@
 				28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */,
 				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
 				287689CA26867B9D00343F59 /* ModalView.swift */,
+				283EB7D526A8AAC200F56447 /* WarningSheet.swift */,
 				28E02DDF269CC7F500BBC86E /* PDFShare.swift */,
 				28E02DDD269CC71000BBC86E /* PDFViewer.swift */,
 				28F169D3268A487C0039F2BE /* PhotoPicker.swift */,
@@ -545,6 +545,17 @@
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 			);
 			path = "Generic Views";
+			sourceTree = "<group>";
+		};
+		283EB7D026A8923700F56447 /* Character Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				28452BB326976942002BA7EA /* Blank Character Sheet.pdf */,
+				28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */,
+				28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */,
+				28452BB526976AB3002BA7EA /* CharacterExporter.swift */,
+			);
+			path = "Character Sheets";
 			sourceTree = "<group>";
 		};
 		2856DCCE269E32B800B39866 /* Dice Roller */ = {
@@ -1062,6 +1073,7 @@
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
 				28B40CEF26961E100058BE50 /* LoresheetDetail.swift in Sources */,
+				283EB7D626A8AAC200F56447 /* WarningSheet.swift in Sources */,
 				28BFB607269647D5005DE923 /* KnownLoresheetGroups.swift in Sources */,
 				288EB7C62698D08600E27652 /* BloodPotencyDetail.swift in Sources */,
 				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
