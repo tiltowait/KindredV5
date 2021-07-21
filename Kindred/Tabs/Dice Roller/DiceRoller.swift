@@ -18,8 +18,6 @@ struct DiceRoller: View, Identifiable {
   
   @State private var engine = try? CHHapticEngine()
   
-//  let bigFont = Font.system(size: 700, weight: .black, design: .monospaced)
-//  let smallFont = Font.system(size: 200, design: .monospaced)
   let shouldRollOnAppear: Bool
   
   init(pool: Int? = 10, hunger: Int? = nil) {
@@ -68,7 +66,7 @@ struct DiceRoller: View, Identifiable {
       HStack {
         Spacer()
         Label("Roll", systemImage: "diamond.fill")
-          .font(.system(size: 30, weight: .black))
+          .font(.system(size: 25, weight: .black))
         Spacer()
       }
     }
@@ -99,7 +97,7 @@ struct DiceRoller: View, Identifiable {
   }
   
   var body: some View {
-    VStack(spacing: 15) {
+    VStack(spacing: 10) {
       // Menus
       HStack(alignment: .top) {
         poolMenu
@@ -112,7 +110,7 @@ struct DiceRoller: View, Identifiable {
       
       if let diceBag = viewModel.diceBag {
         RollResultView(diceBag: diceBag)
-          .padding(.vertical)
+          .autoscaling()
       } else {
         Spacer()
         Text("Nothing rolled yet.")
@@ -136,8 +134,9 @@ struct DiceRoller: View, Identifiable {
         }
       }
       rerollButtons
+        .autoscaling()
     }
-    .padding()
+    .padding([.bottom, .leading, .trailing])
     .onAppear {
       if shouldRollOnAppear {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {

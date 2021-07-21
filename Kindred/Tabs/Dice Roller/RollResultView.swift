@@ -44,11 +44,12 @@ struct RollResultView: View {
   }
   
   var body: some View {
-    VStack(spacing: 0) {
+    VStack(spacing: 10) {
       HStack(spacing: 10) {
         Text("\(diceBag.totalSuccesses)")
-          .font(.system(size: 100, weight: .black, design: .monospaced))
+          .font(.system(size: 90, weight: .black, design: .monospaced))
           .foregroundColor(successTint)
+          .padding(.vertical, -15)
         VStack {
           if !diceBag.normalDice.isEmpty {
             DiceScrollView(dice: diceBag.normalDice, hunger: false)
@@ -63,16 +64,16 @@ struct RollResultView: View {
       
       Text(diceBag.result.rawValue)
         .foregroundColor(resultTint)
-        .font(.system(size: 60, weight: .bold))
+        .font(.system(size: 35, weight: .bold))
         .padding(.horizontal)
-        .autoscaling()
     }
-    .padding()
+    .padding(.horizontal)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(
       RoundedRectangle(cornerRadius: 15)
         .strokeBorder(Color.primary, lineWidth: 4)
     )
+
   }
 }
 

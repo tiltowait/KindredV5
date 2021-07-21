@@ -22,7 +22,7 @@ struct DiceScrollView: View {
       .padding(.leading, 10)
     }
     .fadeHorizontalEdges()
-    .frame(height: 40)
+    .frame(height: 35)
   }
 }
 
