@@ -654,13 +654,14 @@ class CharacterPDF {
   }
   
   /// Fill in the values for a list of fields.
+  ///
+  /// If the number of values exceeds the number of fields, this function returns a list of
+  /// values that could not fit into the PDF.
   /// - Parameters:
   ///   - fields: The fields to set.
   ///   - values: The values to set them to.
-  /// - Returns: False if there aren't enough fields to fit all the values.
-  func setValues(in fields: [String], to values: [String]) -> Bool {
-    let couldFitAll = values.count <= fields.count
-    
+  /// - Returns: The values that could not fit in the given fields.
+  func setValues(in fields: [String], to values: [String]) -> [String] {
     for (field, value) in zip(fields, values) {
       let field = allAnnotations[field]
       field?.widgetStringValue = value
@@ -669,7 +670,7 @@ class CharacterPDF {
       }
       
     }
-    return couldFitAll
+    return Array(values.dropFirst(fields.count))
   }
   
 }
@@ -730,33 +731,61 @@ extension CharacterPDF {
     }
     self.init(url: url)!
     
+    var errors: [String: [String]] = [:]
+    
+    // Failable traits. It's possible the user might have more of these than will fit on the PDF.
+    
+    let tenets = character.chronicleTenets.components(separatedBy: .newlines)
+    let tenetErrors = setValues(in: chronicleTenetFields, to: tenets)
+    if !tenetErrors.isEmpty {
+      errors["Tenets"] = tenetErrors
+    }
+    
+    let convictions = character.convictions.components(separatedBy: .newlines)
+    let convictionErrors = setValues(in: convitionFields, to: convictions)
+    if !convictionErrors.isEmpty {
+      errors["Convictions"] = convictionErrors
+    }
+    
+    let disciplineErrors = self.setDisciplines(character: character)
+    if !disciplineErrors.isEmpty {
+      errors.merge(disciplineErrors) { _, new in new }
+    }
+    
+    let backgroundErrors = self.setBackgrounds(character: character)
+    if !backgroundErrors.isEmpty {
+      errors["Backgrounds"] = backgroundErrors
+    }
+    
+    let meritErrors = self.setMerits(character: character)
+    if !meritErrors.isEmpty {
+      errors["Merits"] = meritErrors
+    }
+    
+    let flawErrors = self.setFlaws(character: character)
+    if !flawErrors.isEmpty {
+      errors["Flaws"] = flawErrors
+    }
+    
+    
+    let havenErrors = self.setHaven(character: character)
+    if !havenErrors.isEmpty {
+      errors["Haven"] = havenErrors
+    }
+    
+    // Non-failable traits
+    
     self.setBasicFields(character: character)
     self.setTraits(character: character)
     self.setSpecialties(character.allSpecialties)
-    
-    // Tenets and convictions
-    let tenets = character.chronicleTenets.components(separatedBy: .newlines)
-    _ = setValues(in: chronicleTenetFields, to: tenets)
-    
-    let convictions = character.convictions.components(separatedBy: .newlines)
-    _ = setValues(in: convitionFields, to: convictions)
     
     self.setHealth(to: character.health)
     self.setWillpower(to: character.willpower)
     self.setHumanity(to: character.humanity)
     self.setHunger(to: character.hunger)
     self.setBloodPotency(to: character.bloodPotency)
-    
-    // TODO: Do something with the return values.
-    
-    _ = self.setDisciplines(character: character)
-    
     self.setBaneDescription(to: character.clan?.bane ?? "")
     self.setBloodPotencyFields(potency: character.bloodPotency)
-    
-    _ = self.setBackgrounds(character: character)
-    _ = self.setMerits(character: character)
-    _ = self.setFlaws(character: character)
     
     // Set birth- and death-dates
     
@@ -770,14 +799,16 @@ extension CharacterPDF {
       allAnnotations["bio4"]?.widgetStringValue = dateFormatter.string(from: deathdate)
     }
     
-    _ = self.setHaven(character: character)
-    
     // Set biographical detail
     self.setBiography(section: .appearance, text: character.appearance)
     self.setBiography(section: .distinguishingFeatures, text: character.distinguishingFeatures)
     self.setBiography(section: .history, text: character.history)
     self.setBiography(section: .possessions, text: character.possessions)
     self.setBiography(section: .notes, text: character.notes)
+    
+    if !errors.isEmpty {
+      NotificationCenter.default.post(name: .characterExportWarning, object: self, userInfo: errors)
+    }
   }
   
   // MARK: - Setters
@@ -871,41 +902,57 @@ extension CharacterPDF {
   }
   
   /// Fill out the disciplines section on the first page.
-  /// - Returns: True if there was enough space to fit all the disciplines.
-  func setDisciplines(character: Kindred) -> Bool {
+  /// - Returns: A disctionary of disciplines and associated powers that could not fit on the PDF.
+  func setDisciplines(character: Kindred) -> [String: [String]] {
     let disciplines = character.knownDisciplines
     let powers = character.knownPowers
     
-    var couldFitAll = true
+    // By RAW, a character can only have five powers per discipline. However, we don't
+    // enforce this rule, because different tables might use different house rules.
+    // Therefore, it's possible for a character to have six or more powers in a given
+    // discipline. The PDF only has five spots for powers, so we may wind up with situations
+    // where the discipline only partially fits.
+    
+    var errors: [String: [String]] = [:]
     
     for (index, discipline) in disciplines.enumerated() {
+      let powers = powers.filter { $0.discipline == discipline }
       let labelField = "disciplineslist\(index + 1)"
+      
       if let fields = disciplineFields[labelField] {
         allAnnotations[labelField]?.widgetFieldType = .text
         allAnnotations[labelField]?.widgetStringValue = discipline.name
         
         // Set the powers
-        let powers = powers.filter { $0.discipline == discipline }
+        var powerErrors: [String] = []
+        
         for (index, power) in powers.enumerated() {
           if index < fields.count {
             let field = fields[index]
             allAnnotations[field]?.widgetStringValue = power.name
           } else {
-            couldFitAll = false
+            powerErrors.append(power.name)
           }
         }
         
-        // Set the dots
+        if !powerErrors.isEmpty {
+          errors[discipline.name] = powerErrors // We could fit the discipline, but the character
+                                                //has too many powers to fit on the PDF
+        }
+        
+        // Set the dots for the discipline. This is indepentent of whether we can fit every power.
         let dots = powers.count
-        let dotFields = disciplineDots[labelField]!.dropLast(5 - dots)
+        let dotFields = disciplineDots[labelField]!.dropLast(max(5 - dots, 0)) // Don't drop > 5
         for field in dotFields {
           allAnnotations[field]?.buttonWidgetState = .onState
         }
       } else {
-        couldFitAll = false
+        // We couldn't fit the discipline at all, so we need to list all the associated powers
+        errors[discipline.name] = powers.map { $0.name }
       }
     }
-    return couldFitAll
+    
+    return errors
   }
   
   /// Fill out the character's bane description on the front page.
@@ -935,8 +982,8 @@ extension CharacterPDF {
   }
   
   /// Fill out the backgrounds section on the second page of the character sheet.
-  /// - Returns: True if there was enough space to mark all the character's backgrounds.
-  func setBackgrounds(character: Kindred) -> Bool {
+  /// - Returns: A list of backgrounds that could not fit on the PDF.
+  func setBackgrounds(character: Kindred) -> [String] {
     // Omit Haven, because that is a special-case background
     let backgrounds = character.advantageContainers.filter {
       $0.isBackground && $0.advantage.name != "Haven"
@@ -959,8 +1006,8 @@ extension CharacterPDF {
   }
   
   /// Fill out the merits section on the second page of the character sheet.
-  /// - Returns: True if there was enough space to mark all the character's merits.
-  func setMerits(character: Kindred) -> Bool {
+  /// - Returns: A list of merits that could not fit on the PDF.
+  func setMerits(character: Kindred) -> [String] {
     let merits = character.advantageContainers.filter { $0.isMerit }
     let meritNames = merits.map { $0.fullName }
     let ratings = merits.map { $0.currentRating }
@@ -971,8 +1018,8 @@ extension CharacterPDF {
   }
   
   /// Fill out the flaws section on the second page of the character sheet.
-  /// - Returns: True if there was enough space to mark all the character's flaws.
-  func setFlaws(character: Kindred) -> Bool {
+  /// - Returns: A list of flaws that could not fit on the PDF..
+  func setFlaws(character: Kindred) -> [String] {
     let flaws = character.advantageContainers.filter { $0.isFlaw }
     let flawNames = flaws.map { $0.fullName }
     let ratings = flaws.map { $0.currentRating }
@@ -984,9 +1031,9 @@ extension CharacterPDF {
   
   /// Fill in the haven details for the character.
   /// - Parameter character: The character being exported.
-  func setHaven(character: Kindred) -> Bool {
+  func setHaven(character: Kindred) -> [String] {
     guard let havenAdvantages = (character.coalescedAdvantages.first { $0.advantage.name == "Haven" })
-    else { return false }
+    else { return [] } // Character has no haven merits/flaws
     
     // "No Haven" and haven rating are special cases.
     
@@ -1131,9 +1178,8 @@ extension CharacterPDF {
   /// - Parameters:
   ///   - fields: The names of the labels and associated dot fields for storing the names and ratings of the advantages.
   ///   - ratings: The name and associated rating for each advantage.
-  /// - Returns: True if there was enough space on the sheet to fit all the given advantages.
-  private func setFields(_ fields: [String: [String]], to ratings: [String: Int16]) -> Bool {
-    var couldFitAll = true
+  /// - Returns: A list of advantages that could not fit on the PDF.
+  private func setFields(_ fields: [String: [String]], to ratings: [String: Int16]) -> [String] {
     let sortedFields = fields.sorted { $0.key < $1.key }
     
     for (index, (label, rating)) in ratings.enumerated() {
@@ -1145,11 +1191,12 @@ extension CharacterPDF {
         self.selectDots(rating, in: ratingFields)
         
       } else {
-        couldFitAll = false
         break
       }
     }
-    return couldFitAll
+    
+    let items = ratings.enumerated().map { $0.element.key }
+    return Array(items.dropFirst(sortedFields.count))
   }
   
   /// Fill out a number of dots based on a given rating.

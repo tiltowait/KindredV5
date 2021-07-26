@@ -22,6 +22,7 @@ struct CharacterDetail: View {
   @State private var showingPowerAdder = false
   
   @State private var pdfExporter: CharacterExporter?
+  @State private var warningSheet: WarningSheet?
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -161,6 +162,9 @@ struct CharacterDetail: View {
       .sheet(item: $pdfExporter) { exporter in
         ActivityViewController(activityItems: [exporter.fileURL], excludedActivityTypes: [.copyToPasteboard])
       }
+      .sheet(item: $warningSheet) { warning in
+        warning
+      }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)
       .onDisappear(perform: viewModel.save)
@@ -232,10 +236,25 @@ struct CharacterDetail: View {
     DispatchQueue.global(qos: .userInitiated).async {
       let exporter = CharacterExporter(character: viewModel.kindred)
       
+      // Dismiss the export indicator
       DispatchQueue.main.async {
         self.viewController?.dismiss(animated: true)
+      }
+      
+      // If there were any users, we want to present them to the
+      // user before exporting.
+      
+      if let warnings = exporter?.exportWarnings {
+        warningSheet = WarningSheet(
+          message: "The following items could not fit on the PDF.",
+          warnings: warnings
+        ) {
+          self.pdfExporter = exporter
+        }
+      } else {
         self.pdfExporter = exporter
       }
+      
     }
     
   }

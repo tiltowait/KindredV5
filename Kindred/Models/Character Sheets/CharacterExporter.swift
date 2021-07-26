@@ -12,19 +12,25 @@ import UniformTypeIdentifiers
 class CharacterExporter: Identifiable {
   
   var id = UUID()
-  
   let fileURL: URL
+  var exportWarnings: [String: [String]]?
   
   init?(character: Kindred) {
+    let tempURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+    let destination = tempURL.appendingPathComponent("\(character.name).pdf")
+    fileURL = destination
+    
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(exportWarning),
+      name: .characterExportWarning,
+      object: nil
+    )
+    
     let pdf = CharacterPDF(character: character).pdf.flattened(withDPI: Global.pdfDPI)
     guard let data = pdf.dataRepresentation() else { return nil }
     
-    let tempURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-    let destination = tempURL.appendingPathComponent("\(character.name).pdf")
-    
     do {
       try data.write(to: destination)
-      fileURL = destination
     } catch {
       print(error.localizedDescription)
       return nil
@@ -34,5 +40,17 @@ class CharacterExporter: Identifiable {
   deinit {
     try? FileManager.default.removeItem(at: fileURL)
   }
+  
+  @objc func exportWarning(_ notification: Notification) {
+    if let errors = notification.userInfo as? [String: [String]] {
+      exportWarnings = errors
+    }
+  }
+  
+}
+
+extension Notification.Name {
+  
+  static let characterExportWarning = Notification.Name("exportWarning")
   
 }

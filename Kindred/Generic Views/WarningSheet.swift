@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct WarningSheet: View {
+struct WarningSheet: View, Identifiable {
   
   @Environment(\.presentationMode) var presentationMode
+  var id = UUID()
   
   var title: LocalizedStringKey = "Warning"
   let message: String
