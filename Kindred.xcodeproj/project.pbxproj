@@ -27,6 +27,8 @@
 		2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */; };
 		2813CACA269CB2B6005356D9 /* ChronicleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */; };
 		2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */; };
+		28146B4D26AF5D13007F2EB8 /* No-Haven Nadea Import.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28146B4C26AF5D13007F2EB8 /* No-Haven Nadea Import.pdf */; };
+		28146B4F26AF5D5F007F2EB8 /* ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28146B4E26AF5D5F007F2EB8 /* ImportTests.swift */; };
 		28189D642681449E0099E8DF /* AdvantageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D632681449E0099E8DF /* AdvantageView.swift */; };
 		28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D65268145CF0099E8DF /* AdvantageViewModel.swift */; };
 		28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28189D6726814A520099E8DF /* AdvantageOptionView.swift */; };
@@ -206,6 +208,8 @@
 		2813CAC6269CA261005356D9 /* BiographyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiographyDetailViewModel.swift; sourceTree = "<group>"; };
 		2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronicleDetail.swift; sourceTree = "<group>"; };
 		2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronicleDetailViewModel.swift; sourceTree = "<group>"; };
+		28146B4C26AF5D13007F2EB8 /* No-Haven Nadea Import.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "No-Haven Nadea Import.pdf"; sourceTree = "<group>"; };
+		28146B4E26AF5D5F007F2EB8 /* ImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTests.swift; sourceTree = "<group>"; };
 		28189D632681449E0099E8DF /* AdvantageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageView.swift; sourceTree = "<group>"; };
 		28189D65268145CF0099E8DF /* AdvantageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageViewModel.swift; sourceTree = "<group>"; };
 		28189D6726814A520099E8DF /* AdvantageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionView.swift; sourceTree = "<group>"; };
@@ -459,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				288EB7C92698F23D00E27652 /* Nadea Theron.pdf */,
+				28146B4C26AF5D13007F2EB8 /* No-Haven Nadea Import.pdf */,
 				28ADF7F2267A579200D97D2A /* Examples.swift */,
 				282EC83C2656EEB90086B14F /* Preview Assets.xcassets */,
 			);
@@ -469,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				282EC8472656EEB90086B14F /* KindredTests.swift */,
+				28146B4E26AF5D5F007F2EB8 /* ImportTests.swift */,
 				282EC8492656EEB90086B14F /* Info.plist */,
 			);
 			path = KindredTests;
@@ -919,6 +925,7 @@
 				28921696267E6BDB004911EA /* reference.sqlite in Resources */,
 				288EB7C22698CDC400E27652 /* Localizable.stringsdict in Resources */,
 				28678D102658855F00289497 /* Discipline Icons.xcassets in Resources */,
+				28146B4D26AF5D13007F2EB8 /* No-Haven Nadea Import.pdf in Resources */,
 				282EC83D2656EEB90086B14F /* Preview Assets.xcassets in Resources */,
 				28138764267D57A4006DA73C /* Clan Headers.xcassets in Resources */,
 				282EC83A2656EEB90086B14F /* Assets.xcassets in Resources */,
@@ -1100,6 +1107,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28146B4F26AF5D5F007F2EB8 /* ImportTests.swift in Sources */,
 				282EC8482656EEB90086B14F /* KindredTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,6 +42,7 @@ struct CharacterImporter {
   /// Import a character from a PDF.
   private mutating func importCharacter() {
     let kindred = Kindred(context: context)
+    self.character = kindred
     
     // Convictions and chronicle tenets
     kindred.chronicleTenets = pdf.chronicleTenets.joined(separator: "\n")
@@ -132,8 +133,6 @@ struct CharacterImporter {
     if let embraceDateString = pdf.embraceDateString {
       kindred.embraceDate = self.dateFromString(embraceDateString)
     }
-    
-    self.character = kindred
   }
   
   private mutating func assignSpecialties(context: NSManagedObjectContext, kindred: Kindred, pdf: CharacterPDF) {
