@@ -34,7 +34,10 @@ struct KnownDisciplinesGroups: View {
           removePowers(at: offsets, in: discipline)
         }
       } label: {
-        DisciplineRow(discipline: discipline, level: viewModel.kindred.level(of: discipline))
+        DisciplineRow(
+          discipline: discipline,
+          level: viewModel.kindred.level(of: discipline)
+        )
       }
     }
   }

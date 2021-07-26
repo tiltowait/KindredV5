@@ -54,9 +54,7 @@ extension Power {
 extension Power: Comparable {
   
   public static func < (lhs: Power, rhs: Power) -> Bool {
-    if lhs.disciplineName < rhs.disciplineName {
-      return false
-    } else if lhs.level < rhs.level {
+    if lhs.level < rhs.level {
       return true
     } else if lhs.level == rhs.level {
       return lhs.name < rhs.name
