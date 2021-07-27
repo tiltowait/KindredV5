@@ -130,6 +130,7 @@ class DataController: ObservableObject {
         try ClanImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try AdvantageImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         try LoresheetImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try RitualImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
         
         self.save()
         
@@ -152,6 +153,7 @@ class DataController: ObservableObject {
     print("\tWith \(self.countAll(AdvantageOption.self)) options")
     print("\(self.countAll(Loresheet.self)) loresheets")
     print("\tWith \(self.countAll(LoresheetEntry.self)) entries")
+    print("\(self.countAll(Ritual.self)) rituals")
     #endif
     
   }

@@ -117,6 +117,8 @@
 		28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */; };
 		28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitSummary.swift */; };
 		28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabel.swift */; };
+		28A34D0026B06072001738BF /* Ritual+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34CFF26B06072001738BF /* Ritual+.swift */; };
+		28A34D0226B07B0B001738BF /* RitualImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34D0126B07B0B001738BF /* RitualImporter.swift */; };
 		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
 		28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* ButtonPad.swift */; };
 		28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* PoolSelector.swift */; };
@@ -302,6 +304,8 @@
 		28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		28A1E9EE2677B6C40084F483 /* TraitSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitSummary.swift; sourceTree = "<group>"; };
 		28A1E9F02677B73B0084F483 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
+		28A34CFF26B06072001738BF /* Ritual+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ritual+.swift"; sourceTree = "<group>"; };
+		28A34D0126B07B0B001738BF /* RitualImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualImporter.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		28A39EB42679630B00867AB9 /* ButtonPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPad.swift; sourceTree = "<group>"; };
 		28A39EBA2679698500867AB9 /* PoolSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelector.swift; sourceTree = "<group>"; };
@@ -519,6 +523,7 @@
 				28921691267E64DE004911EA /* NSManagedObject+.swift */,
 				28386F6226586E2E00E90445 /* Power+.swift */,
 				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
+				28A34CFF26B06072001738BF /* Ritual+.swift */,
 				28F05C22269DFCC400E81D5B /* Specialty+.swift */,
 			);
 			path = "Core Data Extensions";
@@ -656,6 +661,7 @@
 				2892168A267E5C9A004911EA /* Importer.swift */,
 				281F80392681302300B5B387 /* AdvantageImporter.swift */,
 				2892168C267E5D4C004911EA /* ClanImporter.swift */,
+				28A34D0126B07B0B001738BF /* RitualImporter.swift */,
 				28921699267E6F71004911EA /* DisciplineImporter.swift */,
 				28B9A5442694EA3100A48250 /* LoresheetImporter.swift */,
 			);
@@ -1034,6 +1040,7 @@
 				287689CB26867B9D00343F59 /* ModalView.swift in Sources */,
 				28C656E5267BEC4C00865EE3 /* DisciplineDetail.swift in Sources */,
 				283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */,
+				28A34D0026B06072001738BF /* Ritual+.swift in Sources */,
 				28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */,
 				28189D6826814A520099E8DF /* AdvantageOptionView.swift in Sources */,
 				28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */,
@@ -1120,6 +1127,7 @@
 				2877343F265703000098E27B /* KindredModel.xcdatamodeld in Sources */,
 				287F87FD2682943400DF140E /* AdvantageOptionMarker.swift in Sources */,
 				28E02DDE269CC71000BBC86E /* PDFViewer.swift in Sources */,
+				28A34D0226B07B0B001738BF /* RitualImporter.swift in Sources */,
 				286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
