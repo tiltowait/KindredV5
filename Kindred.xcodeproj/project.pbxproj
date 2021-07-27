@@ -819,6 +819,7 @@
 				282EC82E2656EEB80086B14F /* Sources */,
 				282EC82F2656EEB80086B14F /* Frameworks */,
 				282EC8302656EEB80086B14F /* Resources */,
+				28146B5126AF861C007F2EB8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -950,6 +951,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28146B5126AF861C007F2EB8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		282EC82E2656EEB80086B14F /* Sources */ = {
