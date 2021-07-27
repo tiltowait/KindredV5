@@ -119,6 +119,8 @@
 		28A1E9F12677B73B0084F483 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9F02677B73B0084F483 /* BoldLabel.swift */; };
 		28A34D0026B06072001738BF /* Ritual+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34CFF26B06072001738BF /* Ritual+.swift */; };
 		28A34D0226B07B0B001738BF /* RitualImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34D0126B07B0B001738BF /* RitualImporter.swift */; };
+		28A34D0726B0841E001738BF /* RitualList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34D0626B0841E001738BF /* RitualList.swift */; };
+		28A34D0926B08BF4001738BF /* RitualRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A34D0826B08BF4001738BF /* RitualRow.swift */; };
 		28A39EB32679614000867AB9 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB22679614000867AB9 /* UIImage+.swift */; };
 		28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EB42679630B00867AB9 /* ButtonPad.swift */; };
 		28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* PoolSelector.swift */; };
@@ -306,6 +308,8 @@
 		28A1E9F02677B73B0084F483 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
 		28A34CFF26B06072001738BF /* Ritual+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ritual+.swift"; sourceTree = "<group>"; };
 		28A34D0126B07B0B001738BF /* RitualImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualImporter.swift; sourceTree = "<group>"; };
+		28A34D0626B0841E001738BF /* RitualList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualList.swift; sourceTree = "<group>"; };
+		28A34D0826B08BF4001738BF /* RitualRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualRow.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		28A39EB42679630B00867AB9 /* ButtonPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPad.swift; sourceTree = "<group>"; };
 		28A39EBA2679698500867AB9 /* PoolSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSelector.swift; sourceTree = "<group>"; };
@@ -668,6 +672,15 @@
 			path = Importers;
 			sourceTree = "<group>";
 		};
+		28A34D0326B083E0001738BF /* Rituals */ = {
+			isa = PBXGroup;
+			children = (
+				28A34D0626B0841E001738BF /* RitualList.swift */,
+				28A34D0826B08BF4001738BF /* RitualRow.swift */,
+			);
+			path = Rituals;
+			sourceTree = "<group>";
+		};
 		28ADF7F4267A5DC500D97D2A /* Characters */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +701,7 @@
 				28CD0D45267E7BD800ED8635 /* Clans */,
 				286FBF88265D976400AAA469 /* Disciplines */,
 				28B40CEB26961A300058BE50 /* Loresheets */,
+				28A34D0326B083E0001738BF /* Rituals */,
 			);
 			path = Reference;
 			sourceTree = "<group>";
@@ -1022,6 +1036,7 @@
 				28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
 				28BFB609269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift in Sources */,
+				28A34D0926B08BF4001738BF /* RitualRow.swift in Sources */,
 				28C656D8267BC1AE00865EE3 /* Clan+.swift in Sources */,
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				281F80432681388900B5B387 /* AdvantageList.swift in Sources */,
@@ -1058,6 +1073,7 @@
 				2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */,
+				28A34D0726B0841E001738BF /* RitualList.swift in Sources */,
 				28B9A5492694F21D00A48250 /* LoresheetEntry+.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,

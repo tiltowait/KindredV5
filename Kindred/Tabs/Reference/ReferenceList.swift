@@ -47,6 +47,17 @@ struct ReferenceList: View {
               .font(.headline)
           }
           .isDetailLink(false)
+          
+          NavigationLink(
+            destination: RitualList(
+              flavor: .ritual,
+              dataController: dataController
+            )
+          ) {
+            Text("Blood Sorcery Rituals")
+              .font(.headline)
+          }
+          .isDetailLink(true)
         }
       }
       .navigationTitle("Reference")

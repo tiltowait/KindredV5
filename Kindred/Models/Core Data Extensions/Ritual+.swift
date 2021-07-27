@@ -20,3 +20,26 @@ extension Ritual {
   }
   
 }
+
+// MARK: - Ritual Types
+
+extension Ritual {
+  
+  enum Flavor {
+    case ritual
+    case ceremony
+    
+    var disciplineName: String {
+      switch self {
+      case .ritual: return "Blood Sorcery"
+      case .ceremony: return "Oblivion"
+      }
+    }
+  }
+  
+  /// What to call the ritual: "ritual" or "ceremony".
+  var flavor: Flavor {
+    self.discipline?.name == "Blood Sorcery" ? .ritual : .ceremony
+  }
+  
+}

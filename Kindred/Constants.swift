@@ -126,11 +126,4 @@ enum Global {
     }
   }
   
-  enum Ritual {
-    enum Kind: Int {
-      case ritual
-      case ceremony
-    }
-  }
-  
 }

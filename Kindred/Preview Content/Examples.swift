@@ -181,3 +181,11 @@ extension LoresheetEntry {
   }
   
 }
+
+extension Ritual {
+  
+  static var example: Ritual {
+    Ritual.fetchObject(named: "Incorporeal Passage", in: DataController.preview.container.viewContext)!
+  }
+  
+}
