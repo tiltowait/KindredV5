@@ -66,7 +66,7 @@ struct PowerCard: View {
       VStack(alignment: .leading, spacing: 7) {
         Text("Rouse: ")
           .bold()
-        + Text(rouse)
+          + Text(rouse)
         
         HStack(alignment: .top) {
           Text("Duration:")
@@ -94,69 +94,31 @@ struct PowerCard: View {
     }
   }
   
-  /// Exit and (optionally) add buttons.
-  var buttons: some View {
-    HStack {
-      Button(action: dismiss) {
-        Image(systemName: "xmark")
-      }
-      .buttonStyle(PopUpImageButtonStyle())
-      
-      if let perform = action {
-        Button("Add") {
-         perform(power)
-        }
-        .buttonStyle(PopUpTextButtonStyle())
-      }
-    }
-  }
-  
   var body: some View {
-    VStack {
-      // The actual card
-      ZStack {
-        // Background image
-        Image(power.discipline!.icon)
-          .resizable()
-          .scaledToFit()
-          .padding()
-          .padding()
-          .opacity(0.1)
+    ReferenceCard(
+      item: power,
+      icon: power.discipline!.icon,
+      contents: {
+        header
+        Divider()
         
-        // Card contents
-        VStack(spacing: 10) {
-          header
-          Divider()
-          
-          if let prerequisite = prerequisite {
-            HStack {
-              BoldLabel(prerequisiteType, details: prerequisite)
-              Spacer()
-            }
+        if let prerequisite = prerequisite {
+          HStack {
+            BoldLabel(prerequisiteType, details: prerequisite)
+            Spacer()
           }
-          Text(power.info)
-            .italic()
-          
-          Divider()
-          rouseAndDuration
-          
-          Spacer()
-          pool
         }
-        .padding()
-      }
-      .background(
-        RoundedRectangle(cornerRadius: 20)
-          .fill(Color.systemBackground)
-          .shadow(radius: 5)
-      )
-      .frame(maxWidth: 327)
-      .fixedSize(horizontal: false, vertical: true)
-      .padding()
-      .padding()
-      
-      buttons
-    }
+        Text(power.info)
+          .italic()
+        
+        Divider()
+        rouseAndDuration
+        
+        Spacer()
+        pool
+      },
+      addAction: action
+    )
   }
   
   /// Dismiss the card.

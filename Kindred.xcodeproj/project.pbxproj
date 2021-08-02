@@ -172,6 +172,7 @@
 		28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */; };
 		28F1141E26A227AB00C47B79 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1141D26A227AB00C47B79 /* Array+.swift */; };
 		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
+		28F8280626B85FD500253281 /* ReferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280526B85FD500253281 /* ReferenceCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,6 +362,7 @@
 		28F05C26269E068400E81D5B /* SpecialtyManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyManagerViewModel.swift; sourceTree = "<group>"; };
 		28F1141D26A227AB00C47B79 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		28F8280526B85FD500253281 /* ReferenceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +557,7 @@
 				2870436926823C71005F6589 /* PlainTextHeader.swift */,
 				28F0214926A74B2600867504 /* Popover.swift */,
 				2801217A26793F540069C496 /* RangePicker.swift */,
+				28F8280526B85FD500253281 /* ReferenceCard.swift */,
 				28CD0D46267E7DD500ED8635 /* ReferenceRow.swift */,
 				28DB5E81268A873600649103 /* SwapView.swift */,
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
@@ -1024,6 +1027,7 @@
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				288EB7C82698EEF700E27652 /* Dictionary+.swift in Sources */,
+				28F8280626B85FD500253281 /* ReferenceCard.swift in Sources */,
 				2870437026824847005F6589 /* CharacterAdvantages.swift in Sources */,
 				28E2C8592684DFE700EFE34C /* TrackerStepper.swift in Sources */,
 				2892168D267E5D4C004911EA /* ClanImporter.swift in Sources */,
