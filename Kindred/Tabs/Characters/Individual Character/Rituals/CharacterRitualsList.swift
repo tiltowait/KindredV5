@@ -21,16 +21,13 @@ struct CharacterRitualsList: View {
     List {
       Section(header: Text("Experience cost: Level × 3")) { }
       
-      section(
-        title: "Blood Sorcery Rituals",
-        addAction: addRitual,
-        rituals: viewModel.rituals
-      )
-      section(
-        title: "Oblivion Ceremonies",
-        addAction: addCeremony,
-        rituals: viewModel.ceremonies
-      )
+      // At present, there are only two ritual schools in the game;
+      // however, if more are added, this will allow us to easily
+      // add more with minimal work.
+      
+      ForEach(viewModel.availableSchools, id: \.rawValue) { school in
+        section(school: school)
+      }
     }
     .listStyle(InsetGroupedListStyle())
     .navigationBarTitle("Rituals", displayMode: .inline)
@@ -46,27 +43,29 @@ struct CharacterRitualsList: View {
           }
       }
     }
+    .onDisappear(perform: viewModel.save)
   }
   
-  func header(title: LocalizedStringKey, addAction: @escaping () -> Void) -> some View {
-    HStack {
-      Text(title)
-      Spacer()
-      Button(action: addAction) {
-        Label("Add ritual", systemImage: "plus.circle")
-          .labelStyle(IconOnlyLabelStyle())
-      }
-    }
-  }
-  
-  func section(
-    title: LocalizedStringKey,
-    addAction: @escaping () -> Void,
-    rituals: [Ritual]
-  ) -> some View {
-    Section(header: header(title: title, addAction: addAction)) {
+  func section(school: Ritual.Flavor) -> some View {
+    let rituals = viewModel.rituals(forSchool: school)
+    
+    return Section(
+      header:
+        HStack {
+          Text(viewModel.sectionTitle(school: school))
+          Spacer()
+          Button {
+            presentRituals(school: school)
+          } label: {
+            Label("Add ritual", systemImage: "plus.circle")
+              .labelStyle(IconOnlyLabelStyle())
+          }
+        }
+    ) {
       if rituals.isEmpty {
-        Button(action: addAction) {
+        Button {
+          presentRituals(school: school)
+        } label: {
           Label("Add item", systemImage: "plus.circle")
         }
       } else {
@@ -79,22 +78,35 @@ struct CharacterRitualsList: View {
           }
           .buttonStyle(PlainButtonStyle())
         }
+        .onDelete { offsets in
+          removeRituals(school: school, offsets: offsets)
+        }
       }
     }
   }
   
+  /// Show the ritual's detail card.
+  /// - Parameter ritual: The ritual to show.
   func show(ritual: Ritual) {
     UIViewController.topMost?.present {
       RitualCard(ritual: ritual)
     }
   }
   
-  func addRitual() {
-    ritualList = RitualList(flavor: .ritual, kindred: viewModel.kindred, dataController: viewModel.dataController)
+  /// Present the ritual selection list.
+  /// - Parameter school: The school to present.
+  func presentRituals(school: Ritual.Flavor) {
+    ritualList = RitualList(flavor: school, kindred: viewModel.kindred, dataController: viewModel.dataController)
   }
   
-  func addCeremony() {
-    ritualList = RitualList(flavor: .ceremony, kindred: viewModel.kindred, dataController: viewModel.dataController)
+  /// Remove rituals of a given school.
+  /// - Parameters:
+  ///   - school: The school from which to remove the rituals.
+  ///   - offsets: The indices of the rituals to remove.
+  func removeRituals(school: Ritual.Flavor, offsets: IndexSet) {
+    withAnimation {
+      viewModel.removeRituals(school: school, offsets: offsets)
+    }
   }
   
 }
