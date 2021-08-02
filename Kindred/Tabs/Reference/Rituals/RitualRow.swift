@@ -10,11 +10,19 @@ import SwiftUI
 struct RitualRow: View {
   
   let ritual: Ritual
+  let showLevel: Bool
   
   var body: some View {
     VStack(alignment: .leading, spacing: 3) {
-      Text(ritual.name)
-        .font(.headline)
+      HStack(alignment: .center) {
+        if showLevel {
+          Text("\(ritual.level)")
+            .foregroundColor(.secondary)
+            .font(.caption)
+        }
+        Text(ritual.name)
+          .font(.headline)
+      }
       
       HStack {
         Spacer()
@@ -30,7 +38,7 @@ struct RitualRow: View {
 #if DEBUG
 struct RitualRow_Previews: PreviewProvider {
   static var previews: some View {
-    RitualRow(ritual: Ritual.example)
+    RitualRow(ritual: Ritual.example, showLevel: true)
   }
 }
 #endif

@@ -30,7 +30,7 @@ struct RitualList: View, Identifiable {
             Button {
               show(ritual: ritual)
             } label: {
-              RitualRow(ritual: ritual)
+              RitualRow(ritual: ritual, showLevel: false)
                 .contentShape(Rectangle())
             }
             .buttonStyle(PlainButtonStyle())

@@ -73,7 +73,7 @@ struct CharacterRitualsList: View {
           Button {
             show(ritual: ritual)
           } label: {
-            RitualRow(ritual: ritual)
+            RitualRow(ritual: ritual, showLevel: true)
               .contentShape(Rectangle())
           }
           .buttonStyle(PlainButtonStyle())
