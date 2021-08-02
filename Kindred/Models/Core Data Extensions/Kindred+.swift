@@ -168,9 +168,26 @@ extension Kindred {
     return set.sorted()
   }
   
+  /// All rituals known by the character.
   var knownRituals: [Ritual] {
     let rituals = self.rituals as? Set<Ritual>
     return rituals?.sorted() ?? []
+  }
+  
+  /// A list of ritual schools the character has available to them..
+  var availableRitualSchools: [Ritual.Flavor] {
+    var schools: [Ritual.Flavor] = []
+    let disciplines = self.knownDisciplines
+    
+    if (disciplines.contains { $0.name == "Blood Sorcery" }) {
+      schools.append(.ritual)
+    }
+    
+    if (disciplines.contains { $0.name == "Oblivion" }) {
+      schools.append(.ceremony)
+    }
+    
+    return schools
   }
   
   /// All the character's advantage containers, sorted.

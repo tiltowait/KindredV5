@@ -175,6 +175,8 @@
 		28F8280626B85FD500253281 /* ReferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280526B85FD500253281 /* ReferenceCard.swift */; };
 		28F8280826B863F800253281 /* RitualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280726B863F800253281 /* RitualCard.swift */; };
 		28F8280A26B86A4900253281 /* RitualListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280926B86A4900253281 /* RitualListViewModel.swift */; };
+		28F8280D26B86FF800253281 /* CharacterRitualsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280C26B86FF800253281 /* CharacterRitualsList.swift */; };
+		28F8280F26B8700100253281 /* CharacterRitualsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280E26B8700100253281 /* CharacterRitualsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,6 +369,8 @@
 		28F8280526B85FD500253281 /* ReferenceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceCard.swift; sourceTree = "<group>"; };
 		28F8280726B863F800253281 /* RitualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualCard.swift; sourceTree = "<group>"; };
 		28F8280926B86A4900253281 /* RitualListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualListViewModel.swift; sourceTree = "<group>"; };
+		28F8280C26B86FF800253281 /* CharacterRitualsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRitualsList.swift; sourceTree = "<group>"; };
+		28F8280E26B8700100253281 /* CharacterRitualsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRitualsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,6 +780,7 @@
 				287F87FE26829DED00DF140E /* Basic Traits */,
 				28CEE0A72686540D0088D218 /* Pool Selector */,
 				28C656D6267BC13200865EE3 /* Disciplines */,
+				28F8280B26B86FE900253281 /* Rituals */,
 				28E2C85C2684F00800EFE34C /* Derived Traits */,
 				287F88042682A20500DF140E /* Stress Tracks */,
 			);
@@ -836,6 +841,15 @@
 				28F0214526A735FA00867504 /* MoralityTrackViewModel.swift */,
 			);
 			path = "Derived Traits";
+			sourceTree = "<group>";
+		};
+		28F8280B26B86FE900253281 /* Rituals */ = {
+			isa = PBXGroup;
+			children = (
+				28F8280E26B8700100253281 /* CharacterRitualsListViewModel.swift */,
+				28F8280C26B86FF800253281 /* CharacterRitualsList.swift */,
+			);
+			path = Rituals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1015,6 +1029,7 @@
 				281F803E2681337700B5B387 /* Advantage+.swift in Sources */,
 				28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */,
 				28F0214426A735ED00867504 /* MoralityTrack.swift in Sources */,
+				28F8280F26B8700100253281 /* CharacterRitualsListViewModel.swift in Sources */,
 				2877344A265713360098E27B /* DataController.swift in Sources */,
 				287F88062682A22200DF140E /* StressTrack.swift in Sources */,
 				2813CAC5269CA25A005356D9 /* BiographyDetail.swift in Sources */,
@@ -1104,6 +1119,7 @@
 				2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */,
 				2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */,
 				280FF098269F5E0600A9643A /* BoldButton.swift in Sources */,
+				28F8280D26B86FF800253281 /* CharacterRitualsList.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* PopUpButton.swift in Sources */,
 				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,

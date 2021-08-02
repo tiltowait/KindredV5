@@ -132,6 +132,17 @@ struct CharacterDetail: View {
           }
         }
         
+        // Rituals
+        if !viewModel.kindred.availableRitualSchools.isEmpty {
+          NavigationLink("Rituals", destination:
+            CharacterRitualsList(
+              kindred: viewModel.kindred,
+              dataController: viewModel.dataController
+            )
+          )
+          .font(.headline)
+        }
+        
         // Trackers (HP, WP, Humanity, Blood Potency)
         Trackers(kindred: viewModel.kindred)
         

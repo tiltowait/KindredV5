@@ -34,6 +34,11 @@ extension Discipline {
     return powers?.sorted() ?? []
   }
   
+  /// Whether there are rituals associated with this discipline.
+  var allowsRituals: Bool {
+    rituals?.count == 0
+  }
+  
   /// Retrieve all `Power`s from a given `Source`.
   /// - Parameter source: The source book the user is interested in.
   /// - Returns: The powers from the `source`.

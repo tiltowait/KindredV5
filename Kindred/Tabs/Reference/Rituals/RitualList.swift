@@ -8,9 +8,10 @@
 import SwiftUI
 import CoreData
 
-struct RitualList: View {
+struct RitualList: View, Identifiable {
   
   @StateObject private var viewModel: ViewModel
+  var id = UUID()
   
   init(flavor: Ritual.Flavor, kindred: Kindred?, dataController: DataController) {
     let viewModel = ViewModel(
