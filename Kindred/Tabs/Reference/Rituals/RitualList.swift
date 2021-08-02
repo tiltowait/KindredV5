@@ -10,49 +10,61 @@ import CoreData
 
 struct RitualList: View {
   
-  let title: String
-  let rituals: [Int: [Ritual]]
+  @StateObject private var viewModel: ViewModel
   
-  init(flavor: Ritual.Flavor, dataController: DataController) {
-    let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
-    request.predicate = NSPredicate(format: "discipline.zName == %@", flavor.disciplineName)
-    request.sortDescriptors = [
-      NSSortDescriptor(keyPath: \Ritual.level, ascending: true),
-      NSSortDescriptor(keyPath: \Ritual.zName, ascending: true)
-    ]
-    
-    let allRituals = dataController.fetch(request: request)
-    var groupedRituals: [Int: [Ritual]] = [:]
-    
-    // Rituals range from level 1 to level 5
-    for level in 1...5 {
-      let filtered = allRituals.filter { $0.level == level }
-      groupedRituals[level] = filtered
-    }
-    
-    self.title = flavor == .ritual ? "Blood Sorcery Rituals" : "Oblivion Ceremonies"
-    self.rituals = groupedRituals
+  init(flavor: Ritual.Flavor, kindred: Kindred?, dataController: DataController) {
+    let viewModel = ViewModel(
+      flavor: flavor,
+      kindred: kindred,
+      dataController: dataController
+    )
+    _viewModel = StateObject(wrappedValue: viewModel)
   }
   
   var body: some View {
     List {
       ForEach(1...5) { level in
         Section(header: Text("Level \(level)")) {
-          ForEach(rituals[level]!) { ritual in
-            RitualRow(ritual: ritual)
+          ForEach(viewModel.rituals[level]!) { ritual in
+            Button {
+              show(ritual: ritual)
+            } label: {
+              RitualRow(ritual: ritual)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(PlainButtonStyle())
           }
         }
       }
     }
-    .navigationBarTitle(title, displayMode: .inline)
+    .navigationBarTitle(viewModel.title, displayMode: .inline)
     .listStyle(InsetGroupedListStyle())
   }
+  
+  func show(ritual: Ritual) {
+    UIViewController.topMost?.present {
+      if viewModel.isReferenceView {
+        RitualCard(ritual: ritual)
+      } else {
+        RitualCard(ritual: ritual, action: addRitual)
+      }
+    }
+  }
+  
+  func addRitual(_ ritual: Ritual) {
+    viewModel.add(ritual: ritual)
+    
+    // May need to add link toggling here, as in DisciplineDetail
+    
+    UIViewController.root?.dismiss(animated: true)
+  }
+  
 }
 
 struct RitualList_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      RitualList(flavor: .ritual, dataController: DataController.preview)
+      RitualList(flavor: .ritual, kindred: nil, dataController: DataController.preview)
     }
   }
 }

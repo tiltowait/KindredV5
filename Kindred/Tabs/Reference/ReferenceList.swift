@@ -51,6 +51,7 @@ struct ReferenceList: View {
           NavigationLink(
             destination: RitualList(
               flavor: .ritual,
+              kindred: nil,
               dataController: dataController
             )
           ) {

@@ -25,9 +25,9 @@ extension Ritual {
 
 extension Ritual {
   
-  enum Flavor {
-    case ritual
-    case ceremony
+  enum Flavor: String {
+    case ritual = "Ritual"
+    case ceremony = "Ceremony"
     
     var disciplineName: String {
       switch self {
@@ -40,6 +40,21 @@ extension Ritual {
   /// What to call the ritual: "ritual" or "ceremony".
   var flavor: Flavor {
     self.discipline?.name == "Blood Sorcery" ? .ritual : .ceremony
+  }
+  
+}
+
+// MARK: - Comparable
+
+extension Ritual: Comparable {
+  
+  public static func < (lhs: Ritual, rhs: Ritual) -> Bool {
+    if lhs.level < rhs.level {
+      return true
+    } else if lhs.level == rhs.level {
+      return lhs.name < rhs.name
+    }
+    return false
   }
   
 }

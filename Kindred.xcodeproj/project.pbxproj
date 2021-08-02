@@ -173,6 +173,8 @@
 		28F1141E26A227AB00C47B79 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F1141D26A227AB00C47B79 /* Array+.swift */; };
 		28F169D4268A487C0039F2BE /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F169D3268A487C0039F2BE /* PhotoPicker.swift */; };
 		28F8280626B85FD500253281 /* ReferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280526B85FD500253281 /* ReferenceCard.swift */; };
+		28F8280826B863F800253281 /* RitualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280726B863F800253281 /* RitualCard.swift */; };
+		28F8280A26B86A4900253281 /* RitualListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8280926B86A4900253281 /* RitualListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,6 +365,8 @@
 		28F1141D26A227AB00C47B79 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		28F169D3268A487C0039F2BE /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		28F8280526B85FD500253281 /* ReferenceCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceCard.swift; sourceTree = "<group>"; };
+		28F8280726B863F800253281 /* RitualCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualCard.swift; sourceTree = "<group>"; };
+		28F8280926B86A4900253281 /* RitualListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -679,7 +683,9 @@
 			isa = PBXGroup;
 			children = (
 				28A34D0626B0841E001738BF /* RitualList.swift */,
+				28F8280926B86A4900253281 /* RitualListViewModel.swift */,
 				28A34D0826B08BF4001738BF /* RitualRow.swift */,
+				28F8280726B863F800253281 /* RitualCard.swift */,
 			);
 			path = Rituals;
 			sourceTree = "<group>";
@@ -1045,6 +1051,7 @@
 				2825206B267918E30066F09B /* KeyPath+.swift in Sources */,
 				281F80432681388900B5B387 /* AdvantageList.swift in Sources */,
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
+				28F8280A26B86A4900253281 /* RitualListViewModel.swift in Sources */,
 				28F1141E26A227AB00C47B79 /* Array+.swift in Sources */,
 				28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */,
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
@@ -1052,6 +1059,7 @@
 				28386F5C2658619D00E90445 /* Discipline+.swift in Sources */,
 				28DB5E82268A873600649103 /* SwapView.swift in Sources */,
 				28252069267916CD0066F09B /* TraitRater.swift in Sources */,
+				28F8280826B863F800253281 /* RitualCard.swift in Sources */,
 				287F87FB2682738800DF140E /* DotSelector.swift in Sources */,
 				28BD80722676FBBC00FEE5F9 /* CharacterPDF.swift in Sources */,
 				286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */,

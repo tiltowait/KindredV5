@@ -168,6 +168,11 @@ extension Kindred {
     return set.sorted()
   }
   
+  var knownRituals: [Ritual] {
+    let rituals = self.rituals as? Set<Ritual>
+    return rituals?.sorted() ?? []
+  }
+  
   /// All the character's advantage containers, sorted.
   var advantageContainers: [AdvantageContainer] {
     let containers = advantages as? Set<AdvantageContainer>

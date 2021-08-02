@@ -97,7 +97,7 @@ struct PowerCard: View {
   var body: some View {
     ReferenceCard(
       item: power,
-      icon: power.discipline!.icon,
+      icon: power.discipline?.icon,
       contents: {
         header
         Divider()
