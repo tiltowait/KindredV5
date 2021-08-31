@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Advantage" representedClassName="Advantage" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="isBackground" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageOption" inverseName="parent" inverseEntity="AdvantageOption"/>
@@ -26,7 +26,7 @@
         <attribute name="zNicknames" optional="YES" attributeType="String"/>
         <relationship name="disciplines" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="referencingClans" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
-        <relationship name="referencingLoresheets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Loresheet" inverseName="requiredClan" inverseEntity="Loresheet"/>
+        <relationship name="referencingLoresheets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Loresheet" inverseName="requiredClans" inverseEntity="Loresheet"/>
     </entity>
     <entity name="Discipline" representedClassName="Discipline" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="zIcon" attributeType="String"/>
@@ -123,7 +123,7 @@
     </entity>
     <entity name="Loresheet" representedClassName="Loresheet" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
         <relationship name="items" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="LoresheetEntry" inverseName="parent" inverseEntity="LoresheetEntry"/>
-        <relationship name="requiredClan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Clan" inverseName="referencingLoresheets" inverseEntity="Clan"/>
+        <relationship name="requiredClans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Clan" inverseName="referencingLoresheets" inverseEntity="Clan"/>
     </entity>
     <entity name="LoresheetEntry" representedClassName="LoresheetEntry" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

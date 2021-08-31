@@ -37,6 +37,7 @@ enum DisciplineImporter: Importer {
   }
   
   private static func importPowers(after currentVersion: Int, context: NSManagedObjectContext) throws {
+    print("Importing Powers")
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let version = Expression<Int>("version")
     let powers = Table("powers").filter(version > currentVersion)

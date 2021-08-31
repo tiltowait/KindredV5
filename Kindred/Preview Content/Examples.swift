@@ -169,7 +169,7 @@ extension KindredImage {
 extension Loresheet {
   
   static var example: Loresheet {
-    Loresheet.fetchObject(named: "The Bahari", in: DataController.preview.container.viewContext)!
+    Loresheet.fetchObject(named: "Occult Artifacts", in: DataController.preview.container.viewContext)!
   }
   
 }

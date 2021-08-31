@@ -19,6 +19,11 @@ extension Loresheet {
     self.items?.array as? [LoresheetEntry] ?? []
   }
   
+  var clanRestrictions: [Clan]? {
+    let restrictions = self.requiredClans?.allObjects as? [Clan]
+    return restrictions?.sorted { $0.name < $1.name }
+  }
+  
 }
 
 extension Loresheet: Comparable {

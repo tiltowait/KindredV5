@@ -33,12 +33,14 @@ enum LoresheetImporter: Importer {
       loresheet.page = Int16(row[page])
       loresheet.refID = refID
       
-      // Get the clan, if any
-      if let clanName = row[clan] {
-        guard let clan = Clan.fetchObject(named: clanName, in: context) else {
-          throw ImportError.invalidReference("\(clanName) is not a valid clan!")
+      // Loresheets can have multiple clan entries
+      if let clanNames = row[clan]?.components(separatedBy: ", ") {
+        for clanName in clanNames {
+          guard let clan = Clan.fetchObject(named: clanName, in: context) else {
+            throw ImportError.invalidReference("\(clanName) is not a valid clan!")
+          }
+          loresheet.addToRequiredClans(clan)
         }
-        loresheet.requiredClan = clan
       }
     }
     

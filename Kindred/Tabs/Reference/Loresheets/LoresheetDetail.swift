@@ -19,6 +19,12 @@ struct LoresheetDetail: View {
   var body: some View {
     List {
       Text(viewModel.loresheet.info)
+      if let clanRestrictions = viewModel.clanRestrictions {
+        Text("\(clanRestrictions) only")
+          .foregroundColor(.vampireRed)
+          .italic()
+          .centered()
+      }
       
       Section(header: Text("Entries")) {
         ForEach(viewModel.loresheet.entries) { entry in
