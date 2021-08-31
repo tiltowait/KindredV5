@@ -23,6 +23,8 @@ extension CharacterRitualsList {
         return "Blood Sorcery Rituals"
       case .ceremony:
         return "Oblivion Ceremonies"
+      case .formula:
+        return "Alchemical Formulae"
       }
     }
     

@@ -28,11 +28,13 @@ extension Ritual {
   enum Flavor: String {
     case ritual = "Ritual"
     case ceremony = "Ceremony"
+    case formula = "Formula"
     
     var disciplineName: String {
       switch self {
       case .ritual: return "Blood Sorcery"
       case .ceremony: return "Oblivion"
+      case .formula: return "Thin-Blood Alchemy"
       }
     }
   }
