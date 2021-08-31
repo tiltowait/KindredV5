@@ -14,24 +14,15 @@ struct PowerCard: View {
   let power: Power
   let action: ((Power) -> Void)?
   
-  private let prerequisiteType: LocalizedStringKey
-  private let prerequisite: String?
+  private let amalgams: String?
+  private let prerequisites: String?
   
   init(power: Power, action: ((Power) -> Void)? = nil) {
     self.power = power
     self.action = action
     
-    switch power.powerPrerequisite {
-    case .amalgam(let amalgam):
-      prerequisiteType = "Amalgam:"
-      prerequisite = amalgam
-    case .prerequisite(let prerequisite):
-      prerequisiteType = "Prerequisite:"
-      self.prerequisite = prerequisite
-    case .none:
-      prerequisiteType = ""
-      prerequisite = nil
-    }
+    self.amalgams = power.amalgams?.joined(separator: ", ")
+    self.prerequisites = power.prerequisitePowers?.joined(separator: ", ")
   }
   
   /// The power's title, level, and source.
@@ -102,14 +93,22 @@ struct PowerCard: View {
         header
         Divider()
         
-        if let prerequisite = prerequisite {
+        if let prerequisites = prerequisites {
           HStack {
-            BoldLabel(prerequisiteType, details: prerequisite)
+            BoldLabel("Prerequisite:", details: prerequisites)
             Spacer()
           }
         }
-        Text(power.info)
-          .italic()
+        if let amalgams = amalgams {
+          HStack {
+            BoldLabel("Amalgam:", details: amalgams)
+            Spacer()
+          }
+        }
+        ScrollView {
+          Text(power.info)
+            .italic()
+        }
         
         Divider()
         rouseAndDuration

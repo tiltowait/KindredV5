@@ -11,12 +11,6 @@ import CoreData
 // MARK: - Non-Optional Accessors
 extension Power {
   
-  enum Prerequisite {
-    case amalgam(String)
-    case prerequisite(String)
-    case none
-  }
-  
   /// The name of the power's containing `Discipline`.
   var disciplineName: String {
     self.discipline!.name
@@ -27,14 +21,14 @@ extension Power {
     self.duration!
   }
   
-  var powerPrerequisite: Prerequisite {
-    if let lastChar = prerequisite?.last {
-      if lastChar.isNumber {
-        return .amalgam(prerequisite!)
-      }
-      return .prerequisite(prerequisite!)
-    }
-    return .none
+  /// Individual power(s) the character must possess to know this power.
+  var prerequisitePowers: [String]? {
+    self.zPrerequisites?.components(separatedBy: ", ").filter { !$0.last!.isNumber }
+  }
+  
+  /// Discipline ratings a character must attain to know this power.
+  var amalgams: [String]? {
+    self.zPrerequisites?.components(separatedBy: ", ").filter { $0.last!.isNumber }
   }
   
 }

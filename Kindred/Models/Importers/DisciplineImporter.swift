@@ -63,7 +63,7 @@ enum DisciplineImporter: Importer {
       power.pool = row[pool]
       power.info = row[info]
       power.duration = row[duration]
-      power.prerequisite = row[prerequisite]
+      power.zPrerequisites = row[prerequisite]
       power.source = Int16(row[source])
       power.page = Int16(row[page])
       

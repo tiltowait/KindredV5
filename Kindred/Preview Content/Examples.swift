@@ -39,7 +39,7 @@ extension Power {
   
   /// The example Power (Quell the Beast, Animalism •••).
   static var example: Power {
-    Discipline.example.allPowers[4]
+    Power.fetchObject(named: "Fleshcrafting", in: DataController.preview.container.viewContext)!
   }
   
 }
