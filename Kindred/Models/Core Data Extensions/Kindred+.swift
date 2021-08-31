@@ -187,6 +187,10 @@ extension Kindred {
       schools.append(.ceremony)
     }
     
+    if (disciplines.contains { $0.name == "Thin-Blood Alchemy" }) {
+      schools.append(.formula)
+    }
+    
     return schools
   }
   
