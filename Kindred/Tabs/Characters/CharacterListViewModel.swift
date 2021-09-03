@@ -18,6 +18,10 @@ extension CharacterList {
     @Published var ghouls: [Kindred] = []
     @Published var mortals: [Kindred] = []
     
+    @Published var showingCreationSheet = false
+    @Published var showingUnlockSheet = false
+    
+    /// Whether the user has added any characters to the app.
     var hasCharacters: Bool {
       if let characters = characterController.fetchedObjects {
         return !characters.isEmpty
@@ -49,6 +53,16 @@ extension CharacterList {
         updateArrays(with: characterController.fetchedObjects ?? [])
       } catch {
         fatalError("Failed to fetch initial data.\n\(error.localizedDescription)")
+      }
+    }
+    
+    /// Determine whether to show the character creation sheet or the IAP sheet.
+    func addCharacter() {
+      // Check the IAP status
+      if dataController.unlockedUnlimited == false && self.hasCharacters {
+        showingUnlockSheet.toggle()
+      } else {
+        showingCreationSheet.toggle()
       }
     }
     

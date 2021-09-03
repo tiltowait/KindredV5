@@ -10,8 +10,8 @@
       "internalID" : "0662070B",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Removes the single-character restriction.",
+          "displayName" : "Unlimited Characters",
           "locale" : "en_US"
         }
       ],

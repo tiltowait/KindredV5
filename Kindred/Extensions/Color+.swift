@@ -37,4 +37,5 @@ extension Color {
   /// The color for placeholder text in controls or text views.
   static let placeholderText = Color(UIColor.placeholderText)
   
+  static let lightBlue = Color("Light Blue")
 }

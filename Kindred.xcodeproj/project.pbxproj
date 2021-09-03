@@ -138,6 +138,10 @@
 		28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */; };
 		28BD80782676FECD00FEE5F9 /* AddCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */; };
 		28BECB5026E2952E004E7E0A /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BECB4F26E2952E004E7E0A /* UnlockManager.swift */; };
+		28BECB5326E2A547004E7E0A /* SKProduct+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */; };
+		28BECB5526E2A5A0004E7E0A /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BECB5426E2A5A0004E7E0A /* PurchaseButton.swift */; };
+		28BECB5726E2A6AA004E7E0A /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BECB5626E2A6AA004E7E0A /* ProductView.swift */; };
+		28BECB5B26E2A85C004E7E0A /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BECB5A26E2A85C004E7E0A /* UnlockView.swift */; };
 		28BFB607269647D5005DE923 /* KnownLoresheetGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFB606269647D5005DE923 /* KnownLoresheetGroups.swift */; };
 		28BFB609269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BFB608269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift */; };
 		28C25DF826A0D8A200235170 /* ScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C25DF726A0D8A200235170 /* ScrollView+.swift */; };
@@ -334,6 +338,10 @@
 		28BD80772676FECD00FEE5F9 /* AddCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterView.swift; sourceTree = "<group>"; };
 		28BECB4F26E2952E004E7E0A /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
 		28BECB5126E2964D004E7E0A /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+Localize.swift"; sourceTree = "<group>"; };
+		28BECB5426E2A5A0004E7E0A /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
+		28BECB5626E2A6AA004E7E0A /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		28BECB5A26E2A85C004E7E0A /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		28BFB606269647D5005DE923 /* KnownLoresheetGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownLoresheetGroups.swift; sourceTree = "<group>"; };
 		28BFB608269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownLoresheetGroupsViewModel.swift; sourceTree = "<group>"; };
 		28C25DF726A0D8A200235170 /* ScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+.swift"; sourceTree = "<group>"; };
@@ -464,6 +472,7 @@
 				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
 				28773449265713360098E27B /* DataController.swift */,
 				28BECB4F26E2952E004E7E0A /* UnlockManager.swift */,
+				28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */,
 				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
 				282EC8372656EEB80086B14F /* HomeView.swift */,
 				28ADF7F6267A5F4900D97D2A /* Tabs */,
@@ -558,6 +567,8 @@
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
+				28BECB5626E2A6AA004E7E0A /* ProductView.swift */,
+				28BECB5A26E2A85C004E7E0A /* UnlockView.swift */,
 				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
 				28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */,
@@ -640,6 +651,7 @@
 				280FF097269F5E0600A9643A /* BoldButton.swift */,
 				2852D304267D2AAB009AF8D1 /* PopUpButton.swift */,
 				280E100326A33C2B00A87955 /* ToggleButton.swift */,
+				28BECB5426E2A5A0004E7E0A /* PurchaseButton.swift */,
 			);
 			path = "Button Styles";
 			sourceTree = "<group>";
@@ -1027,6 +1039,7 @@
 			files = (
 				284CF5BF2677D401007B298B /* ImageTabs.swift in Sources */,
 				28C25DF826A0D8A200235170 /* ScrollView+.swift in Sources */,
+				28BECB5B26E2A85C004E7E0A /* UnlockView.swift in Sources */,
 				280FF094269F44A100A9643A /* Comparable+.swift in Sources */,
 				2813CACC269CB2BF005356D9 /* ChronicleDetailViewModel.swift in Sources */,
 				28E2C85B2684E3BD00EFE34C /* TrackersViewModel.swift in Sources */,
@@ -1048,6 +1061,7 @@
 				28F0214A26A74B2600867504 /* Popover.swift in Sources */,
 				28138774267D70D8006DA73C /* ClanDetailViewModel.swift in Sources */,
 				286BE43C2696360900C19D57 /* AddLoresheetList.swift in Sources */,
+				28BECB5326E2A547004E7E0A /* SKProduct+Localize.swift in Sources */,
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
@@ -1062,6 +1076,7 @@
 				2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */,
 				2856DCD6269E332F00B39866 /* DiceRollerViewModel.swift in Sources */,
 				28CD0D78267EA3CC00ED8635 /* RandomAccessCollection+.swift in Sources */,
+				28BECB5526E2A5A0004E7E0A /* PurchaseButton.swift in Sources */,
 				28C656CE267BADBC00865EE3 /* KnownDisciplinesGroups.swift in Sources */,
 				28921692267E64DE004911EA /* NSManagedObject+.swift in Sources */,
 				2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */,
@@ -1127,6 +1142,7 @@
 				280FF098269F5E0600A9643A /* BoldButton.swift in Sources */,
 				28F8280D26B86FF800253281 /* CharacterRitualsList.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				28BECB5726E2A6AA004E7E0A /* ProductView.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* PopUpButton.swift in Sources */,
 				28B9A5472694F1B900A48250 /* Loresheet+.swift in Sources */,
 				2892169A267E6F71004911EA /* DisciplineImporter.swift in Sources */,

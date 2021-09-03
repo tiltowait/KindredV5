@@ -11,8 +11,6 @@ struct CharacterList: View {
   
   @StateObject var viewModel: ViewModel
   
-  @State private var showingCreationSheet = false
-  
   init(dataController: DataController) {
     let viewModel = ViewModel(dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
@@ -55,7 +53,7 @@ struct CharacterList: View {
       .listStyle(InsetGroupedListStyle())
       .toolbar {
         Button {
-          showingCreationSheet.toggle()
+          viewModel.addCharacter()
         } label: {
           Label("Add Kindred", systemImage: "plus")
         }
@@ -64,10 +62,13 @@ struct CharacterList: View {
         .foregroundColor(.secondary)
     }
     .phoneOnlyStackNavigationView()
-    .sheet(isPresented: $showingCreationSheet) {
+    .sheet(isPresented: $viewModel.showingCreationSheet) {
       AddCharacterView()
         .allowAutoDismiss(false)
         .environmentObject(viewModel.dataController)
+    }
+    .sheet(isPresented: $viewModel.showingUnlockSheet) {
+      UnlockView()
     }
   }
   
