@@ -93,6 +93,8 @@ enum Global {
     case cultsOfTheBloodGods
     /// Item comes from Children of the Blood.
     case childrenOfTheBlood
+    /// Item comes from Trails of Ash and Bone.
+    case trailsOfAshAndBone
     
     /// The full title of the referenced sourcebook.
     var title: String {
@@ -106,6 +108,7 @@ enum Global {
       case .companion: return "V5 Companion"
       case .cultsOfTheBloodGods: return "Cults of the Blood Gods"
       case .childrenOfTheBlood: return "Children of the Blood"
+      case .trailsOfAshAndBone: return "Trails of Ash and Bone"
       }
     }
     

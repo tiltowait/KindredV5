@@ -13,12 +13,37 @@ class DataController: ObservableObject {
   
   /// The primary Core Data container.
   let container: NSPersistentCloudKitContainer
+  let defaults: UserDefaults
   
   /// Shared data controller used for SwiftUI previews.
   ///
   /// It is necessary to keep this shared instance in the main class, because it is the only way to ensure
   /// that all preview data uses the same managed object context.
   static let preview = DataController(inMemory: true)
+  
+  // MARK: - IAP Unlocks
+  
+  /// The user has unlocked unlimited characters.
+  var unlockedUnlimited: Bool {
+    get {
+      defaults.bool(forKey: "unlockedUnlimited")
+    }
+    set {
+      defaults.set(newValue, forKey: "unlockedUnlimited")
+    }
+  }
+  
+  /// The user has unlocked Cults of the Blood Gods content.
+  var unlockedCults: Bool {
+    get {
+      defaults.bool(forKey: "unlockedCults")
+    }
+    set {
+      defaults.set(newValue, forKey: "unlockedCults")
+    }
+  }
+  
+  // MARK: - Database Management
   
   // TODO: Remove these lazy variables and have the appropriate view models manage them.
   
@@ -100,11 +125,12 @@ class DataController: ObservableObject {
   
   /// Creates a `DataController` and initializes reference data if the store is empty.
   /// - Parameter inMemory: Set to `true` if the data should not persist across launches. Default `false`.
-  init(inMemory: Bool = false) {
+  init(inMemory: Bool = false, defaults: UserDefaults = .standard) {
     container = NSPersistentCloudKitContainer(name: "KindredModel", managedObjectModel: Self.model)
+    self.defaults = defaults
     
     // Load up reference material
-    var coreDataReferenceVersion = UserDefaults.standard.integer(forKey: Global.referenceVersionKey)
+    var coreDataReferenceVersion = defaults.integer(forKey: Global.referenceVersionKey)
 
     if inMemory {
       print("Running in memory! Data will not persist.")
@@ -139,7 +165,7 @@ class DataController: ObservableObject {
       } catch {
         fatalError(error.localizedDescription)
       }
-      UserDefaults.standard.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
+      defaults.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
     }
     
     #if DEBUG
