@@ -17,31 +17,35 @@ struct UnlockView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
-        Text("If a previous purchase isn't showing up, then click 'Restore Purchases' below.")
-          .font(.caption)
-          .foregroundColor(.secondary)
-        
-        Divider()
-        
-        switch unlockManager.requestState {
-        case .loaded(let product):
-          ProductView(product: product)
-        case .failed(_):
-          Text("Sorry, there was an error loading the store. Please try again later.")
-        case .loading:
-          ProgressView("Loading")
-        case .purchased:
-          Text("Thank you!")
-        case .deferred:
-          Text("Thank you! Your request is pending approval, but you can keep using the app in the meantime.")
+      List {
+        Section(
+          header:
+            Text("If a previous purchase isn't showing up, then click 'Restore Purchases' below.")
+            .font(.caption)
+            .foregroundColor(.secondary),
+          footer:
+            Button("Restore Purchases", action: unlockManager.restore)
+            .buttonStyle(PurchaseButton())
+            .padding(.top)
+            .centered()
+        ) {
+          switch unlockManager.requestState {
+          case .loaded(let products):
+            ForEach(products, id: \.self) { product in
+              ProductView(product: product)
+            }
+          case .failed(_):
+            Text("Sorry, there was an error loading the store. Please try again later.")
+          case .loading:
+            ProgressView("Loading")
+          case .purchased:
+            Text("Thank you!")
+          case .deferred:
+            Text("Thank you! Your request is pending approval, but you can keep using the app in the meantime.")
+          }
         }
-        Spacer()
-        
-        Button("Restore Purchases", action: unlockManager.restore)
-          .buttonStyle(PurchaseButton())
       }
-      .padding(.top)
+      .listStyle(GroupedListStyle())
       .navigationBarTitle(Text("Unlocks"), displayMode: .inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {

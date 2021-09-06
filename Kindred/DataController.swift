@@ -23,24 +23,23 @@ class DataController: ObservableObject {
   
   // MARK: - IAP Unlocks
   
-  /// The user has unlocked unlimited characters.
-  var unlockedUnlimited: Bool {
+  var purchaseIdentifiers: [String] {
     get {
-      defaults.bool(forKey: "unlockedUnlimited")
+      defaults.stringArray(forKey: "purchases") ?? []
     }
     set {
-      defaults.set(newValue, forKey: "unlockedUnlimited")
+      defaults.set(newValue, forKey: "purchases")
     }
+  }
+  
+  /// The user has unlocked unlimited characters.
+  var unlockedUnlimited: Bool {
+    self.purchaseIdentifiers.contains("com.tiltowait.Kindred.unlimited")
   }
   
   /// The user has unlocked Cults of the Blood Gods content.
   var unlockedCults: Bool {
-    get {
-      defaults.bool(forKey: "unlockedCults")
-    }
-    set {
-      defaults.set(newValue, forKey: "unlockedCults")
-    }
+    self.purchaseIdentifiers.contains("com.tiltowait.Kindred.cults")
   }
   
   // MARK: - Database Management
@@ -218,6 +217,12 @@ class DataController: ObservableObject {
   /// - Parameter kindred: The character to delete.
   func delete(_ object: NSManagedObject) {
     container.viewContext.delete(object)
+  }
+  
+  func purchase(identifier: String) {
+    var purchases = self.purchaseIdentifiers
+    purchases.append(identifier)
+    self.purchaseIdentifiers = purchases
   }
   
 }

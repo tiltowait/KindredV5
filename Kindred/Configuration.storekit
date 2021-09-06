@@ -18,6 +18,126 @@
       "productID" : "com.tiltowait.Kindred.unlimited",
       "referenceName" : "unlimited",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6F32182B",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Camarilla.",
+          "displayName" : "Camarilla",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.camarilla",
+      "referenceName" : "camarilla",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E829645E",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Anarch.",
+          "displayName" : "Anarch",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.anarch",
+      "referenceName" : "anarch",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "BE039C14",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Chicago by Night.",
+          "displayName" : "Chicago by Night",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.chicagoByNight",
+      "referenceName" : "chicago-by-night",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "8E03C8CD",
+      "localizations" : [
+        {
+          "description" : "com.tiltowait.Kindred.fallOfLondon",
+          "displayName" : "The Fall of London",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.fallOfLondon",
+      "referenceName" : "fall-of-london",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "21D81885",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from The Chicago Folios.",
+          "displayName" : "The Chicago Folios",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.chicagoFolios",
+      "referenceName" : "chicago-folios",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "39E72384",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Children of the Blood.",
+          "displayName" : "Children of the Blood",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.childrenOfTheBlood",
+      "referenceName" : "children-of-the-blood",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "67A2C932",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Trails of Ash and Bone.",
+          "displayName" : "Trails of Ash and Bone",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.trailsOfAshAndBone",
+      "referenceName" : "trails-of-ash-and-bone",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "641D58AD",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Cults of the Blood Gods.",
+          "displayName" : "Cults of the Blood Gods",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.cults",
+      "referenceName" : "cults-of-the-blood-gods",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

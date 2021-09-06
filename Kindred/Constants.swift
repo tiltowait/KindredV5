@@ -121,6 +121,21 @@ enum Global {
       }
     }
     
+    var unlockIdentifier: String {
+      switch self {
+      case .core: return "included"
+      case .camarilla: return "com.tiltowait.Kindred.camarilla"
+      case .anarch: return "com.tiltowait.Kindred.anarch"
+      case .chicagoByNight: return "com.tiltowait.Kindred.chicagoByNight"
+      case .fallOfLondon: return "com.tiltowait.Kindred.fallOfLondon"
+      case .chicagoFolios: return "com.tiltowait.Kindred.chicagoFolios"
+      case .companion: return "included"
+      case .cultsOfTheBloodGods: return "com.tiltowait.Kindred.cults"
+      case .childrenOfTheBlood: return "com.tiltowait.Kindred.childrenOfTheBlood"
+      case .trailsOfAshAndBone: return "com.tiltowait.Kindred.trailsOfAshAndBone"
+      }
+    }
+    
     /// Generate a page reference string. <Book title>, p.<page>.
     /// - Parameter page: The page number for the reference.
     /// - Returns: The formatted page reference.

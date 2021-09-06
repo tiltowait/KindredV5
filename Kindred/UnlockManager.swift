@@ -12,7 +12,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
   
   enum RequestState {
     case loading
-    case loaded(SKProduct)
+    case loaded([SKProduct])
     case failed(Error?)
     case purchased
     case deferred
@@ -37,7 +37,17 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
     self.dataController = dataController
     
     // Prepare to look for products
-    let productIDs = Set(["com.tiltowait.Kindred.unlimited"])
+    let productIDs = Set([
+      "com.tiltowait.Kindred.unlimited",
+      "com.tiltowait.Kindred.camarilla",
+      "com.tiltowait.Kindred.anarch",
+      "com.tiltowait.Kindred.chicagoByNight",
+      "com.tiltowait.Kindred.fallOfLondon",
+      "com.tiltowait.Kindred.chicagoFolios",
+      "com.tiltowait.Kindred.cults",
+      "com.tiltowait.Kindred.childrenOfTheBlood",
+      "com.tiltowait.Kindred.trailsOfAshAndBone"
+    ])
     request = SKProductsRequest(productIdentifiers: productIDs)
     
     super.init()
@@ -58,13 +68,17 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
       for transaction in transactions {
         switch transaction.transactionState {
         case .purchased, .restored:
-          self.dataController.unlockedUnlimited = true
+          self.dataController.purchase(identifier: transaction.payment.productIdentifier)
           self.requestState = .purchased
           queue.finishTransaction(transaction)
           
+          if self.loadedProducts.isEmpty == false {
+            self.requestState = .loaded(self.loadedProducts)
+          }
+          
         case .failed:
-          if let product = self.loadedProducts.first {
-            self.requestState = .loaded(product)
+          if self.loadedProducts.isEmpty == false {
+            self.requestState = .loaded(self.loadedProducts)
           } else {
             self.requestState = .failed(transaction.error)
           }
@@ -84,7 +98,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
     DispatchQueue.main.async {
       self.loadedProducts = response.products
       
-      guard let unlock = self.loadedProducts.first else {
+      if self.loadedProducts.isEmpty {
         self.requestState = .failed(StoreError.missingProduct)
         return
       }
@@ -95,7 +109,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
         return
       }
       
-      self.requestState = .loaded(unlock)
+      self.requestState = .loaded(self.loadedProducts)
     }
   }
   
@@ -106,6 +120,10 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
   
   func restore() {
     SKPaymentQueue.default().restoreCompletedTransactions()
+  }
+  
+  func isPurchased(product: SKProduct) -> Bool {
+    dataController.purchaseIdentifiers.contains(product.productIdentifier)
   }
   
 }

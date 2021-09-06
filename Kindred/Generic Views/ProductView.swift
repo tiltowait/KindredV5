@@ -22,8 +22,11 @@ struct ProductView: View {
           .font(.caption)
           .foregroundColor(.secondary)
       }
+      Spacer()
+      
       Button("\(product.localizedPrice)", action: unlock)
         .buttonStyle(PurchaseButton())
+        .disabled(unlockManager.isPurchased(product: product))
     }
   }
   
