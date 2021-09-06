@@ -15,6 +15,7 @@ struct ReferenceRow: View {
   let icon: Image?
   let color: Color?
   let rounded: Bool
+  let unlocked: Bool
   
   /// Create a reference row.
   /// - Parameters:
@@ -29,7 +30,8 @@ struct ReferenceRow: View {
     secondary: LocalizedStringKey? = nil,
     icon: Image? = nil,
     rounded: Bool = false,
-    color: Color? = nil
+    color: Color? = nil,
+    unlocked: Bool = true
   ) {
     self.title = title
     self.subtitle = subtitle
@@ -37,6 +39,11 @@ struct ReferenceRow: View {
     self.icon = icon
     self.rounded = rounded
     self.color = color
+    self.unlocked = unlocked
+    
+    if !unlocked {
+      print("\(title) is locked!")
+    }
   }
   
   /// Create a reference row.
@@ -52,23 +59,41 @@ struct ReferenceRow: View {
     secondary: String? = nil,
     icon: Image? = nil,
     rounded: Bool = false,
-    color: Color? = nil
+    color: Color? = nil,
+    unlocked: Bool = true
   ) {
     let title = LocalizedStringKey(title)
     let subtitle = subtitle != nil ? LocalizedStringKey(subtitle!) : nil
     let secondary = secondary != nil ? LocalizedStringKey(secondary!) : nil
-    self.init(title, subtitle: subtitle, secondary: secondary, icon: icon, rounded: rounded, color: color)
+    self.init(title, subtitle: subtitle, secondary: secondary, icon: icon, rounded: rounded, color: color, unlocked: unlocked)
+  }
+  
+  /// The scaled, rounded icon. If the item is locked, then it is grayed out.
+  var formattedIcon: some View {
+    Group {
+      if let icon = icon {
+        if unlocked {
+          icon
+            .resizable()
+            .scaledToFit()
+            .cornerRadius(rounded ? 6 : 0)
+            .frame(height: 55)
+        } else {
+          icon
+            .resizable()
+            .scaledToFit()
+            .colorMultiply(unlocked ? .clear : .secondary)
+            .cornerRadius(rounded ? 6 : 0)
+            .frame(height: 55)
+        }
+      }
+    }
   }
   
   var body: some View {
     HStack {
-      if let icon = icon {
-        icon
-          .resizable()
-          .scaledToFit()
-          .cornerRadius(rounded ? 6 : 0)
-          .frame(height: 55)
-      }
+      formattedIcon
+
       VStack(alignment: .leading) {
         Text(title)
           .font(.headline)

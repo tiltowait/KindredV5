@@ -19,5 +19,9 @@ extension ClanList {
       super.init(kindred: kindred, dataController: dataController)
     }
     
+    func isUnlocked(clan: Clan) -> Bool {
+      dataController!.isPurchased(identifier: clan.sourceBook.unlockIdentifier)
+    }
+    
   }
 }

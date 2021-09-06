@@ -820,9 +820,9 @@
 			isa = PBXGroup;
 			children = (
 				28138777267D7BC4006DA73C /* ClanListViewController.swift */,
-				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
 				28138775267D7BB7006DA73C /* ClanList.swift */,
 				2813877B267D7DA2006DA73C /* ClanRow.swift */,
+				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
 				28138771267D70CF006DA73C /* ClanDetail.swift */,
 			);
 			path = Clans;

@@ -12,6 +12,7 @@ struct ClanList: View {
   @Environment(\.presentationMode) var presentationMode
   
   @StateObject private var viewModel: ViewModel
+  @State private var showingUnlockSheet = false
   
   init(kindred: Kindred? = nil, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -20,13 +21,23 @@ struct ClanList: View {
   
   var body: some View {
     List(viewModel.clans) { clan in
-      NavigationLink(
-        destination: ClanDetail(
-          clan: clan,
-          kindred: viewModel.kindred
-        )
-      ) {
-        ClanRow(clan: clan)
+      if viewModel.isUnlocked(clan: clan) {
+        NavigationLink(
+          destination: ClanDetail(
+            clan: clan,
+            kindred: viewModel.kindred
+          )
+        ) {
+          ClanRow(clan: clan, unlocked: true)
+        }
+      } else {
+        Button {
+          showingUnlockSheet.toggle()
+        } label: {
+          ClanRow(clan: clan, unlocked: false)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(PlainButtonStyle())
       }
     }
     .listStyle(InsetGroupedListStyle())
@@ -37,6 +48,9 @@ struct ClanList: View {
           Button("Cancel", action: dismiss)
         }
       }
+    }
+    .sheet(isPresented: $showingUnlockSheet) {
+      UnlockView()
     }
   }
   

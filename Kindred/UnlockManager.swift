@@ -123,7 +123,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
   }
   
   func isPurchased(product: SKProduct) -> Bool {
-    dataController.purchaseIdentifiers.contains(product.productIdentifier)
+    dataController.isPurchased(identifier: product.productIdentifier)
   }
   
 }

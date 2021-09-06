@@ -37,11 +37,6 @@ class DataController: ObservableObject {
     self.purchaseIdentifiers.contains("com.tiltowait.Kindred.unlimited")
   }
   
-  /// The user has unlocked Cults of the Blood Gods content.
-  var unlockedCults: Bool {
-    self.purchaseIdentifiers.contains("com.tiltowait.Kindred.cults")
-  }
-  
   // MARK: - Database Management
   
   // TODO: Remove these lazy variables and have the appropriate view models manage them.
@@ -223,6 +218,13 @@ class DataController: ObservableObject {
     var purchases = self.purchaseIdentifiers
     purchases.append(identifier)
     self.purchaseIdentifiers = purchases
+  }
+  
+  func isPurchased(identifier: String) -> Bool {
+    if identifier == "included" {
+      return true
+    }
+    return self.purchaseIdentifiers.contains(identifier)
   }
   
 }
