@@ -25,6 +25,13 @@ extension AdvantageOptionView {
       }
     }
     
+    @Published var showingUnlockSheet = false {
+      didSet {
+        isUnlocked = dataController!.isPurchased(item: option)
+      }
+    }
+    @Published var isUnlocked: Bool
+    
     let isSingleOption: Bool
     let singleOptionMagnitude: Int?
     
@@ -45,11 +52,11 @@ extension AdvantageOptionView {
     var showRatingRange: Bool {
       // If there is a container, that means a current rating has been assigned, so we will
       // display it in a selector view
-      container == nil && !isSingleOption
+      container == nil && !isSingleOption && isUnlocked
     }
     
     var showRatingSelection: Bool {
-      container != nil && !isSingleOption
+      container != nil && !isSingleOption && isUnlocked
     }
     
     // Minimum and maximum rating are defined in terms of magnitude, not strict numerical
@@ -73,26 +80,34 @@ extension AdvantageOptionView {
     
     // MARK: - Initializers and Methods
     
-    init(option: AdvantageOption, kindred: Kindred?, dataController: DataController?) {
+    init(option: AdvantageOption, kindred: Kindred?, dataController: DataController) {
       self.option = option
       self.container = nil
       self.currentRating = -1 // We don't need this
       
       isSingleOption = option.minRating == option.maxRating
       singleOptionMagnitude = isSingleOption ? Int(abs(option.maxRating)) : nil
+      isUnlocked = dataController.isPurchased(item: option)
       
       super.init(kindred: kindred, dataController: dataController)
+      
+      NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(userMadePurchase),
+        name: .userDidPurchaseItem, object: nil
+      )
     }
     
-    init(container: AdvantageContainer) {
+    init(container: AdvantageContainer, dataController: DataController) {
       self.container = container
       self.option = container.option
       self.currentRating = container.currentRating
       
       isSingleOption = container.option.minRating == container.option.maxRating
       singleOptionMagnitude = isSingleOption ? Int(abs(container.option.maxRating)) : nil
+      isUnlocked = dataController.isPurchased(item: container.option)
       
-      super.init(kindred: container.kindred, dataController: nil)
+      super.init(kindred: container.kindred, dataController: dataController)
     }
     
     func addToCharacter() {
@@ -104,6 +119,12 @@ extension AdvantageOptionView {
       container.option = option
       container.currentRating = option.minRating
       kindred.addToAdvantages(container)
+    }
+    
+    /// Observe when the user makes a purchase so we can update our containers.
+    /// - Parameter notification: The purchase notification
+    @objc func userMadePurchase(_ notification: Notification) {
+      isUnlocked = dataController!.isPurchased(item: option)
     }
     
   }

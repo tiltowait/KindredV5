@@ -11,7 +11,7 @@ struct AdvantageView: View {
   
   @StateObject var viewModel: ViewModel
   
-  init(advantage: Advantage, kindred: Kindred?, dataController: DataController?) {
+  init(advantage: Advantage, kindred: Kindred?, dataController: DataController) {
     let viewModel = ViewModel(advantage: advantage, kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
@@ -23,14 +23,14 @@ struct AdvantageView: View {
       if !viewModel.flaws.isEmpty {
         Section(header: Text("Flaws")) {
           ForEach(viewModel.flaws) { flaw in
-            AdvantageOptionView(option: flaw, kindred: viewModel.kindred, dataController: viewModel.dataController)
+            AdvantageOptionView(option: flaw, kindred: viewModel.kindred, dataController: viewModel.dataController!)
           }
         }
       }
       if !viewModel.merits.isEmpty {
         Section(header: Text("Merits")) {
           ForEach(viewModel.merits) { merit in
-            AdvantageOptionView(option: merit, kindred: viewModel.kindred, dataController: viewModel.dataController)
+            AdvantageOptionView(option: merit, kindred: viewModel.kindred, dataController: viewModel.dataController!)
           }
         }
       }
@@ -40,13 +40,15 @@ struct AdvantageView: View {
   
 }
 
+#if DEBUG
 struct AdvantageView_Previews: PreviewProvider {
   
   static let context = DataController.preview.container.viewContext
   
   static var previews: some View {
     NavigationView {
-      AdvantageView(advantage: Advantage.fetchObject(named: "Bonding", in: context)!, kindred: nil, dataController: nil)
+      AdvantageView(advantage: Advantage.fetchObject(named: "Bonding", in: context)!, kindred: nil, dataController: DataController.preview)
     }
   }
 }
+#endif

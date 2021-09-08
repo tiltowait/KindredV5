@@ -225,7 +225,10 @@ class DataController: ObservableObject {
   }
   
   func isPurchased(item: ReferenceItem) -> Bool {
-    self.purchaseIdentifiers.contains(item.unlockIdentifier)
+    if item.unlockIdentifier == "included" {
+      return true
+    }
+    return self.purchaseIdentifiers.contains(item.unlockIdentifier)
   }
   
   func isPurchased(identifier: String) -> Bool {

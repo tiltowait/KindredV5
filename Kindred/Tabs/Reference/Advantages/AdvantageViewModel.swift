@@ -16,7 +16,7 @@ extension AdvantageView {
     let merits: [AdvantageOption]
     let flaws: [AdvantageOption]
     
-    init(advantage: Advantage, kindred: Kindred?, dataController: DataController?) {
+    init(advantage: Advantage, kindred: Kindred?, dataController: DataController) {
       self.advantage = advantage
       self.title = advantage.name
       

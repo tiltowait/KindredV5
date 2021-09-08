@@ -71,6 +71,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
           self.dataController.purchase(identifier: transaction.payment.productIdentifier)
           self.requestState = .purchased
           queue.finishTransaction(transaction)
+          NotificationCenter.default.post(name: .userDidPurchaseItem, object: nil)
           
           if self.loadedProducts.isEmpty == false {
             self.requestState = .loaded(self.loadedProducts)
@@ -125,5 +126,12 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
   func isPurchased(product: SKProduct) -> Bool {
     dataController.isPurchased(identifier: product.productIdentifier)
   }
+  
+}
+
+
+extension Notification.Name {
+  
+  static let userDidPurchaseItem = Notification.Name("userDidPurchaseItem")
   
 }

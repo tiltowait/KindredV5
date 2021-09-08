@@ -10,14 +10,16 @@ import SwiftUI
 struct AdvantageOptionView: View {
   
   @StateObject var viewModel: ViewModel
+  @State private var redraw = false
   
-  init(option: AdvantageOption, kindred: Kindred?, dataController: DataController?) {
+  init(option: AdvantageOption, kindred: Kindred?, dataController: DataController) {
     let viewModel = ViewModel(option: option, kindred: kindred, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
+    
   }
   
-  init(container: AdvantageContainer) {
-    let viewModel = ViewModel(container: container)
+  init(container: AdvantageContainer, dataController: DataController) {
+    let viewModel = ViewModel(container: container, dataController: dataController)
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
@@ -37,16 +39,29 @@ struct AdvantageOptionView: View {
     .disabled(viewModel.status == .contained)
   }
   
+  var buyButton: some View {
+    Button {
+      viewModel.showingUnlockSheet.toggle()
+    } label: {
+      Label("Unlock", systemImage: "lock.fill")
+    }
+  }
+  
   var body: some View {
     HStack(alignment: .center, spacing: 5) {
       VStack(alignment: .leading) {
         HStack(alignment: .center) {
           // No range. Show dots or squares.
-          if let magnitude = viewModel.singleOptionMagnitude {
-            AdvantageOptionMarker(
-              count: magnitude,
-              square: viewModel.option.isFlaw
-            )
+          if viewModel.isUnlocked {
+            if let magnitude = viewModel.singleOptionMagnitude {
+              AdvantageOptionMarker(
+                count: magnitude,
+                square: viewModel.option.isFlaw
+              )
+            }
+          } else {
+            Image(systemName: "lock.fill")
+              .foregroundColor(.secondary)
           }
           Text(viewModel.option.name)
             .bold()
@@ -61,12 +76,18 @@ struct AdvantageOptionView: View {
             )
             .italic()
           }
+          
           Spacer()
         }
         
-        Text(viewModel.option.info)
-          .foregroundColor(.secondary)
-          .lineLimitFix()
+        if viewModel.isUnlocked {
+          Text(viewModel.option.info)
+            .foregroundColor(.secondary)
+            .lineLimitFix()
+        } else {
+          Text("You must purchase the \(viewModel.option.sourceBook.title) module to view this Advantage.")
+            .foregroundColor(.secondary)
+        }
         
         HStack {
           // Non-reference. Attached to character.
@@ -79,6 +100,12 @@ struct AdvantageOptionView: View {
               min: viewModel.minAllowableRating,
               max: viewModel.maxAllowableRating
             )
+          } else if viewModel.isUnlocked == false {
+            buyButton
+              .padding(.horizontal)
+              .padding(.vertical, 5)
+              .background(Color.tertiarySystemGroupedBackground)
+              .clipShape(Capsule())
           }
           Spacer()
           Text(viewModel.option.pageReference)
@@ -92,6 +119,9 @@ struct AdvantageOptionView: View {
       if viewModel.status != .inapplicable {
         addButton
       }
+    }
+    .sheet(isPresented: $viewModel.showingUnlockSheet) {
+      UnlockView(highlights: [viewModel.option.unlockIdentifier])
     }
   }
   
@@ -128,11 +158,11 @@ struct AdvantageOptionView_Previews: PreviewProvider {
   
   static var previews: some View {
     // No rating range, circle dots, no button
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!, kindred: nil, dataController: nil)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!, kindred: nil, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // Rating range, no button
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!, kindred: nil, dataController: nil)
+    AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!, kindred: nil, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // No rating range, square dots, add button
@@ -140,11 +170,11 @@ struct AdvantageOptionView_Previews: PreviewProvider {
       .previewLayout(.sizeThatFits)
     
     // No rating range, square dots, no add button, contained
-    AdvantageOptionView(container: container2)
+    AdvantageOptionView(container: container2, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // No rating range, no button, selection range
-    AdvantageOptionView(container: container1)
+    AdvantageOptionView(container: container1, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
   }
 }
