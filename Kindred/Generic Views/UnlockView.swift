@@ -15,6 +15,12 @@ struct UnlockView: View {
   
   @State private var showingInfoAlert = false
   
+  let highlights: [String]
+  
+  init(highlights: [String]) {
+    self.highlights = highlights
+  }
+  
   var body: some View {
     NavigationView {
       List {
@@ -25,14 +31,14 @@ struct UnlockView: View {
             .foregroundColor(.secondary),
           footer:
             Button("Restore Purchases", action: unlockManager.restore)
-            .buttonStyle(PurchaseButton())
+            .buttonStyle(PurchaseButton(highlight: false))
             .padding(.top)
             .centered()
         ) {
           switch unlockManager.requestState {
           case .loaded(let products):
             ForEach(products, id: \.self) { product in
-              ProductView(product: product)
+              ProductView(product: product, highlight: self.highlights.contains(product.productIdentifier))
             }
           case .failed(_):
             Text("Sorry, there was an error loading the store. Please try again later.")

@@ -18,4 +18,8 @@ extension ReferenceItem {
     sourceBook.reference(page: self.page)
   }
   
+  var unlockIdentifier: String {
+    sourceBook.unlockIdentifier
+  }
+  
 }

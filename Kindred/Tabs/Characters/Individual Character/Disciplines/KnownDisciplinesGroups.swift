@@ -10,12 +10,15 @@ import SwiftUI
 struct KnownDisciplinesGroups: View {
   
   @Environment(\.viewController) var viewController
+  @EnvironmentObject var dataController: DataController
   
   @StateObject private var viewModel: ViewModel
+  @Binding private var lockedItem: String?
   
-  init(kindred: Kindred) {
+  init(kindred: Kindred, lockedItem: Binding<String?>) {
     let viewModel = ViewModel(kindred: kindred)
     _viewModel = StateObject(wrappedValue: viewModel)
+    self._lockedItem = lockedItem
   }
   
   var body: some View {
@@ -25,8 +28,11 @@ struct KnownDisciplinesGroups: View {
           Button {
             show(power: power)
           } label: {
-            PowerRow(power: power)
-              .contentShape(Rectangle())
+            PowerRow(
+              power: power,
+              isUnlocked: dataController.isPurchased(item: power)
+            )
+            .contentShape(Rectangle())
           }
           .buttonStyle(PlainButtonStyle())
         }
@@ -43,8 +49,12 @@ struct KnownDisciplinesGroups: View {
   }
   
   func show(power: Power) {
-    viewController?.present {
-      PowerCard(power: power)
+    if dataController.isPurchased(item: power) {
+      viewController?.present {
+        PowerCard(power: power)
+      }
+    } else {
+      lockedItem = power.unlockIdentifier
     }
   }
   
@@ -59,7 +69,8 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
     NavigationView {
       List {
         Section(header: DisciplineHeader("Disciplines", buttonPressed: .constant(false))) {
-          KnownDisciplinesGroups(kindred: Kindred.example)
+          KnownDisciplinesGroups(kindred: Kindred.example, lockedItem: .constant(nil))
+            .environmentObject(DataController.preview)
         }
       }
       .listStyle(GroupedListStyle())

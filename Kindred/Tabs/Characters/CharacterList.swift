@@ -67,8 +67,8 @@ struct CharacterList: View {
         .allowAutoDismiss(false)
         .environmentObject(viewModel.dataController)
     }
-    .sheet(isPresented: $viewModel.showingUnlockSheet) {
-      UnlockView()
+    .sheet(item: $viewModel.unlockIdentifier) { identifier in
+      UnlockView(highlights: [identifier])
     }
   }
   

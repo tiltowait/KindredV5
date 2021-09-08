@@ -40,10 +40,6 @@ struct ReferenceRow: View {
     self.rounded = rounded
     self.color = color
     self.unlocked = unlocked
-    
-    if !unlocked {
-      print("\(title) is locked!")
-    }
   }
   
   /// Create a reference row.

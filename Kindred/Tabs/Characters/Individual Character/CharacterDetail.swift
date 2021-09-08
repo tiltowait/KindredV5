@@ -20,6 +20,7 @@ struct CharacterDetail: View {
   @State private var showingDiceRoller = false
   @State private var showingRenameAlert = false
   @State private var showingPowerAdder = false
+  @State private var lockedItem: String?
   
   @State private var pdfExporter: CharacterExporter?
   @State private var warningSheet: WarningSheet?
@@ -127,7 +128,10 @@ struct CharacterDetail: View {
                   .foregroundColor(.secondary)
               }
             } else {
-              KnownDisciplinesGroups(kindred: viewModel.kindred)
+              KnownDisciplinesGroups(
+                kindred: viewModel.kindred,
+                lockedItem: $lockedItem
+              )
             }
           }
         }
@@ -175,6 +179,9 @@ struct CharacterDetail: View {
       }
       .sheet(item: $warningSheet) { warning in
         warning
+      }
+      .sheet(item: $lockedItem) { item in
+        UnlockView(highlights: [item])
       }
       .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
       .onAppear(perform: viewModel.generateTraitPreviews)

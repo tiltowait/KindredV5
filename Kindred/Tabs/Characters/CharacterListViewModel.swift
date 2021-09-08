@@ -19,7 +19,7 @@ extension CharacterList {
     @Published var mortals: [Kindred] = []
     
     @Published var showingCreationSheet = false
-    @Published var showingUnlockSheet = false
+    @Published var unlockIdentifier: String?
     
     /// Whether the user has added any characters to the app.
     var hasCharacters: Bool {
@@ -60,7 +60,7 @@ extension CharacterList {
     func addCharacter() {
       // Check the IAP status
       if dataController.unlockedUnlimited == false && self.hasCharacters {
-        showingUnlockSheet.toggle()
+        unlockIdentifier = dataController.unlockUnlimitedIdentifier
       } else {
         showingCreationSheet.toggle()
       }

@@ -9,8 +9,11 @@ import SwiftUI
 
 struct DisciplineDetail: View {
   
+  @EnvironmentObject var dataController: DataController
   @StateObject private var viewModel: ViewModel
   @Binding var link: Bool
+  
+  @State private var unlockItem: String?
   
   init(discipline: Discipline, kindred: Kindred?, link: Binding<Bool>? = nil) {
     let viewModel = ViewModel(discipline: discipline, kindred: kindred)
@@ -27,8 +30,11 @@ struct DisciplineDetail: View {
           Button {
             show(power: power)
           } label: {
-            PowerRow(power: power)
-              .contentShape(Rectangle())
+            PowerRow(
+              power: power,
+              isUnlocked: dataController.isPurchased(item: power)
+            )
+            .contentShape(Rectangle())
           }
           .buttonStyle(PlainButtonStyle())
         }
@@ -36,17 +42,24 @@ struct DisciplineDetail: View {
     }
     .navigationBarTitle(viewModel.title, displayMode: .inline)
     .listStyle(InsetGroupedListStyle())
+    .sheet(item: $unlockItem) { item in
+      UnlockView(highlights: [item])
+    }
   }
   
   /// Modally display a power's details.
   /// - Parameter power: The power to display.
   func show(power: Power) {
-    UIViewController.topMost?.present {
-      if viewModel.isReferenceView {
-        PowerCard(power: power)
-      } else {
-        PowerCard(power: power, action: addPower)
+    if dataController.isPurchased(item: power) {
+      UIViewController.topMost?.present {
+        if viewModel.isReferenceView {
+          PowerCard(power: power)
+        } else {
+          PowerCard(power: power, action: addPower)
+        }
       }
+    } else {
+      unlockItem = power.unlockIdentifier
     }
   }
   
@@ -69,6 +82,7 @@ struct AddPowerSheet_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       DisciplineDetail(discipline: Discipline.example, kindred: Kindred.example)
+        .environmentObject(DataController.preview)
     }
   }
 }

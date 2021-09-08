@@ -34,7 +34,11 @@ class DataController: ObservableObject {
   
   /// The user has unlocked unlimited characters.
   var unlockedUnlimited: Bool {
-    self.purchaseIdentifiers.contains("com.tiltowait.Kindred.unlimited")
+    self.purchaseIdentifiers.contains(unlockUnlimitedIdentifier)
+  }
+  
+  var unlockUnlimitedIdentifier: String {
+    "com.tiltowait.Kindred.unlimited"
   }
   
   // MARK: - Database Management
@@ -218,6 +222,10 @@ class DataController: ObservableObject {
     var purchases = self.purchaseIdentifiers
     purchases.append(identifier)
     self.purchaseIdentifiers = purchases
+  }
+  
+  func isPurchased(item: ReferenceItem) -> Bool {
+    self.purchaseIdentifiers.contains(item.unlockIdentifier)
   }
   
   func isPurchased(identifier: String) -> Bool {

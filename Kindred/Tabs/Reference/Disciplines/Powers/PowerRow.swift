@@ -11,22 +11,29 @@ struct PowerRow: View {
   
   @State private var isExpanded = false
   let power: Power
+  let isUnlocked: Bool
   
   var body: some View {
     VStack {
       HStack(alignment: .center) {
-        Text("\(power.level)")
-          .foregroundColor(.secondary)
-          .font(.caption)
+        if isUnlocked == false {
+          Image(systemName: "lock.fill")
+            .foregroundColor(.secondary)
+        } else {
+          Text("\(power.level)")
+            .foregroundColor(.secondary)
+            .font(.caption)
+        }
         Text(power.name)
           .font(.headline)
+          .foregroundColor(isUnlocked ? .primary : .secondary)
         Spacer()
         
-        if power.sourceBook != .core {
-          Circle()
-            .foregroundColor(power.sourceBook.color)
-            .frame(width: 15, height: 15)
-        }
+//        if power.sourceBook != .core {
+//          Circle()
+//            .foregroundColor(power.sourceBook.color)
+//            .frame(width: 15, height: 15)
+//        }
         
         Text(power.sourceBook.reference(page: power.page))
           .multilineTextAlignment(.trailing)
@@ -41,7 +48,9 @@ struct PowerRow: View {
 #if DEBUG
 struct PowerLabelRow_Previews: PreviewProvider {
   static var previews: some View {
-    PowerRow(power: Power.example)
+    PowerRow(power: Power.example, isUnlocked: true)
+      .previewLayout(.sizeThatFits)
+    PowerRow(power: Power.example, isUnlocked: false)
       .previewLayout(.sizeThatFits)
   }
 }

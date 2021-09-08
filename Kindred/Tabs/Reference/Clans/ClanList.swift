@@ -12,7 +12,7 @@ struct ClanList: View {
   @Environment(\.presentationMode) var presentationMode
   
   @StateObject private var viewModel: ViewModel
-  @State private var showingUnlockSheet = false
+  @State private var lockedItem: String?
   
   init(kindred: Kindred? = nil, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -32,7 +32,7 @@ struct ClanList: View {
         }
       } else {
         Button {
-          showingUnlockSheet.toggle()
+          lockedItem = clan.unlockIdentifier
         } label: {
           ClanRow(clan: clan, unlocked: false)
             .contentShape(Rectangle())
@@ -49,8 +49,8 @@ struct ClanList: View {
         }
       }
     }
-    .sheet(isPresented: $showingUnlockSheet) {
-      UnlockView()
+    .sheet(item: $lockedItem) { item in
+      UnlockView(highlights: [item])
     }
   }
   

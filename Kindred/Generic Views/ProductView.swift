@@ -12,6 +12,7 @@ struct ProductView: View {
   
   @EnvironmentObject var unlockManager: UnlockManager
   let product: SKProduct
+  let highlight: Bool
   
   var body: some View {
     HStack(alignment: .center) {
@@ -25,7 +26,7 @@ struct ProductView: View {
       Spacer()
       
       Button("\(product.localizedPrice)", action: unlock)
-        .buttonStyle(PurchaseButton())
+        .buttonStyle(PurchaseButton(highlight: highlight))
         .disabled(unlockManager.isPurchased(product: product))
     }
   }
