@@ -55,6 +55,7 @@ struct WarningSheet: View, Identifiable {
       Text(key)
         .bold()
       Text(warnings[key]!.joined(separator: ", "))
+        .lineLimitFix()
         .padding(.bottom)
     }
   }
