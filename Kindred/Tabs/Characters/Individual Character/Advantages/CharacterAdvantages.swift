@@ -15,6 +15,8 @@ struct CharacterAdvantages: View {
   @State private var showingDeleteAdvantageAlert = false
   @State private var showingLoresheetAdder = false
   
+  @State private var lockIdentifier: String?
+  
   
   init(kindred: Kindred, dataController: DataController) {
     let viewModel = ViewModel(kindred: kindred, dataController: dataController)
@@ -61,7 +63,10 @@ struct CharacterAdvantages: View {
       }
       if viewModel.hasLoresheets {
         Section(header: Text("Loresheets")) {
-          KnownLoresheetGroups(kindred: viewModel.kindred)
+          KnownLoresheetGroups(
+            kindred: viewModel.kindred,
+            lockIdentifier: $lockIdentifier
+          )
         }
       }
     }
@@ -83,7 +88,13 @@ struct CharacterAdvantages: View {
       addAdvantageSheet
     }
     .sheet(isPresented: $showingLoresheetAdder) {
-      AddLoresheetList(kindred: viewModel.kindred, dataController: viewModel.dataController)
+      AddLoresheetList(
+        kindred: viewModel.kindred,
+        dataController: viewModel.dataController
+      )
+    }
+    .sheet(item: $lockIdentifier) { item in
+      UnlockView(highlights: [item])
     }
     .onDisappear(perform: viewModel.save)
   }
@@ -101,6 +112,7 @@ struct CharacterAdvantages_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       CharacterAdvantages(kindred: Kindred.example, dataController: DataController.preview)
+        .environmentObject(DataController.preview)
     }
   }
 }

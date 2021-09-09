@@ -121,6 +121,7 @@ extension Kindred {
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "First-Cursed", in: dataController.container.viewContext)!)
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Book of the Grave-War", in: dataController.container.viewContext)!)
     kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Trophy Kill", in: dataController.container.viewContext)!)
+    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Herd Mindset", in: dataController.container.viewContext)!)
     
     // Set some biographical detail
     kindred.appearance = "An unkempt hunchback with heterochromia."

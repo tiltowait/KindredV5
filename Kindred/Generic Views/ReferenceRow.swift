@@ -82,6 +82,10 @@ struct ReferenceRow: View {
             .cornerRadius(rounded ? 6 : 0)
             .frame(height: 55)
         }
+      } else if unlocked == false {
+        Image(systemName: "lock.fill")
+          .foregroundColor(color ?? .secondary)
+          .opacity(0.5)
       }
     }
   }
