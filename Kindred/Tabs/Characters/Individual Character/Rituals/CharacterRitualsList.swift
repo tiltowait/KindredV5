@@ -43,6 +43,9 @@ struct CharacterRitualsList: View {
           }
       }
     }
+    .sheet(item: $viewModel.lockedItemIdentifier) { item in
+      UnlockView(highlights: [item])
+    }
     .onDisappear(perform: viewModel.save)
   }
   
@@ -73,8 +76,12 @@ struct CharacterRitualsList: View {
           Button {
             show(ritual: ritual)
           } label: {
-            RitualRow(ritual: ritual, showLevel: true)
-              .contentShape(Rectangle())
+            RitualRow(
+              ritual: ritual,
+              showLevel: true,
+              isUnlocked: viewModel.isUnlocked(item: ritual)
+            )
+            .contentShape(Rectangle())
           }
           .buttonStyle(PlainButtonStyle())
         }
@@ -88,8 +95,12 @@ struct CharacterRitualsList: View {
   /// Show the ritual's detail card.
   /// - Parameter ritual: The ritual to show.
   func show(ritual: Ritual) {
-    UIViewController.topMost?.present {
-      RitualCard(ritual: ritual)
+    if viewModel.isUnlocked(item: ritual) {
+      UIViewController.topMost?.present {
+        RitualCard(ritual: ritual)
+      }
+    } else {
+      viewModel.lockedItemIdentifier = ritual.unlockIdentifier
     }
   }
   

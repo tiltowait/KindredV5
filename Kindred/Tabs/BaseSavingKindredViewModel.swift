@@ -10,6 +10,7 @@ import Foundation
 class BaseSavingKindredViewModel: BaseKindredViewModel {
   
   let dataController: DataController
+  @Published var lockedItemIdentifier: String?
   
   init(kindred: Kindred, dataController: DataController) {
     self.dataController = dataController
@@ -19,6 +20,10 @@ class BaseSavingKindredViewModel: BaseKindredViewModel {
   /// Saves any changes made to the managed `Kindred` object.
   func save() {
     dataController.save()
+  }
+  
+  func isUnlocked(item: ReferenceItem) -> Bool {
+    dataController.isPurchased(item: item)
   }
   
 }

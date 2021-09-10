@@ -11,25 +11,33 @@ struct RitualRow: View {
   
   let ritual: Ritual
   let showLevel: Bool
+  let isUnlocked: Bool
   
   var body: some View {
-    VStack(alignment: .leading, spacing: 3) {
-      HStack(alignment: .center) {
-        if showLevel {
-          Text("\(ritual.level)")
-            .foregroundColor(.secondary)
-            .font(.caption)
-        }
-        Text(ritual.name)
-          .font(.headline)
+    HStack(spacing: 5) {
+      if isUnlocked == false {
+        Image(systemName: "lock.fill")
+          .foregroundColor(ritual.sourceBook.color)
+          .opacity(0.5)
       }
-      
-      HStack {
-        Spacer()
-        Text(ritual.pageReference)
-          .multilineTextAlignment(.trailing)
-          .font(.caption)
-          .foregroundColor(.secondary)
+      VStack(alignment: .leading, spacing: 3) {
+        HStack(alignment: .center) {
+          if showLevel {
+            Text("\(ritual.level)")
+              .foregroundColor(.secondary)
+              .font(.caption)
+          }
+          Text(ritual.name)
+            .font(.headline)
+        }
+        
+        HStack {
+          Spacer()
+          Text(ritual.pageReference)
+            .multilineTextAlignment(.trailing)
+            .font(.caption)
+            .foregroundColor(.secondary)
+        }
       }
     }
   }
@@ -38,7 +46,10 @@ struct RitualRow: View {
 #if DEBUG
 struct RitualRow_Previews: PreviewProvider {
   static var previews: some View {
-    RitualRow(ritual: Ritual.example, showLevel: true)
+    RitualRow(ritual: Ritual.example, showLevel: true, isUnlocked: true)
+      .previewLayout(.sizeThatFits)
+    RitualRow(ritual: Ritual.example, showLevel: false, isUnlocked: false)
+      .previewLayout(.sizeThatFits)
   }
 }
 #endif

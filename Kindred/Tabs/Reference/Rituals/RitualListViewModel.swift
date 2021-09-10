@@ -15,6 +15,8 @@ extension RitualList {
     let rituals: [Int: [Ritual]]
     let isReferenceView: Bool
     
+    @Published var lockedRitual: String?
+    
     init(flavor: Ritual.Flavor, kindred: Kindred?, dataController: DataController) {
       let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
       request.predicate = NSPredicate(format: "discipline.zName == %@", flavor.disciplineName)
@@ -46,6 +48,10 @@ extension RitualList {
     
     func add(ritual: Ritual) {
       kindred?.addToRituals(ritual)
+    }
+    
+    func isUnlocked(ritual: Ritual) -> Bool {
+      dataController!.isPurchased(item: ritual)
     }
     
   }

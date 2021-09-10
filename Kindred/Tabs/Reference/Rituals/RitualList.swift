@@ -30,7 +30,7 @@ struct RitualList: View, Identifiable {
             Button {
               show(ritual: ritual)
             } label: {
-              RitualRow(ritual: ritual, showLevel: false)
+              RitualRow(ritual: ritual, showLevel: false, isUnlocked: viewModel.isUnlocked(ritual: ritual))
                 .contentShape(Rectangle())
             }
             .buttonStyle(PlainButtonStyle())
@@ -40,15 +40,22 @@ struct RitualList: View, Identifiable {
     }
     .navigationBarTitle(viewModel.title, displayMode: .inline)
     .listStyle(InsetGroupedListStyle())
+    .sheet(item: $viewModel.lockedRitual) { ritual in
+      UnlockView(highlights: [ritual])
+    }
   }
   
   func show(ritual: Ritual) {
-    UIViewController.topMost?.present {
-      if viewModel.isReferenceView {
-        RitualCard(ritual: ritual)
-      } else {
-        RitualCard(ritual: ritual, action: addRitual)
+    if viewModel.isUnlocked(ritual: ritual) {
+      UIViewController.topMost?.present {
+        if viewModel.isReferenceView {
+          RitualCard(ritual: ritual)
+        } else {
+          RitualCard(ritual: ritual, action: addRitual)
+        }
       }
+    } else {
+      viewModel.lockedRitual = ritual.unlockIdentifier
     }
   }
   
