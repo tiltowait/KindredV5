@@ -39,7 +39,11 @@ extension RitualList {
         groupedRituals[level] = filtered
       }
       
-      self.title = flavor == .ritual ? "Blood Sorcery Rituals" : "Oblivion Ceremonies"
+      switch flavor {
+      case .ritual: self.title = "Blood Sorcery Rituals"
+      case .ceremony: self.title = "Oblivion Ceremonies"
+      case.formula: self.title = "Alchemy Formulae"
+      }
       self.rituals = groupedRituals
       self.isReferenceView = kindred == nil
       

@@ -59,6 +59,30 @@ struct ReferenceList: View {
               .font(.headline)
           }
           .isDetailLink(true)
+          
+          NavigationLink(
+            destination: RitualList(
+              flavor: .ceremony,
+              kindred: nil,
+              dataController: dataController
+            )
+          ) {
+            Text("Oblivion Ceremonies")
+              .font(.headline)
+          }
+          .isDetailLink(true)
+          
+          NavigationLink(
+            destination: RitualList(
+              flavor: .formula,
+              kindred: nil,
+              dataController: dataController
+            )
+          ) {
+            Text("Thin-Blood Alchemy Formulae")
+              .font(.headline)
+          }
+          .isDetailLink(true)
         }
       }
       .navigationTitle("Reference")
