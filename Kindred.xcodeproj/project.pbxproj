@@ -471,13 +471,11 @@
 				28386F5826585D9C00E90445 /* Constants.swift */,
 				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
 				28773449265713360098E27B /* DataController.swift */,
-				28BECB4F26E2952E004E7E0A /* UnlockManager.swift */,
-				28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */,
-				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
 				282EC8372656EEB80086B14F /* HomeView.swift */,
 				28ADF7F6267A5F4900D97D2A /* Tabs */,
 				28ADF7F7267A60AD00D97D2A /* Extensions */,
 				282EC8662656EFFF0086B14F /* Models */,
+				28B23C3D26EFC3EF00F0FDF8 /* IAP */,
 				28386F5F265868B800E90445 /* Generic Views */,
 				288EB7C12698CDC400E27652 /* Localizable.stringsdict */,
 				28678D0F2658855F00289497 /* Discipline Icons.xcassets */,
@@ -767,6 +765,16 @@
 				2846358F2697616D00898E84 /* View+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		28B23C3D26EFC3EF00F0FDF8 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				28BECB4F26E2952E004E7E0A /* UnlockManager.swift */,
+				28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */,
+				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		28B40CEB26961A300058BE50 /* Loresheets */ = {

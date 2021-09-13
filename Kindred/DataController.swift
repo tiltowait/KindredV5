@@ -128,12 +128,12 @@ class DataController: ObservableObject {
     self.defaults = defaults
     
     // Load up reference material
-    var coreDataReferenceVersion = defaults.integer(forKey: Global.referenceVersionKey)
-
+    
+    
+    
     if inMemory {
       print("Running in memory! Data will not persist.")
       container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
-      coreDataReferenceVersion = 0
     }
     
     container.loadPersistentStores { _, error in
@@ -141,21 +141,38 @@ class DataController: ObservableObject {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
     }
+    // In prior versions, before adding CloudKit, we used UserDefaults to track the reference
+    // database version. However, CloudKit means that users can load new reference material on
+    // another device, so we will store the reference version in our Core Data model instead. To
+    // make things easier for existing users, we convert for them.
+    
+    let cdVersion = self.fetchAll(CDReferenceVersion.self).first ?? CDReferenceVersion(context: container.viewContext)
+    let udReferenceVersion = defaults.integer(forKey: Global.referenceVersionKey)
+    
+    if !inMemory && udReferenceVersion > cdVersion.version {
+      print("Establishing CDReferenceVersion")
+      cdVersion.version = Int16(udReferenceVersion)
+      defaults.set(-1, forKey: Global.referenceVersionKey) // Make it so we never overwrite again
+      self.save()
+    }
+
         
     // Each importer reads only those reference items that have a revision number higher than the
     // Core Data version number stored in user defaults. For each row in the reference database,
     // the importers first try to fetch an object with that row's reference ID; if they can't, then
     // they create a new item with that ID.
     
-    if coreDataReferenceVersion < self.sqliteReferenceVersion {
+    if cdVersion.version < self.sqliteReferenceVersion {
       print("Fetching new items")
+      let oldVersion = Int(cdVersion.version)
       do {
-        try DisciplineImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try ClanImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try AdvantageImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try LoresheetImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
-        try RitualImporter.importAll(after: coreDataReferenceVersion, context: container.viewContext)
+        try DisciplineImporter.importAll(after: oldVersion, context: container.viewContext)
+        try ClanImporter.importAll(after: oldVersion, context: container.viewContext)
+        try AdvantageImporter.importAll(after: oldVersion, context: container.viewContext)
+        try LoresheetImporter.importAll(after: oldVersion, context: container.viewContext)
+        try RitualImporter.importAll(after: oldVersion, context: container.viewContext)
         
+        cdVersion.version = Int16(sqliteReferenceVersion)
         self.save()
         
       } catch ImportError.invalidReference(let object) {
@@ -167,7 +184,7 @@ class DataController: ObservableObject {
     }
     
     #if DEBUG
-    print("Stored version: \(coreDataReferenceVersion)")
+    print("Stored version: \(udReferenceVersion)")
     print("SQLite version: \(sqliteReferenceVersion)")
     
     print("\n\(self.countAll(Discipline.self)) disciplines")
