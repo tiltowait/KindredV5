@@ -95,7 +95,6 @@ class DataController: ObservableObject {
   }()
   
   // MARK: - Database Members
-  
   /// The highest revision number in the SQLite reference database.
   private lazy var sqliteReferenceVersion: Int = {
     let db = try? Connection(Global.referenceDatabasePath, readonly: true)

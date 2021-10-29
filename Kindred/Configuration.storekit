@@ -138,6 +138,21 @@
       "productID" : "com.tiltowait.Kindred.cults",
       "referenceName" : "cults-of-the-blood-gods",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "B256070A",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Let the Streets Run Red.",
+          "displayName" : "Let the Streets Run Red",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.letTheStreetsRunRed",
+      "referenceName" : "let-the-streets-run-red",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

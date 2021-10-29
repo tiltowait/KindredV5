@@ -44,6 +44,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
       "com.tiltowait.Kindred.chicagoByNight",
       "com.tiltowait.Kindred.fallOfLondon",
       "com.tiltowait.Kindred.chicagoFolios",
+      "com.tiltowait.Kindred.letTheStreetsRunRed",
       "com.tiltowait.Kindred.cults",
       "com.tiltowait.Kindred.childrenOfTheBlood",
       "com.tiltowait.Kindred.trailsOfAshAndBone"

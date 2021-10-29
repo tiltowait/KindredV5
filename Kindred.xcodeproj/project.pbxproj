@@ -467,6 +467,7 @@
 		282EC8342656EEB80086B14F /* Kindred */ = {
 			isa = PBXGroup;
 			children = (
+				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				28386F5826585D9C00E90445 /* Constants.swift */,
 				2877343D265703000098E27B /* KindredModel.xcdatamodeld */,
@@ -772,7 +773,6 @@
 			children = (
 				28BECB4F26E2952E004E7E0A /* UnlockManager.swift */,
 				28BECB5226E2A547004E7E0A /* SKProduct+Localize.swift */,
-				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
