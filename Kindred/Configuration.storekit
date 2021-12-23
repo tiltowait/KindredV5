@@ -153,6 +153,21 @@
       "productID" : "com.tiltowait.Kindred.letTheStreetsRunRed",
       "referenceName" : "let-the-streets-run-red",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "CA257863",
+      "localizations" : [
+        {
+          "description" : "Unlocks content from Forbidden Religions.",
+          "displayName" : "Forbidden Religions",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.tiltowait.Kindred.forbiddenReligions",
+      "referenceName" : "forbidden-religions",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

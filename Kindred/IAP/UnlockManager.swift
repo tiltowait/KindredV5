@@ -47,7 +47,8 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
       "com.tiltowait.Kindred.letTheStreetsRunRed",
       "com.tiltowait.Kindred.cults",
       "com.tiltowait.Kindred.childrenOfTheBlood",
-      "com.tiltowait.Kindred.trailsOfAshAndBone"
+      "com.tiltowait.Kindred.trailsOfAshAndBone",
+      "com.tiltowait.Kindred.forbiddenReligions"
     ])
     request = SKProductsRequest(productIdentifiers: productIDs)
     

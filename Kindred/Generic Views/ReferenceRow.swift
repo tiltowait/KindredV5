@@ -83,7 +83,7 @@ struct ReferenceRow: View {
       }
     } else if unlocked == false {
       Image(systemName: "lock.fill")
-        .foregroundColor(color ?? .secondary)
+        .foregroundColor(.secondary)
         .opacity(0.5)
     }
   }

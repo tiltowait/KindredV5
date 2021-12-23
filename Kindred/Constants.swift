@@ -97,6 +97,8 @@ enum Global {
     case trailsOfAshAndBone
     /// Item comes from Let the Streets Run Red
     case letTheStreetsRunRed
+    /// Item comes from Forbidden Religions
+    case forbiddenReligions
     
     /// The full title of the referenced sourcebook.
     var title: String {
@@ -112,6 +114,7 @@ enum Global {
       case .childrenOfTheBlood: return "Children of the Blood"
       case .trailsOfAshAndBone: return "Trails of Ash and Bone"
       case .letTheStreetsRunRed: return "Let the Streets Run Red"
+      case .forbiddenReligions: return "Forbidden Religions"
       }
     }
     
@@ -137,6 +140,7 @@ enum Global {
       case .childrenOfTheBlood: return "com.tiltowait.Kindred.childrenOfTheBlood"
       case .trailsOfAshAndBone: return "com.tiltowait.Kindred.trailsOfAshAndBone"
       case .letTheStreetsRunRed: return "com.tiltowait.Kindred.letTheStreetsRunRed"
+      case .forbiddenReligions: return "com.tiltowait.Kindred.forbiddenReligions"
       }
     }
     
