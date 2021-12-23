@@ -28,7 +28,7 @@ struct PDFShare: View {
           ToolbarItem(placement: .primaryAction) {
             Button(action: generatePDFData) {
               Label("Share PDF", systemImage: "square.and.arrow.up")
-                .labelStyle(IconOnlyLabelStyle())
+                .labelStyle(.iconOnly)
             }
           }
           ToolbarItem(placement: .cancellationAction) {

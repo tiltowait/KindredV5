@@ -31,8 +31,9 @@ struct TraitBlock: View {
       section(named: "Social", forTraits: viewModel.social)
       section(named: "Mental", forTraits: viewModel.mental)
     }
-    .listStyle(GroupedListStyle())
-    .navigationBarTitle(viewModel.title, displayMode: .inline)
+    .listStyle(.grouped)
+    .navigationTitle(viewModel.title)
+    .navigationBarTitleDisplayMode(.inline)
     .onDisappear(perform: viewModel.save)
   }
   

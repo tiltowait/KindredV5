@@ -32,8 +32,8 @@ struct LoresheetDetail: View {
         }
       }
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle(viewModel.loresheet.name, displayMode: .inline)
+    .navigationTitle(viewModel.loresheet.name)
+    .navigationBarTitleDisplayMode(.inline)
   }
 }
 

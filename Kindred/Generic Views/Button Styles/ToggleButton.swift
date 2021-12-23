@@ -26,15 +26,15 @@ struct ToggleButton: ButtonStyle {
 
     
     var backgroundColor: Color {
-      isToggled ? toggleColor : Color.clear
+      isToggled ? toggleColor : .clear
     }
     
     var strokeColor: Color {
-      isToggled ? toggleColor : Color.primary
+      isToggled ? toggleColor : .primary
     }
     
     var fontColor: Color {
-      isToggled ? Color.white : Color.primary
+      isToggled ? .white : .primary
     }
     
     var body: some View {

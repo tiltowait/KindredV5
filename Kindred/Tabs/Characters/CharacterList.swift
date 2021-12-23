@@ -16,27 +16,19 @@ struct CharacterList: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
-  var characterList: some View {
-    Group {
-      if !viewModel.unknown.isEmpty {
-        section(named: "Unknown", for: viewModel.unknown)
-      }
-      if !viewModel.kindred.isEmpty {
-        section(named: "Vampire", for: viewModel.kindred)
-      }
-      if !viewModel.ghouls.isEmpty {
-        section(named: "Ghoul", for: viewModel.ghouls)
-      }
-      if !viewModel.mortals.isEmpty {
-        section(named: "Mortal", for: viewModel.mortals)
-      }
+  @ViewBuilder var characterList: some View {
+    if !viewModel.unknown.isEmpty {
+      section(named: "Unknown", for: viewModel.unknown)
     }
-  }
-  
-  var instructions: some View {
-    Text("Press + to add a character.")
-      .font(.system(size: 18))
-      .padding(.top)
+    if !viewModel.kindred.isEmpty {
+      section(named: "Vampire", for: viewModel.kindred)
+    }
+    if !viewModel.ghouls.isEmpty {
+      section(named: "Ghoul", for: viewModel.ghouls)
+    }
+    if !viewModel.mortals.isEmpty {
+      section(named: "Mortal", for: viewModel.mortals)
+    }
   }
   
   var body: some View {
@@ -45,17 +37,13 @@ struct CharacterList: View {
         if viewModel.hasCharacters {
           characterList
         } else {
-          Section(header: instructions) { }
-            .textCase(nil)
+          Button("Add a character", action: viewModel.addCharacter)
         }
       }
       .navigationTitle("Characters")
-      .listStyle(InsetGroupedListStyle())
       .toolbar {
-        Button {
-          viewModel.addCharacter()
-        } label: {
-          Label("Add Kindred", systemImage: "plus")
+        Button(action: viewModel.addCharacter) {
+          Label("Add Character", systemImage: "plus")
         }
       }
       Text("Select or create a character to begin.")

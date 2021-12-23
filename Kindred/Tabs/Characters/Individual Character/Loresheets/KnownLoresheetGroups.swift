@@ -52,7 +52,7 @@ struct KnownLoresheetGroups: View {
         )
         .contentShape(Rectangle())
       }
-      .buttonStyle(PlainButtonStyle())
+      .buttonStyle(.plain)
     }
   }
 }
@@ -67,7 +67,6 @@ struct KnownLoresheetGroups_Previews: PreviewProvider {
             .environmentObject(DataController.preview)
         }
       }
-      .listStyle(InsetGroupedListStyle())
     }
   }
 }

@@ -27,7 +27,8 @@ struct CharacterNotesView: View {
         placeholder: "Enter your notes for \(kindred.name) ..."
       )
       .padding()
-      .navigationBarTitle("Notes", displayMode: .inline)
+      .navigationTitle("Notes")
+      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .confirmationAction) {
           Button("Done", action: saveAndDismiss)

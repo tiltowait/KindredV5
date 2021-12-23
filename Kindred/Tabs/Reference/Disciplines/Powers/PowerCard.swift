@@ -72,15 +72,13 @@ struct PowerCard: View {
   }
   
   /// The power's pool, if applicable.
-  var pool: some View {
-    Group {
-      if let pool = power.pool {
-        HStack(alignment: .top) {
-          Text("Pool:")
-            .bold()
-          Text(pool)
-          Spacer()
-        }
+  @ViewBuilder var pool: some View {
+    if let pool = power.pool {
+      HStack(alignment: .top) {
+        Text("Pool:")
+          .bold()
+        Text(pool)
+        Spacer()
       }
     }
   }

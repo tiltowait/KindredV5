@@ -51,7 +51,7 @@ struct UnlockView: View {
           }
         }
       }
-      .listStyle(GroupedListStyle())
+      .listStyle(.grouped)
       .navigationBarTitle(Text("Unlocks"), displayMode: .inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {

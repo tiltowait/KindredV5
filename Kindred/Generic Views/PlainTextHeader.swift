@@ -27,7 +27,6 @@ struct PlainTextHeader: View {
     Text(text)
       .font(.system(size: fontSize))
       .centered()
-      .padding(.top)
   }
   
   var body: some View {
@@ -43,7 +42,7 @@ struct PlainTextHeader_Previews: PreviewProvider {
         PlainTextHeader("This is my header")
         Text("Example text")
       }
-      .listStyle(GroupedListStyle())
+      .listStyle(.grouped)
     }
   }
 }

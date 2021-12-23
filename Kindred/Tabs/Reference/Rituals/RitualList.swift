@@ -33,13 +33,13 @@ struct RitualList: View, Identifiable {
               RitualRow(ritual: ritual, showLevel: false, isUnlocked: viewModel.isUnlocked(ritual: ritual))
                 .contentShape(Rectangle())
             }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(.plain)
           }
         }
       }
     }
-    .navigationBarTitle(viewModel.title, displayMode: .inline)
-    .listStyle(InsetGroupedListStyle())
+    .navigationTitle(viewModel.title)
+    .navigationBarTitleDisplayMode(.inline)
     .sheet(item: $viewModel.lockedRitual) { ritual in
       UnlockView(highlights: [ritual])
     }

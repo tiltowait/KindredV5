@@ -108,8 +108,8 @@ struct BiographyDetail: View {
           .bold()
       }
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle("Biography", displayMode: .inline)
+    .navigationTitle("Biography")
+    .navigationBarTitleDisplayMode(.inline)
     .onDisappear(perform: viewModel.commitChanges)
   }
 }

@@ -29,8 +29,8 @@ struct CharacterRitualsList: View {
         section(school: school)
       }
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle("Rituals", displayMode: .inline)
+    .navigationTitle("Rituals")
+    .navigationBarTitleDisplayMode(.inline)
     .sheet(item: $ritualList) { list in
       NavigationView {
         list
@@ -52,19 +52,7 @@ struct CharacterRitualsList: View {
   func section(school: Ritual.Flavor) -> some View {
     let rituals = viewModel.rituals(forSchool: school)
     
-    return Section(
-      header:
-        HStack {
-          Text(viewModel.sectionTitle(school: school))
-          Spacer()
-          Button {
-            presentRituals(school: school)
-          } label: {
-            Label("Add ritual", systemImage: "plus.circle")
-              .labelStyle(IconOnlyLabelStyle())
-          }
-        }
-    ) {
+    return Section {
       if rituals.isEmpty {
         Button {
           presentRituals(school: school)
@@ -83,10 +71,21 @@ struct CharacterRitualsList: View {
             )
             .contentShape(Rectangle())
           }
-          .buttonStyle(PlainButtonStyle())
+          .buttonStyle(.plain)
         }
         .onDelete { offsets in
           removeRituals(school: school, offsets: offsets)
+        }
+      }
+    } header: {
+      HStack {
+        Text(viewModel.sectionTitle(school: school))
+        Spacer()
+        Button {
+          presentRituals(school: school)
+        } label: {
+          Label("Add ritual", systemImage: "plus.circle")
+            .labelStyle(.iconOnly)
         }
       }
     }

@@ -130,7 +130,7 @@ struct DiceRoller: View, Identifiable {
           }
         } label: {
           Label("Strategy information", systemImage: "info.circle")
-            .labelStyle(IconOnlyLabelStyle())
+            .labelStyle(.iconOnly)
         }
       }
       rerollButtons

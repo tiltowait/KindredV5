@@ -66,7 +66,7 @@ struct CharacterDetail: View {
   var body: some View {
       List {
         // Basic info
-        Section(header: ScrollingImageHeader(kindred: viewModel.kindred, dataController: viewModel.dataController).padding(.bottom, 5)) {
+        Section {
           BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
           BoldTextField("Desire", binding: $viewModel.kindred.desire)
           clanLink
@@ -103,6 +103,12 @@ struct CharacterDetail: View {
             Text("Advantages")
               .font(.headline)
           }
+        } header: {
+          ScrollingImageHeader(
+            kindred: viewModel.kindred,
+            dataController: viewModel.dataController
+          )
+            .padding(.bottom, 5)
         }
         
         // Traits
@@ -151,11 +157,12 @@ struct CharacterDetail: View {
         Trackers(kindred: viewModel.kindred)
         
         if viewModel.kindred.clan?.template == .kindred {
-          BloodPotencyDetail(bloodPotency: BloodPotency(viewModel.kindred.bloodPotency))
+          Section(header: Text("Blood Potency Details")) {
+            BloodPotencyDetail(bloodPotency: BloodPotency(viewModel.kindred.bloodPotency))
+          }
         }
         
       }
-      .listStyle(InsetGroupedListStyle())
       .navigationTitle(viewModel.kindred.name)
       .toolbar {
         menu
@@ -224,21 +231,19 @@ struct CharacterDetail: View {
   ///
   /// If the character has no clan, then the link will go to the clan list.
   /// If the character has a clan, the link goes directly to the clan details.
-  var clanLink: some View {
-    Group {
-      if let clan = viewModel.kindred.clan {
-        NavigationLink(destination: ClanDetail(clan: clan, kindred: viewModel.kindred, reselection: changeClan)) {
-          BoldLabel("Clan:", details: viewModel.clanName, layout: .picker)
-        }
-      } else {
-        Button {
-          showingClanSelectionSheet.toggle()
-        } label: {
-          BoldLabel("Clan:", details: viewModel.clanName, layout: .picker)
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(PlainButtonStyle())
+  @ViewBuilder var clanLink: some View {
+    if let clan = viewModel.kindred.clan {
+      NavigationLink(destination: ClanDetail(clan: clan, kindred: viewModel.kindred, reselection: changeClan)) {
+        BoldLabel("Clan:", details: viewModel.clanName, layout: .picker)
       }
+    } else {
+      Button {
+        showingClanSelectionSheet.toggle()
+      } label: {
+        BoldLabel("Clan:", details: viewModel.clanName, layout: .picker)
+          .contentShape(Rectangle())
+      }
+      .buttonStyle(.plain)
     }
   }
   
@@ -272,9 +277,7 @@ struct CharacterDetail: View {
       } else {
         self.pdfExporter = exporter
       }
-      
     }
-    
   }
   
 }

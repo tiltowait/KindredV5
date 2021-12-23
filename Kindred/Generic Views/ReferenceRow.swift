@@ -65,28 +65,26 @@ struct ReferenceRow: View {
   }
   
   /// The scaled, rounded icon. If the item is locked, then it is grayed out.
-  var formattedIcon: some View {
-    Group {
-      if let icon = icon {
-        if unlocked {
-          icon
-            .resizable()
-            .scaledToFit()
-            .cornerRadius(rounded ? 6 : 0)
-            .frame(height: 55)
-        } else {
-          icon
-            .resizable()
-            .scaledToFit()
-            .colorMultiply(unlocked ? .clear : .secondary)
-            .cornerRadius(rounded ? 6 : 0)
-            .frame(height: 55)
-        }
-      } else if unlocked == false {
-        Image(systemName: "lock.fill")
-          .foregroundColor(color ?? .secondary)
-          .opacity(0.5)
+  @ViewBuilder var formattedIcon: some View {
+    if let icon = icon {
+      if unlocked {
+        icon
+          .resizable()
+          .scaledToFit()
+          .cornerRadius(rounded ? 6 : 0)
+          .frame(height: 55)
+      } else {
+        icon
+          .resizable()
+          .scaledToFit()
+          .colorMultiply(unlocked ? .clear : .secondary)
+          .cornerRadius(rounded ? 6 : 0)
+          .frame(height: 55)
       }
+    } else if unlocked == false {
+      Image(systemName: "lock.fill")
+        .foregroundColor(color ?? .secondary)
+        .opacity(0.5)
     }
   }
   

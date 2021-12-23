@@ -42,13 +42,11 @@ struct Trackers: View {
     }
   }
   
-  var footer: some View {
-    Group {
-      if viewModel.kindred.clan == nil {
-        Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
-          .font(.caption)
-          .foregroundColor(.secondary)
-      }
+  @ViewBuilder var footer: some View {
+    if viewModel.kindred.clan == nil {
+      Text("Missing Blood Potency and Hunger? Don't forget to set your clan!")
+        .font(.caption)
+        .foregroundColor(.secondary)
     }
   }
   
@@ -81,7 +79,7 @@ struct Trackers: View {
             .font(.callout)
             .accentColor(.vampireRed)
             .disabled(!viewModel.canRouse)
-            .buttonStyle(BorderlessButtonStyle())
+            .buttonStyle(.borderless)
           }
         }
         .id(viewModel.kindred.hunger) // Force redraw on change
@@ -199,7 +197,6 @@ struct Trackers_Previews: PreviewProvider {
       List {
         Trackers(kindred: Kindred.example)
       }
-      .listStyle(InsetGroupedListStyle())
     }
   }
 }

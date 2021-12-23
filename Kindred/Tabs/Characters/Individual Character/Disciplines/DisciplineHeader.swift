@@ -25,7 +25,7 @@ struct DisciplineHeader: View {
         buttonPressed.toggle()
       } label: {
         Label("Add \(title)", systemImage: "plus.circle")
-          .labelStyle(IconOnlyLabelStyle())
+          .labelStyle(.iconOnly)
       }
     }
   }
@@ -38,10 +38,9 @@ struct AdvantageHeader_Previews: PreviewProvider {
         Section(header: DisciplineHeader("Disciplines", buttonPressed: .constant(false))) {
           Text("Stuff goes here")
         }
-        .listStyle(GroupedListStyle())
         .navigationTitle("Nadea Theron")
       }
-      .listStyle(GroupedListStyle())
+      .listStyle(.grouped)
     }
   }
 }

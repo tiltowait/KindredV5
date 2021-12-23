@@ -37,7 +37,7 @@ struct ImageTabs: View {
               .scaledToFit()
           }
         }
-        .tabViewStyle(PageTabViewStyle())
+        .tabViewStyle(.page)
       }
       .toolbar {
         ToolbarItem(placement: .bottomBar) {

@@ -21,8 +21,8 @@ struct LoresheetList: View {
     List(loresheets) { loresheet in
       row(loresheet: loresheet)
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle("Loresheets", displayMode: .inline)
+    .navigationTitle("Loresheets")
+    .navigationBarTitleDisplayMode(.inline)
     .sheet(item: $lockedIdentifier) { item in
       UnlockView(highlights: [item])
     }
@@ -52,7 +52,7 @@ struct LoresheetList: View {
         )
         .contentShape(Rectangle())
       }
-      .buttonStyle(PlainButtonStyle())
+      .buttonStyle(.plain)
     }
   }
   

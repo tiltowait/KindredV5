@@ -48,24 +48,20 @@ struct TraitRater: View {
     _specialties = State(wrappedValue: specialties)
   }
   
-  var addSpecialtyButton: some View {
-    Group {
-      if showingSpecialties {
-        Button(action: createSpecialtyManager) {
-          Label("Add specialty", systemImage: "circle.grid.2x2")
-            .labelStyle(IconOnlyLabelStyle())
-        }
-        .buttonStyle(BorderlessButtonStyle())
+  @ViewBuilder var addSpecialtyButton: some View {
+    if showingSpecialties {
+      Button(action: createSpecialtyManager) {
+        Label("Add specialty", systemImage: "circle.grid.2x2")
+          .labelStyle(.iconOnly)
       }
+      .buttonStyle(.borderless)
     }
   }
   
-  var specialtiesLabel: some View {
-    Group {
-      if let specialties = specialties {
-        BoldLabel("Specialties:", details: specialties)
-          .font(.caption)
-      }
+  @ViewBuilder var specialtiesLabel: some View {
+    if let specialties = specialties {
+      BoldLabel("Specialties:", details: specialties)
+        .font(.caption)
     }
   }
   
@@ -90,9 +86,9 @@ struct TraitRater: View {
           showingReferenceAlert.toggle()
         } label: {
           Label("Reference", systemImage: "info.circle")
-            .labelStyle(IconOnlyLabelStyle())
+            .labelStyle(.iconOnly)
         }
-        .buttonStyle(BorderlessButtonStyle())
+        .buttonStyle(.borderless)
       }
       specialtiesLabel
     }

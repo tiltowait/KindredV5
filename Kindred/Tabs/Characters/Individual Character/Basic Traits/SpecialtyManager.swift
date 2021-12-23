@@ -36,8 +36,8 @@ struct SpecialtyManager: View, Identifiable {
           }
         }
       }
-      .listStyle(InsetGroupedListStyle())
-      .navigationBarTitle(viewModel.skill, displayMode: .inline)
+      .navigationTitle(viewModel.skill)
+      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel", action: dismiss)

@@ -18,7 +18,7 @@ struct AddCharacterView: View {
   @State private var importWarnings: [String: [String]]?
   
   var footer: some View {
-    Text("Imports most data from an official interactive character sheet PDF. Certain details, such as disciplines and clan, must be spelled correctly.")
+    Text("Imports most data from an official interactive character sheet PDF. Certain details, such as Disciplines and Clan, must be spelled correctly.")
       .padding(.top)
   }
   
@@ -26,8 +26,6 @@ struct AddCharacterView: View {
     ZStack {
       NavigationView {
         List {
-          Section { } // Empty section for spacing
-
           NavigationLink(destination: CreateCharacterView(dataController: dataController)) {
             Label("Create new character", systemImage: "square.and.pencil")
           }
@@ -41,7 +39,6 @@ struct AddCharacterView: View {
           }
           
         }
-        .listStyle(InsetGroupedListStyle())
         .navigationTitle("Add Character")
         .toolbar {
           ToolbarItem(placement: .cancellationAction) {

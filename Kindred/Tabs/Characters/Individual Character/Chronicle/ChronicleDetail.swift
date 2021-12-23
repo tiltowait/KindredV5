@@ -61,8 +61,8 @@ struct ChronicleDetail: View {
       }
       
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle("Chronicle", displayMode: .inline)
+    .navigationTitle("Chronicle")
+    .navigationBarTitleDisplayMode(.inline)
     .alert(item: $viewModel.errorMessage) { message in
       Alert(
         title: Text("Error"),

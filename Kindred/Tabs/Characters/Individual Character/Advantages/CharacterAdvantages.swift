@@ -38,7 +38,7 @@ struct CharacterAdvantages: View {
     } label: {
       Label("Add advantage", systemImage: "plus.circle")
         .imageScale(.large)
-        .labelStyle(IconOnlyLabelStyle())
+        .labelStyle(.iconOnly)
     }
   }
   
@@ -48,26 +48,24 @@ struct CharacterAdvantages: View {
       .padding(.top)
   }
   
-  var advantageList: some View {
-    Group {
-      ForEach(viewModel.coalesced) { coalesced in
-        Section {
-          AdvantageRow(advantage: coalesced.advantage)
-          ForEach(coalesced.containers) { container in
-            AdvantageOptionView(container: container, dataController: viewModel.dataController)
-          }
-          .onDelete { offsets in
-            viewModel.deleteOption(offsets, parent: coalesced)
-          }
+  @ViewBuilder var advantageList: some View {
+    ForEach(viewModel.coalesced) { coalesced in
+      Section {
+        AdvantageRow(advantage: coalesced.advantage)
+        ForEach(coalesced.containers) { container in
+          AdvantageOptionView(container: container, dataController: viewModel.dataController)
+        }
+        .onDelete { offsets in
+          viewModel.deleteOption(offsets, parent: coalesced)
         }
       }
-      if viewModel.hasLoresheets {
-        Section(header: Text("Loresheets")) {
-          KnownLoresheetGroups(
-            kindred: viewModel.kindred,
-            lockIdentifier: $lockIdentifier
-          )
-        }
+    }
+    if viewModel.hasLoresheets {
+      Section(header: Text("Loresheets")) {
+        KnownLoresheetGroups(
+          kindred: viewModel.kindred,
+          lockIdentifier: $lockIdentifier
+        )
       }
     }
   }
@@ -76,14 +74,18 @@ struct CharacterAdvantages: View {
     List {
       if !viewModel.hasAdvantages {
         Section(header: instructions) { }
-          .textCase(nil)
+        .textCase(nil)
       } else {
         advantageList
       }
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarItems(trailing: menu)
-    .navigationBarTitle("Advantages", displayMode: .inline)
+    .navigationTitle("Advantages")
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem {
+        menu
+      }
+    }
     .sheet(isPresented: $showingAddAdvantageSheet) {
       addAdvantageSheet
     }

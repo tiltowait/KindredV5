@@ -20,21 +20,21 @@ struct AdvantageList: View {
     List {
       Section(header: Text("Merits & Flaws")) {
         ForEach(viewModel.merits) { advantage in
-          label(for: advantage)
+          link(for: advantage)
         }
       }
       
       Section(header: Text("Backgrounds")) {
         ForEach(viewModel.backgrounds) { advantage in
-          label(for: advantage)
+          link(for: advantage)
         }
       }
     }
-    .navigationBarTitle("Advantages", displayMode: .inline)
-    .listStyle(InsetGroupedListStyle())
+    .navigationTitle("Advantages")
+    .navigationBarTitleDisplayMode(.inline)
   }
   
-  func label(for advantage: Advantage) -> some View {
+  func link(for advantage: Advantage) -> some View {
     NavigationLink(destination: AdvantageView(advantage: advantage, kindred: viewModel.kindred, dataController: viewModel.dataController!)) {
       AdvantageRow(advantage: advantage)
     }

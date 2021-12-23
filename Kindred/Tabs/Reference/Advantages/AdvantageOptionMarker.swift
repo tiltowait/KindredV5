@@ -12,17 +12,15 @@ struct AdvantageOptionMarker: View {
   let count: Int
   let square: Bool
   
-  var shape: some View {
-    Group {
-      if square {
-        Rectangle()
-          .fill(Color.black)
-          .frame(width: 8, height: 8)
-      } else {
-        Circle()
-          .fill(Color.black)
-          .frame(width: 6, height: 6)
-      }
+  @ViewBuilder var shape: some View {
+    if square {
+      Rectangle()
+        .fill(Color.primary)
+        .frame(width: 8, height: 8)
+    } else {
+      Circle()
+        .fill(Color.primary)
+        .frame(width: 6, height: 6)
     }
   }
   
@@ -38,5 +36,6 @@ struct AdvantageOptionMarker: View {
 struct AdvantageOptionMarker_Previews: PreviewProvider {
   static var previews: some View {
     AdvantageOptionMarker(count: 2, square: true)
+      
   }
 }

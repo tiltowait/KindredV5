@@ -33,7 +33,7 @@ struct CreateCharacterView: View {
           )
           .contentShape(Rectangle())
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
       }
       
       Section {
@@ -57,13 +57,13 @@ struct CreateCharacterView: View {
           .centered()
       }
     }
-    .listStyle(GroupedListStyle())
+    .listStyle(.grouped)
     .navigationTitle("Create Character")
     .sheet(isPresented: $viewModel.showingClanSheet) {
       NavigationView {
         ClanList(kindred: viewModel.dummyCharacter, dataController: viewModel.dataController)
       }
-      .navigationViewStyle(StackNavigationViewStyle())
+      .navigationViewStyle(.stack)
     }
     .onDisappear(perform: viewModel.deleteDummy)
   }

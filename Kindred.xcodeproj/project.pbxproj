@@ -86,7 +86,6 @@
 		286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF84265D930500AAA469 /* DisciplineRow.swift */; };
 		286FBF87265D94B900AAA469 /* DisciplineList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF86265D94B900AAA469 /* DisciplineList.swift */; };
 		286FBF8A265D978400AAA469 /* ReferenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF89265D978400AAA469 /* ReferenceList.swift */; };
-		286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8B265D98BA00AAA469 /* IconFooter.swift */; };
 		286FBF90265D9EDF00AAA469 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF8F265D9EDF00AAA469 /* Color+.swift */; };
 		2870436A26823C71005F6589 /* PlainTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436926823C71005F6589 /* PlainTextHeader.swift */; };
 		2870436E26824110005F6589 /* AdvantageContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436D26824110005F6589 /* AdvantageContainer+.swift */; };
@@ -287,7 +286,6 @@
 		286FBF84265D930500AAA469 /* DisciplineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineRow.swift; sourceTree = "<group>"; };
 		286FBF86265D94B900AAA469 /* DisciplineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineList.swift; sourceTree = "<group>"; };
 		286FBF89265D978400AAA469 /* ReferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceList.swift; sourceTree = "<group>"; };
-		286FBF8B265D98BA00AAA469 /* IconFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFooter.swift; sourceTree = "<group>"; };
 		286FBF8F265D9EDF00AAA469 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		2870436926823C71005F6589 /* PlainTextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextHeader.swift; sourceTree = "<group>"; };
 		2870436D26824110005F6589 /* AdvantageContainer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageContainer+.swift"; sourceTree = "<group>"; };
@@ -423,8 +421,8 @@
 		2813CAC8269CB2AD005356D9 /* Chronicle */ = {
 			isa = PBXGroup;
 			children = (
-				2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */,
 				2813CAC9269CB2B6005356D9 /* ChronicleDetail.swift */,
+				2813CACB269CB2BF005356D9 /* ChronicleDetailViewModel.swift */,
 			);
 			path = Chronicle;
 			sourceTree = "<group>";
@@ -433,8 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				281F80422681388900B5B387 /* AdvantageList.swift */,
-				287F87F82682575D00DF140E /* AdvantageRow.swift */,
 				281F8044268138A200B5B387 /* AdvantageListViewController.swift */,
+				287F87F82682575D00DF140E /* AdvantageRow.swift */,
 				28189D632681449E0099E8DF /* AdvantageView.swift */,
 				28189D65268145CF0099E8DF /* AdvantageViewModel.swift */,
 				28189D6726814A520099E8DF /* AdvantageOptionView.swift */,
@@ -568,7 +566,6 @@
 				28474425267832D200C1E3A5 /* DotView.swift */,
 				28BECB5626E2A6AA004E7E0A /* ProductView.swift */,
 				28BECB5A26E2A85C004E7E0A /* UnlockView.swift */,
-				286FBF8B265D98BA00AAA469 /* IconFooter.swift */,
 				284CF5BE2677D401007B298B /* ImageTabs.swift */,
 				28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */,
 				2856DCD7269E33CB00B39866 /* MenuPicker.swift */,
@@ -614,8 +611,8 @@
 		286BE43A269635F800C19D57 /* Loresheets */ = {
 			isa = PBXGroup;
 			children = (
-				286BE43D2696361600C19D57 /* AddLoresheetListViewController.swift */,
 				286BE43B2696360900C19D57 /* AddLoresheetList.swift */,
+				286BE43D2696361600C19D57 /* AddLoresheetListViewController.swift */,
 				28BFB606269647D5005DE923 /* KnownLoresheetGroups.swift */,
 				28BFB608269647E0005DE923 /* KnownLoresheetGroupsViewModel.swift */,
 			);
@@ -783,8 +780,8 @@
 				28B40CEC26961A420058BE50 /* LoresheetList.swift */,
 				28B40CF026961E360058BE50 /* LoresheetDetailViewController.swift */,
 				28B40CEE26961E100058BE50 /* LoresheetDetail.swift */,
-				28692FB92696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift */,
 				28692FB72696288100CEA2C5 /* LoresheetEntryDetail.swift */,
+				28692FB92696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift */,
 			);
 			path = Loresheets;
 			sourceTree = "<group>";
@@ -827,11 +824,11 @@
 		28CD0D45267E7BD800ED8635 /* Clans */ = {
 			isa = PBXGroup;
 			children = (
-				28138777267D7BC4006DA73C /* ClanListViewController.swift */,
 				28138775267D7BB7006DA73C /* ClanList.swift */,
+				28138777267D7BC4006DA73C /* ClanListViewController.swift */,
 				2813877B267D7DA2006DA73C /* ClanRow.swift */,
-				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
 				28138771267D70CF006DA73C /* ClanDetail.swift */,
+				28138773267D70D8006DA73C /* ClanDetailViewModel.swift */,
 			);
 			path = Clans;
 			sourceTree = "<group>";
@@ -871,8 +868,8 @@
 		28F8280B26B86FE900253281 /* Rituals */ = {
 			isa = PBXGroup;
 			children = (
-				28F8280E26B8700100253281 /* CharacterRitualsListViewModel.swift */,
 				28F8280C26B86FF800253281 /* CharacterRitualsList.swift */,
+				28F8280E26B8700100253281 /* CharacterRitualsListViewModel.swift */,
 			);
 			path = Rituals;
 			sourceTree = "<group>";
@@ -1134,7 +1131,6 @@
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
 				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,
 				28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */,
-				286FBF8C265D98BA00AAA469 /* IconFooter.swift in Sources */,
 				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,

@@ -35,7 +35,8 @@ struct AdvantageView: View {
         }
       }
     }
-    .navigationBarTitle(viewModel.title, displayMode: .inline)
+    .navigationTitle(viewModel.title)
+    .navigationBarTitleDisplayMode(.inline)
   }
   
 }

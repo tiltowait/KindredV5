@@ -34,7 +34,7 @@ struct KnownDisciplinesGroups: View {
             )
             .contentShape(Rectangle())
           }
-          .buttonStyle(PlainButtonStyle())
+          .buttonStyle(.plain)
         }
         .onDelete { offsets in
           removePowers(at: offsets, in: discipline)
@@ -73,7 +73,6 @@ struct KnownDisciplinesList_Previews: PreviewProvider {
             .environmentObject(DataController.preview)
         }
       }
-      .listStyle(GroupedListStyle())
     }
   }
 }

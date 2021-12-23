@@ -37,11 +37,11 @@ struct ClanList: View {
           ClanRow(clan: clan, unlocked: false)
             .contentShape(Rectangle())
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
       }
     }
-    .listStyle(InsetGroupedListStyle())
-    .navigationBarTitle("Clans", displayMode: .inline)
+    .navigationTitle("Clans")
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .cancellationAction) {
         if viewModel.showCancelButton {

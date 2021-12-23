@@ -24,8 +24,8 @@ struct AddLoresheetList: View {
         loresheetSection("Known", loresheets: viewModel.knownLoresheets)
         loresheetSection("Unknown", loresheets: viewModel.unknownLoresheets)
       }
-      .listStyle(InsetGroupedListStyle())
-      .navigationBarTitle("Add Loresheet", displayMode: .inline)
+      .navigationTitle("Add Loresheet")
+      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel", action: dismiss)

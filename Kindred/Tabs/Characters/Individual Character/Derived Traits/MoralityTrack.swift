@@ -34,7 +34,7 @@ struct MoralityTrack: View {
     }
     .font(.callout)
     .accentColor(.vampireRed)
-    .buttonStyle(BorderlessButtonStyle())
+    .buttonStyle(.borderless)
   }
   
   var body: some View {
@@ -75,7 +75,6 @@ struct MoralityTrack: View {
     withAnimation {
       viewModel.degen()
     }
-    
     Global.hapticTap(engine: engine)
   }
   
@@ -150,7 +149,6 @@ struct MoralityTracker_Previews: PreviewProvider {
     List {
       MoralityTrack(kindred: Kindred.example)
     }
-    .listStyle(InsetGroupedListStyle())
   }
 }
 #endif

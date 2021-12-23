@@ -11,7 +11,7 @@ extension View {
   
   func phoneOnlyStackNavigationView() -> some View {
     if UIDevice.current.userInterfaceIdiom == .phone {
-      return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
+      return AnyView(self.navigationViewStyle(.stack))
     } else {
       return AnyView(self)
     }

@@ -39,7 +39,7 @@ struct LoresheetEntryDetail: View {
         Button(action: addToKindred) {
           Image(systemName: imageName)
             .imageScale(.large)
-            .labelStyle(IconOnlyLabelStyle())
+            .labelStyle(.iconOnly)
         }
         .disabled(viewModel.buttonToShow == .have)
       }

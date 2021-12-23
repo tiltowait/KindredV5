@@ -36,13 +36,6 @@ struct ScrollingImageHeader: View {
     return images.map { Image(uiImage: $0) }
   }
   
-  var addImageButton: some View {
-    Image(systemName: "photo")
-      .resizable()
-      .scaledToFit()
-      .frame(width: 30)
-  }
-  
   var body: some View {
     ScrollView(.horizontal) {
       LazyHStack {
@@ -62,7 +55,10 @@ struct ScrollingImageHeader: View {
         Button {
           showingImagePicker.toggle()
         } label: {
-          addImageButton
+          Image(systemName: "photo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 30)
         }
       }
       .sheet(isPresented: $showingImagePicker) {

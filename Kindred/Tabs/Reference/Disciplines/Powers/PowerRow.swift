@@ -29,12 +29,6 @@ struct PowerRow: View {
           .foregroundColor(isUnlocked ? .primary : .secondary)
         Spacer()
         
-//        if power.sourceBook != .core {
-//          Circle()
-//            .foregroundColor(power.sourceBook.color)
-//            .frame(width: 15, height: 15)
-//        }
-        
         Text(power.sourceBook.reference(page: power.page))
           .multilineTextAlignment(.trailing)
           .font(.caption)

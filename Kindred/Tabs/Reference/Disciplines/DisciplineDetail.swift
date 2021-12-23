@@ -23,9 +23,7 @@ struct DisciplineDetail: View {
   
   var body: some View {
     List {
-      PlainTextHeader(viewModel.headerText)
-      
-      Section(footer: IconFooter(icon: viewModel.icon)) {
+      Section {
         ForEach(viewModel.availablePowers) { power in
           Button {
             show(power: power)
@@ -36,12 +34,24 @@ struct DisciplineDetail: View {
             )
             .contentShape(Rectangle())
           }
-          .buttonStyle(PlainButtonStyle())
+          .buttonStyle(.plain)
         }
+      } header: {
+        VStack(spacing: 10) {
+          Image(viewModel.icon)
+            .resizable()
+            .frame(width: 80, height: 80)
+          Text(viewModel.headerText)
+            .font(.system(size: 16))
+            .textCase(nil)
+        }
+        .padding(.bottom, 5)
+        .padding(.top, -40)
+        .centered()
       }
     }
-    .navigationBarTitle(viewModel.title, displayMode: .inline)
-    .listStyle(InsetGroupedListStyle())
+    .navigationTitle(viewModel.title)
+    .navigationBarTitleDisplayMode(.inline)
     .sheet(item: $unlockItem) { item in
       UnlockView(highlights: [item])
     }

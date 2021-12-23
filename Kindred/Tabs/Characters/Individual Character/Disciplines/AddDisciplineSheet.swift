@@ -20,24 +20,22 @@ struct AddDisciplineSheet: View {
     _link = link
   }
   
-  var inClan: some View {
-    Group {
-      if let disciplines = viewModel.inClanDisciplines {
-        ForEach(disciplines) { discipline in
-          NavigationLink(
-            destination: DisciplineDetail(
-              discipline: discipline,
-              kindred: viewModel.kindred,
-              link: $link
-            )
-          ) {
-            DisciplineRow(discipline: discipline)
-          }
+  @ViewBuilder var inClan: some View {
+    if let disciplines = viewModel.inClanDisciplines {
+      ForEach(disciplines) { discipline in
+        NavigationLink(
+          destination: DisciplineDetail(
+            discipline: discipline,
+            kindred: viewModel.kindred,
+            link: $link
+          )
+        ) {
+          DisciplineRow(discipline: discipline)
         }
-      } else {
-        Text("No clan selected")
-          .foregroundColor(.secondary)
       }
+    } else {
+      Text("No clan selected")
+        .foregroundColor(.secondary)
     }
   }
   
@@ -87,8 +85,8 @@ struct AddDisciplineSheet: View {
           unknownOutOfClan
         }
       }
-      .listStyle(InsetGroupedListStyle())
-      .navigationBarTitle("Add Power", displayMode: .inline)
+      .navigationTitle("Add Power")
+      .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
           Button("Cancel") {

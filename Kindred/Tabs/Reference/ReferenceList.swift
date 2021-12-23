@@ -21,8 +21,6 @@ struct ReferenceList: View {
   var body: some View {
     NavigationView {
       List {
-        Section { } // Empty section for spacing
-        
         Section(footer: footer) {
           NavigationLink(destination: AdvantageList(dataController: dataController)) {
             Text("Advantages")
@@ -86,7 +84,6 @@ struct ReferenceList: View {
         }
       }
       .navigationTitle("Reference")
-      .listStyle(InsetGroupedListStyle())
       
       Text("Select an item on the left.")
         .foregroundColor(.secondary)

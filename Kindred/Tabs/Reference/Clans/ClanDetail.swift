@@ -23,13 +23,11 @@ struct ClanDetail: View {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
   
-  var selectionButton: some View {
-    Group {
-      if viewModel.selectButtonVisible {
-        Button("Select Clan", action: selectClan)
-      } else if viewModel.reselectButtonVisible {
-        Button("Change Clan", action: viewModel.reselection!)
-      }
+  @ViewBuilder var selectionButton: some View {
+    if viewModel.selectButtonVisible {
+      Button("Select Clan", action: selectClan)
+    } else if viewModel.reselectButtonVisible {
+      Button("Change Clan", action: viewModel.reselection!)
     }
   }
   
@@ -91,9 +89,11 @@ struct ClanDetail: View {
         .padding()
       }
     }
-    .sheet(item: $selectedDiscipline, content: disciplineSheet)
     .navigationBarTitleDisplayMode(.inline)
-    .navigationBarItems(trailing: selectionButton)
+    .toolbar {
+      selectionButton
+    }
+    .sheet(item: $selectedDiscipline, content: disciplineSheet)
   }
   
   func disciplineBox(_ discipline: Discipline) -> some View {
@@ -108,13 +108,14 @@ struct ClanDetail: View {
           .font(.system(size: 14, weight: .heavy, design: .serif).lowercaseSmallCaps())
       }
     }
-    .buttonStyle(PlainButtonStyle())
+    .buttonStyle(.plain)
   }
   
   func infoBox(_ title: LocalizedStringKey, contents: String) -> some View {
     VStack(alignment: .leading, spacing: 10) {
       Text(title)
         .font(.system(size: 20, weight: .heavy, design: .serif))
+        .foregroundColor(.vampireRed)
       Text(contents)
         .fixedSize(horizontal: false, vertical: true)
     }

@@ -26,8 +26,7 @@ struct BoldTextField: View {
   
   var body: some View {
     HStack {
-      Text("\(label):")
-        .bold()
+      Text("**\(label):**")
       TextField("No \(label.lowercased()) set", text: $binding)
     }
   }

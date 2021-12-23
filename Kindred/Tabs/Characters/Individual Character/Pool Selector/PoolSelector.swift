@@ -62,7 +62,7 @@ struct PoolSelector: View {
             .padding(.vertical, 3)
             .background(
               RoundedRectangle(cornerRadius: 7)
-                .fill(Color.blue)
+                .fill(.blue)
                 .shadow(radius: 3)
             )
         }
@@ -201,7 +201,7 @@ fileprivate struct PhonyDisclosureGroup: View {
           .foregroundColor(.blue)
       }
       .contentShape(Rectangle())
-      .buttonStyle(PlainButtonStyle())
+      .buttonStyle(.plain)
       
       if isExpanded {
         ButtonPad(
@@ -225,7 +225,7 @@ fileprivate struct PhonyDisclosureGroup: View {
 fileprivate extension VStack {
   
   /// Inset the VStack inside a rounded rect. Can mimic the appearance
-  /// of InsetGroupedListStyle().
+  /// of InsetGroupedListStyle.
   /// - Returns: The inset VStack.
   func inset() -> some View {
     self

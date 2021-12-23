@@ -131,7 +131,10 @@ struct AdvantageOptionView: View {
   ///   - max: The maximum number of dots.
   /// - Returns: The generated string.
   func ratingRange(min: Int16, max: Int16) -> String {
-    "(\(String(repeating: "•", count: Int(abs(min)))) to \(String(repeating: "•", count: Int(abs(max)))))"
+    let minimum = String(repeating: "•", count: Int(abs(min)))
+    let maximum = String(repeating: "•", count: Int(abs(max)))
+    
+    return "(\(minimum) to \(maximum))"
   }
   
   /// Add the current AdvantageOption to the current character.
