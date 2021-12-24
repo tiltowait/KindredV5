@@ -30,6 +30,7 @@ struct AdvantageList: View {
         }
       }
     }
+    .listStyle(.insetGrouped)
     .navigationTitle("Advantages")
     .navigationBarTitleDisplayMode(.inline)
   }

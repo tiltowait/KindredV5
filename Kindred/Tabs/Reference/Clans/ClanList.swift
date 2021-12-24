@@ -40,6 +40,7 @@ struct ClanList: View {
         .buttonStyle(.plain)
       }
     }
+    .listStyle(.insetGrouped)
     .navigationTitle("Clans")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {

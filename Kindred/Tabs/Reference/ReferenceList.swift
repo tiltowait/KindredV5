@@ -28,14 +28,14 @@ struct ReferenceList: View {
           }
           .isDetailLink(false)
           
-          NavigationLink(destination: DisciplineList()) {
-            Text("Disciplines")
+          NavigationLink(destination: ClanList(dataController: dataController)) {
+            Text("Clans")
               .font(.headline)
           }
           .isDetailLink(false)
           
-          NavigationLink(destination: ClanList(dataController: dataController)) {
-            Text("Clans")
+          NavigationLink(destination: DisciplineList()) {
+            Text("Disciplines")
               .font(.headline)
           }
           .isDetailLink(false)
@@ -83,6 +83,7 @@ struct ReferenceList: View {
           .isDetailLink(true)
         }
       }
+      .listStyle(.insetGrouped)
       .navigationTitle("Reference")
       
       Text("Select an item on the left.")

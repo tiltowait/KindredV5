@@ -21,6 +21,7 @@ struct LoresheetList: View {
     List(loresheets) { loresheet in
       row(loresheet: loresheet)
     }
+    .listStyle(.insetGrouped)
     .navigationTitle("Loresheets")
     .navigationBarTitleDisplayMode(.inline)
     .sheet(item: $lockedIdentifier) { item in

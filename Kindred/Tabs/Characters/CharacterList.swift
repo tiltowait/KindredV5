@@ -40,6 +40,7 @@ struct CharacterList: View {
           Button("Add a character", action: viewModel.addCharacter)
         }
       }
+      .listStyle(.insetGrouped)
       .navigationTitle("Characters")
       .toolbar {
         Button(action: viewModel.addCharacter) {
