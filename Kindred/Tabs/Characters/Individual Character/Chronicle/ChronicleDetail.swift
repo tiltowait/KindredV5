@@ -18,7 +18,8 @@ struct ChronicleDetail: View {
   
   var body: some View {
     List {
-      BoldTextField("Chronicle", binding: $viewModel.chronicle)
+      TextField("Chronicle name", text: $viewModel.chronicle)
+        .boldLabel("Chronicle:")
       DatePicker(
         selection: $viewModel.inGameDate,
         displayedComponents: .date

@@ -67,8 +67,10 @@ struct CharacterDetail: View {
       List {
         // Basic info
         Section {
-          BoldTextField("Ambition", binding: $viewModel.kindred.ambition)
-          BoldTextField("Desire", binding: $viewModel.kindred.desire)
+          TextField("Long-term ambition", text: $viewModel.kindred.ambition)
+            .boldLabel("Ambition:")
+          TextField("Short-term desire", text: $viewModel.kindred.desire)
+            .boldLabel("Desire:")
           clanLink
           if (viewModel.kindred.clan != nil) {
             RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)

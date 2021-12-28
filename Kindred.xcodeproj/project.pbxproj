@@ -50,7 +50,6 @@
 		282EC8482656EEB90086B14F /* KindredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8472656EEB90086B14F /* KindredTests.swift */; };
 		282EC8532656EEB90086B14F /* KindredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282EC8522656EEB90086B14F /* KindredUITests.swift */; };
 		2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */; };
-		2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CAC9267A7F3300160A96 /* BoldTextField.swift */; };
 		2833CAD0267A978900160A96 /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833CACF267A978900160A96 /* TextFieldAlert.swift */; };
 		28386F5926585D9C00E90445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5826585D9C00E90445 /* Constants.swift */; };
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
@@ -250,7 +249,6 @@
 		282EC8522656EEB90086B14F /* KindredUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindredUITests.swift; sourceTree = "<group>"; };
 		282EC8542656EEB90086B14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseKindredViewModel.swift; sourceTree = "<group>"; };
-		2833CAC9267A7F3300160A96 /* BoldTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldTextField.swift; sourceTree = "<group>"; };
 		2833CACF267A978900160A96 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		28386F5826585D9C00E90445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
@@ -560,7 +558,6 @@
 				287BE4F926A3736A00CBCD41 /* Button Styles */,
 				28E02DE1269CCAB700BBC86E /* ActivityViewController.swift */,
 				28A1E9F02677B73B0084F483 /* BoldLabel.swift */,
-				2833CAC9267A7F3300160A96 /* BoldTextField.swift */,
 				281E21F8267D419200B49C37 /* CenteredModifier.swift */,
 				287F87FA2682738800DF140E /* DotSelector.swift */,
 				28474425267832D200C1E3A5 /* DotView.swift */,
@@ -1169,7 +1166,6 @@
 				283DE7F02677F3BB00876573 /* ScrollingImageHeaderViewModel.swift in Sources */,
 				28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */,
 				28E02DE2269CCAB700BBC86E /* ActivityViewController.swift in Sources */,
-				2833CACA267A7F3300160A96 /* BoldTextField.swift in Sources */,
 				28452BB626976AB3002BA7EA /* CharacterExporter.swift in Sources */,
 				28ADF7F3267A579200D97D2A /* Examples.swift in Sources */,
 				283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */,

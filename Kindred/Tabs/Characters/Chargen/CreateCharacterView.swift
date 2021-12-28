@@ -22,7 +22,8 @@ struct CreateCharacterView: View {
         .textCase(nil)
       
       Section {
-        BoldTextField("Name", binding: $viewModel.name)
+        TextField("Character name", text: $viewModel.name)
+          .boldLabel("Name:")
         Button {
           viewModel.showClanSheet()
         } label: {
@@ -37,15 +38,17 @@ struct CreateCharacterView: View {
       }
       
       Section {
-        BoldTextField("Concept", binding: $viewModel.concept)
-        BoldTextField("Ambition", binding: $viewModel.ambition)
-        BoldTextField("Desire", binding: $viewModel.desire)
+        TextField("Overarching concept", text: $viewModel.concept)
+          .boldLabel("Concept:")
+        TextField("Long-term ambition", text: $viewModel.ambition)
+          .boldLabel("Ambition:")
+        TextField("Short-term desire", text: $viewModel.desire)
+          .boldLabel("Desire:")
       }
       
       Section {
         DatePicker(selection: $viewModel.birthdate, in: ...Date(), displayedComponents: .date) {
-          Text("Birthdate:")
-            .bold()
+          Text("**Birthdate:**")
         }
       }
       Section {

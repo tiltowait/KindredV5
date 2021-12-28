@@ -35,8 +35,10 @@ struct BiographyDetail: View {
       }
       
       Section {
-        BoldTextField("Concept", binding: $viewModel.concept)
-        BoldTextField("Title", binding: $viewModel.title)
+        TextField("Overarching oncept", text: $viewModel.concept)
+          .boldLabel("Concept:")
+        TextField("In-game station", text: $viewModel.title)
+          .boldLabel("Title:")
         
         DatePicker(
           selection: $viewModel.birthdate,
@@ -55,10 +57,13 @@ struct BiographyDetail: View {
             Text("\(transitionTerm):")
               .bold()
           }
-          BoldTextField(viewModel.benefactorTerm, binding: $viewModel.benefactor)
+          TextField("Name", text: $viewModel.benefactor)
+            .boldLabel("\(viewModel.benefactorTerm):")
         }
-        BoldTextField("Height", binding: $viewModel.height)
-        BoldTextField("Weight", binding: $viewModel.weight)
+        TextField("Not set", text: $viewModel.height)
+          .boldLabel("Height:")
+        TextField("Not set", text: $viewModel.weight)
+          .boldLabel("Weight:")
       }
       
       DisclosureGroup {

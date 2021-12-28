@@ -24,4 +24,16 @@ extension View {
       .lineLimit(1)
   }
   
+  func boldLabel(_ text: LocalizedStringKey) -> some View {
+    HStack {
+      Text(text)
+        .bold()
+      self
+    }
+  }
+  
+  func boldLabel(_ text: String) -> some View {
+    boldLabel(LocalizedStringKey(text))
+  }
+  
 }
