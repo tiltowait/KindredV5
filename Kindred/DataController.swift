@@ -163,7 +163,7 @@ class DataController: ObservableObject {
     
     if cdVersion.version < self.sqliteReferenceVersion {
       print("Fetching new items")
-      let oldVersion = 1 //Int(cdVersion.version)
+      let oldVersion = Int(cdVersion.version)
       do {
         try DisciplineImporter.importAll(after: oldVersion, context: container.viewContext)
         try ClanImporter.importAll(after: oldVersion, context: container.viewContext)
