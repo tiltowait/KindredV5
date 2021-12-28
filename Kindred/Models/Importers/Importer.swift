@@ -24,4 +24,8 @@ protocol Importer {
   ///   - context: The context for storing the data.
   static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws
   
+  /// Find and remove duplicate items based on their refIDs.
+  /// - Parameter context: The Core Data context to search.
+  static func removeDuplicates(in context: NSManagedObjectContext) throws
+  
 }

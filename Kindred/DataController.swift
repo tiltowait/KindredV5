@@ -163,7 +163,7 @@ class DataController: ObservableObject {
     
     if cdVersion.version < self.sqliteReferenceVersion {
       print("Fetching new items")
-      let oldVersion = Int(cdVersion.version)
+      let oldVersion = 1 //Int(cdVersion.version)
       do {
         try DisciplineImporter.importAll(after: oldVersion, context: container.viewContext)
         try ClanImporter.importAll(after: oldVersion, context: container.viewContext)
@@ -182,6 +182,8 @@ class DataController: ObservableObject {
       defaults.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
     }
     
+    removeDuplicates()
+    
     #if DEBUG
     print("Stored version: \(udReferenceVersion)")
     print("SQLite version: \(sqliteReferenceVersion)")
@@ -196,6 +198,18 @@ class DataController: ObservableObject {
     print("\(self.countAll(Ritual.self)) rituals")
     #endif
     
+  }
+  
+  private func removeDuplicates() {
+    do {
+      try LoresheetImporter.removeDuplicates(in: container.viewContext)
+      try RitualImporter.removeDuplicates(in: container.viewContext)
+      try DisciplineImporter.removeDuplicates(in: container.viewContext)
+      try ClanImporter.removeDuplicates(in: container.viewContext)
+      try AdvantageImporter.removeDuplicates(in: container.viewContext)
+    } catch {
+      print(error.localizedDescription)
+    }
   }
   
   /// Fetch all objects matching a particular request.

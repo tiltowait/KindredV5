@@ -23,6 +23,21 @@ extension Array {
   
 }
 
+extension Array where Element: InfoItem {
+  
+  func maxVersion() -> Element? {
+    self.max(by: { $0.version < $1.version })
+  }
+  
+  mutating func removeMax() -> Element? {
+    guard let max = maxVersion() else { return nil }
+    let indexOfMax = firstIndex { $0 == max }
+    
+    return self.remove(at: indexOfMax!)
+  }
+  
+}
+
 extension Collection {
   
   /// Return the number of elements that satisfy a given predicate.

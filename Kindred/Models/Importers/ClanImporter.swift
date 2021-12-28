@@ -66,6 +66,41 @@ enum ClanImporter: Importer {
       clan.header = row[header]
       
       clan.refID = refID
+      clan.version = Int16(row[version])
+    }
+  }
+  
+  static func removeDuplicates(in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Clan> = Clan.fetchRequest()
+    let allClans = try context.fetch(request)
+    
+    let groups = Dictionary(grouping: allClans, by: \.refID)
+    var toDelete: [Clan] = []
+    
+    for (_, var clans) in groups {
+      guard clans.count > 1 else { continue }
+      
+      guard let keptClan = clans.removeMax() else { continue }
+      
+      for removedClan in clans {
+        if let loresheets = removedClan.referencingLoresheets {
+          keptClan.addToReferencingLoresheets(loresheets)
+        }
+        
+        if let kindred = removedClan.kindred {
+          keptClan.addToKindred(kindred)
+        }
+        
+        if let disciplines = removedClan.disciplines {
+          keptClan.addToDisciplines(disciplines)
+        }
+        
+        toDelete.append(removedClan)
+      }
+    }
+    
+    for clan in toDelete {
+      context.delete(clan)
     }
   }
   

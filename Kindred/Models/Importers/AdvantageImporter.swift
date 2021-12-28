@@ -29,6 +29,7 @@ enum AdvantageImporter: Importer {
       advantage.info = row[info]
       advantage.isBackground = row[isBackground] == 1
       advantage.refID = refID
+      advantage.version = Int16(row[version])
     }
     
     try Self.importOptions(after: currentVersion, context: context)
@@ -58,12 +59,42 @@ enum AdvantageImporter: Importer {
       option.page = Int16(row[page])
       option.minRating = Int16(row[min])
       option.maxRating = Int16(row[max])
+      option.version = Int16(row[version])
       
       guard let parentAdvantage = Advantage.fetchObject(named: row[parent], in: context) else {
         throw ImportError.invalidReference("No Advantage named \(row[parent])")
       }
       option.parent = parentAdvantage
       option.refID = refID
+    }
+  }
+  
+  static func removeDuplicates(in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Advantage> = Advantage.fetchRequest()
+    let allAdvantages = try context.fetch(request)
+    
+    let groups = Dictionary(grouping: allAdvantages, by: \.refID)
+    var toDelete: [Advantage] = []
+    
+    for (_, var advantages) in groups {
+      guard advantages.count > 1,
+            let keptAdvantage = advantages.removeMax()
+      else { continue }
+      
+      for removedAdvantage in advantages {
+        for removedOption in removedAdvantage.allOptions {
+          if let containers = removedOption.containers {
+            if let keptOption = keptAdvantage.allOptions.first(where: { $0.refID == removedOption.refID }) {
+              keptOption.addToContainers(containers)
+            }
+          }
+        }
+        toDelete.append(removedAdvantage)
+      }
+    }
+    
+    for advantage in toDelete {
+      context.delete(advantage)
     }
   }
   

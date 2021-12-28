@@ -42,6 +42,7 @@ enum RitualImporter: Importer {
       ritual.source = Int16(row[source])
       ritual.page = Int16(row[page])
       ritual.refID = refID
+      ritual.version = Int16(row[version])
       
       if let prerequisite = row[prerequisite] {
         // Ritual has a prerequisite power. This is currently only the case for Oblivion ceremonies.
@@ -56,6 +57,31 @@ enum RitualImporter: Importer {
         throw ImportError.invalidReference("\(disciplineName) is not a valid discipline.")
       }
       ritual.discipline = discipline
+    }
+  }
+  
+  static func removeDuplicates(in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
+    let allRituals = try context.fetch(request)
+    
+    let groups = Dictionary(grouping: allRituals, by: \.refID)
+    var toDelete: [Ritual] = []
+    
+    for (_, var rituals) in groups {
+      if rituals.count == 1 { continue }
+      
+      guard let keptRitual = rituals.removeMax() else { continue }
+      
+      for removedRitual in rituals {
+        guard let kindred = removedRitual.referencingKindred else { continue }
+        keptRitual.addToReferencingKindred(kindred)
+        
+        toDelete.append(removedRitual)
+      }
+    }
+    
+    for ritual in toDelete {
+      context.delete(ritual)
     }
   }
   

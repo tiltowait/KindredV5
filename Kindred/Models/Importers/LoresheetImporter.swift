@@ -32,6 +32,7 @@ enum LoresheetImporter: Importer {
       loresheet.source = Int16(row[source])
       loresheet.page = Int16(row[page])
       loresheet.refID = refID
+      loresheet.version = Int16(row[version])
       
       // Loresheets can have multiple clan entries
       if let clanNames = row[clan]?.components(separatedBy: ", ") {
@@ -67,12 +68,42 @@ enum LoresheetImporter: Importer {
       loresheetItem.info = row[info]
       loresheetItem.level = Int16(row[level])
       loresheetItem.refID = refID
+      loresheetItem.version = Int16(row[version])
       
       let parentName = row[parent]
       guard let parentLoresheet = Loresheet.fetchObject(named: parentName, in: context) else {
         throw ImportError.invalidReference("\(parentName) is not a valid loresheet!")
       }
       loresheetItem.parent = parentLoresheet
+    }
+  }
+  
+  static func removeDuplicates(in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Loresheet> = Loresheet.fetchRequest()
+    let allLoresheets = try context.fetch(request)
+    
+    let groups = Dictionary(grouping: allLoresheets, by: \.refID)
+    var toDelete: [Loresheet] = []
+    
+    for (_, var loresheets) in groups {
+      if loresheets.count > 1 {
+        guard let keeping = loresheets.removeMax() else { continue }
+        
+        for loresheet in loresheets {
+          for removedEntry in loresheet.entries {
+            guard let kindred = removedEntry.referencingKindred else { continue }
+            
+            if let keptMerit = keeping.entries.first(where: { $0.refID == removedEntry.refID }) {
+              keptMerit.addToReferencingKindred(kindred)
+            }
+          }
+          toDelete.append(loresheet)
+        }
+      }
+    }
+    
+    for loresheet in toDelete {
+      context.delete(loresheet)
     }
   }
   

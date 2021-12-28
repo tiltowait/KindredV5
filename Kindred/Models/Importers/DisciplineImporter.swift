@@ -31,6 +31,7 @@ enum DisciplineImporter: Importer {
       discipline.resonance = row[resonance]
       discipline.icon = row[icon]
       discipline.refID = refID
+      discipline.version = Int16(row[version])
     }
     
     try Self.importPowers(after: currentVersion, context: context)
@@ -66,6 +67,7 @@ enum DisciplineImporter: Importer {
       power.zPrerequisites = row[prerequisite]
       power.source = Int16(row[source])
       power.page = Int16(row[page])
+      power.version = Int16(row[version])
       
       // Get the disciplines
       let disciplineName = row[disciplineName]
@@ -74,6 +76,48 @@ enum DisciplineImporter: Importer {
       }
       power.discipline = discipline
       power.refID = refID
+    }
+  }
+  
+  static func removeDuplicates(in context: NSManagedObjectContext) throws {
+    let request: NSFetchRequest<Discipline> = Discipline.fetchRequest()
+    let allDisciplines = try context.fetch(request)
+    
+    let groups = Dictionary(grouping: allDisciplines, by: \.refID)
+    var toDelete: [Discipline] = []
+    
+    for (_, var disciplines) in groups {
+      if disciplines.count > 1 {
+        guard let keptDiscipline = disciplines.removeMax() else { continue }
+        
+        for removedDiscipline in disciplines {
+          // Powers
+          for removingPower in removedDiscipline.allPowers {
+            guard let keptPower = keptDiscipline.allPowers.first(where: { $0.refID == removingPower.refID }) else { continue }
+            
+            // Kindred
+            if let kindred = removingPower.kindred, kindred.count > 0 {
+              keptPower.addToKindred(kindred)
+            }
+            
+            // Rituals
+            if let rituals = removingPower.dependentRituals {
+              keptPower.addToDependentRituals(rituals)
+            }
+          }
+          
+          // Rituals
+          if let rituals = removedDiscipline.rituals {
+            keptDiscipline.addToRituals(rituals)
+          }
+          
+          toDelete.append(removedDiscipline)
+        }
+      }
+    }
+    
+    for discipline in toDelete {
+      context.delete(discipline)
     }
   }
   
