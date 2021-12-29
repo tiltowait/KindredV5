@@ -37,6 +37,7 @@ struct ButtonPad: View {
                 color: .red
               )
             )
+            .accessibilityHint("Add \(row) to pool")
           }
         }
       }

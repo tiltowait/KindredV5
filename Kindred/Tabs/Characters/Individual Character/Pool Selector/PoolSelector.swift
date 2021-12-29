@@ -45,6 +45,7 @@ struct PoolSelector: View {
                       .fill(Color(UIColor.quaternarySystemFill))
                   )
                   .id(trait)
+                  .accessibilityLabel("Remove \(trait) from pool")
                 }
               }
               .onChange(of: viewModel.selectedTraits.count) { _ in
