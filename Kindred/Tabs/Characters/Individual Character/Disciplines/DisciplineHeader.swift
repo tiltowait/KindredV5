@@ -9,22 +9,16 @@ import SwiftUI
 
 struct DisciplineHeader: View {
   
-  let title: String
   @Binding var buttonPressed: Bool
-  
-  init(_ title: String, buttonPressed: Binding<Bool>) {
-    self.title = title
-    _buttonPressed = buttonPressed
-  }
   
   var body: some View {
     HStack {
-      Text(title)
+      Text("Disciplines")
       Spacer()
       Button {
         buttonPressed.toggle()
       } label: {
-        Label("Add \(title)", systemImage: "plus.circle")
+        Label("Add Discipline", systemImage: "plus.circle")
           .labelStyle(.iconOnly)
       }
     }
@@ -35,7 +29,7 @@ struct AdvantageHeader_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
       List {
-        Section(header: DisciplineHeader("Disciplines", buttonPressed: .constant(false))) {
+        Section(header: DisciplineHeader(buttonPressed: .constant(false))) {
           Text("Stuff goes here")
         }
         .navigationTitle("Nadea Theron")

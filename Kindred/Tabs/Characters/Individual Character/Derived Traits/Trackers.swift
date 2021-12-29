@@ -73,8 +73,12 @@ struct Trackers: View {
             DotSelector(current: $viewModel.kindred.hunger, min: 0, max: 5)
             HStack {
               Button("x2") { rouse(checks: 2) }
+              .accessibilityLabel("Two rouse checks")
+              
               Spacer()
+              
               Button("Rouse") { rouse(checks: 1) }
+              .accessibilityLabel("Rouse check")
             }
             .font(.callout)
             .accentColor(.vampireRed)

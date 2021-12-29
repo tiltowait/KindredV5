@@ -25,6 +25,19 @@ struct RitualCard: View {
         .italic()
         .foregroundColor(.secondary)
     }
+    .accessibilityElement(children: .combine)
+    .accessibilityLabel(Text("\(ritual.name), level \(ritual.level) \(ritual.flavor.rawValue), \(ritual.pageReference)"))
+  }
+  
+  var accessibilityLabel: Text {
+    var label = ""
+    
+    if let ingredients = ritual.ingredients {
+      label += "Ingredients: \(ingredients), "
+    }
+    
+    label += "Process: \(ritual.process), System: \(ritual.info)"
+    return Text(label)
   }
   
   var body: some View {
@@ -45,6 +58,8 @@ struct RitualCard: View {
             
             Text(ritual.info)
           }
+          .accessibilityElement(children: .combine)
+          .accessibilityLabel(accessibilityLabel)
         }
       },
       addAction: action

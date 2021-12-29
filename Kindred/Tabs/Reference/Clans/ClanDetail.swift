@@ -43,6 +43,7 @@ struct ClanDetail: View {
           .scaledToFit()
           .frame(maxWidth: 300)
           .opacity(0.1)
+          .accessibilityHidden(true)
       }
       .padding(.bottom)
       
@@ -51,15 +52,19 @@ struct ClanDetail: View {
         // padding without interfering with the scroll indicators
         // or affecting clipping areas.
         Group {
-          Image(viewModel.clan.header)
-            .resizable()
-            .scaledToFit()
-            .frame(maxWidth: 400)
-          
-          Text(viewModel.clan.pageReference)
-            .font(.subheadline)
-            .foregroundColor(.secondary)
-            .italic()
+          VStack {
+            Image(viewModel.clan.header)
+              .resizable()
+              .scaledToFit()
+              .frame(maxWidth: 400)
+            
+            Text(viewModel.clan.pageReference)
+              .font(.subheadline)
+              .foregroundColor(.secondary)
+              .italic()
+          }
+          .accessibilityElement(children: .combine)
+          .accessibilityLabel(Text("\(viewModel.clan.name), from \(viewModel.clan.pageReference)"))
           
           Divider()
           
@@ -111,7 +116,7 @@ struct ClanDetail: View {
     .buttonStyle(.plain)
   }
   
-  func infoBox(_ title: LocalizedStringKey, contents: String) -> some View {
+  func infoBox(_ title: String, contents: String) -> some View {
     VStack(alignment: .leading, spacing: 10) {
       Text(title)
         .font(.system(size: 20, weight: .heavy, design: .serif))
@@ -119,6 +124,8 @@ struct ClanDetail: View {
       Text(contents)
         .fixedSize(horizontal: false, vertical: true)
     }
+    .accessibilityElement(children: .combine)
+    .accessibilityLabel(Text("\(title): \(contents)"))
   }
   
   func disciplineSheet(_ discipline: Discipline) -> some View {

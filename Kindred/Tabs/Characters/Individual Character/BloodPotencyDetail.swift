@@ -14,38 +14,36 @@ struct BloodPotencyDetail: View {
   var body: some View {
     HStack(alignment: .top) {
       VStack(alignment: .leading) {
-        Text("Blood Surge:")
-          .bold()
-        Text(bloodPotency.surgeString)
+        detail("Blood Surge:", details: bloodPotency.surgeString)
           .padding(.bottom, 1)
         
-        Text("Power Bonus:")
-          .bold()
-        Text(bloodPotency.powerBonusString)
+        detail("Power Bonus", details: bloodPotency.powerBonusString)
           .padding(.bottom, 1)
         
-        Text("Feeding Penalty:")
-          .bold()
-        Text(bloodPotency.penalty)
+        detail("Feeding Penalty:", details: bloodPotency.penalty)
       }
       
       VStack(alignment: .leading) {
-        Text("Mend Amount:")
-          .bold()
-        Text(bloodPotency.mendString)
+        detail("Mend Amount:", details: bloodPotency.mendString)
           .padding(.bottom, 1)
         
-        Text("Rouse Re-Roll:")
-          .bold()
-        Text(bloodPotency.rouseRerollString)
+        detail("Rouse Re-Roll", details: bloodPotency.rouseRerollString)
           .padding(.bottom, 1)
         
-        Text("Bane Severity:")
-          .bold()
-        Text(String(bloodPotency.baneSeverity))
+        detail("Bane Severity:", details: String(bloodPotency.baneSeverity))
       }
     }
     .font(.caption)
+  }
+  
+  func detail(_ heading: String, details: String) -> some View {
+    VStack(alignment: .leading) {
+      Text(heading)
+        .bold()
+      Text(details)
+    }
+    .accessibilityElement(children: .combine)
+    .accessibilityLabel(Text("\(heading): \(details)"))
   }
 }
 

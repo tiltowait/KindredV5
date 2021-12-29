@@ -35,12 +35,14 @@ struct ReferenceCard<T: ReferenceItem, Content: View>: View {
         Image(systemName: "xmark")
       }
       .buttonStyle(PopUpImageButtonStyle())
+      .accessibilityLabel("Close popover")
       
       if let perform = addAction {
         Button("Add") {
          perform(item)
         }
         .buttonStyle(PopUpTextButtonStyle())
+        .accessibilityLabel("Add to character")
       }
     }
   }
@@ -57,6 +59,7 @@ struct ReferenceCard<T: ReferenceItem, Content: View>: View {
             .padding()
             .padding()
             .opacity(0.1)
+            .accessibilityHidden(true)
         }
         
         // Card contents

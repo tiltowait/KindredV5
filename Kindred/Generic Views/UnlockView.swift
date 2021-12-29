@@ -24,17 +24,7 @@ struct UnlockView: View {
   var body: some View {
     NavigationView {
       List {
-        Section(
-          header:
-            Text("If a previous purchase isn't showing up, then click 'Restore Purchases' below.")
-            .font(.caption)
-            .foregroundColor(.secondary),
-          footer:
-            Button("Restore Purchases", action: unlockManager.restore)
-            .buttonStyle(PurchaseButton(highlight: false))
-            .padding(.top)
-            .centered()
-        ) {
+        Section {
           switch unlockManager.requestState {
           case .loaded(let products):
             ForEach(products, id: \.self) { product in
@@ -49,6 +39,15 @@ struct UnlockView: View {
           case .deferred:
             Text("Thank you! Your request is pending approval, but you can keep using the app in the meantime.")
           }
+        } header: {
+          Text("If a previous purchase isn't showing up, then click 'Restore Purchases' below.")
+            .font(.caption)
+            .foregroundColor(.secondary)
+        } footer: {
+          Button("Restore Purchases", action: unlockManager.restore)
+            .buttonStyle(PurchaseButton(highlight: false))
+            .padding(.top)
+            .centered()
         }
       }
       .listStyle(.grouped)
@@ -61,7 +60,7 @@ struct UnlockView: View {
           Button {
             showingInfoAlert.toggle()
           } label: {
-            Label("Information", systemImage: "info.circle")
+            Label("Purchases Information", systemImage: "info.circle")
           }
         }
       }

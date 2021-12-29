@@ -55,14 +55,10 @@ struct PowerCard: View {
   var rouseAndDuration: some View {
     HStack {
       VStack(alignment: .leading, spacing: 7) {
-        Text("Rouse: ")
-          .bold()
-          + Text(rouse)
+        Text("**Rouse:** \(rouse)")
         
         HStack(alignment: .top) {
-          Text("Duration:")
-            .bold()
-          Text(power.powerDuration)
+          Text("**Duration:** \(power.powerDuration)")
             .lineLimit(4)
         }
         .fixedSize(horizontal: false, vertical: true)

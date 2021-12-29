@@ -24,6 +24,10 @@ struct LoresheetEntryDetail: View {
     String(repeating: "•", count: Int(viewModel.entry.level))
   }
   
+  var accessibilityLabel: Text {
+    Text("\(viewModel.entry.name), level \(viewModel.entry.level): \(viewModel.entry.info)")
+  }
+  
   var body: some View {
     HStack(alignment: .center, spacing: 5) {
       VStack(alignment: .leading) {
@@ -44,6 +48,8 @@ struct LoresheetEntryDetail: View {
         .disabled(viewModel.buttonToShow == .have)
       }
     }
+    .accessibilityElement(children: .combine)
+    .accessibility(label: accessibilityLabel)
   }
   
   func addToKindred() {

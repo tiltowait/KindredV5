@@ -111,6 +111,7 @@ struct ReferenceRow: View {
       }
     }
   }
+  
 }
 
 #if DEBUG

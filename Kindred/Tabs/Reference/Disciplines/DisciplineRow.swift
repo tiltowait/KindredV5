@@ -21,8 +21,17 @@ struct DisciplineRow: View {
     }
   }
   
+  var label: Text {
+    if let level = level {
+      return Text("\(discipline.name) \(level), \(discipline.info)")
+    }
+    return Text("\(discipline.name), \(discipline.info)")
+  }
+  
   var body: some View {
     ReferenceRow(name, subtitle: discipline.info, icon: Image(discipline.icon))
+      .accessibilityElement(children: .combine)
+      .accessibilityLabel(label)
   }
 }
 

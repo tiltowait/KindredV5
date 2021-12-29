@@ -30,6 +30,31 @@ struct AdvantageOptionView: View {
     return "checkmark.circle"
   }
   
+  var label: Text {
+    var label = viewModel.option.name
+    
+    // Header stuff
+    if let magnitude = viewModel.singleOptionMagnitude {
+      label += ", \(magnitude) point "
+      label += viewModel.option.isFlaw ? "flaw" : "merit"
+      
+    } else if viewModel.showRatingRange {
+      let min = abs(viewModel.minAllowableRating)
+      let max = abs(viewModel.maxAllowableRating)
+      
+      label += ", \(min) to \(max) point "
+      label += viewModel.option.isFlaw ? "flaw" : "merit"
+      
+    } else if viewModel.showRatingSelection {
+      label += ", \(viewModel.currentRating) point "
+      label += viewModel.option.isFlaw ? "flaw" : "merit"
+    }
+    
+    label += ": \(viewModel.option.info), \(viewModel.option.pageReference)"
+    
+    return Text(label)
+  }
+  
   /// Button that adds the advantage option to the current character.
   var addButton: some View {
     Button(action: addToCharacter) {
@@ -120,6 +145,8 @@ struct AdvantageOptionView: View {
         addButton
       }
     }
+    .accessibilityElement(children: .combine)
+    .accessibility(label: label)
     .sheet(isPresented: $viewModel.showingUnlockSheet) {
       UnlockView(highlights: [viewModel.option.unlockIdentifier])
     }

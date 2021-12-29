@@ -69,9 +69,12 @@ struct CharacterDetail: View {
         Section {
           TextField("Long-term ambition", text: $viewModel.kindred.ambition)
             .boldLabel("Ambition:")
+          
           TextField("Short-term desire", text: $viewModel.kindred.desire)
             .boldLabel("Desire:")
+          
           clanLink
+          
           if (viewModel.kindred.clan != nil) {
             RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
           }
@@ -126,7 +129,7 @@ struct CharacterDetail: View {
         // Disciplines
         if viewModel.kindred.clan?.template != .mortal {
           Section(
-            header: DisciplineHeader("Disciplines", buttonPressed: $showingPowerAdder)
+            header: DisciplineHeader(buttonPressed: $showingPowerAdder)
           ) {
             if viewModel.noKnownDisciplines {
               Button {
