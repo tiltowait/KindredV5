@@ -41,6 +41,8 @@ struct DiceRoller: View, Identifiable {
     ) { dice in
       diceLabel("pool", value: dice)
         .accentColor(.primary)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Pool: \(dice)")
     }
   }
   
@@ -51,6 +53,8 @@ struct DiceRoller: View, Identifiable {
     ) { hunger in
       diceLabel("hung", value: hunger)
         .accentColor(.red)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Hunger: \(hunger)")
     }
   }
   
@@ -58,6 +62,8 @@ struct DiceRoller: View, Identifiable {
     MenuPicker(selected: $viewModel.difficulty, array: viewModel.difficultyRange) { difficulty in
       diceLabel("diff", value: difficulty)
         .accentColor(.vampireRed)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Difficulty: \(difficulty)")
     }
   }
   
@@ -81,18 +87,21 @@ struct DiceRoller: View, Identifiable {
       }
       .buttonStyle(BoldButton(color: .blue))
       .disabled(!viewModel.allowRerollingFailures || rolling)
+      .accessibilityLabel("Reroll Failures")
       
       Button("Criticals") {
         reroll(strategy: .maximizeCriticals)
       }
       .buttonStyle(BoldButton(color: .blue))
       .disabled(!viewModel.allowMaximizingCriticals || rolling)
+      .accessibilityLabel("Maximize Critical Success Chance")
       
       Button("Messy") {
         reroll(strategy: .avoidMessyCritical)
       }
       .buttonStyle(BoldButton(color: .blue))
       .disabled(!viewModel.allowAvoidingMessyCriticals || rolling)
+      .accessibilityLabel("Attempt to Avoid Messy Critical")
     }
   }
   
@@ -122,13 +131,12 @@ struct DiceRoller: View, Identifiable {
         // Using String.uppercased() rater than Font.smallCaps(),
         // because Font.smallCaps() causes the info button to
         // become off-centered.
-        Text("Re-roll Strategy".uppercased())
-          .font(.headline)
         Button {
-          withAnimation {
             showingStrategyInfo.toggle()
-          }
         } label: {
+          Text("Re-roll Strategy".uppercased())
+            .font(.headline)
+            .foregroundColor(.primary)
           Label("Strategy information", systemImage: "info.circle")
             .labelStyle(.iconOnly)
         }
@@ -258,5 +266,6 @@ struct DiceRoller: View, Identifiable {
 struct DiceRoller_Previews: PreviewProvider {
   static var previews: some View {
     DiceRoller()
+      
   }
 }

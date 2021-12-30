@@ -34,5 +34,21 @@
 			<string>Add %lld dice</string>
 		</dict>
 	</dict>
+	<key>%@: %lld success</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%@: %#@successes@</string>
+		<key>successes</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>1 success</string>
+			<key>other</key>
+			<string>%lld successes</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

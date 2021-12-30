@@ -59,6 +59,7 @@ struct RollResultView: View {
           }
         }
       }
+      .padding(.horizontal, 20)
       .padding(.leading)
       .padding(.leading)
       
@@ -73,6 +74,8 @@ struct RollResultView: View {
       RoundedRectangle(cornerRadius: 15)
         .strokeBorder(Color.primary, lineWidth: 4)
     )
+    .accessibilityElement(children: .combine)
+    .accessibilityLabel("\(diceBag.result.rawValue): \(diceBag.totalSuccesses) success")
 
   }
 }
@@ -80,6 +83,7 @@ struct RollResultView: View {
 struct RollResultView_Previews: PreviewProvider {
   static var previews: some View {
     RollResultView(diceBag: DiceBag(pool: 5, hunger: 1, difficulty: 3))
-      .previewLayout(.sizeThatFits)
+      .padding()
+//      .previewLayout(.sizeThatFits)
   }
 }
