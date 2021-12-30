@@ -224,7 +224,7 @@ struct DiceRoller: View, Identifiable {
     VStack {
       HStack(spacing: 0) {
         Text("\(value / 10)")
-          .opacity(value < 10 ? 0.15 : 1)
+          .opacity(value < 10 ? 0 : 1)
         Text("\(value % 10)")
       }
       .font(.system(size: 700, weight: .black, design: .monospaced))
