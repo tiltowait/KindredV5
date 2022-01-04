@@ -55,6 +55,7 @@
 		28386F5C2658619D00E90445 /* Discipline+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F5B2658619D00E90445 /* Discipline+.swift */; };
 		28386F6326586E2E00E90445 /* Power+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F6226586E2E00E90445 /* Power+.swift */; };
 		28386F652658727400E90445 /* PowerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28386F642658727400E90445 /* PowerRow.swift */; };
+		283A73BD2784FDE400B2155E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283A73BC2784FDE400B2155E /* CloudKit.framework */; };
 		283DE7E82677DF8200876573 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */; };
 		283DE7EA2677E1A200876573 /* ScrollingImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */; };
 		283DE7EE2677E8C800876573 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
@@ -254,6 +255,8 @@
 		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
 		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
 		28386F642658727400E90445 /* PowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRow.swift; sourceTree = "<group>"; };
+		283A73BA2784FDE200B2155E /* Kindred.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kindred.entitlements; sourceTree = "<group>"; };
+		283A73BC2784FDE400B2155E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		283DE7E72677DF8200876573 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		283DE7E92677E1A200876573 /* ScrollingImageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingImageHeader.swift; sourceTree = "<group>"; };
 		283DE7ED2677E8C800876573 /* KindredImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KindredImage+.swift"; sourceTree = "<group>"; };
@@ -385,6 +388,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283A73BD2784FDE400B2155E /* CloudKit.framework in Frameworks */,
 				287F880326829E7800DF140E /* TextView in Frameworks */,
 				28921690267E5D88004911EA /* SQLite in Frameworks */,
 			);
@@ -447,6 +451,7 @@
 				282EC8462656EEB90086B14F /* KindredTests */,
 				282EC8512656EEB90086B14F /* KindredUITests */,
 				282EC8332656EEB80086B14F /* Products */,
+				283A73BB2784FDE400B2155E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -463,6 +468,7 @@
 		282EC8342656EEB80086B14F /* Kindred */ = {
 			isa = PBXGroup;
 			children = (
+				283A73BA2784FDE200B2155E /* Kindred.entitlements */,
 				28BECB5126E2964D004E7E0A /* Configuration.storekit */,
 				282EC8352656EEB80086B14F /* KindredApp.swift */,
 				28386F5826585D9C00E90445 /* Constants.swift */,
@@ -580,6 +586,14 @@
 				2833CACF267A978900160A96 /* TextFieldAlert.swift */,
 			);
 			path = "Generic Views";
+			sourceTree = "<group>";
+		};
+		283A73BB2784FDE400B2155E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				283A73BC2784FDE400B2155E /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		283EB7D026A8923700F56447 /* Character Sheets */ = {
@@ -1352,6 +1366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Kindred/Kindred.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"Kindred/Preview Content\"";
@@ -1375,6 +1390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Kindred/Kindred.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"Kindred/Preview Content\"";

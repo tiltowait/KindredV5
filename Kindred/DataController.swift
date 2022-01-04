@@ -136,6 +136,8 @@ class DataController: ObservableObject {
     }
     
     container.loadPersistentStores { _, error in
+      self.container.viewContext.automaticallyMergesChangesFromParent = true
+      
       if let error = error {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }

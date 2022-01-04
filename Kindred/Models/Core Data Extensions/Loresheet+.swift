@@ -16,7 +16,8 @@ extension Loresheet {
   }
   
   var entries: [LoresheetEntry] {
-    self.items?.array as? [LoresheetEntry] ?? []
+    let entries = self.items?.allObjects as? [LoresheetEntry] ?? []
+    return entries.sorted()
   }
   
   var clanRestrictions: [Clan]? {
