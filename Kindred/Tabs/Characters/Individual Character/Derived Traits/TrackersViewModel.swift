@@ -15,24 +15,29 @@ extension Trackers {
     }
     
     func incrementHealth() {
+      objectWillChange.send()
       kindred.healthString = ".\(kindred.healthString)"
     }
     
     func decrementHealth() {
+      objectWillChange.send()
       kindred.healthString = String(kindred.healthString.dropFirst())
     }
     
     func incrementWillpower() {
+      objectWillChange.send()
       kindred.willpowerString = ".\(kindred.willpowerString)"
     }
     
     func decrementWillpower() {
+      objectWillChange.send()
       kindred.willpowerString = String(kindred.willpowerString.dropFirst())
     }
     
     /// Perform a rouse check, increasing hunger as necessary.
     /// - Returns: Whether the check was successful (no hunger increase) or not.
     func rouse(checks: Int) -> Bool {
+      objectWillChange.send()
       let successful = (1...checks).map { _ in Bool.random() }.contains(true)
       
       if !successful {
