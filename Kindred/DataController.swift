@@ -136,8 +136,6 @@ class DataController: ObservableObject {
     }
     
     container.loadPersistentStores { _, error in
-      self.container.viewContext.automaticallyMergesChangesFromParent = true
-      
       if let error = error {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
@@ -202,13 +200,15 @@ class DataController: ObservableObject {
     
   }
   
-  private func removeDuplicates() {
+  func removeDuplicates() {
     do {
       try LoresheetImporter.removeDuplicates(in: container.viewContext)
       try RitualImporter.removeDuplicates(in: container.viewContext)
       try DisciplineImporter.removeDuplicates(in: container.viewContext)
       try ClanImporter.removeDuplicates(in: container.viewContext)
       try AdvantageImporter.removeDuplicates(in: container.viewContext)
+      
+      save()
     } catch {
       print(error.localizedDescription)
     }

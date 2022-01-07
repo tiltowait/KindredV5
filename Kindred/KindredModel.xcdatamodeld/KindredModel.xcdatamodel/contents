@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Advantage" representedClassName="Advantage" parentEntity="InfoItem" syncable="YES" codeGenerationType="class">
         <attribute name="isBackground" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageOption" inverseName="parent" inverseEntity="AdvantageOption"/>
