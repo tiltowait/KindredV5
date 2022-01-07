@@ -18,7 +18,7 @@ struct DieImage: View {
     case 6...9:
       imageName = "SuccessDie"
     case 10:
-      imageName = "CriticalDie"
+      imageName = hunger ? "MessyDie" : "CriticalDie"
     default:
       imageName = "FailureDie"
     }
