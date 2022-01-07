@@ -27,9 +27,7 @@ struct UnlockView: View {
         Section {
           switch unlockManager.requestState {
           case .loaded(let products):
-            ForEach(products, id: \.self) { product in
-              ProductView(product: product, highlight: self.highlights.contains(product.productIdentifier))
-            }
+            list(products: products)
           case .failed(_):
             Text("Sorry, there was an error loading the store. Please try again later.")
           case .loading:
@@ -76,6 +74,27 @@ struct UnlockView: View {
         message: Text("The free version of Kindred grants access to reference material from the core rulebook and allows you to create a single character. To remove this restriction and unlock additional features, make a selection from the purchase options below. Thanks for your support!"),
         dismissButton: .default(Text("OK"))
       )
+    }
+  }
+  
+  /// Generate a list of products, with the highlighted product(s) at the top.
+  /// - Parameter products: The products to show.
+  /// - Returns: The generated list.
+  func list(products: [SKProduct]) -> some View {
+    var products = products
+    var highlightedProducts: [SKProduct] = []
+    
+    for highlight in highlights {
+      if let index = products.firstIndex(where: { highlight == $0.productIdentifier }) {
+        highlightedProducts.append(products.remove(at: index))
+      }
+    }
+    
+    products = highlightedProducts + products
+    
+    return ForEach(products, id: \.self) { product in
+      // This is fairly inefficient, but `highlights` will almost always be one item, and it will never be a long list
+      ProductView(product: product, highlight: self.highlights.contains(product.productIdentifier))
     }
   }
   
