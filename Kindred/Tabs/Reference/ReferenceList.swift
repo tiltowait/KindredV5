@@ -12,7 +12,7 @@ struct ReferenceList: View {
   @EnvironmentObject var dataController: DataController
   
   var footer: some View {
-      Text("Vampire: The Masquerade and World of Darkness are copyright © Paradox Interactive.")
+      Text("Vampire: The Masquerade and World of Darkness are copyright © Paradox Interactive AB. All rights reserved. These reference materials are not an official product and are not meant to (nor can they) replace the books from which they are taken. When in doubt, always refer to the original source material.")
         .multilineTextAlignment(.center)
         .padding(.top)
         .centered()
