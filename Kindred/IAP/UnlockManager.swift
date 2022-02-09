@@ -117,6 +117,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
   }
   
   func buy(product: SKProduct) {
+    objectWillChange.send()
     let payment = SKPayment(product: product)
     SKPaymentQueue.default().add(payment)
   }
