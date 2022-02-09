@@ -10,6 +10,8 @@ import Foundation
 extension CharacterDetail {
   class ViewModel: BaseSavingKindredViewModel {
     
+    @Published var showDetails = true
+    
     /// The name of the character's clan.
     @Published var clanName: String
     
@@ -31,6 +33,7 @@ extension CharacterDetail {
       super.init(kindred: kindred, dataController: dataController)
       
       NotificationCenter.default.addObserver(self, selector: #selector(clanWasSelected), name: .didSelectClan, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(characterWasDeleted), name: .characterWasDeleted, object: nil)
     }
     
     // MARK: - Trait Previews
@@ -112,11 +115,21 @@ extension CharacterDetail {
       clanName = kindred.clan?.name ?? "Tap to select"
     }
     
+    @objc func characterWasDeleted(_ notification: Notification) {
+      // On the iPad, deleting the selected row will not clear the detail view. We could either
+      // send a binding or use the notification center. We're opting to use the notification
+      // center for simplicity's sake.
+      if kindred.isDeleted {
+        showDetails = false
+      }
+    }
+    
   }
 }
 
 extension Notification.Name {
   
   static let didSelectClan = Notification.Name("didSelectClan")
+  static let characterWasDeleted = Notification.Name("characterWasDeleted")
   
 }

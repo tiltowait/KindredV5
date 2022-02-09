@@ -75,6 +75,7 @@ extension CharacterList {
     func delete(_ offsets: IndexSet, from characters: [Kindred]) {
       for offset in offsets {
         dataController.delete(characters[offset])
+        NotificationCenter.default.post(name: .characterWasDeleted, object: nil)
       }
       save()
     }

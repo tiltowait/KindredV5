@@ -63,141 +63,151 @@ struct CharacterDetail: View {
     }
   }
   
-  var body: some View {
-      List {
-        // Basic info
-        Section {
-          TextField("Long-term ambition", text: $viewModel.kindred.ambition)
-            .boldLabel("Ambition:")
-          
-          TextField("Short-term desire", text: $viewModel.kindred.desire)
-            .boldLabel("Desire:")
-          
-          clanLink
-          
-          if (viewModel.kindred.clan != nil) {
-            RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
-          }
-          
-          NavigationLink(
-            destination: BiographyDetail(
-              kindred: viewModel.kindred,
-              dataController: viewModel.dataController
-            )
-          ) {
-            Text("Biography")
-              .font(.headline)
-          }
-          
-          NavigationLink(
-            destination: ChronicleDetail(
-              kindred: viewModel.kindred,
-              dataController: viewModel.dataController
-            )
-          ) {
-            Text("Chronicle")
-              .font(.headline)
-          }
-          
-          NavigationLink(
-            destination: CharacterAdvantages(
-              kindred: viewModel.kindred,
-              dataController: viewModel.dataController
-            )
-          ) {
-            Text("Advantages")
-              .font(.headline)
-          }
-        } header: {
-          ScrollingImageHeader(
+  var details: some View {
+    List {
+      // Basic info
+      Section {
+        TextField("Long-term ambition", text: $viewModel.kindred.ambition)
+          .boldLabel("Ambition:")
+        
+        TextField("Short-term desire", text: $viewModel.kindred.desire)
+          .boldLabel("Desire:")
+        
+        clanLink
+        
+        if (viewModel.kindred.clan != nil) {
+          RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
+        }
+        
+        NavigationLink(
+          destination: BiographyDetail(
             kindred: viewModel.kindred,
             dataController: viewModel.dataController
           )
-            .padding(.bottom, 5)
+        ) {
+          Text("Biography")
+            .font(.headline)
         }
         
-        // Traits
-        Section(header: Text("Traits")) {
-          NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
-            TraitSummary(title: "Attributes", traits: viewModel.attributePreviews)
-          }
-          NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
-            TraitSummary(title: "Skills", traits: viewModel.skillPreviews)
-          }
-        }
-        
-        // Disciplines
-        if viewModel.kindred.clan?.template != .mortal {
-          Section(
-            header: DisciplineHeader(buttonPressed: $showingPowerAdder)
-          ) {
-            if viewModel.noKnownDisciplines {
-              Button {
-                showingPowerAdder.toggle()
-              } label: {
-                Text("Tap to add a Discipline")
-                  .foregroundColor(.secondary)
-              }
-            } else {
-              KnownDisciplinesGroups(
-                kindred: viewModel.kindred,
-                lockedItem: $lockedItem
-              )
-            }
-          }
-        }
-        
-        // Rituals
-        if !viewModel.kindred.availableRitualSchools.isEmpty {
-          NavigationLink("Rituals", destination:
-            CharacterRitualsList(
-              kindred: viewModel.kindred,
-              dataController: viewModel.dataController
-            )
+        NavigationLink(
+          destination: ChronicleDetail(
+            kindred: viewModel.kindred,
+            dataController: viewModel.dataController
           )
-          .font(.headline)
+        ) {
+          Text("Chronicle")
+            .font(.headline)
         }
         
-        // Trackers (HP, WP, Humanity, Blood Potency)
-        Trackers(kindred: viewModel.kindred)
-        
-        if viewModel.kindred.clan?.template == .kindred {
-          Section(header: Text("Blood Potency Details")) {
-            BloodPotencyDetail(bloodPotency: BloodPotency(viewModel.kindred.bloodPotency))
+        NavigationLink(
+          destination: CharacterAdvantages(
+            kindred: viewModel.kindred,
+            dataController: viewModel.dataController
+          )
+        ) {
+          Text("Advantages")
+            .font(.headline)
+        }
+      } header: {
+        ScrollingImageHeader(
+          kindred: viewModel.kindred,
+          dataController: viewModel.dataController
+        )
+          .padding(.bottom, 5)
+      }
+      
+      // Traits
+      Section(header: Text("Traits")) {
+        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .attributes)) {
+          TraitSummary(title: "Attributes", traits: viewModel.attributePreviews)
+        }
+        NavigationLink(destination: TraitBlock(kindred: viewModel.kindred, dataController: viewModel.dataController, traits: .skills)) {
+          TraitSummary(title: "Skills", traits: viewModel.skillPreviews)
+        }
+      }
+      
+      // Disciplines
+      if viewModel.kindred.clan?.template != .mortal {
+        Section(
+          header: DisciplineHeader(buttonPressed: $showingPowerAdder)
+        ) {
+          if viewModel.noKnownDisciplines {
+            Button {
+              showingPowerAdder.toggle()
+            } label: {
+              Text("Tap to add a Discipline")
+                .foregroundColor(.secondary)
+            }
+          } else {
+            KnownDisciplinesGroups(
+              kindred: viewModel.kindred,
+              lockedItem: $lockedItem
+            )
           }
         }
-        
       }
-      .navigationTitle(viewModel.kindred.name)
-      .toolbar {
-        menu
+      
+      // Rituals
+      if !viewModel.kindred.availableRitualSchools.isEmpty {
+        NavigationLink("Rituals", destination:
+                        CharacterRitualsList(
+                          kindred: viewModel.kindred,
+                          dataController: viewModel.dataController
+                        )
+        )
+          .font(.headline)
       }
-      .sheet(isPresented: $showingNotesSheet) {
-        CharacterNotesView(kindred: viewModel.kindred)
-      }
-      .sheet(isPresented: $showingDiceRoller) {
-        PoolSelector(kindred: viewModel.kindred)
-      }
-      .sheet(isPresented: $showingPowerAdder) {
-        AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $showingPowerAdder)
-      }
-      .sheet(isPresented: $showingClanSelectionSheet) {
-        NavigationView {
-          ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
+      
+      // Trackers (HP, WP, Humanity, Blood Potency)
+      Trackers(kindred: viewModel.kindred)
+      
+      if viewModel.kindred.clan?.template == .kindred {
+        Section(header: Text("Blood Potency Details")) {
+          BloodPotencyDetail(bloodPotency: BloodPotency(viewModel.kindred.bloodPotency))
         }
       }
-      .sheet(item: $pdfExporter) { exporter in
-        ActivityViewController(activityItems: [exporter.fileURL], excludedActivityTypes: [.copyToPasteboard])
+      
+    }
+    .navigationTitle(viewModel.kindred.name)
+    .toolbar {
+      menu
+    }
+    .sheet(isPresented: $showingNotesSheet) {
+      CharacterNotesView(kindred: viewModel.kindred)
+    }
+    .sheet(isPresented: $showingDiceRoller) {
+      PoolSelector(kindred: viewModel.kindred)
+    }
+    .sheet(isPresented: $showingPowerAdder) {
+      AddDisciplineSheet(kindred: viewModel.kindred, dataController: viewModel.dataController, link: $showingPowerAdder)
+    }
+    .sheet(isPresented: $showingClanSelectionSheet) {
+      NavigationView {
+        ClanList(kindred: viewModel.kindred, dataController: viewModel.dataController)
       }
-      .sheet(item: $warningSheet) { warning in
-        warning
+    }
+    .sheet(item: $pdfExporter) { exporter in
+      ActivityViewController(activityItems: [exporter.fileURL], excludedActivityTypes: [.copyToPasteboard])
+    }
+    .sheet(item: $warningSheet) { warning in
+      warning
+    }
+    .sheet(item: $lockedItem) { item in
+      UnlockView(highlights: [item])
+    }
+    .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
+    .onAppear(perform: viewModel.generateTraitPreviews)
+    .onDisappear(perform: viewModel.save)
+  }
+  
+  var body: some View {
+    Group {
+      if viewModel.showDetails {
+        details
+      } else {
+        Text("Select or create a character to begin.")
       }
-      .sheet(item: $lockedItem) { item in
-        UnlockView(highlights: [item])
-      }
-      .alert(isPresented: $showingRenameAlert, renameCharacterAlert)
-      .onAppear(perform: viewModel.generateTraitPreviews)
-      .onDisappear(perform: viewModel.save)
+    }
   }
   
   /// Generates a "derived trait" view with tilte and appropriate dots.
