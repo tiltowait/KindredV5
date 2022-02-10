@@ -127,7 +127,7 @@ struct PowerCard: View {
 struct PowerCard_Previews: PreviewProvider {
   static var previews: some View {
     PowerCard(power: Power.example) { _ in }
-      .previewLayout(.sizeThatFits)
+//      .previewLayout(.sizeThatFits)
   }
 }
 #endif

@@ -79,6 +79,9 @@ struct ReferenceCard<T: ReferenceItem, Content: View>: View {
       .padding()
       
       buttons
+        .padding(.bottom)
+        .padding(.bottom)
+        .padding(.bottom)
     }
   }
   
@@ -93,7 +96,7 @@ struct ReferenceCard<T: ReferenceItem, Content: View>: View {
 struct ReferenceCard_Previews: PreviewProvider {
   static var previews: some View {
     PowerCard(power: Power.example) { _ in }
-      .previewLayout(.sizeThatFits)
+//      .previewLayout(.sizeThatFits)
   }
 }
 #endif
