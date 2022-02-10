@@ -30,6 +30,8 @@ struct PowerCard: View {
     VStack(spacing: 5) {
       Text(power.name)
         .font(.system(size: 24, weight: .black, design: .serif))
+        .multilineTextAlignment(.center)
+        .lineLimitFix()
       Text("Level \(power.level)")
         .font(Font.system(.subheadline).smallCaps())
         .foregroundColor(.secondary)
