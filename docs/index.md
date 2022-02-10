@@ -1,37 +1,12 @@
-## Welcome to GitHub Pages
+# Kindred
+### A character manager for Vampire: The Masquerade 5th Edition
 
-You can use the [editor on GitHub](https://github.com/tiltowait/KindredV5/edit/pages/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Kindred is a character manager for Vampire: The Masquerade 5th Edition (V5). It allows you to control all aspects of your characters, from attributes and skills to merits and flaws and disciplines. You can roll dice based on your character stats, import and export from and to PDF, and more! Kindred also acts as a reference guide for published V5 material, providing page and book references for discipline powers, clans, advantages, loresheets, and rituals!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Support
 
-### Markdown
+Is something missing? Is a reference incorrect? Something not working? please contact me [here](mailto:tiltowaitt+kindred@icloud.com).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Privacy Policy
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tiltowait/KindredV5/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Kindred does not collect any user nor personally identifiable data. Nothing you enter into the app is stored on an external server, nor is it accessible by me. I cannot see your character sheets, character images, etc. Your data is your own.
