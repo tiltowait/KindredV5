@@ -43,56 +43,54 @@ class DataController: ObservableObject {
   
   // MARK: - Database Management
   
-  // TODO: Remove these lazy variables and have the appropriate view models manage them.
-  
   /// Every single `Clan`, sorted alphabetically.
-  private(set) lazy var clans: [Clan] = {
+  var clans: [Clan] {
     do {
       let clans = try container.viewContext.fetch(Clan.sortedFetchRequest)
       return clans
     } catch {
       fatalError("Unable to fetch clans.\n\(error.localizedDescription)")
     }
-  }()
+  }
   
   /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
-  private(set) lazy var disciplines: [Discipline] = {
+  var disciplines: [Discipline] {
     do {
       let disciplines = try container.viewContext.fetch(Discipline.sortedFetchRequest)
       return disciplines
     } catch {
       fatalError("Unable to fetch disciplines.\n\(error.localizedDescription)")
     }
-  }()
+  }
   
   /// Every single `Advantage` and associated options in the database, sorted alphabetically.
-  private(set) lazy var advantages: [Advantage] = {
+  var advantages: [Advantage] {
     do {
       let advantages = try container.viewContext.fetch(Advantage.sortedFetchRequest)
       return advantages
     } catch {
       fatalError("Unable to fetch advantages.\n\(error.localizedDescription)")
     }
-  }()
+  }
   
   /// Every `Loresheet` and associated entry in the database, sorted alphabetically.
-  private(set) lazy var loresheets: [Loresheet] = {
+  var loresheets: [Loresheet] {
     do {
       let loresheets = try container.viewContext.fetch(Loresheet.sortedFetchRequest)
       return loresheets
     } catch {
       fatalError("Unable to fetch loresheets.\n\(error.localizedDescription)")
     }
-  }()
+  }
   
   /// A dictionary of traits-as-keys and descriptions of what they are used for.
-  private(set) lazy var traitReference: [String: String] = {
+  var traitReference: [String: String] {
     guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
           let traitReference = NSDictionary(contentsOf: url) as? [String: String]
     else { return [:] }
     
     return traitReference
-  }()
+  }
   
   // MARK: - Database Members
   /// The highest revision number in the SQLite reference database.
