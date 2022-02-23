@@ -19,6 +19,7 @@ class BaseSavingKindredViewModel: BaseKindredViewModel {
   
   /// Saves any changes made to the managed `Kindred` object.
   func save() {
+    objectWillChange.send()
     dataController.save()
   }
   

@@ -34,6 +34,16 @@ extension Trackers {
       kindred.willpowerString = String(kindred.willpowerString.dropFirst())
     }
     
+    func incrementBloodPotency() {
+      kindred.bloodPotency += 1
+      NotificationCenter.default.post(name: .bloodPotencyChanged, object: nil)
+    }
+    
+    func decrementBloodPotency() {
+      kindred.bloodPotency -= 1
+      NotificationCenter.default.post(name: .bloodPotencyChanged, object: nil)
+    }
+    
     /// Perform a rouse check, increasing hunger as necessary.
     /// - Returns: Whether the check was successful (no hunger increase) or not.
     func rouse(checks: Int) -> Bool {

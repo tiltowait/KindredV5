@@ -130,7 +130,9 @@ struct Trackers: View {
         TrackerStepper(
           "Blood Potency:",
           value: $viewModel.kindred.bloodPotency,
-          in: 0...10
+          in: 0...10,
+          onIncrement: viewModel.incrementBloodPotency,
+          onDecrement: viewModel.decrementBloodPotency
         )
         Divider()
         TrackerStepper(

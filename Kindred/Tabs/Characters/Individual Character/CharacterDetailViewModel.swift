@@ -34,6 +34,7 @@ extension CharacterDetail {
       
       NotificationCenter.default.addObserver(self, selector: #selector(clanWasSelected), name: .didSelectClan, object: nil)
       NotificationCenter.default.addObserver(self, selector: #selector(characterWasDeleted), name: .characterWasDeleted, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(bloodPotencyChanged), name: .bloodPotencyChanged, object: nil)
     }
     
     // MARK: - Trait Previews
@@ -124,6 +125,10 @@ extension CharacterDetail {
       }
     }
     
+    @objc func bloodPotencyChanged(_ notification: Notification) {
+      objectWillChange.send()
+    }
+    
   }
 }
 
@@ -131,5 +136,6 @@ extension Notification.Name {
   
   static let didSelectClan = Notification.Name("didSelectClan")
   static let characterWasDeleted = Notification.Name("characterWasDeleted")
+  static let bloodPotencyChanged = Notification.Name("bloodPotencyChanged")
   
 }

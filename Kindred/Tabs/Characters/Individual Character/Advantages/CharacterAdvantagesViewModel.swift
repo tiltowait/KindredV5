@@ -22,6 +22,11 @@ extension CharacterAdvantages {
       !coalesced.isEmpty || hasLoresheets
     }
     
+    override init(kindred: Kindred, dataController: DataController) {
+      super.init(kindred: kindred, dataController: dataController)
+      NotificationCenter.default.addObserver(self, selector: #selector(advantageWasAdded), name: .didAddAdvantageOption, object: nil)
+    }
+    
     func deleteOption(_ offsets: IndexSet, parent coalesced: Kindred.CoalescedAdvantage) {
       for offset in offsets {
         let container = coalesced.containers[offset]
@@ -29,5 +34,13 @@ extension CharacterAdvantages {
       }
     }
     
+    @objc func advantageWasAdded(_ notification: Notification) {
+      self.objectWillChange.send()
+    }
+    
   }
+}
+
+extension Notification.Name {
+  static let didAddAdvantageOption = Notification.Name("didAddAdvantageOption")
 }
