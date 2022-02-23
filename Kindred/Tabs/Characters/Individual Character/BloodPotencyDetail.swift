@@ -41,6 +41,7 @@ struct BloodPotencyDetail: View {
       Text(heading)
         .bold()
       Text(details)
+        .lineLimitFix()
     }
     .accessibilityElement(children: .combine)
     .accessibilityLabel(Text("\(heading): \(details)"))
