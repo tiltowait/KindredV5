@@ -27,12 +27,12 @@ struct ScrollingImageHeader: View {
   }
   
   var thumbnails: [Image] {
-    let images = viewModel.thumbnailImageData.compactMap { UIImage(data: $0) }
+    let images = viewModel.thumbnailImages.compactMap { UIImage(contentsOfFile: $0.path) }
     return images.map { Image(uiImage: $0) }
   }
   
   var fullSizeImages: [Image] {
-    let images = viewModel.fullSizeImageData.compactMap { UIImage(data: $0) }
+    let images = viewModel.fullsizeImages.compactMap { UIImage(contentsOfFile: $0.path) }
     return images.map { Image(uiImage: $0) }
   }
   

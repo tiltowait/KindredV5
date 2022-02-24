@@ -144,19 +144,16 @@ extension Kindred {
 extension KindredImage {
   
   static var examples: [KindredImage] {
-    guard let image1 = UIImage(named: "nadea"),
-          let image2 = UIImage(named: "nadea-portrait")
-    else { return [] }
-    
+    let imageNames = ["nadea", "nadea-portrait"]
     var images: [KindredImage] = []
     var creationOffset: TimeInterval = -1 // One image's creation date should be before the other
     
-    for fullSized in [image1, image2] {
+    for imageName in imageNames {
       let ki = KindredImage(context: DataController.preview.container.viewContext)
-      let thumbnail = fullSized.resize(height: 100)
+      let url = Bundle.main.url(forResource: imageName, withExtension: "png")!
       
-      ki.image = fullSized.pngData()!
-      ki.thumb = thumbnail.pngData()!
+      ki.imageURL = url
+      ki.thumbnailURL = url
       ki.creationDate = Date(timeIntervalSinceNow: creationOffset)
       creationOffset += 1
       

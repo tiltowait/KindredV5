@@ -144,15 +144,15 @@ extension Kindred {
   }
   
   /// The full-sized image data, sorted by creation date.
-  var fullSizeImageData: [Data] {
+  var fullsizeImageURLs: [URL] {
     let images = allImageObjects
-    return images.sorted().compactMap { $0.image }
+    return images.sorted().compactMap { $0.imageURL }
   }
   
   /// The thumbnail image data, sorted by creation date.
-  var thumbnailImageData: [Data] {
+  var thumbnailImageURLs: [URL] {
     let images = allImageObjects
-    return images.sorted().compactMap { $0.thumb }
+    return images.sorted().compactMap { $0.thumbnailURL }
   }
   
   /// The powers known by the character, sorted.

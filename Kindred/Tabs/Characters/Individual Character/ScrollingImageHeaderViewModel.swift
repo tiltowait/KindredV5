@@ -5,18 +5,18 @@
 //  Created by Jared Lindsay on 6/14/21.
 //
 
-import Foundation
+import UIKit
 
 extension ScrollingImageHeader {
   class ViewModel: BaseSavingKindredViewModel {
     
-    @Published var fullSizeImageData: [Data]
-    @Published var thumbnailImageData: [Data]
+    @Published var fullsizeImages: [URL]
+    @Published var thumbnailImages: [URL]
     @Published var attemptedToAddDuplicateImage = false
     
     override init(kindred: Kindred, dataController: DataController) {
-      fullSizeImageData = kindred.fullSizeImageData
-      thumbnailImageData = kindred.thumbnailImageData
+      fullsizeImages = kindred.fullsizeImageURLs
+      thumbnailImages = kindred.thumbnailImageURLs
       
       super.init(kindred: kindred, dataController: dataController)
     }
@@ -28,32 +28,54 @@ extension ScrollingImageHeader {
       }
       
       let kindredImage = KindredImage(context: dataController.container.viewContext)
-      kindredImage.image = fullSize
-      kindredImage.thumb = thumbnail
+      let fullsizeURL = URL.documents.appendingPathComponent("\(UUID()).png")
+      let thumbnailURL = URL.documents.appendingPathComponent("\(UUID()).png")
+      
+      do {
+        try fullSize.write(to: fullsizeURL)
+        try thumbnail.write(to: thumbnailURL)
+      } catch {
+        fatalError("Unable to write image: \(error.localizedDescription)")
+      }
+      
+      kindredImage.imageURL = fullsizeURL
+      kindredImage.thumbnailURL = thumbnailURL
       kindredImage.creationDate = Date()
       
       kindred.addToImages(kindredImage)
       
-      fullSizeImageData.append(fullSize)
-      thumbnailImageData.append(thumbnail)
+      fullsizeImages.append(fullsizeURL)
+      thumbnailImages.append(thumbnailURL)
+      save()
     }
     
     func removeImage(at index: Int) {
       let images = kindred.allImageObjects
+      
       if 0..<images.count ~= index {
+        objectWillChange.send()
         let image = images[index]
         
         kindred.removeFromImages(image)
         dataController.delete(image)
-        fullSizeImageData.remove(at: index)
-        thumbnailImageData.remove(at: index)
+        
+        // Remove the image from the file system
+        let fullsizePath = fullsizeImages.remove(at: index)
+        let thumbnailPath = thumbnailImages.remove(at: index)
+        
+        do {
+          try FileManager.default.removeItem(at: fullsizePath)
+          try FileManager.default.removeItem(at: thumbnailPath)
+        } catch {
+          print("Unable to delete image: \(error.localizedDescription)")
+        }
+        save()
       }
     }
     
     private func imageIsDuplicate(_ image: Data) -> Bool {
-      let hash = image.hashValue
-      let imageHashes = kindred.fullSizeImageData.map { $0.hashValue }
-      return imageHashes.contains(hash)
+      let hashes = kindred.fullsizeImageURLs.compactMap { try? Data(contentsOf: $0).hashValue }
+      return hashes.contains(image.hashValue)
     }
     
   }
