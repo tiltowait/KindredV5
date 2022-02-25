@@ -12,7 +12,11 @@ extension ScrollingImageHeader {
     
     @Published var fullsizeImages: [URL]
     @Published var thumbnailImages: [URL]
-    @Published var attemptedToAddDuplicateImage = false
+    @Published var attemptedToAddDuplicateImage = false {
+      didSet {
+        print(attemptedToAddDuplicateImage)
+      }
+    }
     
     override init(kindred: Kindred, dataController: DataController) {
       fullsizeImages = kindred.fullsizeImageURLs
@@ -23,30 +27,29 @@ extension ScrollingImageHeader {
     
     func addImage(fullSize: Data, thumbnail: Data) {
       if imageIsDuplicate(fullSize) {
-        attemptedToAddDuplicateImage.toggle()
-        return
+        attemptedToAddDuplicateImage = true
+      } else {
+        let kindredImage = KindredImage(context: dataController.container.viewContext)
+        let fullsizeURL = URL.documents.appendingPathComponent(UUID().uuidString + ".png")
+        let thumbnailURL = URL.documents.appendingPathComponent(UUID().uuidString + ".png")
+        
+        do {
+          try fullSize.write(to: fullsizeURL)
+          try thumbnail.write(to: thumbnailURL)
+        } catch {
+          fatalError("Unable to write image: \(error.localizedDescription)")
+        }
+        
+        kindredImage.imageURL = fullsizeURL
+        kindredImage.thumbnailURL = thumbnailURL
+        kindredImage.creationDate = Date()
+        
+        kindred.addToImages(kindredImage)
+        
+        fullsizeImages.append(fullsizeURL)
+        thumbnailImages.append(thumbnailURL)
+        save()
       }
-      
-      let kindredImage = KindredImage(context: dataController.container.viewContext)
-      let fullsizeURL = URL.documents.appendingPathComponent("\(UUID()).png")
-      let thumbnailURL = URL.documents.appendingPathComponent("\(UUID()).png")
-      
-      do {
-        try fullSize.write(to: fullsizeURL)
-        try thumbnail.write(to: thumbnailURL)
-      } catch {
-        fatalError("Unable to write image: \(error.localizedDescription)")
-      }
-      
-      kindredImage.imageURL = fullsizeURL
-      kindredImage.thumbnailURL = thumbnailURL
-      kindredImage.creationDate = Date()
-      
-      kindred.addToImages(kindredImage)
-      
-      fullsizeImages.append(fullsizeURL)
-      thumbnailImages.append(thumbnailURL)
-      save()
     }
     
     func removeImage(at index: Int) {
@@ -73,7 +76,7 @@ extension ScrollingImageHeader {
       }
     }
     
-    private func imageIsDuplicate(_ image: Data) -> Bool {
+    func imageIsDuplicate(_ image: Data) -> Bool {
       let hashes = kindred.fullsizeImageURLs.compactMap { try? Data(contentsOf: $0).hashValue }
       return hashes.contains(image.hashValue)
     }

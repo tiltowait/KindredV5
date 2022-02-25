@@ -61,9 +61,9 @@ struct ScrollingImageHeader: View {
             .frame(width: 30)
         }
       }
-      .sheet(isPresented: $showingImagePicker) {
-        PhotoPicker(imageHandler: addImage, errorHandler: imageError)
-      }
+    }
+    .sheet(isPresented: $showingImagePicker) {
+      PhotoPicker(imageHandler: addImage, errorHandler: imageError)
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
@@ -75,15 +75,15 @@ struct ScrollingImageHeader: View {
     .alert(isPresented: $viewModel.attemptedToAddDuplicateImage) {
       Alert(
         title: Text("Duplicate Image"),
-        message: Text("This image has already been added. Skipping."),
-        dismissButton: nil
+        message: Text("This image has already been added."),
+        dismissButton: .default(Text("OK"))
       )
     }
     .alert(item: $imagePickerError) { error in
       Alert(
         title: Text("Unable to Load"),
         message: Text(error),
-        dismissButton: nil
+        dismissButton: .default(Text("OK"))
       )
     }
     .onDisappear(perform: viewModel.save)
