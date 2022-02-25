@@ -31,7 +31,7 @@ extension ScrollingImageHeader {
       } else {
         let kindredImage = KindredImage(context: dataController.container.viewContext)
         let fullsizeURL = URL.documents.appendingPathComponent(UUID().uuidString + ".png")
-        let thumbnailURL = URL.documents.appendingPathComponent(UUID().uuidString + ".png")
+        let thumbnailURL = URL.documents.appendingPathComponent(UUID().uuidString + ".jpg")
         
         do {
           try fullSize.write(to: fullsizeURL)

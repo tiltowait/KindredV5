@@ -31,11 +31,6 @@ struct ScrollingImageHeader: View {
     return images.map { Image(uiImage: $0) }
   }
   
-  var fullSizeImages: [Image] {
-    let images = viewModel.fullsizeImages.compactMap { UIImage(contentsOfFile: $0.path) }
-    return images.map { Image(uiImage: $0) }
-  }
-  
   var body: some View {
     ScrollView(.horizontal) {
       LazyHStack {
@@ -67,7 +62,7 @@ struct ScrollingImageHeader: View {
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
-        images: fullSizeImages,
+        images: viewModel.fullsizeImages,
         index: index,
         deletionHandler: viewModel.removeImage
       )
@@ -99,7 +94,7 @@ struct ScrollingImageHeader: View {
       // the event we ever start picking images from outside the
       // photo library, we will revisit this topic.
       guard let fullSize = image.pngData(),
-            let thumbnail = scaledImage.pngData()
+            let thumbnail = scaledImage.jpegData(compressionQuality: 0.8)
       else { return }
       
       viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
