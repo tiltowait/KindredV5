@@ -12,11 +12,7 @@ extension ScrollingImageHeader {
     
     @Published var fullsizeImages: [URL]
     @Published var thumbnailImages: [URL]
-    @Published var attemptedToAddDuplicateImage = false {
-      didSet {
-        print(attemptedToAddDuplicateImage)
-      }
-    }
+    @Published var attemptedToAddDuplicateImage = false
     
     override init(kindred: Kindred, dataController: DataController) {
       fullsizeImages = kindred.fullsizeImageURLs
