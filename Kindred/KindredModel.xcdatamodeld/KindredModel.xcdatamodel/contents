@@ -145,7 +145,8 @@
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="powers" inverseEntity="Kindred"/>
     </entity>
     <entity name="PredatorType" representedClassName="PredatorType" parentEntity="ReferenceItem" syncable="YES" codeGenerationType="class">
-        <attribute name="huntingPool" optional="YES" attributeType="String"/>
+        <attribute name="zDescription" optional="YES" attributeType="String"/>
+        <attribute name="zHuntingPool" optional="YES" attributeType="String"/>
         <relationship name="advantages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdvantageOption" inverseName="referencingPredatorTypes" inverseEntity="AdvantageOption"/>
         <relationship name="disciplineOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="referencingPredatorTypes" inverseEntity="Discipline"/>
         <relationship name="kindred" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Kindred" inverseName="predatorType" inverseEntity="Kindred"/>
@@ -182,7 +183,7 @@
         <element name="Loresheet" positionX="-261" positionY="-459" width="128" height="59"/>
         <element name="LoresheetEntry" positionX="-252" positionY="-450" width="128" height="74"/>
         <element name="Power" positionX="187.4140625" positionY="-242.85546875" width="128" height="149"/>
-        <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="103"/>
+        <element name="PredatorType" positionX="-75.09375" positionY="-34.359375" width="128" height="104"/>
         <element name="ReferenceItem" positionX="83.31640625" positionY="-420.234375" width="128" height="59"/>
         <element name="Ritual" positionX="343.1796875" positionY="-420.5546875" width="128" height="149"/>
         <element name="Specialty" positionX="-261" positionY="-459" width="128" height="74"/>
