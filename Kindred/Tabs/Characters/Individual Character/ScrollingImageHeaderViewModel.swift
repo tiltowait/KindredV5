@@ -10,13 +10,13 @@ import UIKit
 extension ScrollingImageHeader {
   class ViewModel: BaseSavingKindredViewModel {
     
-    @Published var fullsizeImages: [URL]
-    @Published var thumbnailImages: [URL]
+    @Published var fullsizeURLs: [URL]
+    @Published var thumbnailURLs: [URL]
     @Published var attemptedToAddDuplicateImage = false
     
     override init(kindred: Kindred, dataController: DataController) {
-      fullsizeImages = kindred.fullsizeImageURLs
-      thumbnailImages = kindred.thumbnailImageURLs
+      fullsizeURLs = kindred.fullsizeImageURLs
+      thumbnailURLs = kindred.thumbnailImageURLs
       
       super.init(kindred: kindred, dataController: dataController)
     }
@@ -42,8 +42,8 @@ extension ScrollingImageHeader {
         
         kindred.addToImages(kindredImage)
         
-        fullsizeImages.append(fullsizeURL)
-        thumbnailImages.append(thumbnailURL)
+        fullsizeURLs.append(fullsizeURL)
+        thumbnailURLs.append(thumbnailURL)
         save()
       }
     }
@@ -59,8 +59,8 @@ extension ScrollingImageHeader {
         dataController.delete(image)
         
         // Remove the image from the file system
-        let fullsizePath = fullsizeImages.remove(at: index)
-        let thumbnailPath = thumbnailImages.remove(at: index)
+        let fullsizePath = fullsizeURLs.remove(at: index)
+        let thumbnailPath = thumbnailURLs.remove(at: index)
         
         do {
           try FileManager.default.removeItem(at: fullsizePath)

@@ -27,8 +27,10 @@ struct ScrollingImageHeader: View {
   }
   
   var thumbnails: [Image] {
-    let images = viewModel.thumbnailImages.compactMap { UIImage(contentsOfFile: $0.path) }
-    return images.map { Image(uiImage: $0) }
+    viewModel.thumbnailURLs
+      .lazy.map { $0.path }
+      .compactMap(UIImage.init)
+      .map(Image.init)
   }
   
   var body: some View {
@@ -62,7 +64,7 @@ struct ScrollingImageHeader: View {
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
-        images: viewModel.fullsizeImages,
+        images: viewModel.fullsizeURLs,
         index: index,
         deletionHandler: viewModel.removeImage
       )
