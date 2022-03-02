@@ -26,7 +26,7 @@ extension ScrollingImageHeader {
         attemptedToAddDuplicateImage = true
       } else {
         let kindredImage = KindredImage(context: dataController.container.viewContext)
-        let fullsizeURL = URL.documents.appendingPathComponent(UUID().uuidString + ".png")
+        let fullsizeURL = URL.documents.appendingPathComponent(UUID().uuidString + ".jpg")
         let thumbnailURL = URL.documents.appendingPathComponent(UUID().uuidString + ".jpg")
         
         do {

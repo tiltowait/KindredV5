@@ -95,8 +95,8 @@ struct ScrollingImageHeader: View {
       // however, under no normal circumstances should this fail. In
       // the event we ever start picking images from outside the
       // photo library, we will revisit this topic.
-      guard let fullSize = image.pngData(),
-            let thumbnail = scaledImage.jpegData(compressionQuality: 0.8)
+      guard let fullSize = image.jpegData(compressionQuality: 0.8),
+            let thumbnail = scaledImage.jpegData(compressionQuality: 0.7)
       else { return }
       
       viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
