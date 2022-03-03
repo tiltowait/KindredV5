@@ -122,6 +122,17 @@
 		28A39EBB2679698500867AB9 /* PoolSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBA2679698500867AB9 /* PoolSelector.swift */; };
 		28A39EBD2679698E00867AB9 /* PoolSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A39EBC2679698E00867AB9 /* PoolSelectorViewModel.swift */; };
 		28A905CA27D146CF00A36283 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C927D146CF00A36283 /* ReferenceManager.swift */; };
+		28A905CB27D1546300A36283 /* AdvantageContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2870436D26824110005F6589 /* AdvantageContainer+.swift */; };
+		28A905CC27D154C200A36283 /* Kindred+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9E82677AA1A0084F483 /* Kindred+.swift */; };
+		28A905CD27D156FA00A36283 /* Specialty+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F05C22269DFCC400E81D5B /* Specialty+.swift */; };
+		28A905CE27D1571900A36283 /* Importer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C727D1446100A36283 /* Importer.swift */; };
+		28A905CF27D1571900A36283 /* ClanImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C627D1446100A36283 /* ClanImporter.swift */; };
+		28A905D027D1571900A36283 /* DisciplineImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C427D1446100A36283 /* DisciplineImporter.swift */; };
+		28A905D127D1571900A36283 /* LoresheetImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C327D1446100A36283 /* LoresheetImporter.swift */; };
+		28A905D227D1571900A36283 /* RitualImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C827D1446100A36283 /* RitualImporter.swift */; };
+		28A905D327D1571900A36283 /* AdvantageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C527D1446100A36283 /* AdvantageImporter.swift */; };
+		28A905D427D15C1700A36283 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
+		28A905D527D162C500A36283 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */; };
 		28B40CED26961A420058BE50 /* LoresheetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CEC26961A420058BE50 /* LoresheetList.swift */; };
@@ -707,8 +718,8 @@
 			isa = PBXGroup;
 			children = (
 				28A905C927D146CF00A36283 /* ReferenceManager.swift */,
-				2883A16827D1370D00C71EE4 /* ReferenceProtocols.swift */,
 				28A905C227D1442700A36283 /* Importers */,
+				2883A16827D1370D00C71EE4 /* ReferenceProtocols.swift */,
 				2883A16A27D1398B00C71EE4 /* Advantage.swift */,
 				2883A16C27D139CB00C71EE4 /* Discipline.swift */,
 				2883A16E27D139FA00C71EE4 /* LoresheetEntry.swift */,
@@ -1105,6 +1116,7 @@
 				28BD80762676FD5600FEE5F9 /* StringProtocol+.swift in Sources */,
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */,
+				28A905CF27D1571900A36283 /* ClanImporter.swift in Sources */,
 				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
 				2883A16927D1370D00C71EE4 /* ReferenceProtocols.swift in Sources */,
 				28F0214A26A74B2600867504 /* Popover.swift in Sources */,
@@ -1114,6 +1126,7 @@
 				28386F652658727400E90445 /* PowerRow.swift in Sources */,
 				28C5D159267944A600E199DB /* BaseSavingKindredViewModel.swift in Sources */,
 				28CD0D47267E7DD500ED8635 /* ReferenceRow.swift in Sources */,
+				28A905D127D1571900A36283 /* LoresheetImporter.swift in Sources */,
 				28C656E7267BEC5B00865EE3 /* DisciplineDetailViewModel.swift in Sources */,
 				288EB7C82698EEF700E27652 /* Dictionary+.swift in Sources */,
 				28F8280626B85FD500253281 /* ReferenceCard.swift in Sources */,
@@ -1136,6 +1149,7 @@
 				282EC8382656EEB80086B14F /* HomeView.swift in Sources */,
 				28F8280A26B86A4900253281 /* RitualListViewModel.swift in Sources */,
 				28F1141E26A227AB00C47B79 /* Array+.swift in Sources */,
+				28A905CD27D156FA00A36283 /* Specialty+.swift in Sources */,
 				28EBBE0726784E90004DD186 /* CharacterRow.swift in Sources */,
 				2813877A267D7BD0006DA73C /* OptionalKindredViewModel.swift in Sources */,
 				28DB5E82268A873600649103 /* SwapView.swift in Sources */,
@@ -1153,6 +1167,7 @@
 				28ED3B7C2698C992007C31C4 /* PDF+.swift in Sources */,
 				2801217B26793F540069C496 /* RangePicker.swift in Sources */,
 				2856DCD8269E33CB00B39866 /* MenuPicker.swift in Sources */,
+				28A905D227D1571900A36283 /* RitualImporter.swift in Sources */,
 				28A905CA27D146CF00A36283 /* ReferenceManager.swift in Sources */,
 				28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */,
 				287F880A2682A27D00DF140E /* StressBox.swift in Sources */,
@@ -1160,12 +1175,14 @@
 				287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */,
 				2883A17527D13AAF00C71EE4 /* Loresheet.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
+				28A905D527D162C500A36283 /* ReferenceItem+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */,
 				2883A17327D13A7E00C71EE4 /* Clan.swift in Sources */,
 				28A34D0726B0841E001738BF /* RitualList.swift in Sources */,
 				28C656D3267BBF9900865EE3 /* AddDisciplineSheet.swift in Sources */,
 				28A39EB52679630B00867AB9 /* ButtonPad.swift in Sources */,
+				28A905D427D15C1700A36283 /* KindredImage+.swift in Sources */,
 				281F80382680FAC600B5B387 /* CharacterListViewModel.swift in Sources */,
 				28189D66268145CF0099E8DF /* AdvantageViewModel.swift in Sources */,
 				287043722682485A005F6589 /* CharacterAdvantagesViewModel.swift in Sources */,
@@ -1174,6 +1191,7 @@
 				28F0214626A735FA00867504 /* MoralityTrackViewModel.swift in Sources */,
 				28563A6C27C6FA3D005F46CA /* URL+.swift in Sources */,
 				280E100426A33C2B00A87955 /* ToggleButton.swift in Sources */,
+				28A905CE27D1571900A36283 /* Importer.swift in Sources */,
 				28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */,
 				284635902697616D00898E84 /* View+.swift in Sources */,
 				28A39EB32679614000867AB9 /* UIImage+.swift in Sources */,
@@ -1185,6 +1203,7 @@
 				280FF098269F5E0600A9643A /* BoldButton.swift in Sources */,
 				28F8280D26B86FF800253281 /* CharacterRitualsList.swift in Sources */,
 				28386F5926585D9C00E90445 /* Constants.swift in Sources */,
+				28A905D027D1571900A36283 /* DisciplineImporter.swift in Sources */,
 				28BECB5726E2A6AA004E7E0A /* ProductView.swift in Sources */,
 				2852D305267D2AAB009AF8D1 /* PopUpButton.swift in Sources */,
 				286BE43E2696361600C19D57 /* AddLoresheetListViewController.swift in Sources */,
@@ -1193,6 +1212,7 @@
 				280FF092269F428300A9643A /* DiceBag.swift in Sources */,
 				28692FB82696288100CEA2C5 /* LoresheetEntryDetail.swift in Sources */,
 				2852D307267D3A6F009AF8D1 /* CreateCharacterView.swift in Sources */,
+				28A905D327D1571900A36283 /* AdvantageImporter.swift in Sources */,
 				2813CACA269CB2B6005356D9 /* ChronicleDetail.swift in Sources */,
 				2866C6892683F73B00614E85 /* Trackers.swift in Sources */,
 				28C656DC267BDD8400865EE3 /* PowerCard.swift in Sources */,
@@ -1211,12 +1231,14 @@
 				28F05C27269E068400E81D5B /* SpecialtyManagerViewModel.swift in Sources */,
 				28474426267832D200C1E3A5 /* DotView.swift in Sources */,
 				2813877C267D7DA2006DA73C /* ClanRow.swift in Sources */,
+				28A905CC27D154C200A36283 /* Kindred+.swift in Sources */,
 				28B40CEF26961E100058BE50 /* LoresheetDetail.swift in Sources */,
 				283EB7D626A8AAC200F56447 /* WarningSheet.swift in Sources */,
 				28BFB607269647D5005DE923 /* KnownLoresheetGroups.swift in Sources */,
 				288EB7C62698D08600E27652 /* BloodPotencyDetail.swift in Sources */,
 				281E21F9267D419200B49C37 /* CenteredModifier.swift in Sources */,
 				281F8045268138A200B5B387 /* AdvantageListViewController.swift in Sources */,
+				28A905CB27D1546300A36283 /* AdvantageContainer+.swift in Sources */,
 				28138778267D7BC4006DA73C /* ClanListViewController.swift in Sources */,
 				282EC8362656EEB80086B14F /* KindredApp.swift in Sources */,
 				28EEDCD426A5FF1900ABE6C3 /* RouseResult.swift in Sources */,

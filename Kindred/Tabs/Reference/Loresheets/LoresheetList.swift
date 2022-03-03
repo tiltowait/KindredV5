@@ -8,17 +8,11 @@
 import SwiftUI
 
 struct LoresheetList: View {
-  
-  @FetchRequest(
-    entity: Loresheet.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Loresheet.zName, ascending: true)]
-  ) var loresheets: FetchedResults<Loresheet>
   @EnvironmentObject var dataController: DataController
-  
   @State private var lockedIdentifier: String?
   
   var body: some View {
-    List(loresheets) { loresheet in
+    List(ReferenceManager.shared.loresheets) { loresheet in
       row(loresheet: loresheet)
     }
     .listStyle(.insetGrouped)

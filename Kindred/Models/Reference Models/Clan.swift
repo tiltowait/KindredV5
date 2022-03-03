@@ -20,8 +20,8 @@ class Clan: ReferenceItem {
   let page: Int16
   let source: Int16
   let bane: String?
-  let compulsion: String
-  let compulsionDetails: String
+  let compulsion: String?
+  let compulsionDetails: String?
   let rawTemplate: Int16
   let header: String
   let icon: String
@@ -36,7 +36,7 @@ class Clan: ReferenceItem {
     return template
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, bane: String?, compulsion: String, compulsionDetails: String, rawTemplate: Int16, header: String, icon: String, nicknames: String) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16, bane: String?, compulsion: String?, compulsionDetails: String?, rawTemplate: Int16, header: String, icon: String, nicknames: String) {
     self.id = id
     self.name = name
     self.info = info
@@ -49,7 +49,6 @@ class Clan: ReferenceItem {
     self.header = header
     self.icon = icon
     self.nicknames = nicknames.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-    self.inClanDisciplines = inClanDisciplines
   }
   
   func randomNicknames(count: Int) -> [String] {

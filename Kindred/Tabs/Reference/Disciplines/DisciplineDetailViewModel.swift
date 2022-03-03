@@ -63,7 +63,7 @@ extension DisciplineDetail {
     /// This method does not save the changes.
     /// - Parameter power: The power to add.
     func add(power: Power) {
-      kindred?.addToPowers(power)
+      kindred?.addPower(power)
     }
     
   }

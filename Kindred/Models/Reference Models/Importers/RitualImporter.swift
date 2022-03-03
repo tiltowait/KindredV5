@@ -10,7 +10,7 @@ import SQLite
 
 enum RitualImporter: Importer {
   
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T] {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let rituals = Table("rituals")
     
@@ -27,24 +27,24 @@ enum RitualImporter: Importer {
     let discipline = Expression<String>("discipline")
     let refID = Expression<Int>("refID")
     
-    var allRituals: [Ritual] = []
+    var allRituals: [T] = []
 
     for row in try db.prepare(rituals) {
       let refID = Int16(row[refID])
-      let prerequisite: Power?
+      let prerequisitePower: Power?
       
-      if let prerequisite = row[prerequisite] {
+      if let prereq = row[prerequisite] {
         // Ritual has a prerequisite power. This is currently only the case for Oblivion ceremonies.
-        guard let power = Power.fetchObject(named: prerequisite, in: context) else {
+        guard let power = ReferenceManager.shared.power(named: prereq) else {
           throw ImportError.invalidReference("\(prerequisite) is not a valid power.")
         }
-        prerequisite = power
+        prerequisitePower = power
       } else {
-        prerequisite = nil
+        prerequisitePower = nil
       }
       
       let disciplineName = row[discipline]
-      guard let discipline = Discipline.fetchObject(named: disciplineName, in: context) else {
+      guard let discipline = ReferenceManager.shared.discipline(named: disciplineName) else {
         throw ImportError.invalidReference("\(disciplineName) is not a valid discipline.")
       }
       
@@ -60,38 +60,12 @@ enum RitualImporter: Importer {
         process: row[process],
         system: row[system],
         discipline: discipline,
-        prerequisite: prerequisite
+        prerequisite: prerequisitePower
       )
-      prerequisite?.dependentRituals.append(ritual)
+      prerequisitePower?.dependentRituals.append(ritual)
       discipline.rituals.append(ritual)
-      allRituals.append(ritual)
+      allRituals.append(ritual as! T)
     }
     return allRituals
   }
-  
-  static func removeDuplicates(in context: NSManagedObjectContext) throws {
-    let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
-    let allRituals = try context.fetch(request)
-    
-    let groups = Dictionary(grouping: allRituals, by: \.refID)
-    var toDelete: [Ritual] = []
-    
-    for (_, var rituals) in groups {
-      if rituals.count == 1 { continue }
-      
-      guard let keptRitual = rituals.removeMax() else { continue }
-      
-      for removedRitual in rituals {
-        guard let kindred = removedRitual.referencingKindred else { continue }
-        keptRitual.addToReferencingKindred(kindred)
-        
-        toDelete.append(removedRitual)
-      }
-    }
-    
-    for ritual in toDelete {
-      context.delete(ritual)
-    }
-  }
-  
 }

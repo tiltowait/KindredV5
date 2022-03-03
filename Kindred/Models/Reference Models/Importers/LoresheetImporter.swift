@@ -10,7 +10,7 @@ import SQLite
 
 enum LoresheetImporter: Importer {
   
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T] {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let loresheets = Table("loresheets")
     
@@ -22,7 +22,7 @@ enum LoresheetImporter: Importer {
     let clan = Expression<String?>("clan")
     let refID = Expression<Int>("refID")
     
-    var allLoresheets: [Loresheet] = []
+    var allLoresheets: [T] = []
     
     for row in try db.prepare(loresheets) {
       let refID = Int16(row[refID])
@@ -44,7 +44,7 @@ enum LoresheetImporter: Importer {
         }
       }
       try Self.importLoresheetEntries(for: loresheet)
-      allLoresheets.append(loresheet)
+      allLoresheets.append(loresheet as! T)
     }
     return allLoresheets
   }
@@ -60,7 +60,7 @@ enum LoresheetImporter: Importer {
     let parent = Expression<String>("parent")
     let refID = Expression<Int>("refID")
     
-    for row in try db.prepare(loresheetItems) {
+    for row in try db.prepare(loresheetItems) where row[parent] == loresheet.name {
       let refID = Int16(row[refID])
       let loresheetMerit = LoresheetEntry(
         id: refID,
@@ -69,6 +69,7 @@ enum LoresheetImporter: Importer {
         level: Int16(row[level]),
         parent: loresheet
       )
+      loresheet.entries.append(loresheetMerit)
     }
   }
 }

@@ -176,9 +176,9 @@ struct AdvantageOptionView: View {
 struct AdvantageOptionView_Previews: PreviewProvider {
   
   static let context = DataController.preview.container.viewContext
-  static let unbondable = "Unbondable"
-  static let organovore = "Organovore"
-  static let bondResistance = "Bond Resistance"
+  static let unbondable = ReferenceManager.shared.advantageOption(named: "Unbondable")!
+  static let organovore = ReferenceManager.shared.advantageOption(named: "Organovore")!
+  static let bondResistance = ReferenceManager.shared.advantageOption(named: "Bond Resistance")!
   
   static let container1 = Kindred.example.advantageContainers.first(where: { $0.option.name == "Bond Resistance" })!
   
@@ -188,15 +188,15 @@ struct AdvantageOptionView_Previews: PreviewProvider {
   
   static var previews: some View {
     // No rating range, circle dots, no button
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: unbondable, in: context)!, kindred: nil, dataController: DataController.preview)
+    AdvantageOptionView(option: unbondable, kindred: nil, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // Rating range, no button
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: bondResistance, in: context)!, kindred: nil, dataController: DataController.preview)
+    AdvantageOptionView(option: bondResistance, kindred: nil, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // No rating range, square dots, add button
-    AdvantageOptionView(option: AdvantageOption.fetchObject(named: organovore, in: context)!, kindred: Kindred.example, dataController: DataController.preview)
+    AdvantageOptionView(option: organovore, kindred: Kindred.example, dataController: DataController.preview)
       .previewLayout(.sizeThatFits)
     
     // No rating range, square dots, no add button, contained

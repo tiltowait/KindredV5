@@ -43,46 +43,6 @@ class DataController: ObservableObject {
   
   // MARK: - Database Management
   
-  /// Every single `Clan`, sorted alphabetically.
-  var clans: [Clan] {
-    do {
-      let clans = try container.viewContext.fetch(Clan.sortedFetchRequest)
-      return clans
-    } catch {
-      fatalError("Unable to fetch clans.\n\(error.localizedDescription)")
-    }
-  }
-  
-  /// Every single `Discipline` (and associated `Power`s) in the database, sorted alphabetically.
-  var disciplines: [Discipline] {
-    do {
-      let disciplines = try container.viewContext.fetch(Discipline.sortedFetchRequest)
-      return disciplines
-    } catch {
-      fatalError("Unable to fetch disciplines.\n\(error.localizedDescription)")
-    }
-  }
-  
-  /// Every single `Advantage` and associated options in the database, sorted alphabetically.
-  var advantages: [Advantage] {
-    do {
-      let advantages = try container.viewContext.fetch(Advantage.sortedFetchRequest)
-      return advantages
-    } catch {
-      fatalError("Unable to fetch advantages.\n\(error.localizedDescription)")
-    }
-  }
-  
-  /// Every `Loresheet` and associated entry in the database, sorted alphabetically.
-  var loresheets: [Loresheet] {
-    do {
-      let loresheets = try container.viewContext.fetch(Loresheet.sortedFetchRequest)
-      return loresheets
-    } catch {
-      fatalError("Unable to fetch loresheets.\n\(error.localizedDescription)")
-    }
-  }
-  
   /// A dictionary of traits-as-keys and descriptions of what they are used for.
   var traitReference: [String: String] {
     guard let url = Bundle.main.url(forResource: "TraitReference", withExtension: "plist"),
@@ -138,78 +98,6 @@ class DataController: ObservableObject {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
     }
-    // In prior versions, before adding CloudKit, we used UserDefaults to track the reference
-    // database version. However, CloudKit means that users can load new reference material on
-    // another device, so we will store the reference version in our Core Data model instead. To
-    // make things easier for existing users, we convert for them.
-    
-    let cdVersion = self.fetchAll(CDReferenceVersion.self).first ?? CDReferenceVersion(context: container.viewContext)
-    let udReferenceVersion = defaults.integer(forKey: Global.referenceVersionKey)
-    
-    if !inMemory && udReferenceVersion > cdVersion.version {
-      print("Establishing CDReferenceVersion")
-      cdVersion.version = Int16(udReferenceVersion)
-      defaults.set(-1, forKey: Global.referenceVersionKey) // Make it so we never overwrite again
-      self.save()
-    }
-
-        
-    // Each importer reads only those reference items that have a revision number higher than the
-    // Core Data version number stored in user defaults. For each row in the reference database,
-    // the importers first try to fetch an object with that row's reference ID; if they can't, then
-    // they create a new item with that ID.
-    
-    if cdVersion.version < self.sqliteReferenceVersion {
-      print("Fetching new items")
-      let oldVersion = Int(cdVersion.version)
-      do {
-        try DisciplineImporter.importAll(after: oldVersion, context: container.viewContext)
-        try ClanImporter.importAll(after: oldVersion, context: container.viewContext)
-        try AdvantageImporter.importAll(after: oldVersion, context: container.viewContext)
-        try LoresheetImporter.importAll(after: oldVersion, context: container.viewContext)
-        try RitualImporter.importAll(after: oldVersion, context: container.viewContext)
-        
-        cdVersion.version = Int16(sqliteReferenceVersion)
-        self.save()
-        
-      } catch ImportError.invalidReference(let object) {
-        fatalError(object)
-      } catch {
-        fatalError(error.localizedDescription)
-      }
-      defaults.set(sqliteReferenceVersion, forKey: Global.referenceVersionKey)
-    }
-    
-    removeDuplicates()
-    
-    #if DEBUG
-    print("Stored version: \(udReferenceVersion)")
-    print("SQLite version: \(sqliteReferenceVersion)")
-    
-    print("\n\(self.countAll(Discipline.self)) disciplines")
-    print("\tWith \(self.countAll(Power.self)) powers")
-    print("\(self.countAll(Clan.self)) clans")
-    print("\(self.countAll(Advantage.self)) advantages")
-    print("\tWith \(self.countAll(AdvantageOption.self)) options")
-    print("\(self.countAll(Loresheet.self)) loresheets")
-    print("\tWith \(self.countAll(LoresheetEntry.self)) entries")
-    print("\(self.countAll(Ritual.self)) rituals")
-    #endif
-    
-  }
-  
-  func removeDuplicates() {
-    do {
-      try LoresheetImporter.removeDuplicates(in: container.viewContext)
-      try RitualImporter.removeDuplicates(in: container.viewContext)
-      try DisciplineImporter.removeDuplicates(in: container.viewContext)
-      try ClanImporter.removeDuplicates(in: container.viewContext)
-      try AdvantageImporter.removeDuplicates(in: container.viewContext)
-      
-      save()
-    } catch {
-      print(error.localizedDescription)
-    }
   }
   
   /// Fetch all objects matching a particular request.
@@ -254,7 +142,7 @@ class DataController: ObservableObject {
     self.purchaseIdentifiers = purchases
   }
   
-  func isPurchased(item: ReferenceItem) -> Bool {
+  func isPurchased<T: ReferenceItem>(item: T) -> Bool {
     if item.unlockIdentifier == "included" {
       return true
     }

@@ -43,7 +43,7 @@ struct RitualCard: View {
   var body: some View {
     ReferenceCard(
       item: ritual,
-      icon: ritual.discipline?.icon,
+      icon: ritual.discipline.icon,
       contents: {
         header
         Divider()

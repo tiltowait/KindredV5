@@ -116,7 +116,7 @@ extension AdvantageOptionView {
       else { return }
       
       let container = AdvantageContainer(context: dataController.container.viewContext)
-      container.option = option
+      container.refID = option.id
       container.currentRating = option.minRating
       kindred.addToAdvantages(container)
       

@@ -18,14 +18,16 @@ extension RitualList {
     @Published var lockedRitual: String?
     
     init(flavor: Ritual.Flavor, kindred: Kindred?, dataController: DataController) {
+      var allRituals = ReferenceManager.shared.rituals.filter { $0.discipline.name == flavor.disciplineName }
+      /*
       let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
       request.predicate = NSPredicate(format: "discipline.zName == %@", flavor.disciplineName)
       request.sortDescriptors = [
         NSSortDescriptor(keyPath: \Ritual.level, ascending: true),
         NSSortDescriptor(keyPath: \Ritual.zName, ascending: true)
       ]
+       */
       
-      var allRituals = dataController.fetch(request: request)
       if let kindred = kindred {
         // Remove known rituals
         allRituals = allRituals.filter { !kindred.knownRituals.contains($0) }
@@ -51,7 +53,7 @@ extension RitualList {
     }
     
     func add(ritual: Ritual) {
-      kindred?.addToRituals(ritual)
+      kindred?.addRitual(ritual)
     }
     
     func isUnlocked(ritual: Ritual) -> Bool {

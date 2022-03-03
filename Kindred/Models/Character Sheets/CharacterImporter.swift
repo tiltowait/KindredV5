@@ -61,7 +61,7 @@ struct CharacterImporter {
     self.assignSpecialties(context: context, kindred: kindred, pdf: pdf)
     
     // Figure out its clan
-    if let clan = Clan.fetchObject(named: pdf.information(for: .clan), in: context) {
+    if let clan = ReferenceManager.shared.clan(named: pdf.information(for: .clan)) {
       kindred.clan = clan
     }
     
@@ -155,8 +155,8 @@ struct CharacterImporter {
   /// This function will not work if the disciplines and powers are misspelled.
   /// - Returns: The disciplines and powers that could not be found.
   private mutating func fetchDisciplines() -> [String: [String]] {
-    let allDisciplines = try? context.fetch(Discipline.fetchRequest()) as [Discipline]
-    let allPowers = try? context.fetch(Power.fetchRequest()) as [Power]
+    let allDisciplines = ReferenceManager.shared.disciplines
+    let allPowers = ReferenceManager.shared.powers
     
     var failedDisciplines: [String] = []
     var failedPowers: [String] = []
@@ -165,12 +165,12 @@ struct CharacterImporter {
       if let disciplineName = pdf.value(for: key) {
         
         // We aren't directly comparing the names, so we can't simply use fetchObject
-        if let discipline = (allDisciplines?.first { disciplineName.lowercased().contains($0.name.lowercased()) }) {
+        if let discipline = (allDisciplines.first { disciplineName.lowercased().contains($0.name.lowercased()) }) {
           for field in fields {
             if let powerName = pdf.value(for: field) {
-              if let power = (allPowers?.first { powerName.lowercased().contains($0.name.lowercased()) }) {
+              if let power = (allPowers.first { powerName.lowercased().contains($0.name.lowercased()) }) {
                 if power.discipline == discipline {
-                  character?.addToPowers(power)
+                  character?.addPower(power)
                 } else {
                   failedPowers.append(powerName)
                 }
@@ -207,14 +207,14 @@ struct CharacterImporter {
       // We want to take only the specific advantage option name.
       let advantage = advantage.components(separatedBy: ", ").last!
       
-      if let advantageOption = AdvantageOption.fetchObject(named: advantage, in: context) {
+      if let advantageOption = ReferenceManager.shared.advantageOption(named: advantage) {
         let container = AdvantageContainer(context: context)
-        container.zOption = advantageOption
+        container.refID = advantageOption.id
         container.currentRating = advantageOption.isFlaw ? -rating : rating
         
         character?.addToAdvantages(container)
-      } else if let loresheetEntry = LoresheetEntry.fetchObject(named: advantage, in: context) {
-        character?.addToLoresheets(loresheetEntry)
+      } else if let loresheetEntry = ReferenceManager.shared.loresheetEntry(named: advantage) {
+        character?.addLoresheetEntry(loresheetEntry)
       } else {
         failedAdvantages.append(advantage)
       }
@@ -235,19 +235,19 @@ struct CharacterImporter {
     let havenRating = pdf.havenRating
     
     if havenRating > 0 {
-      guard let haven = AdvantageOption.fetchObject(named: "Haven", in: context) else { return }
+      guard let haven = ReferenceManager.shared.advantageOption(named: "Haven") else { return }
       
       let container = AdvantageContainer(context: context)
-      container.option = haven
+      container.refID = haven.id
       container.currentRating = havenRating
       
       character?.addToAdvantages(container)
       
     } else if pdf.noHaven {
-      guard let noHaven = AdvantageOption.fetchObject(named: "No Haven", in: context) else { return }
+      guard let noHaven = ReferenceManager.shared.advantageOption(named: "No Haven") else { return }
       
       let container = AdvantageContainer(context: context)
-      container.option = noHaven
+      container.refID = noHaven.id
       container.currentRating = -1
       
       character?.addToAdvantages(container)

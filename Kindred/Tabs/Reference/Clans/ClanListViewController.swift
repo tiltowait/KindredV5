@@ -14,7 +14,7 @@ extension ClanList {
     let showCancelButton: Bool
     
     init(kindred: Kindred? = nil, dataController: DataController) {
-      self.clans = dataController.clans
+      self.clans = ReferenceManager.shared.clans
       showCancelButton = kindred != nil
       super.init(kindred: kindred, dataController: dataController)
     }

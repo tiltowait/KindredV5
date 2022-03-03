@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 extension Kindred {
   
@@ -137,6 +138,8 @@ extension Kindred {
   
   // MARK: - Referenced Data
   
+  // MARK: Images
+  
   /// The image containers, sorted by date they were added.
   var allImageObjects: [KindredImage] {
     let images = images as? Set<KindredImage>
@@ -155,10 +158,38 @@ extension Kindred {
     return images.sorted().compactMap { $0.thumbnailURL }
   }
   
+  // MARK: - Reference Items
+  
+  var predatorType: PredatorType? {
+    guard let container = self.predator else { return nil }
+    return PredatorType(id: -1, name: "Not implemented", info: "Not implemented", page: -1, source: -1, huntingPool: "Not implemented")
+  }
+  
+  var clan: Clan? {
+    get {
+      if let ref = self.zClan?.refID {
+        return ReferenceManager.shared.clan(id: ref)
+      }
+      return nil
+    }
+    set {
+      if let clan = newValue {
+        let container = self.zClan ?? ClanContainer(context: self.managedObjectContext!)
+        container.refID = clan.id
+        self.zClan = container
+      } else {
+        self.zClan = nil
+      }
+    }
+  }
+  
   /// The powers known by the character, sorted.
   var knownPowers: [Power] {
-    let powers = self.powers as? Set<Power>
-    return powers?.sorted() ?? []
+    let powers = self.powers as? Set<Int16>
+    return powers?.compactMap {
+      ReferenceManager.shared.power(id: $0)
+    } ?? []
+      .sorted()
   }
   
   /// The disciplines known by the character, sorted alphabetically.
@@ -170,8 +201,11 @@ extension Kindred {
   
   /// All rituals known by the character.
   var knownRituals: [Ritual] {
-    let rituals = self.rituals as? Set<Ritual>
-    return rituals?.sorted() ?? []
+    let rituals = self.rituals as? Set<Int16>
+    return rituals?.compactMap {
+      ReferenceManager.shared.ritual(id: $0)
+    } ?? []
+      .sorted()
   }
   
   /// A list of ritual schools the character has available to them..
@@ -205,6 +239,32 @@ extension Kindred {
   /// - Returns: The level in that Discipline.
   func level(of discipline: Discipline) -> Int {
     knownPowers.count { $0.discipline == discipline }
+  }
+  
+  func addPower(_ power: Power) {
+    let container = PowerContainer(context: self.managedObjectContext!)
+    container.refID = power.id
+    self.addToPowers(container)
+  }
+  
+  func removePower(_ power: Power) {
+    let powers = self.powers as? Set<PowerContainer>
+    if let container = powers?.first(where: { $0.refID == power.id }) {
+      self.removeFromPowers(container)
+    }
+  }
+  
+  func addRitual(_ ritual: Ritual) {
+    let container = RitualContainer(context: self.managedObjectContext!)
+    container.refID = ritual.id
+    self.addToRituals(container)
+  }
+  
+  func removeRitual(_ ritual: Ritual) {
+    let rituals = self.rituals as? Set<PowerContainer>
+    if let container = rituals?.first(where: { $0.refID == ritual.id }) {
+      self.removeFromPowers(container)
+    }
   }
   
   var allSpecialties: [Specialty] {
@@ -280,7 +340,11 @@ extension Kindred {
   
   /// All loresheet entries, unsorted.
   var loresheetEntries: [LoresheetEntry] {
-    self.loresheets?.allObjects as? [LoresheetEntry] ?? []
+    let entries = self.loresheets as? Set<Int16>
+    return entries?.compactMap {
+      ReferenceManager.shared.loresheetEntry(id: $0)
+    } ?? []
+      .sorted()
   }
   
   /// Fetch all loresheet entries for a particular loresheet that the Kindred prosseses.
@@ -294,9 +358,16 @@ extension Kindred {
   var knownLoresheets: [Loresheet] {
     var loresheets: Set<Loresheet> = []
     for entry in self.loresheetEntries {
-      loresheets.insert(entry.parent!)
+      loresheets.insert(entry.parent)
     }
     return loresheets.sorted()
+  }
+  
+  func addLoresheetEntry(_ entry: LoresheetEntry) {
+    guard let context = self.managedObjectContext else { fatalError("Can't get managed object context.") }
+    let container = LoresheetContainer(context: context)
+    container.refID = entry.id
+    self.addToLoresheets(container)
   }
   
 }

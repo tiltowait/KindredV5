@@ -54,4 +54,5 @@ extension AdvantageOption: Comparable {
     } else {
       return false
     }
+  }
 }

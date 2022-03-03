@@ -48,7 +48,7 @@ struct AdvantageView_Previews: PreviewProvider {
   
   static var previews: some View {
     NavigationView {
-      AdvantageView(advantage: Advantage.fetchObject(named: "Bonding", in: context)!, kindred: nil, dataController: DataController.preview)
+      AdvantageView(advantage: Advantage.example, kindred: nil, dataController: DataController.preview)
     }
   }
 }

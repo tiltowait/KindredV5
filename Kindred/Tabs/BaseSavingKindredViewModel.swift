@@ -23,7 +23,7 @@ class BaseSavingKindredViewModel: BaseKindredViewModel {
     dataController.save()
   }
   
-  func isUnlocked(item: ReferenceItem) -> Bool {
+  func isUnlocked<T: ReferenceItem>(item: T) -> Bool {
     dataController.isPurchased(item: item)
   }
   

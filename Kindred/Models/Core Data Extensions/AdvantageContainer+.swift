@@ -10,8 +10,7 @@ import Foundation
 extension AdvantageContainer {
   
   var option: AdvantageOption {
-    get { zOption! }
-    set { zOption = newValue }
+    ReferenceManager.shared.advantageOption(id: self.refID)!
   }
   
   var advantage: Advantage {
@@ -38,7 +37,6 @@ extension AdvantageContainer {
 }
 
 extension AdvantageContainer: Comparable {
-  
   public static func < (lhs: AdvantageContainer, rhs: AdvantageContainer) -> Bool {
     // Sorting rules:
     // 0. Special rule: Haven is always first.
@@ -70,5 +68,4 @@ extension AdvantageContainer: Comparable {
     }
     return false
   }
-  
 }

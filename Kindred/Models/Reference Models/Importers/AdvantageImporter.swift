@@ -11,7 +11,7 @@ import SQLite
 /// A data importer responsible for importing advantages and their associated options.
 enum AdvantageImporter: Importer {
   
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T] {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let advantages = Table("advantages")
     
@@ -20,7 +20,7 @@ enum AdvantageImporter: Importer {
     let isBackground = Expression<Int>("background")
     let refID = Expression<Int>("refID")
     
-    var allAdvantages: [Advantage] = []
+    var allAdvantages: [T] = []
     
     for row in try db.prepare(advantages) {
       let refID = Int16(row[refID])
@@ -31,15 +31,14 @@ enum AdvantageImporter: Importer {
         isBackground: row[isBackground] == 1
       )
       try Self.importOptions(for: advantage)
-      allAdvantages.append(advantage)
+      allAdvantages.append(advantage as! T)
     }
     return allAdvantages
   }
   
   private static func importOptions(for advantage: Advantage) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let version = Expression<Int>("version")
-    let advantageOptions = Table("advantage_options").filter( version > currentVersion)
+    let advantageOptions = Table("advantage_options")
     
     let name = Expression<String>("name")
     let info = Expression<String>("info")
@@ -50,7 +49,7 @@ enum AdvantageImporter: Importer {
     let parent = Expression<String>("parent")
     let refID = Expression<Int>("refID")
     
-    for row in try db.prepare(advantageOptions) {
+    for row in try db.prepare(advantageOptions) where row[parent] == advantage.name {
       let refID = Int16(row[refID])
       let option = AdvantageOption(
         id: refID,
@@ -65,34 +64,4 @@ enum AdvantageImporter: Importer {
       advantage.allOptions.append(option)
     }
   }
-  
-  static func removeDuplicates(in context: NSManagedObjectContext) throws {
-    let request: NSFetchRequest<Advantage> = Advantage.fetchRequest()
-    let allAdvantages = try context.fetch(request)
-    
-    let groups = Dictionary(grouping: allAdvantages, by: \.refID)
-    var toDelete: [Advantage] = []
-    
-    for (_, var advantages) in groups {
-      guard advantages.count > 1,
-            let keptAdvantage = advantages.removeMax()
-      else { continue }
-      
-      for removedAdvantage in advantages {
-        for removedOption in removedAdvantage.allOptions {
-          if let containers = removedOption.containers {
-            if let keptOption = keptAdvantage.allOptions.first(where: { $0.refID == removedOption.refID }) {
-              keptOption.addToContainers(containers)
-            }
-          }
-        }
-        toDelete.append(removedAdvantage)
-      }
-    }
-    
-    for advantage in toDelete {
-      context.delete(advantage)
-    }
-  }
-  
 }

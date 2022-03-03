@@ -14,8 +14,8 @@ extension AdvantageList {
     let backgrounds: [Advantage]
     
     init(kindred: Kindred?, dataController: DataController) {
-      merits = dataController.advantages.filter { $0.isBackground == false }
-      backgrounds = dataController.advantages.filter { $0.isBackground }
+      merits = ReferenceManager.shared.advantages.filter { $0.isBackground == false }
+      backgrounds = ReferenceManager.shared.advantages.filter { $0.isBackground }
       
       super.init(kindred: kindred, dataController: dataController)
     }

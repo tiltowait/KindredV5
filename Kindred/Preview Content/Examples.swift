@@ -13,7 +13,7 @@ import UIKit
 extension Advantage {
   
   static var example: Advantage {
-    DataController.preview.advantages[1]
+    ReferenceManager.shared.advantages[1]
   }
   
 }
@@ -22,7 +22,7 @@ extension Clan {
   
   /// The example clan.
   static var example: Clan {
-    DataController.preview.clans[0]
+    ReferenceManager.shared.clans[0]
   }
 }
 
@@ -30,7 +30,7 @@ extension Discipline {
   
   /// The example Discipline (Animalism).
   static var example: Discipline {
-    DataController.preview.disciplines[0]
+    ReferenceManager.shared.disciplines[0]
   }
   
 }
@@ -39,7 +39,7 @@ extension Power {
   
   /// The example Power (Quell the Beast, Animalism •••).
   static var example: Power {
-    Power.fetchObject(named: "Aura of Decay", in: DataController.preview.container.viewContext)!
+    ReferenceManager.shared.power(named: "Aura of Decay")!
   }
   
 }
@@ -105,23 +105,23 @@ extension Kindred {
     kindred.clan = Clan.example
     
     // Add some Disciplines
-    kindred.addToPowers(Power.example)
+    kindred.addPower(Power.example)
     
     // Add some advantages
     let advantageNames = ["Stunning", "Archaic", "Bond Junkie", "Bond Resistance", "Short Bond", "Organovore"]
     for name in advantageNames {
       let container = AdvantageContainer(context: dataController.container.viewContext)
-      container.option = AdvantageOption.fetchObject(named: name, in: dataController.container.viewContext)!
+      container.refID = ReferenceManager.shared.advantageOption(named: name)!.id
       container.currentRating = container.option.minRating
       kindred.addToAdvantages(container)
     }
     
     // Add some loresheets
-    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Dangerous Reputation", in: dataController.container.viewContext)!)
-    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "First-Cursed", in: dataController.container.viewContext)!)
-    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Book of the Grave-War", in: dataController.container.viewContext)!)
-    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Trophy Kill", in: dataController.container.viewContext)!)
-    kindred.addToLoresheets(LoresheetEntry.fetchObject(named: "Herd Mindset", in: dataController.container.viewContext)!)
+    kindred.addLoresheetEntry(ReferenceManager.shared.loresheetEntry(named: "Dangerous Reputation")!)
+    kindred.addLoresheetEntry(ReferenceManager.shared.loresheetEntry(named: "First-Cursed")!)
+    kindred.addLoresheetEntry(ReferenceManager.shared.loresheetEntry(named: "Book of the Grave-War")!)
+    kindred.addLoresheetEntry(ReferenceManager.shared.loresheetEntry(named: "Trophy Kill")!)
+    kindred.addLoresheetEntry(ReferenceManager.shared.loresheetEntry(named: "Herd Mindset")!)
     
     // Set some biographical detail
     kindred.appearance = "An unkempt hunchback with heterochromia."
@@ -167,7 +167,7 @@ extension KindredImage {
 extension Loresheet {
   
   static var example: Loresheet {
-    Loresheet.fetchObject(named: "Occult Artifacts", in: DataController.preview.container.viewContext)!
+    ReferenceManager.shared.loresheet(named: "Occult Artifacts")!
   }
   
 }
@@ -183,7 +183,7 @@ extension LoresheetEntry {
 extension Ritual {
   
   static var example: Ritual {
-    Ritual.fetchObject(named: "Incorporeal Passage", in: DataController.preview.container.viewContext)!
+    ReferenceManager.shared.ritual(named: "Incorporeal Passage")!
   }
   
 }

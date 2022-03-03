@@ -33,7 +33,7 @@ extension AddDisciplineSheet {
     
     /// All Disciplines that are neither in-clan nor known by the character.
     var unknownOutOfClanDisciplines: [Discipline] {
-      let allDisciplines = dataController.disciplines
+      let allDisciplines = ReferenceManager.shared.disciplines
       let inClan = inClanDisciplines ?? []
       let known = kindred.knownDisciplines
       

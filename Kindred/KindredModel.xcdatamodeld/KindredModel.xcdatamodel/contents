@@ -10,7 +10,7 @@
     </entity>
     <entity name="ClanContainer" representedClassName="ClanContainer" syncable="YES" codeGenerationType="class">
         <attribute name="refID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="kindred" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="clan" inverseEntity="Kindred"/>
+        <relationship name="kindred" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="zClan" inverseEntity="Kindred"/>
     </entity>
     <entity name="Kindred" representedClassName="Kindred" syncable="YES" codeGenerationType="class">
         <attribute name="academics" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -78,13 +78,13 @@
         <attribute name="zWeight" optional="YES" attributeType="String"/>
         <attribute name="zWillpowerString" optional="YES" attributeType="String"/>
         <relationship name="advantages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvantageContainer" inverseName="kindred" inverseEntity="AdvantageContainer"/>
-        <relationship name="clan" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ClanContainer" inverseName="kindred" inverseEntity="ClanContainer"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="KindredImage" inverseName="parent" inverseEntity="KindredImage"/>
         <relationship name="loresheets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LoresheetContainer" inverseName="kindred" inverseEntity="LoresheetContainer"/>
         <relationship name="powers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PowerContainer" inverseName="kindred" inverseEntity="PowerContainer"/>
-        <relationship name="predatorType" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PredatorTypeContainer" inverseName="kindred" inverseEntity="PredatorTypeContainer"/>
+        <relationship name="predator" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PredatorTypeContainer" inverseName="kindred" inverseEntity="PredatorTypeContainer"/>
         <relationship name="rituals" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RitualContainer" inverseName="kindred" inverseEntity="RitualContainer"/>
         <relationship name="specialties" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Specialty" inverseName="parent" inverseEntity="Specialty"/>
+        <relationship name="zClan" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ClanContainer" inverseName="kindred" inverseEntity="ClanContainer"/>
     </entity>
     <entity name="KindredImage" representedClassName="KindredImage" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="663027480" usesScalarValueType="NO"/>
@@ -102,7 +102,7 @@
     </entity>
     <entity name="PredatorTypeContainer" representedClassName="PredatorTypeContainer" syncable="YES" codeGenerationType="class">
         <attribute name="refID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="kindred" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="predatorType" inverseEntity="Kindred"/>
+        <relationship name="kindred" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="predator" inverseEntity="Kindred"/>
     </entity>
     <entity name="RitualContainer" representedClassName="RitualContainer" syncable="YES" codeGenerationType="class">
         <attribute name="refID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

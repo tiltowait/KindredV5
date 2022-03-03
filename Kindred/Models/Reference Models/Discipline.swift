@@ -17,7 +17,7 @@ class Discipline: InfoItem {
   var allPowers: [Power] = []
   var rituals: [Ritual] = []
   
-  var allowsRituals: Bool { rituals?.count == 0 }
+  var allowsRituals: Bool { rituals.count == 0 }
   
   init(id: Int16, name: String, info: String, icon: String, resonance: String) {
     self.id = id
@@ -35,5 +35,11 @@ class Discipline: InfoItem {
 extension Discipline: Comparable {
   static func <(lhs: Discipline, rhs: Discipline) -> Bool {
     lhs.name < rhs.name
+  }
+}
+
+extension Discipline: Hashable {
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(self.id)
   }
 }

@@ -28,6 +28,11 @@ class Power: ReferenceItem {
     prerequisites?.components(separatedBy: ", ").filter { $0.last!.isNumber }
   }
   
+  /// Individual power(s) the character must possess to know this power.
+  var prerequisitePowers: [String]? {
+    self.prerequisites?.components(separatedBy: ", ").filter { !$0.last!.isNumber }
+  }
+  
   init(id: Int16, name: String, info: String, page: Int16, source: Int16, powerDuration: String, level: Int16, pool: String?, rouse: Int16, prerequisites: String?, discipline: Discipline) {
     self.id = id
     self.name = name
@@ -39,7 +44,6 @@ class Power: ReferenceItem {
     self.pool = pool
     self.rouse = rouse
     self.prerequisites = prerequisites
-    self.dependentRituals = dependentRituals
     self.discipline = discipline
   }
 }

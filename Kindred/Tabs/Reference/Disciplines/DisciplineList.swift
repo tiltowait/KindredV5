@@ -9,13 +9,8 @@ import SwiftUI
 
 struct DisciplineList: View {
   
-  @FetchRequest(
-    entity: Discipline.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Discipline.zName, ascending: true)]
-  ) var disciplines: FetchedResults<Discipline>
-  
   var body: some View {
-    List(disciplines) { discipline in
+    List(ReferenceManager.shared.disciplines) { discipline in
       NavigationLink(destination: DisciplineDetail(discipline: discipline, kindred: nil)) {
         DisciplineRow(discipline: discipline)
       }

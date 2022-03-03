@@ -17,3 +17,9 @@ protocol ReferenceItem: InfoItem {
   var page: Int16 { get }
   var source: Int16 { get }
 }
+
+extension InfoItem {
+  static func ==(lhs: Self, rhs: Self) -> Bool {
+    lhs.id == rhs.id
+  }
+}

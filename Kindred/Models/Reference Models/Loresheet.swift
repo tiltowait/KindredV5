@@ -18,10 +18,7 @@ class Loresheet: ReferenceItem {
   var requiredClans: [Clan] = []
   
   var clanRestrictions: [Clan]? {
-    if let restrictions = self.requiredClans?.allObjects as? [Clan] {
-      return restrictions.isEmpty ? nil : restrictions.sorted { $0.name < $1.name }
-    }
-    return nil
+    return requiredClans.isEmpty ? nil : requiredClans.sorted { $0.name < $1.name }
   }
   
   init(id: Int16, name: String, info: String, page: Int16, source: Int16) {
@@ -36,5 +33,11 @@ class Loresheet: ReferenceItem {
 extension Loresheet: Comparable {
   static func <(lhs: Loresheet, rhs: Loresheet) -> Bool {
     lhs.name < rhs.name
+  }
+}
+
+extension Loresheet: Hashable {
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(self.id)
   }
 }

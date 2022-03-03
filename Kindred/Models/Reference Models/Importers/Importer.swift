@@ -21,5 +21,5 @@ protocol Importer {
   /// - Parameters:
   ///   - currentVersion: The current version of the Core Data store.
   ///   - context: The context for storing the data.
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T]
 }

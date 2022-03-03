@@ -16,7 +16,7 @@ extension AddLoresheetList {
     init(kindred: Kindred, dataController: DataController) {
       knownLoresheets = kindred.knownLoresheets
       
-      var unknownLoresheets = dataController.fetchAll(Loresheet.self)
+      var unknownLoresheets = ReferenceManager.shared.loresheets
       for knownLoresheet in knownLoresheets {
         unknownLoresheets.removeAll { $0 == knownLoresheet }
       }

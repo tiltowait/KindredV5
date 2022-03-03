@@ -43,7 +43,7 @@ extension CharacterRitualsList {
       let rituals = kindred.knownRituals.filter { $0.flavor == school }
       for offset in offsets {
         let ritual = rituals[offset]
-        kindred.removeFromRituals(ritual)
+        kindred.removeRitual(ritual)
       }
     }
     

@@ -32,7 +32,7 @@ extension LoresheetEntryDetail {
     }
     
     func addToKindred() {
-      kindred?.addToLoresheets(entry)
+      kindred?.addLoresheetEntry(entry)
     }
     
   }

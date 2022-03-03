@@ -10,7 +10,7 @@ import SQLite
 
 enum ClanImporter: Importer {
   
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T] {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let clans = Table("clans")
     
@@ -28,11 +28,11 @@ enum ClanImporter: Importer {
     let header = Expression<String>("header")
     let refID = Expression<Int>("refID")
     
-    var allClans: [Clan] = []
+    var allClans: [T] = []
     
     for row in try db.prepare(clans) {
       let refID = Int16(row[refID])
-      let clan= Clan(
+      let clan = Clan(
         id: refID,
         name: row[name],
         info: row[info],
@@ -56,7 +56,7 @@ enum ClanImporter: Importer {
           clan.inClanDisciplines.append(discipline)
         }
       }
-      allClans.append(clan)
+      allClans.append(clan as! T)
     }
     return allClans
   }

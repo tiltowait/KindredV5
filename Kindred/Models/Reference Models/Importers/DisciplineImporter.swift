@@ -11,7 +11,7 @@ import SQLite
 /// A data importer responsible for importing `Discipline`s and associated `Power`s.
 enum DisciplineImporter: Importer {
   
-  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
+  static func importAll<T: InfoItem>(of type: T.Type) throws -> [T] {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let disciplines = Table("disciplines")
     
@@ -21,7 +21,7 @@ enum DisciplineImporter: Importer {
     let icon = Expression<String>("icon")
     let refID = Expression<Int>("refID")
     
-    var allDisciplines: [Discipline] = []
+    var allDisciplines: [T] = []
     
     for row in try db.prepare(disciplines) {
       let refID = Int16(row[refID])
@@ -30,12 +30,11 @@ enum DisciplineImporter: Importer {
         name: row[name],
         info: row[info],
         icon: row[icon],
-        resonance: row[resonance],
+        resonance: row[resonance]
       )
       try Self.importPowers(for: discipline)
-      allDisciplines.append(discipline)
+      allDisciplines.append(discipline as! T)
     }
-    
     return allDisciplines
   }
   
@@ -55,7 +54,7 @@ enum DisciplineImporter: Importer {
     let page = Expression<Int>("page")
     let refID = Expression<Int>("refID")
     
-    for row in try db.prepare(powers) {
+    for row in try db.prepare(powers) where row[disciplineName] == discipline.name {
       let refID = Int16(row[refID])
       let power = Power(
         id: refID,
@@ -70,6 +69,7 @@ enum DisciplineImporter: Importer {
         prerequisites: row[prerequisite],
         discipline: discipline
       )
+      discipline.allPowers.append(power)
     }
   }
 }

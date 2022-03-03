@@ -14,7 +14,7 @@ extension KnownDisciplinesGroups {
     /// - Parameter discipline: The Discipline of interest.
     /// - Returns: The powers from that Discipline the character knows.
     func knownPowers(for discipline: Discipline) -> [Power] {
-      kindred.knownPowers.filter { $0.discipline?.id == discipline.id }
+      kindred.knownPowers.filter { $0.discipline.id == discipline.id }
     }
     
     /// Remove powers from a given Discipline.
@@ -25,7 +25,7 @@ extension KnownDisciplinesGroups {
       let powers = knownPowers(for: discipline)
       for offset in offsets {
         let power = powers[offset]
-        kindred.removeFromPowers(power)
+        kindred.removePower(power)
       }
     }
     
