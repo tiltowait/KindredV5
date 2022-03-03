@@ -10,10 +10,9 @@ import SQLite
 
 enum RitualImporter: Importer {
   
-  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
+  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let version = Expression<Int>("version")
-    let rituals = Table("rituals").filter(version > currentVersion)
+    let rituals = Table("rituals")
     
     let name = Expression<String>("name")
     let level = Expression<Int>("level")
@@ -27,37 +26,47 @@ enum RitualImporter: Importer {
     let prerequisite = Expression<String?>("prerequisite")
     let discipline = Expression<String>("discipline")
     let refID = Expression<Int>("refID")
+    
+    var allRituals: [Ritual] = []
 
     for row in try db.prepare(rituals) {
       let refID = Int16(row[refID])
-      let ritual = Ritual.fetchItem(id: refID, in: context) ?? Ritual(context: context)
-
-      ritual.name = row[name]
-      ritual.level = Int16(row[level])
-      ritual.info = row[info]
-      ritual.ingredients = row[ingredients]
-      ritual.process = row[process]
-      ritual.system = row[system]
-      ritual.duration = row[duration]
-      ritual.source = Int16(row[source])
-      ritual.page = Int16(row[page])
-      ritual.refID = refID
-      ritual.version = Int16(row[version])
+      let prerequisite: Power?
       
       if let prerequisite = row[prerequisite] {
         // Ritual has a prerequisite power. This is currently only the case for Oblivion ceremonies.
         guard let power = Power.fetchObject(named: prerequisite, in: context) else {
           throw ImportError.invalidReference("\(prerequisite) is not a valid power.")
         }
-        ritual.prerequisite = power
+        prerequisite = power
+      } else {
+        prerequisite = nil
       }
       
       let disciplineName = row[discipline]
       guard let discipline = Discipline.fetchObject(named: disciplineName, in: context) else {
         throw ImportError.invalidReference("\(disciplineName) is not a valid discipline.")
       }
-      ritual.discipline = discipline
+      
+      let ritual = Ritual(
+        id: refID,
+        name: row[name],
+        info: row[info],
+        page: Int16(row[page]),
+        source: Int16(row[source]),
+        duration: row[duration],
+        ingredients: row[ingredients],
+        level: Int16(row[level]),
+        process: row[process],
+        system: row[system],
+        discipline: discipline,
+        prerequisite: prerequisite
+      )
+      prerequisite?.dependentRituals.append(ritual)
+      discipline.rituals.append(ritual)
+      allRituals.append(ritual)
     }
+    return allRituals
   }
   
   static func removeDuplicates(in context: NSManagedObjectContext) throws {

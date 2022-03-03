@@ -11,31 +11,32 @@ import SQLite
 /// A data importer responsible for importing advantages and their associated options.
 enum AdvantageImporter: Importer {
   
-  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws {
+  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
-    let version = Expression<Int>("version")
-    let advantages = Table("advantages").filter(version > currentVersion)
+    let advantages = Table("advantages")
     
     let name = Expression<String>("name")
     let info = Expression<String>("info")
     let isBackground = Expression<Int>("background")
     let refID = Expression<Int>("refID")
     
+    var allAdvantages: [Advantage] = []
+    
     for row in try db.prepare(advantages) {
       let refID = Int16(row[refID])
-      let advantage = Advantage.fetchItem(id: refID, in: context) ?? Advantage(context: context)
-      
-      advantage.name = row[name]
-      advantage.info = row[info]
-      advantage.isBackground = row[isBackground] == 1
-      advantage.refID = refID
-      advantage.version = Int16(row[version])
+      let advantage = Advantage(
+        id: refID,
+        name: row[name],
+        info: row[info],
+        isBackground: row[isBackground] == 1
+      )
+      try Self.importOptions(for: advantage)
+      allAdvantages.append(advantage)
     }
-    
-    try Self.importOptions(after: currentVersion, context: context)
+    return allAdvantages
   }
   
-  private static func importOptions(after currentVersion: Int, context: NSManagedObjectContext) throws {
+  private static func importOptions(for advantage: Advantage) throws {
     let db = try Connection(Global.referenceDatabasePath, readonly: true)
     let version = Expression<Int>("version")
     let advantageOptions = Table("advantage_options").filter( version > currentVersion)
@@ -51,21 +52,17 @@ enum AdvantageImporter: Importer {
     
     for row in try db.prepare(advantageOptions) {
       let refID = Int16(row[refID])
-      let option = AdvantageOption.fetchItem(id: refID, in: context) ?? AdvantageOption(context: context)
-      
-      option.name = row[name]
-      option.info = row[info]
-      option.source = Int16(row[source])
-      option.page = Int16(row[page])
-      option.minRating = Int16(row[min])
-      option.maxRating = Int16(row[max])
-      option.version = Int16(row[version])
-      
-      guard let parentAdvantage = Advantage.fetchObject(named: row[parent], in: context) else {
-        throw ImportError.invalidReference("No Advantage named \(row[parent])")
-      }
-      option.parent = parentAdvantage
-      option.refID = refID
+      let option = AdvantageOption(
+        id: refID,
+        name: row[name],
+        info: row[info],
+        page: Int16(row[page]),
+        source: Int16(row[source]),
+        maxRating: Int16(row[min]),
+        minRating: Int16(row[max]),
+        parentAdvantage: advantage
+      )
+      advantage.allOptions.append(option)
     }
   }
   

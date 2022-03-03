@@ -14,8 +14,8 @@ class Loresheet: ReferenceItem {
   let page: Int16
   let source: Int16
   
-  let entries: [LoresheetEntry]
-  let requiredClans: [Clan]
+  var entries: [LoresheetEntry] = []
+  var requiredClans: [Clan] = []
   
   var clanRestrictions: [Clan]? {
     if let restrictions = self.requiredClans?.allObjects as? [Clan] {
@@ -24,14 +24,12 @@ class Loresheet: ReferenceItem {
     return nil
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, entries: [LoresheetEntry], requiredClans: [Clan]) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16) {
     self.id = id
     self.name = name
     self.info = info
     self.page = page
     self.source = source
-    self.entries = entries
-    self.requiredClans = requiredClans
   }
 }
 

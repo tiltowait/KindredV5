@@ -29,7 +29,7 @@ class Ritual: ReferenceItem {
   let source: Int16
   
   let duration: String
-  let ingredients: String
+  let ingredients: String?
   let level: Int16
   let process: String
   let system: String
@@ -48,7 +48,7 @@ class Ritual: ReferenceItem {
     }
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, duration: String, ingredients: String, level: Int16, process: String, system: String, discipline: Discipline, prerequisite: Power?) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16, duration: String, ingredients: String?, level: Int16, process: String, system: String, discipline: Discipline, prerequisite: Power?) {
     self.id = id
     self.name = name
     self.info = info

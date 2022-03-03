@@ -14,7 +14,6 @@ enum ImportError: Error {
 
 /// An object responsible for importing a particular class of data.
 protocol Importer {
-  
   /// Attempt to import or update all of the objects for which the importer is responsible that have
   /// a reference database version higher than the Core Data store's version.
   ///
@@ -22,10 +21,5 @@ protocol Importer {
   /// - Parameters:
   ///   - currentVersion: The current version of the Core Data store.
   ///   - context: The context for storing the data.
-  static func importAll(after currentVersion: Int, context: NSManagedObjectContext) throws
-  
-  /// Find and remove duplicate items based on their refIDs.
-  /// - Parameter context: The Core Data context to search.
-  static func removeDuplicates(in context: NSManagedObjectContext) throws
-  
+  static func importAll<T: InfoItem>(of type: T.self) -> [T] throws
 }

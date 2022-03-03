@@ -13,14 +13,13 @@ class Advantage: InfoItem {
   let info: String
   let isBackground: Bool
   
-  let allOptions: [AdvantageOption]
+  var allOptions: [AdvantageOption] = []
   
-  init(id: Int16, name: String, info: String, isBackground: Bool, allOptions: [AdvantageOption]) {
+  init(id: Int16, name: String, info: String, isBackground: Bool) {
     self.id = id
     self.name = name
     self.info = info
     self.isBackground = isBackground
-    self.allOptions = allOptions
   }
 }
 

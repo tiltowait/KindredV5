@@ -14,19 +14,17 @@ class Discipline: InfoItem {
   let icon: String
   let resonance: String
   
-  let allPowers: [Power]
-  let rituals: [Ritual]
+  var allPowers: [Power] = []
+  var rituals: [Ritual] = []
   
   var allowsRituals: Bool { rituals?.count == 0 }
   
-  init(id: Int16, name: String, info: String, icon: String, resonance: String, allPowers: [Power], rituals: [Ritual]) {
+  init(id: Int16, name: String, info: String, icon: String, resonance: String) {
     self.id = id
     self.name = name
     self.info = info
     self.icon = icon
     self.resonance = resonance
-    self.allPowers = allPowers
-    self.rituals = rituals
   }
   
   func powers(fromSource source: Global.Source) -> [Power] {

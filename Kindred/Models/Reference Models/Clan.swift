@@ -19,7 +19,7 @@ class Clan: ReferenceItem {
   let info: String
   let page: Int16
   let source: Int16
-  let bane: String
+  let bane: String?
   let compulsion: String
   let compulsionDetails: String
   let rawTemplate: Int16
@@ -27,7 +27,7 @@ class Clan: ReferenceItem {
   let icon: String
   let nicknames: [String]
   
-  let inClanDisciplines: [Discipline]
+  var inClanDisciplines: [Discipline] = []
   
   var template: Template {
     guard let template = Template(rawValue: self.rawTemplate) else {
@@ -36,7 +36,7 @@ class Clan: ReferenceItem {
     return template
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, bane: String, compulsion: String, compulsionDetails: String, rawTemplate: Int16, header: String, icon: String, nicknames: String, inClanDisciplines: [Discipline]) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16, bane: String?, compulsion: String, compulsionDetails: String, rawTemplate: Int16, header: String, icon: String, nicknames: String) {
     self.id = id
     self.name = name
     self.info = info

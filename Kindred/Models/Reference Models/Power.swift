@@ -20,15 +20,15 @@ class Power: ReferenceItem {
   let rouse: Int16
   let prerequisites: String?
   
-  let dependentRituals: [Ritual]
   let discipline: Discipline
+  var dependentRituals: [Ritual] = []
   
   var disciplineName: String { self.discipline.name }
   var amalgams: [String]? {
     prerequisites?.components(separatedBy: ", ").filter { $0.last!.isNumber }
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, powerDuration: Stringg, level: Int16, pool: String?, rouse: Int16, prerequisites: String?, dependentRituals: [Ritual], discipline: Discipline) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16, powerDuration: String, level: Int16, pool: String?, rouse: Int16, prerequisites: String?, discipline: Discipline) {
     self.id = id
     self.name = name
     self.info = info
