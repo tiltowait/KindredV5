@@ -132,7 +132,6 @@
 		28A905D227D1571900A36283 /* RitualImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C827D1446100A36283 /* RitualImporter.swift */; };
 		28A905D327D1571900A36283 /* AdvantageImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A905C527D1446100A36283 /* AdvantageImporter.swift */; };
 		28A905D427D15C1700A36283 /* KindredImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DE7ED2677E8C800876573 /* KindredImage+.swift */; };
-		28A905D527D162C500A36283 /* ReferenceItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */; };
 		28ADF7F3267A579200D97D2A /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ADF7F2267A579200D97D2A /* Examples.swift */; };
 		28B0CB1226A09CFC00FFCF73 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B0CB1126A09CFC00FFCF73 /* LoadingIndicator.swift */; };
 		28B40CED26961A420058BE50 /* LoresheetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B40CEC26961A420058BE50 /* LoresheetList.swift */; };
@@ -233,8 +232,6 @@
 		28189D6926814C060099E8DF /* AdvantageOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageOptionViewModel.swift; sourceTree = "<group>"; };
 		281E21F8267D419200B49C37 /* CenteredModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredModifier.swift; sourceTree = "<group>"; };
 		281F80372680FAC600B5B387 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
-		281F803D2681337700B5B387 /* Advantage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advantage+.swift"; sourceTree = "<group>"; };
-		281F803F268133D200B5B387 /* AdvantageOption+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdvantageOption+.swift"; sourceTree = "<group>"; };
 		281F80422681388900B5B387 /* AdvantageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageList.swift; sourceTree = "<group>"; };
 		281F8044268138A200B5B387 /* AdvantageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageListViewController.swift; sourceTree = "<group>"; };
 		28252068267916CD0066F09B /* TraitRater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitRater.swift; sourceTree = "<group>"; };
@@ -255,8 +252,6 @@
 		2833CAC7267A797D00160A96 /* BaseKindredViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseKindredViewModel.swift; sourceTree = "<group>"; };
 		2833CACF267A978900160A96 /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
 		28386F5826585D9C00E90445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		28386F5B2658619D00E90445 /* Discipline+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discipline+.swift"; sourceTree = "<group>"; };
-		28386F6226586E2E00E90445 /* Power+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Power+.swift"; sourceTree = "<group>"; };
 		28386F642658727400E90445 /* PowerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerRow.swift; sourceTree = "<group>"; };
 		283A73BA2784FDE200B2155E /* Kindred.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kindred.entitlements; sourceTree = "<group>"; };
 		283A73BC2784FDE400B2155E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -288,8 +283,6 @@
 		28692FB92696288C00CEA2C5 /* LoresheetEntryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetEntryDetailViewModel.swift; sourceTree = "<group>"; };
 		286BE43B2696360900C19D57 /* AddLoresheetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoresheetList.swift; sourceTree = "<group>"; };
 		286BE43D2696361600C19D57 /* AddLoresheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoresheetListViewController.swift; sourceTree = "<group>"; };
-		286FBF7C265D57C400AAA469 /* InfoItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InfoItem+.swift"; sourceTree = "<group>"; };
-		286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReferenceItem+.swift"; sourceTree = "<group>"; };
 		286FBF84265D930500AAA469 /* DisciplineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineRow.swift; sourceTree = "<group>"; };
 		286FBF86265D94B900AAA469 /* DisciplineList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineList.swift; sourceTree = "<group>"; };
 		286FBF89265D978400AAA469 /* ReferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceList.swift; sourceTree = "<group>"; };
@@ -321,14 +314,12 @@
 		288EB7C52698D08600E27652 /* BloodPotencyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPotencyDetail.swift; sourceTree = "<group>"; };
 		288EB7C72698EEF700E27652 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		288EB7C92698F23D00E27652 /* Nadea Theron.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Nadea Theron.pdf"; sourceTree = "<group>"; };
-		28921691267E64DE004911EA /* NSManagedObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		28921695267E6BDB004911EA /* reference.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = reference.sqlite; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
 		28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		28A1E9EE2677B6C40084F483 /* TraitSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitSummary.swift; sourceTree = "<group>"; };
 		28A1E9F02677B73B0084F483 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
-		28A34CFF26B06072001738BF /* Ritual+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ritual+.swift"; sourceTree = "<group>"; };
 		28A34D0626B0841E001738BF /* RitualList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualList.swift; sourceTree = "<group>"; };
 		28A34D0826B08BF4001738BF /* RitualRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualRow.swift; sourceTree = "<group>"; };
 		28A39EB22679614000867AB9 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -347,8 +338,6 @@
 		28B40CEC26961A420058BE50 /* LoresheetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetList.swift; sourceTree = "<group>"; };
 		28B40CEE26961E100058BE50 /* LoresheetDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetDetail.swift; sourceTree = "<group>"; };
 		28B40CF026961E360058BE50 /* LoresheetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoresheetDetailViewController.swift; sourceTree = "<group>"; };
-		28B9A5462694F1B900A48250 /* Loresheet+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loresheet+.swift"; sourceTree = "<group>"; };
-		28B9A5482694F21D00A48250 /* LoresheetEntry+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoresheetEntry+.swift"; sourceTree = "<group>"; };
 		28BD80712676FBBC00FEE5F9 /* CharacterPDF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterPDF.swift; sourceTree = "<group>"; };
 		28BD80732676FBC900FEE5F9 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		28BD80752676FD5600FEE5F9 /* StringProtocol+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
@@ -368,7 +357,6 @@
 		28C656CF267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDisciplinesGroupsViewModel.swift; sourceTree = "<group>"; };
 		28C656D2267BBF9900865EE3 /* AddDisciplineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheet.swift; sourceTree = "<group>"; };
 		28C656D4267BBFA300865EE3 /* AddDisciplineSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisciplineSheetViewModel.swift; sourceTree = "<group>"; };
-		28C656D7267BC1AE00865EE3 /* Clan+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clan+.swift"; sourceTree = "<group>"; };
 		28C656DB267BDD8400865EE3 /* PowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerCard.swift; sourceTree = "<group>"; };
 		28C656E4267BEC4C00865EE3 /* DisciplineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetail.swift; sourceTree = "<group>"; };
 		28C656E6267BEC5B00865EE3 /* DisciplineDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineDetailViewModel.swift; sourceTree = "<group>"; };
@@ -559,20 +547,9 @@
 		28386F5A2658618E00E90445 /* Core Data Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				281F803D2681337700B5B387 /* Advantage+.swift */,
 				2870436D26824110005F6589 /* AdvantageContainer+.swift */,
-				281F803F268133D200B5B387 /* AdvantageOption+.swift */,
-				28C656D7267BC1AE00865EE3 /* Clan+.swift */,
-				28386F5B2658619D00E90445 /* Discipline+.swift */,
-				286FBF7C265D57C400AAA469 /* InfoItem+.swift */,
 				28A1E9E82677AA1A0084F483 /* Kindred+.swift */,
 				283DE7ED2677E8C800876573 /* KindredImage+.swift */,
-				28B9A5462694F1B900A48250 /* Loresheet+.swift */,
-				28B9A5482694F21D00A48250 /* LoresheetEntry+.swift */,
-				28921691267E64DE004911EA /* NSManagedObject+.swift */,
-				28386F6226586E2E00E90445 /* Power+.swift */,
-				286FBF7E265D580E00AAA469 /* ReferenceItem+.swift */,
-				28A34CFF26B06072001738BF /* Ritual+.swift */,
 				28F05C22269DFCC400E81D5B /* Specialty+.swift */,
 			);
 			path = "Core Data Extensions";
@@ -1175,7 +1152,6 @@
 				287F87F92682575D00DF140E /* AdvantageRow.swift in Sources */,
 				2883A17527D13AAF00C71EE4 /* Loresheet.swift in Sources */,
 				28BD80742676FBC900FEE5F9 /* CharacterList.swift in Sources */,
-				28A905D527D162C500A36283 /* ReferenceItem+.swift in Sources */,
 				28EBBE0D267852CA004DD186 /* TraitBlockViewModel.swift in Sources */,
 				280FF09C269F758C00A9643A /* DiceScrollView.swift in Sources */,
 				2883A17327D13A7E00C71EE4 /* Clan.swift in Sources */,

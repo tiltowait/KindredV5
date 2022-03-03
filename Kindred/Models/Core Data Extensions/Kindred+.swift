@@ -161,8 +161,7 @@ extension Kindred {
   // MARK: - Reference Items
   
   var predatorType: PredatorType? {
-    guard let container = self.predator else { return nil }
-    return PredatorType(id: -1, name: "Not implemented", info: "Not implemented", page: -1, source: -1, huntingPool: "Not implemented")
+    nil
   }
   
   var clan: Clan? {
