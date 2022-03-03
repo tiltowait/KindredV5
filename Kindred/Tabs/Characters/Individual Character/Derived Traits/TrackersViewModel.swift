@@ -35,12 +35,12 @@ extension Trackers {
     }
     
     func incrementBloodPotency() {
-      kindred.bloodPotency += 1
+//      kindred.bloodPotency += 1
       NotificationCenter.default.post(name: .bloodPotencyChanged, object: nil)
     }
     
     func decrementBloodPotency() {
-      kindred.bloodPotency -= 1
+//      kindred.bloodPotency -= 1
       NotificationCenter.default.post(name: .bloodPotencyChanged, object: nil)
     }
     
