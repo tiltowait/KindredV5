@@ -31,6 +31,7 @@ enum AdvantageImporter: Importer {
         isBackground: row[isBackground] == 1
       )
       try Self.importOptions(for: advantage)
+      advantage.allOptions.sort()
       allAdvantages.append(advantage as! T)
     }
     return allAdvantages

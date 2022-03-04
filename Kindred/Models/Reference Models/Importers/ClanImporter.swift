@@ -56,6 +56,7 @@ enum ClanImporter: Importer {
           clan.inClanDisciplines.append(discipline)
         }
       }
+      clan.inClanDisciplines.sort()
       allClans.append(clan as! T)
     }
     return allClans

@@ -33,6 +33,7 @@ enum DisciplineImporter: Importer {
         resonance: row[resonance]
       )
       try Self.importPowers(for: discipline)
+      discipline.allPowers.sort()
       allDisciplines.append(discipline as! T)
     }
     return allDisciplines

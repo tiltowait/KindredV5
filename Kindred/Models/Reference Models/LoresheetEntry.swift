@@ -38,3 +38,7 @@ extension LoresheetEntry: Comparable {
     return lhs.name < rhs.name
   }
 }
+
+extension LoresheetEntry {
+  static let unknown = LoresheetEntry(id: -1, name: "Unknown", info: "Update your app to the latest version.", level: 1, parent: Loresheet.unknown)
+}

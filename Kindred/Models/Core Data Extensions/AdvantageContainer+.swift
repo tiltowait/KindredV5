@@ -10,7 +10,7 @@ import Foundation
 extension AdvantageContainer {
   
   var option: AdvantageOption {
-    ReferenceManager.shared.advantageOption(id: self.refID)!
+    ReferenceManager.shared.advantageOption(id: self.refID)
   }
   
   var advantage: Advantage {

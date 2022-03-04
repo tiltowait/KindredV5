@@ -41,3 +41,11 @@ extension Loresheet: Hashable {
     hasher.combine(self.id)
   }
 }
+
+extension Loresheet {
+  static let unknown: Loresheet = {
+    let unknown = Loresheet(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0)
+    unknown.entries.append(LoresheetEntry.unknown)
+    return unknown
+  }()
+}

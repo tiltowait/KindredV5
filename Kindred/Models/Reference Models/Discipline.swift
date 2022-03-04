@@ -43,3 +43,13 @@ extension Discipline: Hashable {
     hasher.combine(self.id)
   }
 }
+
+extension Discipline {
+  static let unknown: Discipline = {
+    let unknown = Discipline(id: -1, name: "Unknown", info: "Update your app to the latest version.", icon: "", resonance: "Unknown.")
+    unknown.allPowers.append(Power.unknown)
+    unknown.rituals.append(Ritual.unknown)
+    
+    return unknown
+  }()
+}

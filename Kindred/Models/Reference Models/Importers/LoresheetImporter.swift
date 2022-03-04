@@ -44,6 +44,7 @@ enum LoresheetImporter: Importer {
         }
       }
       try Self.importLoresheetEntries(for: loresheet)
+      loresheet.entries.sort()
       allLoresheets.append(loresheet as! T)
     }
     return allLoresheets

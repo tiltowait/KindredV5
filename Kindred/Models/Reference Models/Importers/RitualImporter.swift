@@ -64,6 +64,7 @@ enum RitualImporter: Importer {
       )
       prerequisitePower?.dependentRituals.append(ritual)
       discipline.rituals.append(ritual)
+      discipline.rituals.sort()
       allRituals.append(ritual as! T)
     }
     return allRituals

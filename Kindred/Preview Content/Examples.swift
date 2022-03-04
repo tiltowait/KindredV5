@@ -183,7 +183,7 @@ extension LoresheetEntry {
 extension Ritual {
   
   static var example: Ritual {
-    ReferenceManager.shared.ritual(named: "Incorporeal Passage")!
+    ReferenceManager.shared.ritual(named: "Incorporeal Passage")
   }
   
 }

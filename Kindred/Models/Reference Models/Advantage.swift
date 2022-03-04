@@ -28,3 +28,12 @@ extension Advantage: Comparable {
     lhs.name < rhs.name
   }
 }
+
+extension Advantage {
+  static let unknown: Advantage = {
+    let unknown = Advantage(id: -1, name: "Unknown", info: "Update your app to the latest version.", isBackground: false)
+    unknown.allOptions.append(AdvantageOption.unknown)
+    return unknown
+  }()
+}
+

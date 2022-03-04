@@ -56,3 +56,7 @@ extension AdvantageOption: Comparable {
     }
   }
 }
+
+extension AdvantageOption {
+  static let unknown = AdvantageOption(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, maxRating: 1, minRating: 1, parentAdvantage: Advantage.unknown)
+}

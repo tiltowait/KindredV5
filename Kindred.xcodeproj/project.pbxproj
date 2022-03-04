@@ -698,13 +698,13 @@
 				28A905C227D1442700A36283 /* Importers */,
 				2883A16827D1370D00C71EE4 /* ReferenceProtocols.swift */,
 				2883A16A27D1398B00C71EE4 /* Advantage.swift */,
-				2883A16C27D139CB00C71EE4 /* Discipline.swift */,
-				2883A16E27D139FA00C71EE4 /* LoresheetEntry.swift */,
 				2883A17027D13A2F00C71EE4 /* AdvantageOption.swift */,
 				2883A17227D13A7E00C71EE4 /* Clan.swift */,
+				2883A16C27D139CB00C71EE4 /* Discipline.swift */,
 				2883A17427D13AAF00C71EE4 /* Loresheet.swift */,
-				2883A17627D13ACB00C71EE4 /* Power.swift */,
+				2883A16E27D139FA00C71EE4 /* LoresheetEntry.swift */,
 				2883A17827D13AF900C71EE4 /* PredatorType.swift */,
+				2883A17627D13ACB00C71EE4 /* Power.swift */,
 				2883A17A27D13B1C00C71EE4 /* Ritual.swift */,
 			);
 			path = "Reference Models";

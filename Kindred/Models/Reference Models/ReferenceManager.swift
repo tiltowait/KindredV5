@@ -11,6 +11,9 @@ class ReferenceManager {
   static let shared = ReferenceManager()
   
   // MARK: - Reference Material
+  // This hack is ugly as sin, but the problem is that certain importers need to reference
+  // previously imported data. The solution would be to combine some of the importers into
+  // one, which may eventually be done in the future.
   
   private(set) lazy var advantages: [Advantage] = {
     do {
@@ -58,59 +61,104 @@ class ReferenceManager {
   }()
   
   //MARK: - Named Fetchers
+  // Named fetchers are failable, because the user may have an unknown item in their
+  // character PDF, or the SQLite database may have an error. Those cases need to be
+  // treated separately.
   
+  /// Fetch an advantage.
+  /// - Parameter name: The advantage's name
+  /// - Returns: The found advantage, or a generic one.
   func advantage(named name: String) -> Advantage? {
     advantages.first { $0.name == name }
   }
   
+  /// Fetch an advantage option by name.
+  /// - Parameter name: The option's name
+  /// - Returns: The found option, or a generic one.
   func advantageOption(named name: String) -> AdvantageOption? {
     advantageOptions.first { $0.name == name }
   }
   
+  /// Fetch a clan by name.
+  /// - Parameter name: The clan's name
+  /// - Returns: The clan, if found.
   func clan(named name: String) -> Clan? {
     clans.first { $0.name == name }
   }
   
+  /// Fetch a discipline by name.
+  /// - Parameter name: The discipline's name
+  /// - Returns: The found discipline, or a generic one.
   func discipline(named name: String) -> Discipline? {
     return disciplines.first { $0.name == name }
   }
   
+  /// Fetch a loresheet by name.
+  /// - Parameter name: The loresheet's name
+  /// - Returns: The found loresheet, or a generic one
   func loresheet(named name: String) -> Loresheet? {
     loresheets.first { $0.name == name }
   }
   
+  /// Fetch a loresheet entry by name.
+  /// - Parameter name: The entry's name
+  /// - Returns: The found entry, or a generic one.
   func loresheetEntry(named name: String) -> LoresheetEntry? {
     loresheetEntries.first { $0.name == name }
   }
   
+  /// Fetch a power by name.
+  /// - Parameter name: The power's name
+  /// - Returns: The found power, or a generic one.
   func power(named name: String) -> Power? {
     powers.first { $0.name == name }
   }
   
-  func ritual(named name: String) -> Ritual? {
-    rituals.first { $0.name == name }
+  /// Fetch a ritual by name.
+  /// - Parameter name: The ritual's name
+  /// - Returns: The found ritual, or a generic one.
+  func ritual(named name: String) -> Ritual {
+    rituals.first { $0.name == name } ?? Ritual.unknown
   }
   
   //MARK: - ID Fetchers
+  // ID fetchers are used by Core Data. Because of this, if the user hasn't updated their
+  // app, they can potentially fail. Instead of crashing or displaying nothing, we will
+  // show users generic items that prompt them to update the app.
   
-  func advantageOption(id: Int16) -> AdvantageOption? {
-    self.advantageOptions.first { $0.id == id }
+  /// Fetch an advantage option by ID.
+  /// - Parameter id: The option's ID
+  /// - Returns: The found option, or a generic one.
+  func advantageOption(id: Int16) -> AdvantageOption {
+    self.advantageOptions.first { $0.id == id } ?? AdvantageOption.unknown
   }
   
-  func clan(id: Int16) -> Clan? {
-    self.clans.first { $0.id == id }
+  /// Fetch a clan by ID.
+  /// - Parameter id: The clan's ID
+  /// - Returns: The found clan, or a generic one.
+  func clan(id: Int16) -> Clan {
+    self.clans.first { $0.id == id } ?? Clan.unknown
   }
   
-  func power(id: Int16) -> Power? {
-    self.powers.first { $0.id == id }
+  /// Fetch a loresheet entry by ID.
+  /// - Parameter id: The entry's ID
+  /// - Returns: The found entry, or a generic one.
+  func loresheetEntry(id: Int16) -> LoresheetEntry {
+    self.loresheetEntries.first { $0.id == id } ?? LoresheetEntry.unknown
   }
   
-  func ritual(id: Int16) -> Ritual? {
-    self.rituals.first { $0.id == id }
+  /// Fetch a power by ID.
+  /// - Parameter id: The power's ID
+  /// - Returns: The found power, or a generic one.
+  func power(id: Int16) -> Power {
+    self.powers.first { $0.id == id } ?? Power.unknown
   }
   
-  func loresheetEntry(id: Int16) -> LoresheetEntry? {
-    self.loresheetEntries.first { $0.id == id }
+  /// Fetch a ritual by ID.
+  /// - Parameter id: The ritual's ID
+  /// - Returns: The found ritual, or a generic one.
+  func ritual(id: Int16) -> Ritual {
+    self.rituals.first { $0.id == id } ?? Ritual.unknown
   }
   
   private init() { }
