@@ -56,6 +56,7 @@ struct AddLoresheetList: View {
             } label: {
               ReferenceRow(loresheet.name, secondary: loresheet.pageReference, unlocked: false)
             }
+            .buttonStyle(.plain)
           }
         }
       }

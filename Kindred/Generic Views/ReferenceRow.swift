@@ -95,6 +95,7 @@ struct ReferenceRow: View {
       VStack(alignment: .leading) {
         Text(title)
           .font(.headline)
+          .foregroundColor(unlocked ? .primary : .secondary)
         if let subtitle = subtitle {
           Text(subtitle)
             .font(.subheadline)
