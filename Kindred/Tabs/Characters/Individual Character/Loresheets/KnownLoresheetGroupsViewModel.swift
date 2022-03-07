@@ -32,6 +32,12 @@ extension KnownLoresheetGroups {
       let entry = knownEntries[index]
       
       kindred.removeLoresheetEntry(entry)
+      
+      if knownEntries.count == 1 {
+        // We removed the only entry
+        guard let index = knownLoresheets.firstIndex(of: loresheet) else { return }
+        knownLoresheets.remove(at: index)
+      }
     }
     
     @objc func didPurchaseLoresheet(_ notification: Notification) {
