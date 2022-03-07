@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol InfoItem: Identifiable {
+protocol InfoItem: Identifiable, CustomStringConvertible, Equatable {
   var id: Int16 { get }
   var name: String { get }
   var info: String { get }
@@ -19,6 +19,10 @@ protocol ReferenceItem: InfoItem {
 }
 
 extension InfoItem {
+  var description: String {
+    name
+  }
+  
   static func ==(lhs: Self, rhs: Self) -> Bool {
     lhs.id == rhs.id
   }

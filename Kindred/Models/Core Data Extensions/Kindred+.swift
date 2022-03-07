@@ -184,27 +184,24 @@ extension Kindred {
   
   /// The powers known by the character, sorted.
   var knownPowers: [Power] {
-    let powers = self.powers as? Set<Int16>
+    let powers = self.powers as? Set<PowerContainer>
     return powers?.compactMap {
-      ReferenceManager.shared.power(id: $0)
-    } ?? []
-      .sorted()
+      ReferenceManager.shared.power(id: $0.refID)
+    }.sorted() ?? []
   }
   
   /// The disciplines known by the character, sorted alphabetically.
   var knownDisciplines: [Discipline] {
-    let disciplines = knownPowers.compactMap { $0.discipline }
-    let set = Set(disciplines)
-    return set.sorted()
+    let disciplines = knownPowers.map(\.discipline)
+    return Set(disciplines).sorted()
   }
   
   /// All rituals known by the character.
   var knownRituals: [Ritual] {
-    let rituals = self.rituals as? Set<Int16>
+    let rituals = self.rituals as? Set<RitualContainer>
     return rituals?.compactMap {
-      ReferenceManager.shared.ritual(id: $0)
-    } ?? []
-      .sorted()
+      ReferenceManager.shared.ritual(id: $0.refID)
+    }.sorted() ?? []
   }
   
   /// A list of ritual schools the character has available to them..
@@ -260,9 +257,9 @@ extension Kindred {
   }
   
   func removeRitual(_ ritual: Ritual) {
-    let rituals = self.rituals as? Set<PowerContainer>
+    let rituals = self.rituals as? Set<RitualContainer>
     if let container = rituals?.first(where: { $0.refID == ritual.id }) {
-      self.removeFromPowers(container)
+      self.removeFromRituals(container)
     }
   }
   
@@ -339,10 +336,10 @@ extension Kindred {
   
   /// All loresheet entries, unsorted.
   var loresheetEntries: [LoresheetEntry] {
-    let entries = self.loresheets as? Set<Int16>
-    return entries?.compactMap {
-      ReferenceManager.shared.loresheetEntry(id: $0)
-    } ?? []
+    let entries = self.loresheets as? Set<LoresheetContainer>
+    return (entries?.compactMap {
+      ReferenceManager.shared.loresheetEntry(id: $0.refID)
+    } ?? [])
       .sorted()
   }
   
@@ -355,11 +352,8 @@ extension Kindred {
   
   /// All the loresheets for which the character has at least one entry.
   var knownLoresheets: [Loresheet] {
-    var loresheets: Set<Loresheet> = []
-    for entry in self.loresheetEntries {
-      loresheets.insert(entry.parent)
-    }
-    return loresheets.sorted()
+    let loresheets = self.loresheetEntries.map(\.parent)
+    return Set(loresheets).sorted()
   }
   
   func addLoresheetEntry(_ entry: LoresheetEntry) {
