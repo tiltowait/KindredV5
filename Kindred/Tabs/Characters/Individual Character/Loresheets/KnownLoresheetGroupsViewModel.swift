@@ -10,11 +10,13 @@ import Foundation
 extension KnownLoresheetGroups {
   class ViewModel: BaseKindredViewModel {
     
-    let knownLoresheets: [Loresheet]
+    @Published var knownLoresheets: [Loresheet]
     
     override init(kindred: Kindred) {
       knownLoresheets = kindred.knownLoresheets
       super.init(kindred: kindred)
+      
+      NotificationCenter.default.addObserver(self, selector: #selector(didPurchaseLoresheet), name: .didAddAdvantageOption, object: nil)
     }
     
     /// Fetch all loresheet entries for a particular loresheet that the Kindred prosseses.
@@ -30,6 +32,10 @@ extension KnownLoresheetGroups {
       let entry = knownEntries[index]
       
       kindred.removeLoresheetEntry(entry)
+    }
+    
+    @objc func didPurchaseLoresheet(_ notification: Notification) {
+      knownLoresheets = kindred.knownLoresheets
     }
     
   }
