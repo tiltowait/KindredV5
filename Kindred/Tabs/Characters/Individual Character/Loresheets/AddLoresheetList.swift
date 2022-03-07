@@ -24,6 +24,9 @@ struct AddLoresheetList: View {
         loresheetSection("Known", loresheets: viewModel.knownLoresheets)
         loresheetSection("Unknown", loresheets: viewModel.unknownLoresheets)
       }
+      .sheet(item: $viewModel.unlockIdentifier, onDismiss: viewModel.objectWillChange.send) { identifier in
+        UnlockView(highlights: [identifier])
+      }
       .navigationTitle("Add Loresheet")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
@@ -38,13 +41,21 @@ struct AddLoresheetList: View {
     if !loresheets.isEmpty {
       Section(header: Text(title)) {
         ForEach(loresheets) { loresheet in
-          NavigationLink(
-            destination: LoresheetDetail(
-              loresheet: loresheet,
-              kindred: viewModel.kindred
-            )
-          ) {
-            ReferenceRow(loresheet.name, secondary: loresheet.pageReference)
+          if viewModel.isUnlocked(loresheet: loresheet) {
+            NavigationLink(
+              destination: LoresheetDetail(
+                loresheet: loresheet,
+                kindred: viewModel.kindred
+              )
+            ) {
+              ReferenceRow(loresheet.name, secondary: loresheet.pageReference)
+            }
+          } else {
+            Button {
+              viewModel.unlockIdentifier = loresheet.unlockIdentifier
+            } label: {
+              ReferenceRow(loresheet.name, secondary: loresheet.pageReference, unlocked: false)
+            }
           }
         }
       }

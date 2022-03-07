@@ -8,12 +8,14 @@
 import Foundation
 
 extension AddLoresheetList {
-  class ViewModel: BaseKindredViewModel {
+  class ViewModel: BaseSavingKindredViewModel {
+    
+    @Published var unlockIdentifier: String?
     
     let knownLoresheets: [Loresheet]
     let unknownLoresheets: [Loresheet]
     
-    init(kindred: Kindred, dataController: DataController) {
+    override init(kindred: Kindred, dataController: DataController) {
       knownLoresheets = kindred.knownLoresheets
       
       var unknownLoresheets = ReferenceManager.shared.loresheets
@@ -22,7 +24,11 @@ extension AddLoresheetList {
       }
       self.unknownLoresheets = unknownLoresheets.sorted()
       
-      super.init(kindred: kindred)
+      super.init(kindred: kindred, dataController: dataController)
+    }
+    
+    func isUnlocked(loresheet: Loresheet) -> Bool {
+      dataController.isPurchased(item: loresheet)
     }
     
   }
