@@ -32,6 +32,9 @@ struct KnownLoresheetGroups: View {
         ForEach(viewModel.entries(for: loresheet)) { entry in
           LoresheetEntryDetail(entry: entry, kindred: nil)
         }
+        .onDelete { offset in
+          viewModel.removeEntry(at: offset, loresheet: loresheet)
+        }
       } label: {
         ReferenceRow(loresheet.name, secondary: loresheet.pageReference)
       }

@@ -24,6 +24,14 @@ extension KnownLoresheetGroups {
       kindred.entries(for: loresheet)
     }
     
+    func removeEntry(at offset: IndexSet, loresheet: Loresheet) {
+      guard let index = offset.first else { return }
+      let knownEntries = kindred.entries(for: loresheet)
+      let entry = knownEntries[index]
+      
+      kindred.removeLoresheetEntry(entry)
+    }
+    
   }
 }
 

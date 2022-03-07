@@ -363,4 +363,11 @@ extension Kindred {
     self.addToLoresheets(container)
   }
   
+  func removeLoresheetEntry(_ entry: LoresheetEntry) {
+    let entries = self.loresheets as? Set<LoresheetContainer>
+    if let container = entries?.first(where: { $0.refID == entry.id }) {
+      self.removeFromLoresheets(container)
+    }
+  }
+  
 }
