@@ -120,7 +120,7 @@ extension AdvantageOptionView {
       container.currentRating = option.minRating
       kindred.addToAdvantages(container)
       
-      NotificationCenter.default.post(name: .didAddAdvantageOption, object: nil)
+      NotificationCenter.default.post(name: .didAddAdvantage, object: nil)
     }
     
     /// Observe when the user makes a purchase so we can update our containers.

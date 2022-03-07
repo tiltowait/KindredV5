@@ -16,7 +16,7 @@ extension KnownLoresheetGroups {
       knownLoresheets = kindred.knownLoresheets
       super.init(kindred: kindred)
       
-      NotificationCenter.default.addObserver(self, selector: #selector(didPurchaseLoresheet), name: .didAddAdvantageOption, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(didPurchaseLoresheet), name: .didAddAdvantage, object: nil)
     }
     
     /// Fetch all loresheet entries for a particular loresheet that the Kindred prosseses.

@@ -33,7 +33,7 @@ extension LoresheetEntryDetail {
     
     func addToKindred() {
       kindred?.addLoresheetEntry(entry)
-      NotificationCenter.default.post(name: .didAddAdvantageOption, object: nil)
+      NotificationCenter.default.post(name: .didAddAdvantage, object: nil)
     }
     
   }
