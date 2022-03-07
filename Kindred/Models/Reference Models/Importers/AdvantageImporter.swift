@@ -58,8 +58,8 @@ enum AdvantageImporter: Importer {
         info: row[info],
         page: Int16(row[page]),
         source: Int16(row[source]),
-        maxRating: Int16(row[min]),
-        minRating: Int16(row[max]),
+        minRating: Int16(row[min]),
+        maxRating: Int16(row[max]),
         parentAdvantage: advantage
       )
       advantage.allOptions.append(option)

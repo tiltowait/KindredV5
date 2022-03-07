@@ -26,14 +26,14 @@ class AdvantageOption: ReferenceItem {
     return name
   }
   
-  init(id: Int16, name: String, info: String, page: Int16, source: Int16, maxRating: Int16, minRating: Int16, parentAdvantage: Advantage) {
+  init(id: Int16, name: String, info: String, page: Int16, source: Int16, minRating: Int16, maxRating: Int16, parentAdvantage: Advantage) {
     self.id = id
     self.name = name
     self.info = info
     self.page = page
     self.source = source
-    self.maxRating = maxRating
     self.minRating = minRating
+    self.maxRating = maxRating
     self.parentAdvantage = parentAdvantage
   }
   
@@ -58,5 +58,5 @@ extension AdvantageOption: Comparable {
 }
 
 extension AdvantageOption {
-  static let unknown = AdvantageOption(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, maxRating: 1, minRating: 1, parentAdvantage: Advantage.unknown)
+  static let unknown = AdvantageOption(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, minRating: 1, maxRating: 1, parentAdvantage: Advantage.unknown)
 }
