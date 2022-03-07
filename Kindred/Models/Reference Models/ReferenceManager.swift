@@ -17,7 +17,7 @@ class ReferenceManager {
   
   private(set) lazy var advantages: [Advantage] = {
     do {
-      return try AdvantageImporter.importAll(of: Advantage.self)
+      return try AdvantageImporter.importAll(of: Advantage.self).sorted()
     } catch {
       fatalError(error.localizedDescription)
     }
@@ -27,21 +27,21 @@ class ReferenceManager {
   }()
   private(set) lazy var clans: [Clan] = {
     do {
-      return try ClanImporter.importAll(of: Clan.self)
+      return try ClanImporter.importAll(of: Clan.self).sorted()
     } catch {
       fatalError(error.localizedDescription)
     }
   }()
   private(set) lazy var disciplines: [Discipline] = {
     do {
-      return try DisciplineImporter.importAll(of: Discipline.self)
+      return try DisciplineImporter.importAll(of: Discipline.self).sorted()
     } catch {
       fatalError(error.localizedDescription)
     }
   }()
   private(set) lazy var loresheets: [Loresheet] = {
     do {
-      return try LoresheetImporter.importAll(of: Loresheet.self)
+      return try LoresheetImporter.importAll(of: Loresheet.self).sorted()
     } catch {
       fatalError(error.localizedDescription)
     }
@@ -54,7 +54,7 @@ class ReferenceManager {
   }()
   private(set) lazy var rituals: [Ritual] = {
     do {
-      return try RitualImporter.importAll(of: Ritual.self)
+      return try RitualImporter.importAll(of: Ritual.self).sorted()
     } catch {
       fatalError(error.localizedDescription)
     }

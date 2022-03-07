@@ -60,3 +60,9 @@ class Clan: ReferenceItem {
 extension Clan {
   static let unknown = Clan(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, bane: nil, compulsion: nil, compulsionDetails: nil, rawTemplate: 1, header: "", icon: "", nicknames: "Unknown, Unknown, Unknown")
 }
+
+extension Clan: Comparable {
+  static func < (lhs: Clan, rhs: Clan) -> Bool {
+    lhs.name < rhs.name
+  }
+}
