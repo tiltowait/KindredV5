@@ -28,6 +28,7 @@ extension CharacterAdvantages {
     }
     
     func deleteOption(_ offsets: IndexSet, parent coalesced: Kindred.CoalescedAdvantage) {
+      self.objectWillChange.send()
       for offset in offsets {
         let container = coalesced.containers[offset]
         dataController.delete(container)
