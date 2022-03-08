@@ -54,6 +54,7 @@ extension RitualList {
     
     func add(ritual: Ritual) {
       kindred?.addRitual(ritual)
+      NotificationCenter.default.post(name: .didAddRitual, object: nil)
     }
     
     func isUnlocked(ritual: Ritual) -> Bool {

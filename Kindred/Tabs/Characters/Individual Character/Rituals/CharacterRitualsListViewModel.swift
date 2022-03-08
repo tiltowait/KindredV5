@@ -14,6 +14,11 @@ extension CharacterRitualsList {
       kindred.availableRitualSchools
     }
     
+    override init(kindred: Kindred, dataController: DataController) {
+      super.init(kindred: kindred, dataController: dataController)
+      NotificationCenter.default.addObserver(self, selector: #selector(ritualAdded), name: .didAddRitual, object: nil)
+    }
+    
     /// Generate a section title for a school.
     /// - Parameter school: The school.
     /// - Returns: The generated title.
@@ -40,6 +45,8 @@ extension CharacterRitualsList {
     ///   - school: The school in which the ritual exists.
     ///   - offsets: The rituals' list indices.
     func removeRituals(school: Ritual.Flavor, offsets: IndexSet) {
+      self.objectWillChange.send()
+      
       let rituals = kindred.knownRituals.filter { $0.flavor == school }
       for offset in offsets {
         let ritual = rituals[offset]
@@ -47,5 +54,12 @@ extension CharacterRitualsList {
       }
     }
     
+    @objc func ritualAdded(_ notification: Notification) {
+      self.objectWillChange.send()
+    }
   }
+}
+
+extension Notification.Name {
+  static let didAddRitual = Notification.Name("didAddRitual")
 }
