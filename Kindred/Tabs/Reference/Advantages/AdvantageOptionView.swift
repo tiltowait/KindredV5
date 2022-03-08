@@ -112,6 +112,7 @@ struct AdvantageOptionView: View {
         } else {
           Text("You must purchase the \(viewModel.option.sourceBook.title) module to view this Advantage.")
             .foregroundColor(.secondary)
+            .lineLimitFix()
         }
         
         HStack {
