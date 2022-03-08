@@ -32,6 +32,7 @@ extension KnownLoresheetGroups {
       let entry = knownEntries[index]
       
       kindred.removeLoresheetEntry(entry)
+      NotificationCenter.default.post(name: .didRemoveAdvantage, object: nil)
       
       if knownEntries.count == 1 {
         // We removed the only entry

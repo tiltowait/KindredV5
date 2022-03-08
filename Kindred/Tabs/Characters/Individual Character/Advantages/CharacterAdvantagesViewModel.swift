@@ -24,7 +24,8 @@ extension CharacterAdvantages {
     
     override init(kindred: Kindred, dataController: DataController) {
       super.init(kindred: kindred, dataController: dataController)
-      NotificationCenter.default.addObserver(self, selector: #selector(advantageWasAdded), name: .didAddAdvantage, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(advantagesWereChanged), name: .didAddAdvantage, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(advantagesWereChanged), name: .didRemoveAdvantage, object: nil)
     }
     
     func deleteOption(_ offsets: IndexSet, parent coalesced: Kindred.CoalescedAdvantage) {
@@ -35,7 +36,7 @@ extension CharacterAdvantages {
       }
     }
     
-    @objc func advantageWasAdded(_ notification: Notification) {
+    @objc func advantagesWereChanged(_ notification: Notification) {
       self.objectWillChange.send()
     }
     
@@ -44,4 +45,5 @@ extension CharacterAdvantages {
 
 extension Notification.Name {
   static let didAddAdvantage = Notification.Name("didAddAdvantage")
+  static let didRemoveAdvantage = Notification.Name("didRemoveAdvantage")
 }
