@@ -89,7 +89,7 @@ extension Kindred {
   }
   
   var humanity: Int16 {
-    get { Int16(humanityString.count { $0 == "o" }) }
+    get { Int16(humanityString.count { ["o", "x"].contains($0) }) }
     set {
       let filled = String(repeating: "o", count: Int(newValue))
       let empty = String(repeating: ".", count: Int(10 - newValue))
