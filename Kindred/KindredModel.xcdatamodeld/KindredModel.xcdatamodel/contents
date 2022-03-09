@@ -88,6 +88,7 @@
     </entity>
     <entity name="KindredImage" representedClassName="KindredImage" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="663027480" usesScalarValueType="NO"/>
+        <attribute name="directoryKey" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
         <attribute name="zImage" optional="YES" attributeType="String"/>
         <attribute name="zThumb" optional="YES" attributeType="String"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kindred" inverseName="images" inverseEntity="Kindred"/>
@@ -116,13 +117,13 @@
     <elements>
         <element name="AdvantageContainer" positionX="-261" positionY="-459" width="128" height="88"/>
         <element name="CDReferenceVersion" positionX="-261" positionY="-459" width="128" height="44"/>
-        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="1123"/>
-        <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="89"/>
-        <element name="Specialty" positionX="-261" positionY="-459" width="128" height="74"/>
-        <element name="LoresheetContainer" positionX="-81" positionY="-198" width="128" height="59"/>
         <element name="ClanContainer" positionX="-72" positionY="-189" width="128" height="59"/>
+        <element name="Kindred" positionX="-462.3046875" positionY="-242.7578125" width="128" height="1123"/>
+        <element name="KindredImage" positionX="-261" positionY="-459" width="128" height="104"/>
+        <element name="LoresheetContainer" positionX="-81" positionY="-198" width="128" height="59"/>
         <element name="PowerContainer" positionX="-63" positionY="-180" width="128" height="59"/>
-        <element name="RitualContainer" positionX="-54" positionY="-171" width="128" height="59"/>
         <element name="PredatorTypeContainer" positionX="-225" positionY="0" width="128" height="59"/>
+        <element name="RitualContainer" positionX="-54" positionY="-171" width="128" height="59"/>
+        <element name="Specialty" positionX="-261" positionY="-459" width="128" height="74"/>
     </elements>
 </model>

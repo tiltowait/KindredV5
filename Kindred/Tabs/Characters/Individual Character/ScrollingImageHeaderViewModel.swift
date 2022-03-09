@@ -15,8 +15,8 @@ extension ScrollingImageHeader {
     @Published var attemptedToAddDuplicateImage = false
     
     override init(kindred: Kindred, dataController: DataController) {
-      fullsizeURLs = kindred.fullsizeImageURLs
-      thumbnailURLs = kindred.thumbnailImageURLs
+      self.fullsizeURLs = kindred.fullsizeImageURLs
+      self.thumbnailURLs = kindred.thumbnailImageURLs
       
       super.init(kindred: kindred, dataController: dataController)
     }
