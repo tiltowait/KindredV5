@@ -52,19 +52,6 @@ class DataController: ObservableObject {
     return traitReference
   }
   
-  // MARK: - Database Members
-  /// The highest revision number in the SQLite reference database.
-  private lazy var sqliteReferenceVersion: Int = {
-    let db = try? Connection(Global.referenceDatabasePath, readonly: true)
-    let table = Table("current_version")
-    let column = Expression<Int>("version")
-    
-    guard let version = try? db?.scalar(table.select(column.max)) else {
-      fatalError("Unable to fetch the reference database version.")
-    }
-    return version
-  }()
-  
   /// Static model file to prevent errors when testing.
   static let model: NSManagedObjectModel = {
     guard let url = Bundle.main.url(forResource: "KindredModel", withExtension: "momd") else {
@@ -84,10 +71,6 @@ class DataController: ObservableObject {
     container = NSPersistentCloudKitContainer(name: "KindredModel", managedObjectModel: Self.model)
     self.defaults = defaults
     
-    // Load up reference material
-    
-    
-    
     if inMemory {
       print("Running in memory! Data will not persist.")
       container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
@@ -97,6 +80,7 @@ class DataController: ObservableObject {
       if let error = error {
         fatalError("Unable to load persistent store.\n\(error.localizedDescription)")
       }
+      self.container.viewContext.automaticallyMergesChangesFromParent = true
     }
   }
   

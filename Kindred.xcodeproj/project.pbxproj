@@ -67,7 +67,6 @@
 		2852D309267D3A7D009AF8D1 /* CreateCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */; };
 		28563A6827C6F30A005F46CA /* nadea.png in Resources */ = {isa = PBXBuildFile; fileRef = 28563A6727C6F30A005F46CA /* nadea.png */; };
 		28563A6A27C6F311005F46CA /* nadea-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 28563A6927C6F311005F46CA /* nadea-portrait.png */; };
-		28563A6C27C6FA3D005F46CA /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28563A6B27C6FA3D005F46CA /* URL+.swift */; };
 		2856DCD4269E332800B39866 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD3269E332800B39866 /* DiceRoller.swift */; };
 		2856DCD6269E332F00B39866 /* DiceRollerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */; };
 		2856DCD8269E33CB00B39866 /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856DCD7269E33CB00B39866 /* MenuPicker.swift */; };
@@ -272,7 +271,6 @@
 		2852D308267D3A7D009AF8D1 /* CreateCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterViewModel.swift; sourceTree = "<group>"; };
 		28563A6727C6F30A005F46CA /* nadea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nadea.png; path = "Preview Assets.xcassets/nadea.imageset/nadea.png"; sourceTree = "<group>"; };
 		28563A6927C6F311005F46CA /* nadea-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nadea-portrait.png"; path = "Preview Assets.xcassets/nadea-portrait.imageset/nadea-portrait.png"; sourceTree = "<group>"; };
-		28563A6B27C6FA3D005F46CA /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		2856DCD3269E332800B39866 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
 		2856DCD5269E332F00B39866 /* DiceRollerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerViewModel.swift; sourceTree = "<group>"; };
 		2856DCD7269E33CB00B39866 /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
@@ -788,7 +786,6 @@
 				28A39EB22679614000867AB9 /* UIImage+.swift */,
 				284B8582267D0FDD00F159DC /* UIViewController+.swift */,
 				2846358F2697616D00898E84 /* View+.swift */,
-				28563A6B27C6FA3D005F46CA /* URL+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1165,7 +1162,6 @@
 				2833CAC8267A797D00160A96 /* BaseKindredViewModel.swift in Sources */,
 				28C656D0267BAEC400865EE3 /* KnownDisciplinesGroupsViewModel.swift in Sources */,
 				28F0214626A735FA00867504 /* MoralityTrackViewModel.swift in Sources */,
-				28563A6C27C6FA3D005F46CA /* URL+.swift in Sources */,
 				280E100426A33C2B00A87955 /* ToggleButton.swift in Sources */,
 				28A905CE27D1571900A36283 /* Importer.swift in Sources */,
 				28F05C25269E03A800E81D5B /* SpecialtyManager.swift in Sources */,

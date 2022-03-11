@@ -114,6 +114,7 @@ extension CharacterDetail {
       // nil coalescing, or the app will crash if the user has more than one character with no
       // defined clan
       clanName = kindred.clan?.name ?? "Tap to select"
+      save()
     }
     
     @objc func characterWasDeleted(_ notification: Notification) {

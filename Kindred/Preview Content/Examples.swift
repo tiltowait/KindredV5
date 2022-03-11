@@ -150,10 +150,10 @@ extension KindredImage {
     
     for imageName in imageNames {
       let ki = KindredImage(context: DataController.preview.container.viewContext)
-      let url = Bundle.main.url(forResource: imageName, withExtension: "png")!
+      let image = UIImage(named: imageName)!
       
-      ki.imageURL = url
-      ki.thumbnailURL = url
+      ki.fullsize = image.pngData()!
+      ki.thumbnail = image.pngData()!
       ki.creationDate = Date(timeIntervalSinceNow: creationOffset)
       creationOffset += 1
       

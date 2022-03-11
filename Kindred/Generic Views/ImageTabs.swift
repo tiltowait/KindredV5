@@ -14,16 +14,16 @@ struct ImageTabs: View, Identifiable {
   @State private var showingDeletionActionSheet = false
   @State private var selectedImageIndex: Int
   
-  let imageURLs: [URL]
+  let imageData: [UIImage]
   let deletionHandler: (Int) -> Void
   let id = UUID()
   
   var images: [Image] {
-    self.imageURLs.compactMap({ UIImage(contentsOfFile: $0.path) }).map(Image.init)
+    self.imageData.map(Image.init)
   }
   
-  init(images: [URL], index: Int, deletionHandler: @escaping (Int) -> Void) {
-    self.imageURLs = images
+  init(images: [UIImage], index: Int, deletionHandler: @escaping (Int) -> Void) {
+    self.imageData = images
     _selectedImageIndex = State(wrappedValue: index)
     self.deletionHandler = deletionHandler
     

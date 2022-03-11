@@ -27,10 +27,8 @@ struct ScrollingImageHeader: View {
   }
   
   var thumbnails: [Image] {
-    viewModel.thumbnailURLs
-      .lazy.map { $0.path }
-      .compactMap(UIImage.init)
-      .map(Image.init)
+    viewModel.thumbnailImages
+      .lazy.map(Image.init)
   }
   
   var body: some View {
@@ -64,7 +62,7 @@ struct ScrollingImageHeader: View {
     }
     .sheet(item: $showingImageIndex) { index in
       ImageTabs(
-        images: viewModel.fullsizeURLs,
+        images: viewModel.fullsizeImages,
         index: index,
         deletionHandler: viewModel.removeImage
       )
@@ -89,17 +87,17 @@ struct ScrollingImageHeader: View {
   /// Adds the selected image to the view model.
   func addImage(_ image: UIImage) {
     DispatchQueue.main.async {
-      let scaledImage = image.resize(height: thumbnailHeight)
+      let thumbnail = image.resize(height: thumbnailHeight)
       
       // Theoretically, we should present an alert to the user;
       // however, under no normal circumstances should this fail. In
       // the event we ever start picking images from outside the
       // photo library, we will revisit this topic.
-      guard let fullSize = image.jpegData(compressionQuality: 0.8),
-            let thumbnail = scaledImage.jpegData(compressionQuality: 0.7)
-      else { return }
+//      guard let fullSize = image.jpegData(compressionQuality: 0.8),
+//            let thumbnail = scaledImage.jpegData(compressionQuality: 0.7)
+//      else { return }
       
-      viewModel.addImage(fullSize: fullSize, thumbnail: thumbnail)
+      viewModel.addImage(fullsize: image, thumbnail: thumbnail)
     }
   }
   

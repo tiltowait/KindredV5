@@ -147,15 +147,15 @@ extension Kindred {
   }
   
   /// The full-sized image data, sorted by creation date.
-  var fullsizeImageURLs: [URL] {
+  var fullsizeImages: [Data] {
     let images = allImageObjects
-    return images.sorted().compactMap { $0.imageURL }
+    return images.sorted().compactMap { $0.fullsize }
   }
   
   /// The thumbnail image data, sorted by creation date.
-  var thumbnailImageURLs: [URL] {
+  var thumbnailImages: [Data] {
     let images = allImageObjects
-    return images.sorted().compactMap { $0.thumbnailURL }
+    return images.sorted().compactMap { $0.thumbnail }
   }
   
   // MARK: - Reference Items

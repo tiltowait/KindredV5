@@ -10,40 +10,36 @@ import UIKit
 extension ScrollingImageHeader {
   class ViewModel: BaseSavingKindredViewModel {
     
-    @Published var fullsizeURLs: [URL]
-    @Published var thumbnailURLs: [URL]
+    @Published var fullsizeImages: [UIImage]
+    @Published var thumbnailImages: [UIImage]
     @Published var attemptedToAddDuplicateImage = false
     
     override init(kindred: Kindred, dataController: DataController) {
-      self.fullsizeURLs = kindred.fullsizeImageURLs
-      self.thumbnailURLs = kindred.thumbnailImageURLs
+      self.fullsizeImages = kindred.fullsizeImages.compactMap { UIImage(data: $0) }
+      self.thumbnailImages = kindred.thumbnailImages.compactMap { UIImage(data: $0) }
       
       super.init(kindred: kindred, dataController: dataController)
     }
     
-    func addImage(fullSize: Data, thumbnail: Data) {
-      if imageIsDuplicate(fullSize) {
+    func addImage(fullsize: UIImage, thumbnail: UIImage) {
+      guard let fullsizeData = fullsize.jpegData(compressionQuality: 0.8),
+            let thumbnailData = thumbnail.jpegData(compressionQuality: 0.7)
+      else { return }
+      
+      if imageIsDuplicate(fullsizeData) {
         attemptedToAddDuplicateImage = true
       } else {
         let kindredImage = KindredImage(context: dataController.container.viewContext)
-        let fullsizeURL = URL.documents.appendingPathComponent(UUID().uuidString + ".jpg")
-        let thumbnailURL = URL.documents.appendingPathComponent(UUID().uuidString + ".jpg")
         
-        do {
-          try fullSize.write(to: fullsizeURL)
-          try thumbnail.write(to: thumbnailURL)
-        } catch {
-          fatalError("Unable to write image: \(error.localizedDescription)")
-        }
-        
-        kindredImage.imageURL = fullsizeURL
-        kindredImage.thumbnailURL = thumbnailURL
+        kindredImage.fullsize = fullsizeData
+        kindredImage.thumbnail = thumbnailData
         kindredImage.creationDate = Date()
         
         kindred.addToImages(kindredImage)
         
-        fullsizeURLs.append(fullsizeURL)
-        thumbnailURLs.append(thumbnailURL)
+        fullsizeImages.append(fullsize)
+        thumbnailImages.append(thumbnail)
+        
         save()
       }
     }
@@ -58,22 +54,16 @@ extension ScrollingImageHeader {
         kindred.removeFromImages(image)
         dataController.delete(image)
         
-        // Remove the image from the file system
-        let fullsizePath = fullsizeURLs.remove(at: index)
-        let thumbnailPath = thumbnailURLs.remove(at: index)
+        // Remove the image from the header
+        fullsizeImages.remove(at: index)
+        thumbnailImages.remove(at: index)
         
-        do {
-          try FileManager.default.removeItem(at: fullsizePath)
-          try FileManager.default.removeItem(at: thumbnailPath)
-        } catch {
-          print("Unable to delete image: \(error.localizedDescription)")
-        }
         save()
       }
     }
     
     func imageIsDuplicate(_ image: Data) -> Bool {
-      let hashes = kindred.fullsizeImageURLs.compactMap { try? Data(contentsOf: $0).hashValue }
+      let hashes = kindred.fullsizeImages.map(\.hashValue)
       return hashes.contains(image.hashValue)
     }
     

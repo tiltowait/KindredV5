@@ -95,6 +95,8 @@ extension CharacterList {
     /// Updates the various character arrays with the supplied values.
     /// - Parameter characters: The new characters to filter into the arrays.
     private func updateArrays(with characters: [Kindred]) {
+      self.objectWillChange.send()
+      
       // Technically, it might be more efficient to reset all the arrays, then loop over the
       // characters list and add to the arrays one at a time. With that method, we would only
       // loop over the array once. However, given that the characters array will be small

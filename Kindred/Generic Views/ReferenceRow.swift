@@ -119,7 +119,7 @@ struct ReferenceRow: View {
 struct ReferenceRow_Previews: PreviewProvider {
   
   static let icon = Image(
-    uiImage: UIImage(contentsOfFile: KindredImage.examples[0].thumbnailURL.path)!
+    uiImage: UIImage(data: KindredImage.examples[0].thumbnail)!
   )
   
   static var previews: some View {

@@ -17,8 +17,8 @@ struct CharacterRow: View {
     self.kindred = kindred
     
     // Get the first image for display
-    if let imagePath = kindred.thumbnailImageURLs.first,
-       let uiImage = UIImage(contentsOfFile: imagePath.path) {
+    if let thumbnail = kindred.thumbnailImages.first,
+       let uiImage = UIImage(data: thumbnail) {
       self.image = Image(uiImage: uiImage)
     } else {
       self.image = nil
