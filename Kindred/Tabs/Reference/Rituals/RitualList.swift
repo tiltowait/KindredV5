@@ -25,15 +25,17 @@ struct RitualList: View, Identifiable {
   var body: some View {
     List {
       ForEach(1...5) { level in
-        Section(header: Text("Level \(level)")) {
-          ForEach(viewModel.rituals[level]!) { ritual in
-            Button {
-              show(ritual: ritual)
-            } label: {
-              RitualRow(ritual: ritual, showLevel: false, isUnlocked: viewModel.isUnlocked(ritual: ritual))
-                .contentShape(Rectangle())
+        if let rituals = viewModel.rituals(level: level) {
+          Section(header: Text("Level \(level)")) {
+            ForEach(rituals) { ritual in
+              Button {
+                show(ritual: ritual)
+              } label: {
+                RitualRow(ritual: ritual, showLevel: false, isUnlocked: viewModel.isUnlocked(ritual: ritual))
+                  .contentShape(Rectangle())
+              }
+              .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
           }
         }
       }

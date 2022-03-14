@@ -52,6 +52,14 @@ extension RitualList {
       super.init(kindred: kindred, dataController: dataController)
     }
     
+    /// A list of rituals for a given level.
+    /// - Parameter level: The level of rituals to get
+    /// - Returns: The rituals for that level, or nil if there aren't any.
+    func rituals(level: Int) -> [Ritual]? {
+      let rituals = self.rituals[level] ?? []
+      return rituals.isEmpty ? nil : rituals
+    }
+    
     func add(ritual: Ritual) {
       kindred?.addRitual(ritual)
       NotificationCenter.default.post(name: .didAddRitual, object: nil)
