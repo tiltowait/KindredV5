@@ -39,7 +39,7 @@ extension Power {
   
   /// The example Power (Quell the Beast, Animalism •••).
   static var example: Power {
-    ReferenceManager.shared.power(named: "Aura of Decay")!
+    ReferenceManager.shared.power(named: "Fatal Precognition")!
   }
   
 }

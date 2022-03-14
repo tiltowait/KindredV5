@@ -18,20 +18,14 @@ class Power: ReferenceItem {
   let level: Int16
   let pool: String?
   let rouse: Int16
-  let prerequisites: String?
   
   let discipline: Discipline
   var dependentRituals: [Ritual] = []
   
-  var disciplineName: String { self.discipline.name }
-  var amalgams: [String]? {
-    prerequisites?.components(separatedBy: ", ").filter { $0.last!.isNumber }
-  }
+  let amalgams: [String]?
+  let prerequisitePowers: [String]?
   
-  /// Individual power(s) the character must possess to know this power.
-  var prerequisitePowers: [String]? {
-    self.prerequisites?.components(separatedBy: ", ").filter { !$0.last!.isNumber }
-  }
+  var disciplineName: String { self.discipline.name }
   
   init(id: Int16, name: String, info: String, page: Int16, source: Int16, powerDuration: String, level: Int16, pool: String?, rouse: Int16, prerequisites: String?, discipline: Discipline) {
     self.id = id
@@ -43,8 +37,14 @@ class Power: ReferenceItem {
     self.level = level
     self.pool = pool
     self.rouse = rouse
-    self.prerequisites = prerequisites
     self.discipline = discipline
+    
+    let prerequisites = prerequisites?.components(separatedBy: ", ")
+    let prerequisitePowers = prerequisites?.filter { !$0.last!.isNumber }
+    self.prerequisitePowers = (prerequisitePowers?.isEmpty ?? true) ? nil : prerequisitePowers
+    
+    let amalgams = prerequisites?.filter { $0.last!.isNumber }
+    self.amalgams = (amalgams?.isEmpty ?? true) ? nil: amalgams
   }
 }
 
