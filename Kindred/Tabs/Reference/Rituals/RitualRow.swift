@@ -32,7 +32,7 @@ struct RitualRow: View {
           .foregroundColor(mainLabelColor)
           .opacity(0.5)
       }
-      VStack(alignment: .leading, spacing: 3) {
+      VStack(alignment: .leading, spacing: 5) {
         HStack(alignment: .top) {
           if showLevel {
             Text("\(ritual.level)")
@@ -57,8 +57,9 @@ struct RitualRow: View {
         HStack {
           Spacer()
           Text(ritual.pageReference)
-            .multilineTextAlignment(.trailing)
+            .italic()
             .font(.caption)
+            .multilineTextAlignment(.trailing)
             .foregroundColor(.secondary)
         }
       }
