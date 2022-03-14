@@ -50,13 +50,14 @@ struct RitualCard: View {
         
         ScrollView {
           VStack(alignment: .leading, spacing: 10) {
+            Text(ritual.info)
+            Divider()
+            
             if let ingredients = ritual.ingredients {
               BoldLabel("Ingredients:", details: ingredients)
             }
             BoldLabel("Process:", details: ritual.process)
-            Divider()
             
-            Text(ritual.info)
           }
           .accessibilityElement(children: .combine)
           .accessibilityLabel(accessibilityLabel)
