@@ -13,15 +13,23 @@ struct RitualRow: View {
   let showLevel: Bool
   let isUnlocked: Bool
   
-  var primaryColor: Color {
+  var mainLabelColor: Color {
     isUnlocked ? .primary : .secondary
+  }
+  
+  var accessibilityLabel: String {
+    if isUnlocked {
+      return "Locked: \(ritual.name)"
+    }
+    
+    return "\(ritual.name): \(ritual.info)"
   }
   
   var body: some View {
     HStack(spacing: 5) {
       if isUnlocked == false {
         Image(systemName: "lock.fill")
-          .foregroundColor(primaryColor)
+          .foregroundColor(mainLabelColor)
           .opacity(0.5)
       }
       VStack(alignment: .leading, spacing: 3) {
@@ -36,7 +44,7 @@ struct RitualRow: View {
           VStack(alignment: .leading) {
             Text(ritual.name)
               .font(.headline)
-              .foregroundColor(primaryColor)
+              .foregroundColor(mainLabelColor)
             if isUnlocked {
               Text(ritual.info)
                 .font(.caption)
@@ -55,6 +63,8 @@ struct RitualRow: View {
         }
       }
     }
+    .accessibilityElement(children: .combine)
+    .accessibilityLabel(Text(accessibilityLabel))
   }
 }
 
