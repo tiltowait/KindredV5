@@ -158,6 +158,12 @@ extension Kindred {
     return images.sorted().compactMap { $0.thumbnail }
   }
   
+  /// The image data to use as the character's icon.
+  var icon: Data? {
+    let images = images as? Set<KindredImage>
+    return images?.min()?.thumbnail
+  }
+  
   // MARK: - Reference Items
   
   var predatorType: PredatorType? {

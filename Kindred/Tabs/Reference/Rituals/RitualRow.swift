@@ -13,22 +13,37 @@ struct RitualRow: View {
   let showLevel: Bool
   let isUnlocked: Bool
   
+  var primaryColor: Color {
+    isUnlocked ? .primary : .secondary
+  }
+  
   var body: some View {
     HStack(spacing: 5) {
       if isUnlocked == false {
         Image(systemName: "lock.fill")
-          .foregroundColor(ritual.sourceBook.color)
+          .foregroundColor(primaryColor)
           .opacity(0.5)
       }
       VStack(alignment: .leading, spacing: 3) {
-        HStack(alignment: .center) {
+        HStack(alignment: .top) {
           if showLevel {
             Text("\(ritual.level)")
               .foregroundColor(.secondary)
               .font(.caption)
+              .padding(3)
           }
-          Text(ritual.name)
-            .font(.headline)
+          
+          VStack(alignment: .leading) {
+            Text(ritual.name)
+              .font(.headline)
+              .foregroundColor(primaryColor)
+            if isUnlocked {
+              Text(ritual.info)
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .lineLimit(2)
+            }
+          }
         }
         
         HStack {

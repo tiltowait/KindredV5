@@ -90,6 +90,8 @@ struct AdvantageOptionView: View {
           }
           Text(viewModel.option.name)
             .bold()
+            .foregroundColor(viewModel.isUnlocked ? .primary : .secondary)
+            .lineLimitFix()
           
           // Reference. Ex: "(• to •••)"
           if viewModel.showRatingRange {
