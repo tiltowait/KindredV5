@@ -26,8 +26,6 @@ enum Global {
     return path
   }()
   
-  static let referenceVersionKey = "referenceVersion"
-  
   /// A simple, sharp haptic tap pattern.
   private static let hapticTapPattern: CHHapticPattern? = {
     do {
