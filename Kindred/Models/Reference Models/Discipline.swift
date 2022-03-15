@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Discipline: InfoItem {
+final class Discipline: InfoItem {
   let id: Int16
   let name: String
   let info: String

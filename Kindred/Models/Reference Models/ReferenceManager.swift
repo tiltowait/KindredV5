@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ReferenceManager {
+final class ReferenceManager {
   static let shared = ReferenceManager()
   
   // MARK: - Reference Material

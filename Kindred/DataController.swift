@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import SQLite
 
-class DataController: ObservableObject {
+final class DataController: ObservableObject {
   
   /// The primary Core Data container.
   let container: NSPersistentCloudKitContainer

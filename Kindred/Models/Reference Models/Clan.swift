@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Clan: ReferenceItem {
+final class Clan: ReferenceItem {
   enum Template: Int16 {
     case kindred
     case ghoul

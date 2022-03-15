@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Ritual: ReferenceItem {
+final class Ritual: ReferenceItem {
   enum Flavor: String {
     case ritual = "Ritual"
     case ceremony = "Ceremony"

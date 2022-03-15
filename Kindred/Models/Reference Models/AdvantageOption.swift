@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AdvantageOption: ReferenceItem {
+final class AdvantageOption: ReferenceItem {
   let id: Int16
   let name: String
   let info: String

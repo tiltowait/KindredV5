@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Loresheet: ReferenceItem {
+final class Loresheet: ReferenceItem {
   let id: Int16
   let name: String
   let info: String

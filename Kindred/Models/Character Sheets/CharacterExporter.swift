@@ -9,7 +9,7 @@ import SwiftUI
 import PDFKit
 import UniformTypeIdentifiers
 
-class CharacterExporter: Identifiable {
+final class CharacterExporter: Identifiable {
   
   var id = UUID()
   let fileURL: URL

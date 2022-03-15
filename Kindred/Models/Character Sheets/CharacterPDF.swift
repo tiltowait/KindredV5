@@ -10,7 +10,7 @@ import PDFKit
 /// A class for importing V5 characters from a standard PDF. For the purposes of this app, "standard"
 /// means any official PDF made by White Wolf, as well as MrGone's PDFs. PDFs from other sources
 /// are unlikely to work.
-class CharacterPDF {
+final class CharacterPDF {
   
   /// A singleton importer used for testing and debugging purposes. Uses a prepackaged
   /// character PDF with known values.

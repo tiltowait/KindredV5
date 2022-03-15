@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Power: ReferenceItem {
+final class Power: ReferenceItem {
   let id: Int16
   let name: String
   let info: String
