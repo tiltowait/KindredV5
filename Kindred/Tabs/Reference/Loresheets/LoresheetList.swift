@@ -42,7 +42,6 @@ struct LoresheetList: View {
         ReferenceRow(
           loresheet.name,
           secondary: loresheet.pageReference,
-          color: loresheet.sourceBook.color,
           unlocked: false
         )
         .contentShape(Rectangle())

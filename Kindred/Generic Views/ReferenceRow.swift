@@ -13,7 +13,6 @@ struct ReferenceRow: View {
   let subtitle: LocalizedStringKey?
   let secondary: LocalizedStringKey?
   let icon: Image?
-  let color: Color?
   let rounded: Bool
   let unlocked: Bool
   
@@ -30,7 +29,6 @@ struct ReferenceRow: View {
     secondary: LocalizedStringKey? = nil,
     icon: Image? = nil,
     rounded: Bool = false,
-    color: Color? = nil,
     unlocked: Bool = true
   ) {
     self.title = title
@@ -38,7 +36,6 @@ struct ReferenceRow: View {
     self.secondary = secondary
     self.icon = icon
     self.rounded = rounded
-    self.color = color
     self.unlocked = unlocked
   }
   
@@ -55,13 +52,12 @@ struct ReferenceRow: View {
     secondary: String? = nil,
     icon: Image? = nil,
     rounded: Bool = false,
-    color: Color? = nil,
     unlocked: Bool = true
   ) {
     let title = LocalizedStringKey(title)
     let subtitle = subtitle != nil ? LocalizedStringKey(subtitle!) : nil
     let secondary = secondary != nil ? LocalizedStringKey(secondary!) : nil
-    self.init(title, subtitle: subtitle, secondary: secondary, icon: icon, rounded: rounded, color: color, unlocked: unlocked)
+    self.init(title, subtitle: subtitle, secondary: secondary, icon: icon, rounded: rounded, unlocked: unlocked)
   }
   
   /// The scaled, rounded icon. If the item is locked, then it is grayed out.

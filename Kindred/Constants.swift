@@ -118,15 +118,6 @@ enum Global {
       }
     }
     
-    var color: Color {
-      switch self {
-      case .core: return .core
-      case .companion: return .companion
-      case .cultsOfTheBloodGods: return .cultsOfTheBloodGods
-      default: return .unknownSource
-      }
-    }
-    
     var unlockIdentifier: String {
       switch self {
       case .core: return "included"
