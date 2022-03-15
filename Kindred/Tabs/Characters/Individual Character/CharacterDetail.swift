@@ -148,8 +148,8 @@ struct CharacterDetail: View {
       }
       
       // Rituals
-      if !viewModel.kindred.availableRitualSchools.isEmpty {
-        NavigationLink("Rituals", destination:
+      if let schools = viewModel.ritualsLabel {
+        NavigationLink(schools, destination:
                         CharacterRitualsList(
                           kindred: viewModel.kindred,
                           dataController: viewModel.dataController

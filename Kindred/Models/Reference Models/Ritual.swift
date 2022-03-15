@@ -20,6 +20,17 @@ final class Ritual: ReferenceItem {
       case .formula: return "Thin-Blood Alchemy"
       }
     }
+    
+    var plural: String {
+      switch self {
+      case .ritual:
+        return "Rituals"
+      case .ceremony:
+        return "Ceremonies"
+      case .formula:
+        return "Formulae"
+      }
+    }
   }
 
   let id: Int16

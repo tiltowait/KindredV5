@@ -28,6 +28,14 @@ extension CharacterDetail {
       kindred.loresheetEntries.isEmpty
     }
     
+    var ritualsLabel: String? {
+      let available = kindred.availableRitualSchools.map(\.plural)
+      guard available.count > 0 else { return nil }
+      
+      let formatted = ListFormatter.localizedString(byJoining: available)
+      return formatted.replacingOccurrences(of: "and", with: "&")
+    }
+    
     override init(kindred: Kindred, dataController: DataController) {
       clanName = kindred.clan?.name ?? "Tap to select"
       super.init(kindred: kindred, dataController: dataController)
