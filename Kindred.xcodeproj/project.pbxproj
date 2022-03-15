@@ -111,6 +111,7 @@
 		28921690267E5D88004911EA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2892168F267E5D88004911EA /* SQLite */; };
 		28921696267E6BDB004911EA /* reference.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28921695267E6BDB004911EA /* reference.sqlite */; };
 		289A242427E14F3200EAD437 /* CloudDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A242327E14F3200EAD437 /* CloudDefaults.swift */; };
+		289A242627E1532E00EAD437 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A242527E1532E00EAD437 /* Int+.swift */; };
 		28A1E9EB2677ADFF0084F483 /* CharacterImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */; };
 		28A1E9ED2677B62A0084F483 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */; };
 		28A1E9EF2677B6C40084F483 /* TraitSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1E9EE2677B6C40084F483 /* TraitSummary.swift */; };
@@ -315,6 +316,7 @@
 		288EB7C92698F23D00E27652 /* Nadea Theron.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Nadea Theron.pdf"; sourceTree = "<group>"; };
 		28921695267E6BDB004911EA /* reference.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = reference.sqlite; sourceTree = "<group>"; };
 		289A242327E14F3200EAD437 /* CloudDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudDefaults.swift; sourceTree = "<group>"; };
+		289A242527E1532E00EAD437 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		28A1E9E82677AA1A0084F483 /* Kindred+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kindred+.swift"; sourceTree = "<group>"; };
 		28A1E9EA2677ADFF0084F483 /* CharacterImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImporter.swift; sourceTree = "<group>"; };
 		28A1E9EC2677B62A0084F483 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 				28A39EB22679614000867AB9 /* UIImage+.swift */,
 				284B8582267D0FDD00F159DC /* UIViewController+.swift */,
 				2846358F2697616D00898E84 /* View+.swift */,
+				289A242527E1532E00EAD437 /* Int+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1095,6 +1098,7 @@
 				286FBF85265D930500AAA469 /* DisciplineRow.swift in Sources */,
 				2813CAC7269CA261005356D9 /* BiographyDetailViewModel.swift in Sources */,
 				28A905CF27D1571900A36283 /* ClanImporter.swift in Sources */,
+				289A242627E1532E00EAD437 /* Int+.swift in Sources */,
 				284B8583267D0FDD00F159DC /* UIViewController+.swift in Sources */,
 				2883A16927D1370D00C71EE4 /* ReferenceProtocols.swift in Sources */,
 				28F0214A26A74B2600867504 /* Popover.swift in Sources */,

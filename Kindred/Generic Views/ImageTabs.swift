@@ -36,7 +36,7 @@ struct ImageTabs: View, Identifiable {
         Color.black.edgesIgnoringSafeArea(.all)
         
         TabView(selection: $selectedImageIndex) {
-          ForEach(0..<imageData.count) { index in
+          ForEach(0..<imageData.count, id: \.self) { index in
             images[index]
               .resizable()
               .scaledToFit()

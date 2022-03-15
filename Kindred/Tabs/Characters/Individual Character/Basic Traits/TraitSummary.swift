@@ -17,7 +17,7 @@ struct TraitSummary: View {
       Text(title)
         .font(.headline)
       HStack(alignment: .center) {
-        ForEach(traits.indices) { index in
+        ForEach(traits.indices, id: \.self) { index in
           VStack(alignment: .leading) {
             ForEach(self.traits[index], id: \.0) { trait in
               HStack {

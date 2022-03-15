@@ -26,7 +26,7 @@ struct AdvantageOptionMarker: View {
   
   var body: some View {
     HStack {
-      ForEach(0..<count) { _ in
+      ForEach(0..<count, id: \.self) { _ in
         shape
       }
     }

@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-extension Int: Identifiable {
-  public var id: Int { self }
-}
-
 struct ScrollingImageHeader: View {
   
   @StateObject var viewModel: ViewModel
@@ -34,7 +30,7 @@ struct ScrollingImageHeader: View {
   var body: some View {
     ScrollView(.horizontal) {
       LazyHStack {
-        ForEach(thumbnails.indices) { index in
+        ForEach(thumbnails.indices, id: \.self) { index in
           Button {
             showingImageIndex = index
           } label: {
