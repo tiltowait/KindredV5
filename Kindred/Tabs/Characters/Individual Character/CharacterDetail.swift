@@ -75,7 +75,7 @@ struct CharacterDetail: View {
         
         clanLink
         
-        if (viewModel.kindred.clan != nil) {
+        if viewModel.kindred.clan?.template == .kindred {
           RangePicker("Generation", selection: $viewModel.kindred.generation, range: 4...16)
         }
         
