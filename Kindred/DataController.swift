@@ -25,10 +25,10 @@ class DataController: ObservableObject {
   
   var purchaseIdentifiers: [String] {
     get {
-      defaults.stringArray(forKey: "purchases") ?? []
+      defaults.stringArray(forKey: "com.tiltowait.Kindred.purchases") ?? []
     }
     set {
-      defaults.set(newValue, forKey: "purchases")
+      defaults.set(newValue, forKey: "com.tiltowait.Kindred.purchases")
     }
   }
   

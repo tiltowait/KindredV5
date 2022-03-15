@@ -19,6 +19,8 @@ struct KindredApp: App {
     
     _dataController = StateObject(wrappedValue: dataController)
     _unlockManager = StateObject(wrappedValue: unlockManager)
+    
+    CloudDefaults.shared.start()
   }
   
   var body: some Scene {
