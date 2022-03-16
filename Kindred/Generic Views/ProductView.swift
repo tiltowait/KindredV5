@@ -14,7 +14,7 @@ struct ProductView: View {
   let product: SKProduct
   let highlight: Bool
   
-  var buttonLabel: Text {
+  var buttonAccessibilityLabel: Text {
     if highlight {
       return Text("\(product.localizedTitle): \(product.localizedPrice), highlighted")
     } else if unlockManager.isPurchased(product: product) {
@@ -37,10 +37,25 @@ struct ProductView: View {
       
       Spacer()
       
-      Button("\(product.localizedPrice)", action: unlock)
-        .buttonStyle(PurchaseButton(highlight: highlight))
-        .disabled(unlockManager.isPurchased(product: product))
-        .accessibilityLabel(buttonLabel)
+      Button(action: unlock) {
+        if unlockManager.isPurchased(product: product) {
+          ZStack {
+            // Make the price invisible so that the buttons are all the same size
+            Text("\(product.localizedPrice)")
+              .accessibilityElement(children: .ignore)
+              .hidden()
+            
+            Image(systemName: "checkmark")
+              .font(.system(size: 18, weight: .bold, design: .default))
+              .foregroundColor(.white)
+          }
+        } else {
+          Text("\(product.localizedPrice)")
+        }
+      }
+      .buttonStyle(PurchaseButton(highlight: highlight))
+      .disabled(unlockManager.isPurchased(product: product))
+      .accessibilityLabel(buttonAccessibilityLabel)
     }
   }
   
