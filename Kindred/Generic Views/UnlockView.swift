@@ -15,10 +15,10 @@ struct UnlockView: View {
   
   @State private var showingInfoAlert = false
   
-  let highlights: [String]
+  let highlights: Set<String>
   
   init(highlights: [String]) {
-    self.highlights = highlights
+    self.highlights = Set(highlights)
   }
   
   var body: some View {
