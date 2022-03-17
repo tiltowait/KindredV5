@@ -19,18 +19,11 @@ extension RitualList {
     
     init(flavor: Ritual.Flavor, kindred: Kindred?, dataController: DataController) {
       var allRituals = ReferenceManager.shared.rituals.filter { $0.discipline.name == flavor.disciplineName }
-      /*
-      let request: NSFetchRequest<Ritual> = Ritual.fetchRequest()
-      request.predicate = NSPredicate(format: "discipline.zName == %@", flavor.disciplineName)
-      request.sortDescriptors = [
-        NSSortDescriptor(keyPath: \Ritual.level, ascending: true),
-        NSSortDescriptor(keyPath: \Ritual.zName, ascending: true)
-      ]
-       */
       
       if let kindred = kindred {
         // Remove known rituals
-        allRituals = allRituals.filter { !kindred.knownRituals.contains($0) }
+        let known = Set(kindred.knownRituals)
+        allRituals = allRituals.filter { !known.contains($0) }
       }
       
       var groupedRituals: [Int: [Ritual]] = [:]

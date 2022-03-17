@@ -41,7 +41,7 @@ extension DisciplineDetail {
       
       // Find out which powers are available
       let powers = discipline.allPowers
-      let known = kindred?.knownPowers ?? []
+      let known = Set(kindred?.knownPowers ?? [])
       var available: [Power] = []
       
       // If we're adding a power to an existing character, we only want to show

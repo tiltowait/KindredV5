@@ -59,6 +59,12 @@ extension Power: Comparable {
   }
 }
 
+extension Power: Hashable {
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(self.id)
+  }
+}
+
 extension Power {
   static let unknown = Power(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, powerDuration: "Unknown", level: 1, pool: nil, rouse: 0, prerequisites: nil, discipline: Discipline.unknown)
 }

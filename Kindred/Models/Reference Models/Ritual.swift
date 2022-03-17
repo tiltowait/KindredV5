@@ -86,6 +86,12 @@ extension Ritual: Comparable {
   }
 }
 
+extension Ritual: Hashable {
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(self.id)
+  }
+}
+
 extension Ritual {
   static let unknown = Ritual(id: -1, name: "Unknown", info: "Update your app to the latest version.", page: 0, source: 0, duration: nil, ingredients: nil, level: 1, process: "Unknown.", system: "Unknown.", discipline: Discipline.unknown, prerequisite: nil)
 }
