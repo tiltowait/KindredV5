@@ -53,6 +53,7 @@ struct RitualCard: View {
             Text(ritual.info)
             Divider()
             
+            BoldLabel("System:", details: ritual.system)
             if let ingredients = ritual.ingredients {
               BoldLabel("Ingredients:", details: ingredients)
             }
