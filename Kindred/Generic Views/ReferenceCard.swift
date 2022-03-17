@@ -48,40 +48,44 @@ struct ReferenceCard<T: ReferenceItem, Content: View>: View {
   }
   
   var body: some View {
-    VStack {
-      // The actual card
-      ZStack {
-        // Background image
-        if let icon = icon {
-          Image(icon)
-            .resizable()
-            .scaledToFit()
+    GeometryReader { geo in
+      VStack {
+        // The actual card
+          ZStack {
+            // Background image
+            if let icon = icon {
+              Image(icon)
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .padding()
+                .opacity(0.1)
+                .accessibilityHidden(true)
+            }
+            
+            // Card contents
+            VStack(spacing: 10) {
+              contents()
+            }
             .padding()
-            .padding()
-            .opacity(0.1)
-            .accessibilityHidden(true)
-        }
+          }
+          .background(
+            RoundedRectangle(cornerRadius: 20)
+              .fill(Color.systemBackground)
+              .shadow(radius: 5)
+          )
+          .frame(maxWidth: 327, maxHeight: geo.size.height * 0.75)
+          .fixedSize(horizontal: false, vertical: true)
+          .padding()
+          .padding()
         
-        // Card contents
-        VStack(spacing: 10) {
-          contents()
-        }
-        .padding()
+        Spacer()
+        
+        buttons
+          .padding(.bottom)
+          .padding(.bottom)
+          .padding(.bottom)
       }
-      .background(
-        RoundedRectangle(cornerRadius: 20)
-          .fill(Color.systemBackground)
-          .shadow(radius: 5)
-      )
-      .frame(maxWidth: 327)
-      .fixedSize(horizontal: false, vertical: true)
-      .padding()
-      .padding()
-      
-      buttons
-        .padding(.bottom)
-        .padding(.bottom)
-        .padding(.bottom)
     }
   }
   
