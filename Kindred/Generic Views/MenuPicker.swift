@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available (iOS 14.0, *)
-public struct MenuPicker<T: CustomStringConvertible & Hashable, V: View>: View {
+public struct MenuPicker<T: CustomStringConvertible & Hashable & Identifiable, V: View>: View {
   
   @Binding var selected: T
   var array: [T]
@@ -39,11 +39,11 @@ public struct MenuPicker<T: CustomStringConvertible & Hashable, V: View>: View {
   
   var menu: some View {
     Menu(content: {
-      ForEach(array.indices, id: \.self) { index in
+      ForEach(array) { element in
         Button(action: {
-          selected = array[index]
+          selected = element
         }, label: {
-          view(for: index)
+          view(for: element)
         })
       }
     }, label: {
@@ -51,11 +51,11 @@ public struct MenuPicker<T: CustomStringConvertible & Hashable, V: View>: View {
     })
   }
   
-  @ViewBuilder func view(for index: Int) -> some View {
-    if selected == array[index] {
-      Label(array[index].description, systemImage: "checkmark")
+  @ViewBuilder func view(for element: T) -> some View {
+    if selected == element {
+      Label(element.description, systemImage: "checkmark")
     } else {
-      Text(array[index].description)
+      Text(element.description)
     }
   }
   
